@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zeIOU3CCh4ngG4quOlBoJoRKCtTLs1UtGdlTk2ZNElQ=",
+  "Hash": "A1qASDblferWkpjuL1NgjZ0rbMBqjkDPRJDproUj6Ug=",
   "Source": "TexasPoker",
   "BasePath": "_content/TexasPoker",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "TexasPoker\\wwwroot",
       "Source": "TexasPoker",
-      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\chips.png",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\chips.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "chips.png",
       "AssetKind": "All",
@@ -34,10 +34,10 @@
       "OriginalItemSpec": "wwwroot\\chips.png"
     },
     {
-      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\dealer.png",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\dealer.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "dealer.png",
       "AssetKind": "All",
@@ -51,10 +51,10 @@
       "OriginalItemSpec": "wwwroot\\dealer.png"
     },
     {
-      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\dummy-user.png",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\dummy-user.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "dummy-user.png",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\dummy-user.png"
     },
     {
-      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\index.html",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\index.html",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "index.html",
       "AssetKind": "All",
@@ -85,10 +85,27 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\poker-background.jpg",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\lobby.html",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
+      "BasePath": "_content/TexasPoker",
+      "RelativePath": "lobby.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lobby.html"
+    },
+    {
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\poker-background.jpg",
+      "SourceId": "TexasPoker",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "poker-background.jpg",
       "AssetKind": "All",
@@ -102,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\poker-background.jpg"
     },
     {
-      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\style.css",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\style.css",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "style.css",
       "AssetKind": "All",
@@ -119,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\style.css"
     },
     {
-      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\symbols.txt",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\symbols.txt",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "symbols.txt",
       "AssetKind": "All",
