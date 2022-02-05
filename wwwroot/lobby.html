@@ -48,9 +48,113 @@
         
         <div class="col-10">
           <div class="tab-content" id="v-pills-tabContent">
-            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">Start Game</div>
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+              <h2>Select Lobby to Join</h2>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th class="text-center" scope="col">Room No.</th>
+                      <th class="text-center" scope="col">Stakes</th>
+                      <th class="text-center" scope="col">Min/Max BuyIn</th>
+                      <th class="text-center" scope="col">Number of Players</th>
+                      <th class="text-center" scope="col">Join</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td scope="row">1</td>
+                      <td>100K / 200K</td>
+                      <td>2M / 40M</td>
+                      <td>0 / 5</td>
+                      <td>
+                        <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td scope="row">2</td>
+                      <td>40K / 80K</td>
+                      <td>800K / 16M</td>
+                      <td>0 / 5</td>
+                      <td>
+                        <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td scope="row">3</td>
+                      <td>40K / 80K</td>
+                      <td>800K / 16M</td>
+                      <td>0 / 5</td>
+                      <td>
+                        <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td scope="row">4</td>
+                      <td>20K / 40K</td>
+                      <td>400K / 8M</td>
+                      <td>0 / 5</td>
+                      <td>
+                        <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td scope="row">5</td>
+                      <td>20K / 40K</td>
+                      <td>400K / 8M</td>
+                      <td>0 / 5</td>
+                      <td>
+                        <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td scope="row">6</td>
+                      <td>10K / 20K</td>
+                      <td>200K / 4M</td>
+                      <td>0 / 5</td>
+                      <td>
+                        <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td scope="row">7</td>
+                      <td>10K / 20K</td>
+                      <td>200K / 4M</td>
+                      <td>0 / 5</td>
+                      <td>
+                        <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
             <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">Profile</div>
-            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">Global Message</div>
+            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                <div class="LiveChatContainer">
+                  <div class="LiveChatContainerHeader">
+                      <div class="LiveChatHeader text-center text-light">
+                          <h3>Global Message</h3>
+                      </div>
+                  </div>
+          
+                  <div id="messages" class="LiveChatContainerContents"></div>
+          
+                  <form enctype="multipart/form-data">
+                      <div class="sendMessages">
+                          <input id="message" class="form-control" placeholder="Enter message" autocomplete="off" />
+                          <div class="image-upload">
+                              <label onclick="ChooseImage()">
+                                  <img src="~/Images/admin/LiveChat/sendImages.png" class="img-fluid sendImagePic" />
+                              </label>
+          
+                              <input id="file-input" class="form-control" onchange="SendImage(this);" type="file" style="display: none;" accept="image/*" />
+                          </div>
+                          <button type="button" class="bg-success text-light btn" onclick="sendMessage()">Send</button>
+                      </div>
+                  </form>
+              </div>
+            </div>
             <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">Purchase Chips</div>
             <div class="tab-pane fade" id="v-pills-learn" role="tabpanel" aria-labelledby="v-pills-learn-tab">
               <h2>Learn to Play</h2>

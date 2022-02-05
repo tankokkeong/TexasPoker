@@ -20,3 +20,100 @@ body {
 .hand-ranking {
     border-radius: 5px;
 }
+
+.table {
+    border-radius: 10px;
+    width: 100%;
+}
+
+th, td {
+    color: white;
+    text-align: center;
+}
+
+.LiveChatContainer {
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: #f0f0f0;
+    border: 1px solid #92989C;
+}
+
+.LiveChatContainerHeader {
+    position: relative;
+    width: 100%;
+}
+
+.LiveChatHeader {
+    background-color: #92989C;
+    width: 100%;
+    padding: 5px;
+}
+
+.LiveChatContainerContents {
+    min-height: 400px;
+    width: 100%;
+    padding-top: 51px;
+    max-height: 60vh;
+    overflow-y: scroll;
+    position: relative;
+}
+
+.sendMessages {
+    border-top: 1px solid #B5B9BC;
+    padding: 5px;
+    width: 100%;
+    display: flex;
+}
+
+.LCusername {
+    display: none;
+}
+
+.sender-messagesContexts {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sender-messagesContents {
+    background-color: #92989C;
+    color: white;
+    max-width: 25%;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 15px;
+    overflow-wrap: break-word;
+}
+
+.replier-messagesContexts {
+    display: block;
+}
+
+.replier-messagesContents {
+    background-color: #007d71;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 15px;
+    max-width: 25%;
+    margin-left: 45px;
+    overflow-wrap: break-word;
+}
+
+.replier-messagesContentsName {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.sentTime {
+    font-size: 12px;
+    text-align: right;
+}
+
+.sendImagePic {
+    width: 40px;
+}
+
+.messageImage {
+    border-radius: 10px;
+}
