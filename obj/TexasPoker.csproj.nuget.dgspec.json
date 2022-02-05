@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\TexasPoker.csproj": {}
+    "C:\\Users\\anson\\Desktop\\TexasPoker\\TexasPoker\\TexasPoker.csproj": {}
   },
   "projects": {
-    "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\TexasPoker.csproj": {
+    "C:\\Users\\anson\\Desktop\\TexasPoker\\TexasPoker\\TexasPoker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\TexasPoker.csproj",
+        "projectUniqueName": "C:\\Users\\anson\\Desktop\\TexasPoker\\TexasPoker\\TexasPoker.csproj",
         "projectName": "TexasPoker",
-        "projectPath": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\TexasPoker.csproj",
-        "packagesPath": "C:\\Users\\festu\\.nuget\\packages\\",
-        "outputPath": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\obj\\",
+        "projectPath": "C:\\Users\\anson\\Desktop\\TexasPoker\\TexasPoker\\TexasPoker.csproj",
+        "packagesPath": "C:\\Users\\anson\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anson\\Desktop\\TexasPoker\\TexasPoker\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\festu\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\anson\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

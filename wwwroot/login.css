@@ -1,0 +1,20 @@
+body{
+    background-image: url("poker-background.jpg");
+}
+
+.login-body{
+  
+    padding: 3%;
+}
+
+.login-form{
+    background-color: white;
+    padding-left:20% !important;
+    padding-right: 20% !important;
+}
+
+.login-input{
+    padding-left: 20%;
+    padding-right: 20%;
+    margin: 20px 0;
+}

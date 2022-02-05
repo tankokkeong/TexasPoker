@@ -1,0 +1,18 @@
+body{
+    background-image: url("poker-background.jpg");
+}
+
+.signup-body{
+    padding: 3%;
+}
+
+.signup-form{
+    background-color: white;
+    padding:3%;
+}
+
+.signup-input{
+    padding-left: 20%;
+    padding-right: 20%;
+    margin: 20px 0;
+}
