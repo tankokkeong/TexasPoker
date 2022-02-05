@@ -1,0 +1,22 @@
+body {
+    background-image: url("poker-background.jpg");
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+}
+
+.lobby-menu{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 2.5%;
+}
+
+.tab-pane {
+    color: white;
+}
+
+.hand-ranking {
+    border-radius: 5px;
+}
