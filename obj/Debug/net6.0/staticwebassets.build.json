@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7oMUTiWSKgE0Rh+GJLrlAXO/gICpkRB6RKBDDZWlFTs=",
+  "Hash": "lLnqi8niVVYuVJxEtzGJ/m8MwI3AvsT1Sos7TZhkQEY=",
   "Source": "TexasPoker",
   "BasePath": "_content/TexasPoker",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\dummy-user.png"
+    },
+    {
+      "Identity": "C:\\Users\\anson\\Desktop\\TexasPoker\\TexasPoker\\wwwroot\\forgotPassword.html",
+      "SourceId": "TexasPoker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\anson\\Desktop\\TexasPoker\\TexasPoker\\wwwroot\\",
+      "BasePath": "_content/TexasPoker",
+      "RelativePath": "forgotPassword.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\forgotPassword.html"
     },
     {
       "Identity": "C:\\Users\\anson\\Desktop\\TexasPoker\\TexasPoker\\wwwroot\\index.html",
@@ -202,6 +219,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\poker-hand-rankings.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\anson\\Desktop\\TexasPoker\\TexasPoker\\wwwroot\\signup.css",
+      "SourceId": "TexasPoker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\anson\\Desktop\\TexasPoker\\TexasPoker\\wwwroot\\",
+      "BasePath": "_content/TexasPoker",
+      "RelativePath": "signup.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\signup.css"
     },
     {
       "Identity": "C:\\Users\\anson\\Desktop\\TexasPoker\\TexasPoker\\wwwroot\\signup.html",
