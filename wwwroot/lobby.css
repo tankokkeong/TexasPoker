@@ -117,3 +117,7 @@ th, td {
 .messageImage {
     border-radius: 10px;
 }
+
+.form-control-plaintext {
+    outline: none;
+}
