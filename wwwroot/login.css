@@ -18,3 +18,34 @@ body{
     padding-right: 20%;
     margin: 20px 0;
 }
+
+hr{
+    width: 20%!important;
+    border: none;
+    background: grey;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+#customBtn {
+    display: inline-block;
+    background: whitesmoke!important;
+    color: #000;
+    width: 40%;
+    border-radius: 5px;
+    border: thin solid #888;
+    height: 40px;
+}
+
+#customBtn:hover {
+    cursor: pointer;
+}
+
+span.buttonText {
+    vertical-align: middle;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    /* Use the Roboto font that is loaded in the <head> */
+    font-family: 'Roboto', sans-serif;
+}

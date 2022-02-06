@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lLnqi8niVVYuVJxEtzGJ/m8MwI3AvsT1Sos7TZhkQEY=",
+  "Hash": "UEhVaZ0Q5XChLH4YOvkwXOA5C5i6B41FSEzKFatIIqI=",
   "Source": "TexasPoker",
   "BasePath": "_content/TexasPoker",
   "Mode": "Default",
@@ -85,6 +85,23 @@
       "OriginalItemSpec": "wwwroot\\dummy-user.png"
     },
     {
+      "Identity": "C:\\Users\\anson\\Desktop\\TexasPoker\\TexasPoker\\wwwroot\\forgotPassword.css",
+      "SourceId": "TexasPoker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\anson\\Desktop\\TexasPoker\\TexasPoker\\wwwroot\\",
+      "BasePath": "_content/TexasPoker",
+      "RelativePath": "forgotPassword.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\forgotPassword.css"
+    },
+    {
       "Identity": "C:\\Users\\anson\\Desktop\\TexasPoker\\TexasPoker\\wwwroot\\forgotPassword.html",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
@@ -100,6 +117,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\forgotPassword.html"
+    },
+    {
+      "Identity": "C:\\Users\\anson\\Desktop\\TexasPoker\\TexasPoker\\wwwroot\\google.png",
+      "SourceId": "TexasPoker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\anson\\Desktop\\TexasPoker\\TexasPoker\\wwwroot\\",
+      "BasePath": "_content/TexasPoker",
+      "RelativePath": "google.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\google.png"
     },
     {
       "Identity": "C:\\Users\\anson\\Desktop\\TexasPoker\\TexasPoker\\wwwroot\\index.html",

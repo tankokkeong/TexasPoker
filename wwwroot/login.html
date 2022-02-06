@@ -75,9 +75,130 @@
                             <a href="signup.html">Do no have an account? Click Here</a>
                         </div>
                     </form>
+
+                    <hr>
+
+                    <div class="social-login-buttons">
+                        <p class="text-center text-muted mt-3">You can also login with :</p>
+                        <div class="form-group dividerLoginGoogle">
+                            <div id="customBtn" class="customGPlusSignIn text-center bg-white">
+                                <div class="logo-title p-1">
+                                    <img src="google.png" style="height:30px; width:30px; padding:1%" />     
+                                    <span class="buttonText">&nbsp &nbsp Login with Google</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
                 </div>
 
             </div>   
     </div>
 </body>
 </html>
+
+<script type="module">
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-app.js";
+   
+    //import { initializeApp } from 'firebase/app';
+    //import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+    //import { getDatabase, ref, set, child } from "firebase/database";
+
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-auth.js";
+    import { getDatabase, ref, child, get, set } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-database.js";
+
+    const firebaseConfig = {
+    apiKey: "AIzaSyB_MbVmybGR9UVpAb2nu0T1zrUEKC6LBqo",
+    authDomain: "fir-authtesting-34735.firebaseapp.com",
+    databaseURL: "https://fir-authtesting-34735-default-rtdb.firebaseio.com",
+    projectId: "fir-authtesting-34735",
+    storageBucket: "fir-authtesting-34735.appspot.com",
+    messagingSenderId: "780895199575",
+    appId: "1:780895199575:web:ead33c3ccc4a59eaa39e12",
+    measurementId: "G-Q4TJMFRG1D"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    // Initialize variables
+    const auth = getAuth(app);
+    const database = getDatabase(app);
+
+    var btn = document.getElementById("login");
+
+btn.addEventListener("click", function(e) {
+
+    const email = document.getElementById('email').value
+    const password = document.getElementById('password').value
+
+    e.preventDefault();
+
+    if(validateInput(email,password) == true && emailValidation(email) == true){
+
+        signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+
+            const user = auth.currentUser;
+        
+            if (user){
+
+                alert('Welcome Back!!');
+                window.location.replace("lobby.html")
+
+            }
+            
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+
+            switch(errorCode){
+                    case 'auth/wrong-password':
+                        alert('Invalid Password');
+                        document.getElementById('password').value = '';
+                        break;  
+                    case 'auth/user-not-found':
+                        alert('Account is not register yet!');
+                        resetForm();
+                        break;
+                    default:
+                        console.log(errorMessage);
+                        break;
+                }
+        });
+    }
+
+
+}, false);
+
+    function resetForm(){
+
+        document.getElementById('email').value = '';
+        document.getElementById('password').value = '';
+    }
+
+    function emailValidation(email){
+
+        var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+        if (regex.test(email)){
+            return true
+        }
+        else{
+            alert("You have entered an invalid email address");
+            resetForm();
+        }
+    }
+
+    function validateInput(email,password){
+        if(email && password){
+            return true;
+        }else{
+            alert("Please do not leave empty!!");
+        }
+    }
+
+
+</script>
