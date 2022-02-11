@@ -2,7 +2,7 @@ body {
     background-image: url("poker-background.jpg");
 }
 
-.container {
+.container-xl {
     background: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
 }
@@ -32,11 +32,11 @@ th, td {
 }
 
 .LiveChatContainer {
-    width: 100%;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    width: 350px;
+    height: 425px;
     background-color: #f0f0f0;
     border: 1px solid #92989C;
+    position: fixed;
 }
 
 .LiveChatContainerHeader {
@@ -51,7 +51,7 @@ th, td {
 }
 
 .LiveChatContainerContents {
-    min-height: 400px;
+    height: 325px;
     width: 100%;
     padding-top: 51px;
     max-height: 60vh;
@@ -120,4 +120,19 @@ th, td {
 
 .form-control-plaintext {
     outline: none;
+}
+
+.card {
+    height: 250px;
+    width: 250px;
+    color: black;
+}
+
+.card > img {
+    height: 200px;
+    width: auto;
+}
+
+.card:hover { 
+    opacity: 0.8;
 }
