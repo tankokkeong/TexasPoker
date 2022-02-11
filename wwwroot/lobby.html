@@ -36,326 +36,328 @@
 
     <div class="container">
       <div class="row lobby-menu">
-        <div class="col-2">
-          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Start Game</a>
-            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">My Profile</a>
-            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Global Messages</a>
-            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Purchase Chips</a>
-            <a class="nav-link" id="v-pills-learn-tab" data-toggle="pill" href="#v-pills-learn" role="tab" aria-controls="v-pills-settings" aria-selected="false">Learn to Play</a>
-          </div>
-        </div>
-        
-        <div class="col-10">
-          <div class="tab-content" id="v-pills-tabContent">
-            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-              <h2>Select Lobby to Join</h2>
-              <div class="table-responsive">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th class="text-center" scope="col">Room No.</th>
-                      <th class="text-center" scope="col">Stakes</th>
-                      <th class="text-center" scope="col">Min/Max BuyIn</th>
-                      <th class="text-center" scope="col">Number of Players</th>
-                      <th class="text-center" scope="col">Join</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td scope="row">1</td>
-                      <td>100K / 200K</td>
-                      <td>2M / 40M</td>
-                      <td>0 / 5</td>
-                      <td>
-                        <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td scope="row">2</td>
-                      <td>40K / 80K</td>
-                      <td>800K / 16M</td>
-                      <td>0 / 5</td>
-                      <td>
-                        <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td scope="row">3</td>
-                      <td>40K / 80K</td>
-                      <td>800K / 16M</td>
-                      <td>0 / 5</td>
-                      <td>
-                        <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td scope="row">4</td>
-                      <td>20K / 40K</td>
-                      <td>400K / 8M</td>
-                      <td>0 / 5</td>
-                      <td>
-                        <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td scope="row">5</td>
-                      <td>20K / 40K</td>
-                      <td>400K / 8M</td>
-                      <td>0 / 5</td>
-                      <td>
-                        <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td scope="row">6</td>
-                      <td>10K / 20K</td>
-                      <td>200K / 4M</td>
-                      <td>0 / 5</td>
-                      <td>
-                        <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td scope="row">7</td>
-                      <td>10K / 20K</td>
-                      <td>200K / 4M</td>
-                      <td>0 / 5</td>
-                      <td>
-                        <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+        <div class="col-md-6">
+          <div class="col-2">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Start Game</a>
+              <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">My Profile</a>
+              <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Purchase Chips</a>
+              <a class="nav-link" id="v-pills-learn-tab" data-toggle="pill" href="#v-pills-learn" role="tab" aria-controls="v-pills-settings" aria-selected="false">Learn to Play</a>
             </div>
-            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-              <h2>
-                My Account
-              </h2>
-              <div class="profile-container">
-                <div class="profile">
-                  <img src="..." class="img-fluid" alt="photo">
-                  <form enctype="multipart/form-data">
-                    <div class="form-group row mb-3">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                        <label class="custom-file-label" for="inputGroupFile01">Choose Image</label>
-                      </div>
-                    </div>
-                    <div class="profile-info">                  
-                      <div class="form-group row">
-                        <label for="staticName" class="col-3 col-form-label">Name</label>
-                        <div class="col-9">
-                          <input type="text" readonly class="form-control" id="staticName" value="John Doe">
+          </div>
+          
+          <div class="col-10">
+            <div class="tab-content" id="v-pills-tabContent">
+              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                <h2>Select Lobby to Join</h2>
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th class="text-center" scope="col">Room No.</th>
+                        <th class="text-center" scope="col">Stakes</th>
+                        <th class="text-center" scope="col">Min/Max BuyIn</th>
+                        <th class="text-center" scope="col">Number of Players</th>
+                        <th class="text-center" scope="col">Join</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td scope="row">1</td>
+                        <td>100K / 200K</td>
+                        <td>2M / 40M</td>
+                        <td>0 / 5</td>
+                        <td>
+                          <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">2</td>
+                        <td>40K / 80K</td>
+                        <td>800K / 16M</td>
+                        <td>0 / 5</td>
+                        <td>
+                          <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">3</td>
+                        <td>40K / 80K</td>
+                        <td>800K / 16M</td>
+                        <td>0 / 5</td>
+                        <td>
+                          <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">4</td>
+                        <td>20K / 40K</td>
+                        <td>400K / 8M</td>
+                        <td>0 / 5</td>
+                        <td>
+                          <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">5</td>
+                        <td>20K / 40K</td>
+                        <td>400K / 8M</td>
+                        <td>0 / 5</td>
+                        <td>
+                          <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">6</td>
+                        <td>10K / 20K</td>
+                        <td>200K / 4M</td>
+                        <td>0 / 5</td>
+                        <td>
+                          <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">7</td>
+                        <td>10K / 20K</td>
+                        <td>200K / 4M</td>
+                        <td>0 / 5</td>
+                        <td>
+                          <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                <h2>
+                  My Account
+                </h2>
+                <div class="profile-container">
+                  <div class="profile">
+                    <img src="..." class="img-fluid" alt="photo">
+                    <form enctype="multipart/form-data">
+                      <div class="form-group row mb-3">
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                          <label class="custom-file-label" for="inputGroupFile01">Choose Image</label>
                         </div>
                       </div>
-                      <div class="form-group row">
-                        <label class="col-3 col-form-label" for="staticWallet">Wallet</label>
-                          <div class="input-group col-9">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">RM</div>
-                            </div>
-                            <input type="text" readonly class="form-control" id="staticWallet" value="10,000,000">
+                      <div class="profile-info">                  
+                        <div class="form-group row">
+                          <label for="staticName" class="col-3 col-form-label">Name</label>
+                          <div class="col-9">
+                            <input type="text" readonly class="form-control" id="staticName" value="John Doe">
                           </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="staticHandsPlay" class="col-3 col-form-label">Hands Played</label>
-                        <div class="col-9">
-                          <input type="text" readonly class="form-control" id="staticHandsPlay" value="1">
                         </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-3 col-form-label" for="staticBigPot">Biggest Pot Won</label>
-                          <div class="input-group col-9">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">RM</div>
+                        <div class="form-group row">
+                          <label class="col-3 col-form-label" for="staticWallet">Wallet</label>
+                            <div class="input-group col-9">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">RM</div>
+                              </div>
+                              <input type="text" readonly class="form-control" id="staticWallet" value="10,000,000">
                             </div>
-                            <input type="text" readonly class="form-control" id="staticBigPot" value="100,000">
+                        </div>
+                        <div class="form-group row">
+                          <label for="staticHandsPlay" class="col-3 col-form-label">Hands Played</label>
+                          <div class="col-9">
+                            <input type="text" readonly class="form-control" id="staticHandsPlay" value="1">
                           </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="staticBestHand" class="col-3 col-form-label">Best Winning Hand</label>
-                        <div class="col-9">
-                          <input type="text" readonly class="form-control" id="staticBestHand" value="Full House">
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-3 col-form-label" for="staticBigPot">Biggest Pot Won</label>
+                            <div class="input-group col-9">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">RM</div>
+                              </div>
+                              <input type="text" readonly class="form-control" id="staticBigPot" value="100,000">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="staticBestHand" class="col-3 col-form-label">Best Winning Hand</label>
+                          <div class="col-9">
+                            <input type="text" readonly class="form-control" id="staticBestHand" value="Full House">
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </form>
+                    </form>
+                  </div>
+                </div>
+              </div>
+                  <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">Purchase Chips</div>
+                  <div class="tab-pane fade" id="v-pills-learn" role="tabpanel" aria-labelledby="v-pills-learn-tab">
+                    <h2>Learn to Play</h2>
+                    <h3>Texas Hold’em Poker Rules</h3>
+                    <p>This is a short guide for beginners on playing the popular poker variant No Limit Texas Hold’em. We will
+                      look at the following:<br>
+                      1. The betting options<br>
+                      2. The positions<br>
+                      3. The flow of action<br>
+                      4. The hand rankings<br>
+                      5. Game formats<br>
+                      6. Beginner’s terminology<br>
+                      We’ll also discuss our top 10 poker terms that every player should know.<br><br>
+                      <h4>THE BETTING OPTIONS</h4>
+                      Players take it in turn to act at the poker table, moving in a clockwise direction. When it is our turn to
+                      act, we have the following options.<br>
+                      Bet – Make the first wager on the current betting round (if no bet has been made before us).<br>
+                      Call – Exactly match any wager on the current betting round (implies a bet has already been made
+                      before us).<br>
+                      Raise – Increase the size of the wager on the current betting round (implies a bet or a raise has already
+                      been made before us).<br>
+                      Check – Make no wager and continue with the hand. (Only allowed if there is no bet or raise before us
+                      on the current betting round).<br>
+                      Fold – Discard our holding rather than match the existing wager on the current betting round. By folding
+                      we forfeit all right to winning the pot. <br><br>
+                      <h4>THE POSITIONS</h4>
+                      Before we see how a typical Hold’em hand plays out, it’s useful to understand the positions at the table.
+                      After each hand of poker the positions shift around the table clockwise. The current positions are
+                      indicated by the location of the dealer button.<br><br>
+                      <h4>TEXAS HOLD’EM – THE FLOW OF ACTION</h4>
+                      Let’s take a look at the flow of action in a typical No Limit Hold’em hand.<br>
+                      - Before any cards are dealt, mandatory blind payments known as the “small blind” and the “big blind”
+                      are contributed to the pot by the players occupying the small blind and big blind positions.<br>
+                      - Each player at the table is dealt two cards referred to as “hole cards” which they will use to construct a
+                      five-card hand.<br>
+                      - The first betting round begins which known as preflop. The action starts with the under-the-gun
+                      position and moves in a clockwise direction around the table.<br>
+                      - After all preflop betting actions are complete, three cards are dealt face up in the center of the table 
+                      known as the flop. These are “community cards” that all players at the table can use to construct their
+                      hand.<br>
+                      - The flop betting round takes place, starting this time with the player in the small blind. Note that UTG
+                      only acts first on the preflop betting round.<br>
+                      - After the flop betting round is complete, a single additional community card known as the turn card is
+                      dealt face up on the table.<br>
+                      - The turn betting round takes place, starting again with the player under-the-gun.<br>
+                      - After the turn betting round is complete, a final community card known as the river card is dealt face
+                      up on the table.<br>
+                      - The river betting round takes place, starting with under-the-gun.<br>
+                      - After the river betting round is complete, any players remaining must reveal the strength of their hand.
+                      This is referred to as showdown. The best hand wins the pot.<br>
+                      - Note that showdown is not necessarily reached in the majority of poker hands. If all players (bar one)
+                      fold their hand, then the pot is awarded to the last remaining player without the need for showdown or
+                      any additional betting rounds.<br><br>
+                      <h4>WHAT BEATS WHAT? – THE HAND RANKINGS</h4>
+                      Always remember: A full-house beats a flush and a flush beats a straight.<br>
+                      Note: Players may use any combination of their hole-cards and the community cards when formulating a
+                      five-card hand. It’s hence possible to make a five-card hand without using any hole cards at all since
+                      there are five community cards on the board. (Of course, we could only ever tie this way, since the
+                      community cards are available to all players).<br>
+                      Royal Flush – TJQKA all of the same suit. This is the best possible hand in No Limit Hold’em.<br>
+                      For example: 10♣J♣Q♣K♣A♣<br><br>
+                      The royal flush is actually a type of straight flush.<br>
+                      Straight Flush – 5 cards in consecutive order all of the same suit. Excluding the TJQKA since this is the
+                      royal flush.<br>
+                      For example: 5♣6♣7♣8♣9♣<br><br>
+                      Four of a Kind – Four cards of the same rank. This leaves room for one “kicker” which determines the
+                      winner if two players hold the same four of a kind.<br>
+                      For example: Q♦Q♠Q♥Q♣K♥<br><br>
+                      This hand is four of a kind Queens with a King kicker. Four of a Kind is often colloquially referred to as
+                      “Quads”.<br>
+                      Full House – Three of a Kind plus a pair at the same time.<br>
+                      For example: K♠K♦K♥Q♦Q♥<br><br>
+                      Full houses are described with the expression “X’s full of Y’s” where X refers to the three of a kind
+                      component. The above full house would hence be described as “Kings full of Queens”. Full houses are
+                      often colloquially referred to as “boats”.<br>
+                      Flush – Five cards of the same suit. The higher the ranks of the cards, the stronger the flush.
+                      For example: Q♠10♠7♠5♠2♠<br><br>
+                      This hand would be described as a “Queen-high flush” since flushes are referred to based on the rank of
+                      their highest card. If two players were to have a Queen high flush, then the second highest card is
+                      consulted (and so on) to determine who is the winner.<br>
+                      Straight – Five cards in consecutive rank order.<br>
+                      For example: 5♠6♣7♠8♣9♠<br><br>
+                      Straights are described by their highest card so this hand would be described as a “Nine-high straight”.<br>
+                      Aces can be both high or low for the purposes of a straight so A2345 and TJQKA are both examples of
+                      legitimate straights. However, a straight can’t cross from high to low. KA234 does not make a straight.<br>
+                      Two Pair – Two sets of one pair. This leaves room for one kicker in case two player make the same two
+                      pair.<br>
+                      For example: Q♣Q♥10♣10♦J♦<br><br>
+                      This hand would be described as “Queens and Tens with Jack kicker”. Note that it is the highest pair that
+                      determines the strength of a two pair hand. QQ22 hence beats JJTT.<br>
+                      Three of a Kind – Three cards all of the same rank. This leaves room for two kickers in case two players
+                      make the same three of a kind.<br>
+                      For example: 10♣10♦10♥Q♦J♥<br><br>
+                      This hand would be described as “Three of a kind Tens with Queen Jack kickers”. Three of a kind is often
+                      referred to as “trips”.<br>
+                      One Pair – Two cards of the same rank. This leaves room for three kickers.<br>
+                      For example: K♥K♣Q♦J♥10♣<br><br>
+                      Here we have “a pair of Kings with Queen, Jack, Ten kickers”.<br>
+                      High Card – The highest card wins (Aces are high). If two players have the same high card, the second
+                      card is consulted (and so on) in order to determine a winner.<br>
+                      For example: A♠K♦10♥6♣2♠<br><br>
+                      This can be described as “Ace high” or “Ace-King high” or “Ace-King-Ten” high, whichever is most
+                      appropriate etc.<br><br>
+                      <h4>QUICK HAND RANKING TABLE</h4>
+      
+                      <img class="hand-ranking img-fluid mb-2" src="poker-hand-rankings.jpg" alt="hand-rankings">
+      
+                      <h4>GAME FORMATS</h4>
+                      Hold’em can be offered in a variety of different formats. Strategy can differ significantly across the
+                      different formats so it is important to have a clear idea regarding which format we are currently playing.<br>
+                      Cash Game / Ring Game – Players are free to rebuy chips or leave the table at any time.<br>
+                      Tournament – Players pay an entry fee and then continue playing until either running out of chips or
+                      being the last man standing.<br>
+                      Sit and Go – A type of tournament that begins as soon as a specified number of entrants has been
+                      reached.<br>
+                      Different “betting structures” may also be employed across each of the above formats. Hold’em is most
+                      commonly played with a “Not Limit” betting structure, but it is also offered with different betting
+                      structures, so it is good to be familiar with how they work.<br>
+                      No Limit (most common) – Bets and raises of any size can be made at any time.<br>
+                      Pot Limit – Bets and raises must not be larger than the size of the current pot.<br>
+                      Fixed Limit – Betting occurs in fixed increments known as the “small bet” and the “big bet”.<br><br>
+                      <h4>BEGINNER TERMINOLOGY</h4>
+                      Here are a few important pieces of poker terminology to help us get integrated into the world of poker.<br>
+                      Bluff – To make bets with a weak hand in the hopes of folding out stronger holdings.<br>
+                      Big Blind – The mandatory payment made before any cards are dealt, paid by the position two to the
+                      left of the dealer button. The big blind payment is usually twice the size of the small blind payment.<br>
+                      Button – Also known as the “dealer” position. Considered the best position at the table since it always
+                      acts last on the postflop betting rounds.<br>
+                      Gutshot – When we are waiting on a card in the middle of our run in order to complete a straight. For
+                      example, we hold 5689 and are waiting on the 7 to complete our straight.<br>
+                      Open Ended Straight Draw – When we are waiting for a card on the edge of our run in order to
+                      complete a straight. For example, we hold 5678 and are waiting on either the 9 or the 4.<br>
+                      Postflop – Any betting rounds after the flop is dealt in community card games such as Hold’em and 
+                      Omaha i.e. the flop, turn and river betting rounds.<br>
+                      Pot – The amount of money in the middle that can be won during a hand of poker.<br>
+                      Showdown – When hole cards are revealed after all betting rounds are complete. The best hand wins
+                      the pot.<br>
+                      Small Blind - The mandatory payment made before any cards are dealt by the position directly to the
+                      left of the dealer button. Usually half the size of the big blind.<br>
+                      Value Bet – A bet with a made hand in the hopes of getting paid off by worse holdings. 
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                <div class="LiveChatContainer">
-                  <div class="LiveChatContainerHeader">
-                      <div class="LiveChatHeader text-center text-light">
-                          <h3>Global Message</h3>
-                      </div>
-                  </div>
-          
-                  <div id="messages" class="LiveChatContainerContents"></div>
-          
-                  <!-- <form enctype="multipart/form-data">
-                      <div class="sendMessages">
-                          <input id="message" class="form-control" placeholder="Enter message" autocomplete="off" />
-                          <div class="image-upload">
-                              <label onclick="ChooseImage()">
-                                  <img src="~/Images/admin/LiveChat/sendImages.png" class="img-fluid sendImagePic" />
-                              </label>
-          
-                              <input id="file-input" class="form-control" onchange="SendImage(this);" type="file" style="display: none;" accept="image/*" />
-                          </div>
-                          <button type="button" class="bg-success text-light btn" onclick="sendMessage()">Send</button>
-                      </div>
-                  </form> -->
+            
+            <div class="col-md-6">
+              <div class="LiveChatContainer">
+                <div class="LiveChatContainerHeader">
+                    <div class="LiveChatHeader text-center text-light">
+                        <h3>Global Message</h3>
+                    </div>
+                </div>
+    
+                <div id="messages" class="LiveChatContainerContents"></div>
+    
+                <form enctype="multipart/form-data">
+                    <div class="sendMessages">
+                        <input id="message" class="form-control" placeholder="Enter message" autocomplete="off" />
+                        <div class="image-upload">
+                            <label onclick="ChooseImage()">
+                                <img src="~/Images/admin/LiveChat/sendImages.png" class="img-fluid sendImagePic" />
+                            </label>
+    
+                            <input id="file-input" class="form-control" onchange="SendImage(this);" type="file" style="display: none;" accept="image/*" />
+                        </div>
+                        <button type="button" class="bg-success text-light btn" onclick="sendMessage()">Send</button>
+                    </div>
+                </form>
               </div>
-            </div>
-            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">Purchase Chips</div>
-            <div class="tab-pane fade" id="v-pills-learn" role="tabpanel" aria-labelledby="v-pills-learn-tab">
-              <h2>Learn to Play</h2>
-              <h3>Texas Hold’em Poker Rules</h3>
-              <p>This is a short guide for beginners on playing the popular poker variant No Limit Texas Hold’em. We will
-                look at the following:<br>
-                1. The betting options<br>
-                2. The positions<br>
-                3. The flow of action<br>
-                4. The hand rankings<br>
-                5. Game formats<br>
-                6. Beginner’s terminology<br>
-                We’ll also discuss our top 10 poker terms that every player should know.<br><br>
-                <h4>THE BETTING OPTIONS</h4>
-                Players take it in turn to act at the poker table, moving in a clockwise direction. When it is our turn to
-                act, we have the following options.<br>
-                Bet – Make the first wager on the current betting round (if no bet has been made before us).<br>
-                Call – Exactly match any wager on the current betting round (implies a bet has already been made
-                before us).<br>
-                Raise – Increase the size of the wager on the current betting round (implies a bet or a raise has already
-                been made before us).<br>
-                Check – Make no wager and continue with the hand. (Only allowed if there is no bet or raise before us
-                on the current betting round).<br>
-                Fold – Discard our holding rather than match the existing wager on the current betting round. By folding
-                we forfeit all right to winning the pot. <br><br>
-                <h4>THE POSITIONS</h4>
-                Before we see how a typical Hold’em hand plays out, it’s useful to understand the positions at the table.
-                After each hand of poker the positions shift around the table clockwise. The current positions are
-                indicated by the location of the dealer button.<br><br>
-                <h4>TEXAS HOLD’EM – THE FLOW OF ACTION</h4>
-                Let’s take a look at the flow of action in a typical No Limit Hold’em hand.<br>
-                - Before any cards are dealt, mandatory blind payments known as the “small blind” and the “big blind”
-                are contributed to the pot by the players occupying the small blind and big blind positions.<br>
-                - Each player at the table is dealt two cards referred to as “hole cards” which they will use to construct a
-                five-card hand.<br>
-                - The first betting round begins which known as preflop. The action starts with the under-the-gun
-                position and moves in a clockwise direction around the table.<br>
-                - After all preflop betting actions are complete, three cards are dealt face up in the center of the table 
-                known as the flop. These are “community cards” that all players at the table can use to construct their
-                hand.<br>
-                - The flop betting round takes place, starting this time with the player in the small blind. Note that UTG
-                only acts first on the preflop betting round.<br>
-                - After the flop betting round is complete, a single additional community card known as the turn card is
-                dealt face up on the table.<br>
-                - The turn betting round takes place, starting again with the player under-the-gun.<br>
-                - After the turn betting round is complete, a final community card known as the river card is dealt face
-                up on the table.<br>
-                - The river betting round takes place, starting with under-the-gun.<br>
-                - After the river betting round is complete, any players remaining must reveal the strength of their hand.
-                This is referred to as showdown. The best hand wins the pot.<br>
-                - Note that showdown is not necessarily reached in the majority of poker hands. If all players (bar one)
-                fold their hand, then the pot is awarded to the last remaining player without the need for showdown or
-                any additional betting rounds.<br><br>
-                <h4>WHAT BEATS WHAT? – THE HAND RANKINGS</h4>
-                Always remember: A full-house beats a flush and a flush beats a straight.<br>
-                Note: Players may use any combination of their hole-cards and the community cards when formulating a
-                five-card hand. It’s hence possible to make a five-card hand without using any hole cards at all since
-                there are five community cards on the board. (Of course, we could only ever tie this way, since the
-                community cards are available to all players).<br>
-                Royal Flush – TJQKA all of the same suit. This is the best possible hand in No Limit Hold’em.<br>
-                For example: 10♣J♣Q♣K♣A♣<br><br>
-                The royal flush is actually a type of straight flush.<br>
-                Straight Flush – 5 cards in consecutive order all of the same suit. Excluding the TJQKA since this is the
-                royal flush.<br>
-                For example: 5♣6♣7♣8♣9♣<br><br>
-                Four of a Kind – Four cards of the same rank. This leaves room for one “kicker” which determines the
-                winner if two players hold the same four of a kind.<br>
-                For example: Q♦Q♠Q♥Q♣K♥<br><br>
-                This hand is four of a kind Queens with a King kicker. Four of a Kind is often colloquially referred to as
-                “Quads”.<br>
-                Full House – Three of a Kind plus a pair at the same time.<br>
-                For example: K♠K♦K♥Q♦Q♥<br><br>
-                Full houses are described with the expression “X’s full of Y’s” where X refers to the three of a kind
-                component. The above full house would hence be described as “Kings full of Queens”. Full houses are
-                often colloquially referred to as “boats”.<br>
-                Flush – Five cards of the same suit. The higher the ranks of the cards, the stronger the flush.
-                For example: Q♠10♠7♠5♠2♠<br><br>
-                This hand would be described as a “Queen-high flush” since flushes are referred to based on the rank of
-                their highest card. If two players were to have a Queen high flush, then the second highest card is
-                consulted (and so on) to determine who is the winner.<br>
-                Straight – Five cards in consecutive rank order.<br>
-                For example: 5♠6♣7♠8♣9♠<br><br>
-                Straights are described by their highest card so this hand would be described as a “Nine-high straight”.<br>
-                Aces can be both high or low for the purposes of a straight so A2345 and TJQKA are both examples of
-                legitimate straights. However, a straight can’t cross from high to low. KA234 does not make a straight.<br>
-                Two Pair – Two sets of one pair. This leaves room for one kicker in case two player make the same two
-                pair.<br>
-                For example: Q♣Q♥10♣10♦J♦<br><br>
-                This hand would be described as “Queens and Tens with Jack kicker”. Note that it is the highest pair that
-                determines the strength of a two pair hand. QQ22 hence beats JJTT.<br>
-                Three of a Kind – Three cards all of the same rank. This leaves room for two kickers in case two players
-                make the same three of a kind.<br>
-                For example: 10♣10♦10♥Q♦J♥<br><br>
-                This hand would be described as “Three of a kind Tens with Queen Jack kickers”. Three of a kind is often
-                referred to as “trips”.<br>
-                One Pair – Two cards of the same rank. This leaves room for three kickers.<br>
-                For example: K♥K♣Q♦J♥10♣<br><br>
-                Here we have “a pair of Kings with Queen, Jack, Ten kickers”.<br>
-                High Card – The highest card wins (Aces are high). If two players have the same high card, the second
-                card is consulted (and so on) in order to determine a winner.<br>
-                For example: A♠K♦10♥6♣2♠<br><br>
-                This can be described as “Ace high” or “Ace-King high” or “Ace-King-Ten” high, whichever is most
-                appropriate etc.<br><br>
-                <h4>QUICK HAND RANKING TABLE</h4>
-
-                <img class="hand-ranking img-fluid mb-2" src="poker-hand-rankings.jpg" alt="hand-rankings">
-
-                <h4>GAME FORMATS</h4>
-                Hold’em can be offered in a variety of different formats. Strategy can differ significantly across the
-                different formats so it is important to have a clear idea regarding which format we are currently playing.<br>
-                Cash Game / Ring Game – Players are free to rebuy chips or leave the table at any time.<br>
-                Tournament – Players pay an entry fee and then continue playing until either running out of chips or
-                being the last man standing.<br>
-                Sit and Go – A type of tournament that begins as soon as a specified number of entrants has been
-                reached.<br>
-                Different “betting structures” may also be employed across each of the above formats. Hold’em is most
-                commonly played with a “Not Limit” betting structure, but it is also offered with different betting
-                structures, so it is good to be familiar with how they work.<br>
-                No Limit (most common) – Bets and raises of any size can be made at any time.<br>
-                Pot Limit – Bets and raises must not be larger than the size of the current pot.<br>
-                Fixed Limit – Betting occurs in fixed increments known as the “small bet” and the “big bet”.<br><br>
-                <h4>BEGINNER TERMINOLOGY</h4>
-                Here are a few important pieces of poker terminology to help us get integrated into the world of poker.<br>
-                Bluff – To make bets with a weak hand in the hopes of folding out stronger holdings.<br>
-                Big Blind – The mandatory payment made before any cards are dealt, paid by the position two to the
-                left of the dealer button. The big blind payment is usually twice the size of the small blind payment.<br>
-                Button – Also known as the “dealer” position. Considered the best position at the table since it always
-                acts last on the postflop betting rounds.<br>
-                Gutshot – When we are waiting on a card in the middle of our run in order to complete a straight. For
-                example, we hold 5689 and are waiting on the 7 to complete our straight.<br>
-                Open Ended Straight Draw – When we are waiting for a card on the edge of our run in order to
-                complete a straight. For example, we hold 5678 and are waiting on either the 9 or the 4.<br>
-                Postflop – Any betting rounds after the flop is dealt in community card games such as Hold’em and 
-                Omaha i.e. the flop, turn and river betting rounds.<br>
-                Pot – The amount of money in the middle that can be won during a hand of poker.<br>
-                Showdown – When hole cards are revealed after all betting rounds are complete. The best hand wins
-                the pot.<br>
-                Small Blind - The mandatory payment made before any cards are dealt by the position directly to the
-                left of the dealer button. Usually half the size of the big blind.<br>
-                Value Bet – A bet with a made hand in the hopes of getting paid off by worse holdings. 
-              </p>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
       <script>
         $('#myTab a').on('click', function (e) {
