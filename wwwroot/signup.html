@@ -83,12 +83,12 @@
                     <div class="social-login-buttons">
                         <p class="text-center text-muted mt-3">You can also sign up with :</p>
                         <div class="form-group dividerLoginGoogle">
-                            <div id="customBtn" class="customGPlusSignIn text-center bg-white">
+                            <button id="googleSignUp" class="customGPlusSignIn text-center bg-white">
                                 <div class="logo-title p-1">
                                     <img src="google.png" style="height:30px; width:30px; padding:1%" />     
                                     <span class="buttonText">&nbsp &nbsp Sign Up with Google</span>
                                 </div>
-                            </div>
+                            </button>
                         </div>
                     </div>
 
@@ -129,7 +129,7 @@
     const colRef = collection(database, 'players')
     
     var btn = document.getElementById("signUp");
-    var googleBtn = document.getElementById("googleButton");
+    var googleBtn = document.getElementById("googleSignUp");
 
     btn.addEventListener("click", function(e) {
 
