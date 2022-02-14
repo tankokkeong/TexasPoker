@@ -91,7 +91,7 @@
                             </button>
                         </div>
                     </div>
-
+                    
             </div>
         
     </div>
@@ -102,7 +102,7 @@
 
     // import firebase library
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-app.js";
-    import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider  } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-auth.js";
+    import { getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.6.4/firebase-auth.js";
     import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-firestore.js";
 
     // Firebase config
@@ -150,8 +150,8 @@
                 addDoc(colRef , {
                     userId : user.uid,
                     email : email,
-                    password : password,
-                    username: username
+                    username: username,
+                    walletBalance: 100000
                 })
                 .then(() => {
                     sessionStorage.setItem('userId', user.uid);
@@ -192,7 +192,20 @@
             const token = credential.accessToken;
             // The signed-in user info.
             const user = result.user;
-            // ...
+            console.log(user.uid);
+
+            addDoc(colRef , {
+                    userId : user.uid,
+                    email : email,
+                    username: username,
+                    walletBalance: 100000
+                })
+                .then(() => {
+                    sessionStorage.setItem('userId', user.uid);
+                    alert('Welcome ' + user.displayName);
+                    window.location.replace("lobby.html")
+                });
+
         }).catch((error) => {
             // Handle Errors here.
             const errorCode = error.code;
@@ -202,6 +215,10 @@
             // The AuthCredential type that was used.
             const credential = GoogleAuthProvider.credentialFromError(error);
             // ...
+            console.log(errorCode);
+            console.log(errorMessage);
+            console.log(email);
+            console.log(credential);
         });
 
 
