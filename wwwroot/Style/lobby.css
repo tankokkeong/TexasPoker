@@ -1,5 +1,5 @@
 body {
-    background-image: url("poker-background.jpg");
+    background-image: url('../Images/poker-background.jpg');
 }
 
 .container-xl {
@@ -15,6 +15,23 @@ body {
 
 .tab-pane {
     color: white;
+}
+
+.profile-pic {
+    display: block;
+    margin-left: 50%;
+    margin-right: auto;
+    width: 200px;
+    transform: translateX(-50%);
+    margin-bottom: -35px;
+}
+
+.profile-image {
+    border-radius: 50%;
+}
+
+#inputGroupFile01 {
+    display: none;
 }
 
 .hand-ranking {
@@ -33,7 +50,7 @@ th, td {
 
 .LiveChatContainer {
     width: 350px;
-    height: 425px;
+    height: 400px;
     background-color: #f0f0f0;
     border: 1px solid #92989C;
     position: fixed;
@@ -51,7 +68,7 @@ th, td {
 }
 
 .LiveChatContainerContents {
-    height: 325px;
+    height: 300px;
     width: 100%;
     padding-top: 51px;
     max-height: 60vh;
