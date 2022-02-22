@@ -27,7 +27,9 @@
             <img src="Images/dealer.png" alt="" id="dealer-img">
 
             <div class="seat" id="seat-1">
-                <i class="fas fa-user-plus"></i>
+                <div class="seat-icon" data-toggle="modal" data-target="#buyInModal">
+                    <i class="fas fa-user-plus"></i>
+                </div>
 
                 <div class="poker-card player-card" id="player-1-card-1">
                     A <br>
@@ -46,7 +48,9 @@
             </div>
 
             <div class="seat" id="seat-2">
-                <i class="fas fa-user-plus"></i>
+                <div class="seat-icon" data-toggle="modal" data-target="#buyInModal">
+                    <i class="fas fa-user-plus"></i>
+                </div>
 
                 <div class="poker-card player-card" id="player-2-card-1">
                     J <br>
@@ -65,7 +69,9 @@
             </div>
 
             <div class="seat" id="seat-3">
-                <i class="fas fa-user-plus"></i>
+                <div class="seat-icon" data-toggle="modal" data-target="#buyInModal">
+                    <i class="fas fa-user-plus"></i>
+                </div>
 
                 <div class="poker-card player-card" id="player-3-card-1">
                     J <br>
@@ -84,7 +90,9 @@
             </div>
 
             <div class="seat" id="seat-4">
-                <i class="fas fa-user-plus"></i>
+                <div class="seat-icon" data-toggle="modal" data-target="#buyInModal">
+                    <i class="fas fa-user-plus"></i>
+                </div>
 
                 <div class="poker-card player-card" id="player-4-card-1">
                     J <br>
@@ -103,7 +111,9 @@
             </div>
 
             <div class="seat" id="seat-5">
-                <i class="fas fa-user-plus"></i>
+                <div class="seat-icon" data-toggle="modal" data-target="#buyInModal">
+                    <i class="fas fa-user-plus"></i>
+                </div>
 
                 <div class="poker-card player-card" id="player-5-card-1">
                     J <br>
@@ -161,6 +171,37 @@
             </div>
         </div>
     </div>
+
+    <!--Buy in Modal -->
+    <div class="modal fade" id="buyInModal" tabindex="-1" aria-labelledby="buyInModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Buy In</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body text-center">
+
+                <div class="buy-in-input mb-3">
+                    <h3>Buy In Amount: $ <span id="buy-in-amount-display">100,000</span></h3>                   
+                    <input type="range" class="form-control" min="100000" max="1000000" 
+                    id="buy-in-amount" oninput="buyInDisplay()" value="100000">
+                </div>
+
+                <div class="buy-in-options">
+                    <button type="button" class="btn btn-primary">Confirm</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>  
+                </div>
+                             
+            </div>
+
+            <div class="modal-footer"> </div>
+        </div>
+        </div>
+  </div>
 
 </body>
 

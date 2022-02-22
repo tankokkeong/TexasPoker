@@ -88,14 +88,18 @@
 
 .seat{
     position: absolute;
+}
+
+.seat-icon{
+    cursor: pointer;
     background-color: rgb(180, 175, 175);
     font-size: 50px;
     border-radius: 60px;
     padding: 20px;
-    cursor: pointer;
+
 }
 
-.seat:hover{
+.seat-icon:hover{
     background-color: white;
 }
 

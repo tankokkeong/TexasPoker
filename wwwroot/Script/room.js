@@ -29,3 +29,24 @@ function shuffle(array) {
   function cardDealing(){
 
   }
+
+  function buyInDisplay(){
+    var inputAmount = document.getElementById("buy-in-amount");
+    var displayAmount = document.getElementById("buy-in-amount-display");
+
+    if(inputAmount.value >= 0){
+        displayAmount.innerHTML = inputAmount.value;
+    }
+  }
+
+  function amountFormatter(amount){
+      var digitArray = amount.split("");
+      var arrayIndex = digitArray.length - 1;
+      var formattedAmount = "";
+
+      while(arrayIndex >= 0){
+        am
+
+        arrayIndex--;
+      }
+  }
