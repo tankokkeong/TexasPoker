@@ -8,6 +8,32 @@
     left: 0;
 }
 
+.game-action-container{
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    z-index: 2000;
+}
+
+.room-action{
+    position: absolute;
+    left: 20px;
+    top: 70px;
+    font-size: 20px;
+}
+
+.raise-container{
+    position: fixed;
+    bottom: 70px;
+    right: 30px;
+    padding: 20px;
+    width: 300px;
+    z-index: 1000;
+    border-radius: 10px;
+    border: 1px solid black;
+    display: none;
+}
+
 .game-container{
     position: relative;
     min-height: 100vh;

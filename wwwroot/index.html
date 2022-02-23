@@ -23,6 +23,51 @@
     </div>
 
     <div class="game-container">
+
+        <div class="room-action text-light">
+
+            <a class="exit-container btn btn-danger" href="lobby.html">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                Exit
+            </a>
+
+            <div class="stand-up-container btn btn-warning">
+                <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                Stand Up
+            </div>
+        </div>
+
+        <div class="game-action-container">
+            <div class="btn btn-dark mr-2">
+                Check
+            </div>
+
+            <div class="btn btn-primary mr-2">
+                Call
+            </div>
+
+            <div class="btn btn-warning mr-2" onclick="showRaisePopUp()">
+                Raise
+            </div>
+
+            <div class="btn btn-danger mr-2">
+                Fold
+            </div>
+        </div>
+
+        <div class="raise-container bg-light" id="raise-popup">
+
+            Amount: $ <span id="raise-amount-display">100,000</span>
+
+            <input type="range" class="form-control" id="raise-amount-input" min="100000" max="1000000" value="100000"
+            oninput="raiseAmount()">
+
+            <div class="raise-btn-container mt-3 text-center">
+                <button class="btn btn-success">Confirm</button>
+                <button class="btn btn-warning" onclick="allInAmount()">All In</button>
+            </div>
+        </div>
+
         <div class="table-container text-center">
             <img src="Images/dealer.png" alt="" id="dealer-img">
 
@@ -212,6 +257,7 @@
 <!-- Scipt -->
 <script src="Script/jquery.slim.js"></script>
 <script src="Script/signalr.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="Script/room.js"></script>
 
 </html>
