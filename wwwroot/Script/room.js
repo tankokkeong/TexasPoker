@@ -35,7 +35,7 @@ function shuffle(array) {
     var displayAmount = document.getElementById("buy-in-amount-display");
 
     if(inputAmount.value >= 0){
-        displayAmount.innerHTML = inputAmount.value;
+        displayAmount.innerHTML = amountFormatter(inputAmount.value);
     }
   }
 
@@ -44,9 +44,9 @@ function shuffle(array) {
       var arrayIndex = digitArray.length - 1;
       var formattedAmount = "";
 
-      while(arrayIndex >= 0){
-        am
+      return Intl.NumberFormat('en-US').format(amount * 1);
+  }
 
-        arrayIndex--;
-      }
+  function buyInManual(){
+    var buyInAmount = document.getElementById("buy-in-manual");
   }
