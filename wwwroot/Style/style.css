@@ -18,15 +18,15 @@
 
 .table-container{
     position: absolute;
-    top: 14%;
+    top: 6%;
     left: 50%;
     transform: translate(-50%, 0%);
     padding: 50px;
+    min-width: 900px;
 }
 
 .poker-table{
-    width: 100vw;
-    max-width: 800px;
+    width: 800px;
     height: 400px;
     border-radius: 200px;
     background-color: black;
@@ -38,8 +38,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 780px;
-    width: 100vw;
+    width: 780px;
     height: 380px;
     border-radius: 190px;
     background-color: green;
@@ -48,7 +47,7 @@
 .poker-card{
     background-color: rgb(248, 243, 243);
     width: auto;
-    width: 80px;
+    width: 70px;
     padding: 10px 0;
     font-size: 25px;
     font-weight: bold;
@@ -76,18 +75,19 @@
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
-
 }
 
 #dealer-img{
     width: 150px;
     position: absolute;
-    top: -100px;
+    top: -20px;
     right: calc(50% - 75px);
+    z-index: 1000;
 }
 
 .seat{
     position: absolute;
+    z-index: 1000;
 }
 
 .seat-icon{
@@ -96,7 +96,6 @@
     font-size: 50px;
     border-radius: 60px;
     padding: 20px;
-
 }
 
 .seat-icon:hover{
@@ -104,28 +103,28 @@
 }
 
 #seat-1{
-    left: 30px;
-    top: -20px;
+    left: 50px;
+    top: 50px;
 }
 
 #seat-2{
-    left: -20px;
-    top: 360px;
+    left: 70px;
+    top: 300px;
 }
 
 #seat-3{
     left: calc(50% - 70px);
-    top: 460px;
-}
-
-#seat-4{
-    right: -20px;
     top: 360px;
 }
 
+#seat-4{
+    right: 70px;
+    top: 300px;
+}
+
 #seat-5{
-    right: 30px;
-    top: -20px;
+    right: 50px;
+    top: 50px;
 }
 
 .player-card{
@@ -139,16 +138,16 @@
 
 #player-1-card-2{
     bottom: 50px;
-    left: 200px;
+    left: 190px;
 }
 
 #player-2-card-1{
-    top: 100px;
-    left: 100px;
+    top: 70px;
+    left: 110px;
 }
 
 #player-2-card-2{
-    top: 100px;
+    top: 70px;
     left: 190px;
 }
 
@@ -159,17 +158,17 @@
 
 #player-3-card-2{
     top: 20px;
-    left: 200px;
+    left: 190px;
 }
 
 #player-4-card-1{
-    top: 120px;
-    right: 80px;
+    bottom: 120px;
+    left: 0px;
 }
 
 #player-4-card-2{
-    top: 120px;
-    right: -10px;
+    bottom: 120px;
+    left: 80px;
 }
 
 #player-5-card-1{
@@ -179,7 +178,7 @@
 
 #player-5-card-2{
     bottom: 50px;
-    right: 200px;
+    right: 190px;
 }
 
 .chips-section{
@@ -214,26 +213,26 @@
 }
 
 #player-pour-chips-1{
-    left: 120px;
-    top: 120px;
+    left: 100px;
+    top: 80px;
 }
 
 #player-pour-chips-2{
-    left: 150px;
-    top: 0px;
+    left: 110px;
+    top: 30px;
 }
 
 #player-pour-chips-3{
     left: 0px;
-    bottom: 150px;
+    bottom: 120px;
 }
 
 #player-pour-chips-4{
-    right: 160px;
-    bottom: 90px;
+    right: 110px;
+    bottom: 70px;
 }
 
 #player-pour-chips-5{
-    right: 160px;
-    top: 120px;
+    right: 130px;
+    top: 80px;
 }
