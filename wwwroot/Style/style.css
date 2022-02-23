@@ -97,7 +97,7 @@
 
 .poker-card-container{
     position: absolute;
-    top: 50%;
+    top: 46%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -188,12 +188,12 @@
 }
 
 #player-4-card-1{
-    bottom: 140px;
+    bottom: 145px;
     left: 0px;
 }
 
 #player-4-card-2{
-    bottom: 140px;
+    bottom: 145px;
     left: 80px;
 }
 
@@ -250,7 +250,7 @@
 
 #player-pour-chips-3{
     left: 0px;
-    bottom: 140px;
+    bottom: 150px;
 }
 
 #player-pour-chips-4{
@@ -271,4 +271,8 @@
     background-color: black;
     padding: 5px;
     border-radius: 10px;
+}
+
+.chips-on-hand{
+    margin-top: 5px;
 }
