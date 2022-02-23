@@ -70,3 +70,30 @@ function buyInManual(){
 function amountFormatter(amount){
   return Intl.NumberFormat('en-US').format(amount * 1);
 }
+
+function showRaisePopUp(){
+  $(document).ready(function(){
+    $("#raise-popup").slideToggle("fast");
+  });
+}
+
+function raiseAmount(){
+  var raiseInput = document.getElementById("raise-amount-input");
+  var raiseDisplay = document.getElementById("raise-amount-display");
+
+  if(raiseInput.value >= 0){
+    raiseDisplay.innerHTML = amountFormatter(raiseInput.value);
+  }
+}
+
+function allInAmount(){
+  var raiseInput = document.getElementById("raise-amount-input");
+  var allInAmount = raiseInput.getAttribute("max");
+  var raiseDisplay = document.getElementById("raise-amount-display");
+
+  if(raiseInput.value >= 0){
+    raiseDisplay.innerHTML = amountFormatter(allInAmount);
+    raiseInput.value = allInAmount;
+  }
+
+}
