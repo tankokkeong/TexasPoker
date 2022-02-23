@@ -190,7 +190,9 @@
                     <input type="range" class="form-control" min="100000" max="1000000" 
                     id="buy-in-amount" oninput="buyInDisplay()" value="100000">
 
-                    <input type="text" class="form-control mt-3" placeholder="Buy In Amount" id="buy-in-manual">
+                    <input type="text" class="form-control mt-3" placeholder="Buy In Amount" id="buy-in-manual"
+                    oninput="buyInManual()">
+                    <div class="text-danger mt-2" id="buy-in-warning"></div>
                 </div>
 
                 <div class="buy-in-options">
@@ -208,6 +210,8 @@
 </body>
 
 <!-- Scipt -->
+<script src="Script/jquery.slim.js"></script>
+<script src="Script/signalr.js"></script>
 <script src="Script/room.js"></script>
 
 </html>
