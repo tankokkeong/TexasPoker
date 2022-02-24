@@ -12,11 +12,9 @@ public class Player
     public string FirstHandCard {get; set;}
     public string SecondHandCard {get; set;}
     public int ChipsOnHand { get; set; } = 0;
-    public bool IsWin => Count >= FINISH;
 
     public Player(string id, string icon, string name) => (Id, Icon, Name) = (id, icon, name);
 
-    public void Run() => Count += STEP;
 }
 
 
@@ -28,18 +26,18 @@ public class Player
 public class Game
 {
     public string Id { get; set; } = Guid.NewGuid().ToString();
-    public int NumberOfPlayer;
-    public Player? Player1 { get; set; } = null;
-    public Player? Player2 { get; set; } = null;
-    public Player? Player3 { get; set; } = null;
-    public Player? Player4 { get; set; } = null;
-    public Player? Player5 { get; set; } = null;
+    public int NumberOfPlayer = 0;
+    public Player? Seat1 { get; set; } = null;
+    public Player? Seat2 { get; set; } = null;
+    public Player? Seat3 { get; set; } = null;
+    public Player? Seat4 { get; set; } = null;
+    public Player? Seat5 { get; set; } = null;
 
-    public string FirstCard {get; set;}
-    public string SecondCard {get; set;}
-    public string ThirdCard {get; set;}
-    public string FourthCard {get; set;}
-    public string FifthCard {get; set;}
+    public string? FirstCard {get; set;} = null;
+    public string? SecondCard {get; set;} = null;
+    public string? ThirdCard {get; set;} = null;
+    public string? FourthCard {get; set;} = null;
+    public string? FifthCard {get; set;} = null;
 
     public int PoolChips {get; set;}
 
@@ -48,19 +46,32 @@ public class Game
     public bool IsEmpty => NumberOfPlayer == 0;
     public bool IsFull  => NumberOfPlayer == 5;
 
-    public string? AddPlayer(Player player)
+    public string? AddPlayer(Player player, int seatNo)
     {
-        if (PlayerA == null)
+        if (seatNo == 1 && Seat1 != null)
         {
-            PlayerA = player;
-            IsWaiting = true;
-            return "A";
+            Seat1 = player;
+            NumberOfPlayer++;
         }
-        else if (PlayerB == null)
+        else if (seatNo == 2 && Seat2 != null)
         {
-            PlayerB = player;
-            IsWaiting = false;
-            return "B";
+            Seat2 = player;
+            NumberOfPlayer++;
+        }
+        else if (seatNo == 3 && Seat3 != null)
+        {
+            Seat3 = player;
+            NumberOfPlayer++;
+        }
+        else if (seatNo == 4 && Seat4 != null)
+        {
+            Seat4 = player;
+            NumberOfPlayer++;
+        }
+        else
+        {
+            Seat5 = player;
+            NumberOfPlayer++;
         }
 
         return null;
@@ -112,23 +123,6 @@ public class GameHub : Hub
     {
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
 
-        var game = games.Find(g => g.Id == gameId);
-        if (game == null)
-        {
-            await Clients.Caller.SendAsync("Reject");
-            return;
-        }
-
-        var player = letter == "A" ? game.PlayerA : game.PlayerB;
-        if (player == null) return;
-
-        player.Run();
-        await Clients.Group(gameId).SendAsync("Move", letter, player.Count);
-
-        if (player.IsWin)
-        {
-            await Clients.Group(gameId).SendAsync("Win", letter);
-        }
     }
 
     // ----------------------------------------------------------------------------------------
@@ -174,23 +168,7 @@ public class GameHub : Hub
 
     private async Task GameConnected()
     {
-        string id     = Context.ConnectionId;
-        string icon   = Context.GetHttpContext()?.Request.Query["icon"]   ?? "";
-        string name   = Context.GetHttpContext()?.Request.Query["name"]   ?? "";
-        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
 
-        var game = games.Find(g => g.Id == gameId);
-        if (game == null || game.IsFull)
-        {
-            await Clients.Caller.SendAsync("Reject");
-            return;
-        }
-
-        var player = new Player(id, icon, name);
-        var letter = game.AddPlayer(player);
-        await Groups.AddToGroupAsync(id, gameId);
-        await Clients.Group(gameId).SendAsync("Ready", letter, game);
-        await UpdateList();
     }
 
     // ----------------------------------------------------------------------------------------
@@ -217,32 +195,7 @@ public class GameHub : Hub
 
     private async Task GameDisconnected()
     {
-        string id     = Context.ConnectionId;
-        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-
-        var game = games.Find(g => g.Id == gameId);
-        if (game == null)
-        {
-            await Clients.Caller.SendAsync("Reject");
-            return;
-        }
-
-        if (game.PlayerA?.Id == id)
-        {
-            game.PlayerA = null;
-            await Clients.Group(gameId).SendAsync("Left", "A");
-        }
-        else if (game.PlayerB?.Id == id)
-        {
-            game.PlayerB = null;
-            await Clients.Group(gameId).SendAsync("Left", "B");
-        }
-
-        if (game.IsEmpty)
-        {
-            games.Remove(game);
-            await UpdateList();
-        }
+       
     }
 
     // End of GameHub -------------------------------------------------------------------------

@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\anson\\Desktop\\Texas Poker\\TexasPoker\\TexasPoker.csproj": {}
+    "C:\\Users\\tanko\\Desktop\\TexasPoker\\TexasPoker.csproj": {}
   },
   "projects": {
-    "C:\\Users\\anson\\Desktop\\Texas Poker\\TexasPoker\\TexasPoker.csproj": {
+    "C:\\Users\\tanko\\Desktop\\TexasPoker\\TexasPoker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\anson\\Desktop\\Texas Poker\\TexasPoker\\TexasPoker.csproj",
+        "projectUniqueName": "C:\\Users\\tanko\\Desktop\\TexasPoker\\TexasPoker.csproj",
         "projectName": "TexasPoker",
-        "projectPath": "C:\\Users\\anson\\Desktop\\Texas Poker\\TexasPoker\\TexasPoker.csproj",
-        "packagesPath": "C:\\Users\\anson\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\anson\\Desktop\\Texas Poker\\TexasPoker\\obj\\",
+        "projectPath": "C:\\Users\\tanko\\Desktop\\TexasPoker\\TexasPoker.csproj",
+        "packagesPath": "C:\\Users\\tanko\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tanko\\Desktop\\TexasPoker\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\anson\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\tanko\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
