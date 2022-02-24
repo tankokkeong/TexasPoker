@@ -13,7 +13,7 @@ public class Player
     public string SecondHandCard {get; set;}
     public int ChipsOnHand { get; set; } = 0;
 
-    public Player(string id, string icon, string name) => (Id, Icon, Name) = (id, icon, name);
+    public Player(string id, string icon, string name, int chipsOnHand) => (Id, Icon, Name, ChipsOnHand) = (id, icon, name, chipsOnHand);
 
 }
 
