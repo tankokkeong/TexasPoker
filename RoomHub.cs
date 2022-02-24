@@ -76,6 +76,8 @@ public class Game
 
         return null;
     }
+
+
 }
 
 
@@ -90,11 +92,7 @@ public class GameHub : Hub
     // General
     // ----------------------------------------------------------------------------------------
 
-    private static List<Game> games = new List<Game>()
-    {
-        // new Game { PlayerA = new Player("P001", "👦🏻", "Boy") , IsWaiting = true },
-        // new Game { PlayerA = new Player("P002", "👧🏻", "Girl"), IsWaiting = true },
-    };
+    private static List<Game> games = new List<Game>();
 
     public string Create()
     {

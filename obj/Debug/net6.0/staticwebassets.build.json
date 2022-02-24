@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/9jEIITv0QDmD5pCZTwFopqyeofN2YgDJK2SapNVxgM=",
+  "Hash": "wESd5jQWe4IzY6kGshjDatcDzKiEDHKneVqfK0eohWo=",
   "Source": "TexasPoker",
   "BasePath": "_content/TexasPoker",
   "Mode": "Default",
@@ -508,6 +508,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Script\\jquery.slim.js"
+    },
+    {
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Script\\lobby.js",
+      "SourceId": "TexasPoker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
+      "BasePath": "_content/TexasPoker",
+      "RelativePath": "Script/lobby.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Script\\lobby.js"
     },
     {
       "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Script\\room.js",
