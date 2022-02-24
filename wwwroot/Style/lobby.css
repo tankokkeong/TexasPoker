@@ -49,20 +49,38 @@ th, td {
 }
 
 .startGame {
+    overflow: auto;
+    height: 375px;
+    margin-bottom: 1%;
+    padding: 1.5%;
+}
+
+.startGame-header {
     display: flex;
     width: 100%;
+    margin-bottom: 1%;
+}
+
+.createGame {
+    margin-left: 48.5%;
+}
+
+.account {
+    padding: 1.5%;
 }
 
 .rules {
-    max-height: 400px;
-    word-break: normal;
+    height: 375px;
+    overflow: auto;
+    margin-bottom: 1%;
+    padding: 1.5%;
 }
 
 .LiveChatContainer {
     width: 100%;
     height: 400px;
-    background-color: #f0f0f0;
     border: 1px solid #92989C;
+    border-radius: 5px;
 }
 
 .LiveChatContainerHeader {
@@ -71,7 +89,6 @@ th, td {
 }
 
 .LiveChatHeader {
-    background-color: #92989C;
     width: 100%;
     padding: 5px;
 }
@@ -82,11 +99,11 @@ th, td {
     padding-top: 51px;
     max-height: 60vh;
     overflow-y: scroll;
+    scrollbar-color: auto;
     position: relative;
 }
 
 .sendMessages {
-    border-top: 1px solid #B5B9BC;
     padding: 5px;
     width: 100%;
     display: flex;
