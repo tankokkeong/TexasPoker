@@ -2,7 +2,7 @@
 // Connect
 // ========================================================================================
 
-const param = $.param({ page: 'game', icon, name, gameId });
+const param = $.param({ page: 'game', gameId });
 
 const con = new signalR.HubConnectionBuilder()
 .withUrl('/hub?' + param)
