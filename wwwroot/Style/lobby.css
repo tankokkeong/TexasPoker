@@ -8,8 +8,8 @@ body {
 }
 
 .lobby-menu{
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
     padding: 2.5%;
 }
 
@@ -48,12 +48,21 @@ th, td {
     text-align: center;
 }
 
+.startGame {
+    display: flex;
+    width: 100%;
+}
+
+.rules {
+    max-height: 400px;
+    word-break: normal;
+}
+
 .LiveChatContainer {
-    width: 350px;
+    width: 100%;
     height: 400px;
     background-color: #f0f0f0;
     border: 1px solid #92989C;
-    position: fixed;
 }
 
 .LiveChatContainerHeader {
@@ -137,19 +146,4 @@ th, td {
 
 .form-control-plaintext {
     outline: none;
-}
-
-.card {
-    height: 250px;
-    width: 250px;
-    color: black;
-}
-
-.card > img {
-    height: 200px;
-    width: auto;
-}
-
-.card:hover { 
-    opacity: 0.8;
 }

@@ -35,160 +35,148 @@
     </nav>
 
     <div class="container-xl">
-      <div class="row lobby-menu">
-        <div class="col-md-8">
-          <div class="row">
-            <div class="col-2 ml-n4">
-              <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Start Game</a>
-                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">My Profile</a>
-                <a class="nav-link" id="v-pills-learn-tab" data-toggle="pill" href="#v-pills-learn" role="tab" aria-controls="v-pills-settings" aria-selected="false">Learn to Play</a>
-              </div>
+      <div class="lobby-menu">
+        <div class="row">
+          <div class="col-2">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Start Game</a>
+              <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">My Profile</a>
+              <a class="nav-link" id="v-pills-learn-tab" data-toggle="pill" href="#v-pills-learn" role="tab" aria-controls="v-pills-settings" aria-selected="false">Learn to Play</a>
             </div>
-            
-            <div class="col-10">
-              <div class="tab-content" id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+          </div>
+          
+          <div class="col-10">
+            <div class="tab-content" id="v-pills-tabContent">
+              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                <div class="startGame">
                   <h2>Select Lobby to Join</h2>
-                  <div class="table-responsive">
-                    <table class="table table-hover">
-                      <thead>
-                        <tr>
-                          <th class="text-center" scope="col">Room No.</th>
-                          <th class="text-center" scope="col">Stakes</th>
-                          <th class="text-center" scope="col">Min/Max BuyIn</th>
-                          <th class="text-center" scope="col">Number of Players</th>
-                          <th class="text-center" scope="col">Join</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td scope="row">1</td>
-                          <td>100K / 200K</td>
-                          <td>2M / 40M</td>
-                          <td>0 / 5</td>
-                          <td>
-                            <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td scope="row">2</td>
-                          <td>40K / 80K</td>
-                          <td>800K / 16M</td>
-                          <td>0 / 5</td>
-                          <td>
-                            <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td scope="row">3</td>
-                          <td>40K / 80K</td>
-                          <td>800K / 16M</td>
-                          <td>0 / 5</td>
-                          <td>
-                            <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td scope="row">4</td>
-                          <td>20K / 40K</td>
-                          <td>400K / 8M</td>
-                          <td>0 / 5</td>
-                          <td>
-                            <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td scope="row">5</td>
-                          <td>20K / 40K</td>
-                          <td>400K / 8M</td>
-                          <td>0 / 5</td>
-                          <td>
-                            <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td scope="row">6</td>
-                          <td>10K / 20K</td>
-                          <td>200K / 4M</td>
-                          <td>0 / 5</td>
-                          <td>
-                            <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td scope="row">7</td>
-                          <td>10K / 20K</td>
-                          <td>200K / 4M</td>
-                          <td>0 / 5</td>
-                          <td>
-                            <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+                  <button class="btn btn-success float-right">Create Game</button>
                 </div>
-                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                  <h2>
-                    My Account
-                  </h2>
-                  <div class="profile-container">
-                    <div class="profile">
-                      <div class="profile-pic">
-                        <label for="inputGroupFile01">
-                          <img src="Images/tzuyu-2.jpg" class="img-fluid profile-image" alt="photo">
-                        </label>
-                      </div>
-                      <form enctype="multipart/form-data">
-                        <div class="form-group row mb-3">
-                          <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                          </div>
-                        </div>
-                        <div class="profile-info">                  
-                          <div class="form-group row">
-                            <label for="staticName" class="col-3 col-form-label">Name</label>
-                            <div class="col-9">
-                              <input type="text" readonly class="form-control" id="staticName" value="John Doe">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <label class="col-3 col-form-label" for="staticWallet">Wallet</label>
-                              <div class="input-group col-9">
-                                <div class="input-group-prepend">
-                                  <div class="input-group-text">RM</div>
-                                </div>
-                                <input type="text" readonly class="form-control" id="staticWallet" value="10,000,000">
-                              </div>
-                          </div>
-                          <div class="form-group row">
-                            <label for="staticHandsPlay" class="col-3 col-form-label">Hands Played</label>
-                            <div class="col-9">
-                              <input type="text" readonly class="form-control" id="staticHandsPlay" value="1">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <label class="col-3 col-form-label" for="staticBigPot">Biggest Pot Won</label>
-                              <div class="input-group col-9">
-                                <div class="input-group-prepend">
-                                  <div class="input-group-text">RM</div>
-                                </div>
-                                <input type="text" readonly class="form-control" id="staticBigPot" value="100,000">
-                              </div>
-                          </div>
-                          <div class="form-group row">
-                            <label for="staticBestHand" class="col-3 col-form-label">Best Winning Hand</label>
-                            <div class="col-9">
-                              <input type="text" readonly class="form-control" id="staticBestHand" value="Full House">
-                            </div>
-                          </div>
-                        </div>
-                      </form>
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th class="text-center" scope="col">Room No.</th>
+                        <th class="text-center" scope="col">Stakes</th>
+                        <th class="text-center" scope="col">Min/Max BuyIn</th>
+                        <th class="text-center" scope="col">Number of Players</th>
+                        <th class="text-center" scope="col">Join</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td scope="row">1</td>
+                        <td>100K / 200K</td>
+                        <td>2M / 40M</td>
+                        <td>0 / 5</td>
+                        <td>
+                          <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">2</td>
+                        <td>40K / 80K</td>
+                        <td>800K / 16M</td>
+                        <td>0 / 5</td>
+                        <td>
+                          <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">3</td>
+                        <td>40K / 80K</td>
+                        <td>800K / 16M</td>
+                        <td>0 / 5</td>
+                        <td>
+                          <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">4</td>
+                        <td>20K / 40K</td>
+                        <td>400K / 8M</td>
+                        <td>0 / 5</td>
+                        <td>
+                          <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">5</td>
+                        <td>20K / 40K</td>
+                        <td>400K / 8M</td>
+                        <td>0 / 5</td>
+                        <td>
+                          <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">6</td>
+                        <td>10K / 20K</td>
+                        <td>200K / 4M</td>
+                        <td>0 / 5</td>
+                        <td>
+                          <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td scope="row">7</td>
+                        <td>10K / 20K</td>
+                        <td>200K / 4M</td>
+                        <td>0 / 5</td>
+                        <td>
+                          <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">Join Table</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                <h2>
+                  My Account
+                </h2>
+                <div class="profile-container">
+                  <div class="profile">
+                    <div class="profile-pic">
+                      <label for="inputGroupFile01">
+                        <img src="Images/tzuyu-2.jpg" class="img-fluid profile-image" alt="photo">
+                      </label>
                     </div>
+                    <form enctype="multipart/form-data">
+                      <div class="form-group row mb-3">
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                        </div>
+                      </div>
+                      <div class="profile-info">                  
+                        <div class="form-group row">
+                          <label for="staticName" class="col-3 col-form-label">Name</label>
+                          <div class="col-9">
+                            <input type="text" readonly class="form-control" id="staticName" value="John Doe">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="staticHandsPlay" class="col-3 col-form-label">Email</label>
+                          <div class="col-9">
+                            <input type="email" readonly class="form-control" id="staticHandsPlay" value="johndoe@gmail.com">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label class="col-3 col-form-label" for="staticWallet">Wallet</label>
+                            <div class="input-group col-9">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">RM</div>
+                              </div>
+                              <input type="text" readonly class="form-control" id="staticWallet" value="10,000,000">
+                            </div>
+                        </div>
+                      </div>
+                    </form>
                   </div>
                 </div>
-                <div class="tab-pane fade" id="v-pills-learn" role="tabpanel" aria-labelledby="v-pills-learn-tab">
+              </div>
+              <div class="tab-pane fade" id="v-pills-learn" role="tabpanel" aria-labelledby="v-pills-learn-tab">
+                <div class="rules">
                   <h2>Learn to Play</h2>
                   <h3>Texas Hold’em Poker Rules</h3>
                   <p>This is a short guide for beginners on playing the popular poker variant No Limit Texas Hold’em. We will
@@ -330,30 +318,27 @@
                   </p>
                 </div>
               </div>
-            </div>            
-          </div>
-        </div>
-            
-            <div class="col-md-4">
-              <div class="LiveChatContainer">
-                <div class="LiveChatContainerHeader">
-                    <div class="LiveChatHeader text-center text-light">
-                        <h3>Global Message</h3>
-                    </div>
-                </div>
-    
-                <div id="messages" class="LiveChatContainerContents"></div>
-    
-                <form enctype="multipart/form-data">
-                    <div class="sendMessages">
-                        <input id="message" class="form-control" placeholder="Enter message" autocomplete="off" />
-                        <button type="button" class="bg-success text-light btn" onclick="sendMessage()">Send</button>
-                    </div>
-                </form>
-              </div>
             </div>
+          </div>            
+        </div>
+          <div class="LiveChatContainer">
+            <div class="LiveChatContainerHeader">
+                <div class="LiveChatHeader text-center text-light">
+                    <h3>Global Message</h3>
+                </div>
+            </div>
+
+            <div id="messages" class="LiveChatContainerContents"></div>
+
+            <form enctype="multipart/form-data">
+                <div class="sendMessages">
+                    <input id="message" class="form-control" placeholder="Enter message" autocomplete="off" />
+                    <button type="button" class="bg-success text-light btn" onclick="sendMessage()">Send</button>
+                </div>
+            </form>
           </div>
         </div>
+      </div>
 
       <script>
         $('#myTab a').on('click', function (e) {
