@@ -106,12 +106,12 @@ function actionTimer(playerId){
   const myTimeout = setInterval(function(){
 
     if(fixedTime < 20){
-      timerLength.classList.remove("bg-info");
+      timerLength.classList.remove("bg-warning");
       timerLength.classList.add("bg-danger");
       timerLength.style.width = (fixedTime) + "%";
     }
     else if(fixedTime < 50){
-      timerLength.classList.add("bg-info");
+      timerLength.classList.add("bg-warning");
       timerLength.style.width = (fixedTime) + "%";
     }
     else{
