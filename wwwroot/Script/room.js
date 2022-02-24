@@ -1,4 +1,9 @@
 //Variables
+
+const con = new signalR.HubConnectionBuilder()
+            .withUrl('/hub?' + param)
+            .build();
+            
 var cards = 
 ["A♠", "K♠", "Q♠", "J♠", "10♠", "9♠", "8♠", "7♠", "6♠", "5♠", "4♠", "3♠", "2♠",
  "A♥", "K♥", "Q♥", "J♥", "10♥", "9♥", "8♥", "7♥", "6♥", "5♥", "4♥", "3♥", "2♥",
@@ -100,7 +105,7 @@ function allInAmount(){
 
 function actionTimer(playerId){
 
-  var timerLength = document.getElementById("player-1-timer");
+  var timerLength = document.getElementById(playerId);
   var fixedTime = 100;
 
   const myTimeout = setInterval(function(){
@@ -127,4 +132,7 @@ function actionTimer(playerId){
   }, 100);
 }
 
-actionTimer();
+function buyInGame(){
+  var buyInAmount = document.getElementById("buy-in-amount");
+
+}
