@@ -97,3 +97,34 @@ function allInAmount(){
   }
 
 }
+
+function actionTimer(playerId){
+
+  var timerLength = document.getElementById("player-1-timer");
+  var fixedTime = 100;
+
+  const myTimeout = setInterval(function(){
+
+    if(fixedTime < 20){
+      timerLength.classList.remove("bg-info");
+      timerLength.classList.add("bg-danger");
+      timerLength.style.width = (fixedTime) + "%";
+    }
+    else if(fixedTime < 50){
+      timerLength.classList.add("bg-info");
+      timerLength.style.width = (fixedTime) + "%";
+    }
+    else{
+      timerLength.style.width = (fixedTime) + "%";
+    }
+
+    fixedTime--;
+
+    console.log(fixedTime)
+    if(fixedTime == -1){
+      clearInterval(myTimeout);
+    }
+  }, 100);
+}
+
+actionTimer();

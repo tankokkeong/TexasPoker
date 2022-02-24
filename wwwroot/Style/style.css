@@ -130,7 +130,7 @@
 
 #seat-1{
     left: 50px;
-    top: 50px;
+    top: 20px;
 }
 
 #seat-2{
@@ -150,7 +150,7 @@
 
 #seat-5{
     right: 50px;
-    top: 50px;
+    top: 20px;
 }
 
 .player-card{
@@ -158,12 +158,12 @@
 }
 
 #player-1-card-1{
-    bottom: 70px;
+    bottom: 90px;
     left: 110px;
 }
 
 #player-1-card-2{
-    bottom: 70px;
+    bottom: 90px;
     left: 190px;
 }
 
@@ -188,22 +188,22 @@
 }
 
 #player-4-card-1{
-    bottom: 145px;
+    bottom: 165px;
     left: 0px;
 }
 
 #player-4-card-2{
-    bottom: 145px;
+    bottom: 165px;
     left: 80px;
 }
 
 #player-5-card-1{
-    bottom: 70px;
+    bottom: 90px;
     right: 110px;
 }
 
 #player-5-card-2{
-    bottom: 70px;
+    bottom: 90px;
     right: 190px;
 }
 
@@ -250,12 +250,12 @@
 
 #player-pour-chips-3{
     left: 0px;
-    bottom: 150px;
+    bottom: 170px;
 }
 
 #player-pour-chips-4{
     right: 115px;
-    bottom: 80px;
+    bottom: 100px;
 }
 
 #player-pour-chips-5{
