@@ -34,6 +34,13 @@ con.on('ViewGame', (game) => {
   console.log(seat1)
 });
 
+//Leaving the room
+con.onclose(err => {
+  if(sessionStorage.getItem("mySeatNo") != null){
+    con.invoke('LeaveGame', parseInt(sessionStorage.getItem("mySeatNo")));
+  }
+});
+
 //Leave Seat
 con.on('LeaveSeat', (seatNo, chips, name) => {
   var seat = document.getElementById("occupied-seat-" + seatNo);
@@ -63,9 +70,16 @@ con.on('LeaveSeat', (seatNo, chips, name) => {
       }
     }
   }
+  else if(mySeat != null){
+    //Remove seat
+    seat.style.display = "none";
+    myChips.innerHTML = "";
+    myName.innerHTML = "";
+  }
   else{
     //Remove seat
     seat.style.display = "none";
+    buyInSign.style.display = "";
     myChips.innerHTML = "";
     myName.innerHTML = "";
   }
@@ -258,6 +272,18 @@ function buyInGame(){
 }
 
 function standUp(){
-  var seatNo = parseInt(document.getElementById("seat-no").value);
+  var seatNo = parseInt(sessionStorage.getItem("mySeatNo"));
   con.invoke('LeaveGame', seatNo);
+}
+
+function exit(){
+  if(sessionStorage.getItem("mySeatNo") != null){
+    con.invoke('LeaveGame', parseInt(sessionStorage.getItem("mySeatNo"))).then(()=>
+    {
+      location = "lobby.html";
+    });
+  }
+  else{
+    location = "lobby.html";
+  }
 }

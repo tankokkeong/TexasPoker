@@ -171,7 +171,7 @@ public class GameHub : Hub
 
     }
 
-        public async Task LeaveGame(int seatNo)
+    public async Task LeaveGame(int seatNo)
     {
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
 
