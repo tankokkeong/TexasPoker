@@ -8,9 +8,9 @@ using System.Linq;
     
 public class Player
 {
-    public string Id { get; set; }
-    public string Icon { get; set; }
-    public string Name { get; set; }
+    public string? Id { get; set; } = null;
+    public string? Icon { get; set; } = null;
+    public string? Name { get; set; } = null;
     public string? FirstHandCard {get; set;} = null;
     public string? SecondHandCard {get; set;} = null;
     public int ChipsOnHand { get; set; } = 0;
@@ -181,7 +181,7 @@ public class GameHub : Hub
         {
             //Remove player
             game.RemovePlayer(seatNo);
-            await Clients.Caller.SendAsync("leaveSeat", seatNo);
+            await Clients.Caller.SendAsync("LeaveSeat", seatNo);
             return;
         }
 
@@ -278,6 +278,12 @@ public class GameHub : Hub
         if (game == null || game.IsFull)
         {
             await Clients.Caller.SendAsync("Reject");
+            return;
+        }
+        else{
+            //await Groups.AddToGroupAsync(id, gameId);
+            //await Clients.Group(gameId).SendAsync("Ready", letter, game);
+            await Clients.Caller.SendAsync("ViewGame", game.Seat1, game.Seat2, game.Seat3, game.Seat4, game.Seat5);
             return;
         }
 

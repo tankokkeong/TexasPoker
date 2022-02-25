@@ -22,8 +22,13 @@ con.start().then();
 //Invalid Id
 con.on('Reject', () => location = 'lobby.html');
 
+//Get current game info
+con.on('ViewGame', (seat1, seat2, seat3, seat4, seat5) => {
+  console.log(seat1)
+});
+
 //Leave Seat
-con.on('leaveSeat', (seatNo, chips, name) => {
+con.on('LeaveSeat', (seatNo, chips, name) => {
   var seat = document.getElementById("occupied-seat-" + seatNo);
   var buyInSign = document.getElementById("buy-in-seat-" + seatNo);
   var myChips = document.getElementById("seat-" + seatNo +"-chips");
@@ -197,8 +202,6 @@ function buyInGame(){
   var seatNo = parseInt(document.getElementById("seat-no").value);
   var userId = sessionStorage.getItem("userId");
   var name = sessionStorage.getItem('userName');
-
-  console.log("hi")
 
   con.invoke('JoinGame', seatNo, userId, "", name, buyInAmount);
 }
