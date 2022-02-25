@@ -8,24 +8,26 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\festu\\.nuget\\packages\\": {}
+    "C:\\Users\\tanko\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\TexasPoker.csproj",
+      "projectUniqueName": "C:\\Users\\tanko\\Desktop\\TexasPoker\\TexasPoker.csproj",
       "projectName": "TexasPoker",
-      "projectPath": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\TexasPoker.csproj",
-      "packagesPath": "C:\\Users\\festu\\.nuget\\packages\\",
-      "outputPath": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\obj\\",
+      "projectPath": "C:\\Users\\tanko\\Desktop\\TexasPoker\\TexasPoker.csproj",
+      "packagesPath": "C:\\Users\\tanko\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tanko\\Desktop\\TexasPoker\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\festu\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\tanko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

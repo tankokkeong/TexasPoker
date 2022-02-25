@@ -70,22 +70,22 @@ public class Game
 
     public void AddPlayer(Player player, int seatNo)
     {
-        if (seatNo == 1 && Seat1 != null)
+        if (seatNo == 1 && Seat1 == null)
         {
             Seat1 = player;
             NumberOfPlayer++;
         }
-        else if (seatNo == 2 && Seat2 != null)
+        else if (seatNo == 2 && Seat2 == null)
         {
             Seat2 = player;
             NumberOfPlayer++;
         }
-        else if (seatNo == 3 && Seat3 != null)
+        else if (seatNo == 3 && Seat3 == null)
         {
             Seat3 = player;
             NumberOfPlayer++;
         }
-        else if (seatNo == 4 && Seat4 != null)
+        else if (seatNo == 4 && Seat4 == null)
         {
             Seat4 = player;
             NumberOfPlayer++;
@@ -165,6 +165,7 @@ public class GameHub : Hub
 
             game.AddPlayer(player, seatNo);
             await Clients.Caller.SendAsync("getSeat", seatNo, chips, name);
+            await Clients.Group(gameId).SendAsync("ViewGame", game);
             return;
         }
 
@@ -181,7 +182,7 @@ public class GameHub : Hub
         {
             //Remove player
             game.RemovePlayer(seatNo);
-            await Clients.Caller.SendAsync("LeaveSeat", seatNo);
+            await Clients.Group(gameId).SendAsync("LeaveSeat", seatNo);
             return;
         }
 
@@ -272,6 +273,7 @@ public class GameHub : Hub
 
     private async Task checkGameId()
     {
+        string id     = Context.ConnectionId;
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
         
         var game = games.Find(g => g.Id == gameId);
@@ -281,9 +283,9 @@ public class GameHub : Hub
             return;
         }
         else{
-            //await Groups.AddToGroupAsync(id, gameId);
+            await Groups.AddToGroupAsync(id, gameId);
             //await Clients.Group(gameId).SendAsync("Ready", letter, game);
-            await Clients.Caller.SendAsync("ViewGame", game.Seat1, game.Seat2, game.Seat3, game.Seat4, game.Seat5);
+            await Clients.Caller.SendAsync("ViewGame", game);
             return;
         }
 

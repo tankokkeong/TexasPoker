@@ -23,7 +23,14 @@ con.start().then();
 con.on('Reject', () => location = 'lobby.html');
 
 //Get current game info
-con.on('ViewGame', (seat1, seat2, seat3, seat4, seat5) => {
+con.on('ViewGame', (game) => {
+
+  showPlayer(game.seat1, 1);
+  showPlayer(game.seat2, 2);
+  showPlayer(game.seat3, 3);
+  showPlayer(game.seat4, 4);
+  showPlayer(game.seat5, 5);
+
   console.log(seat1)
 });
 
@@ -77,6 +84,35 @@ con.on('getSeat', (seatNo, chips, name) => {
   }
 
 });
+
+function showPlayer(player, seatNo){
+  if(player != null){
+    var seat = document.getElementById("occupied-seat-" + seatNo);
+    var buyInSign = document.getElementById("buy-in-seat-" + seatNo);
+    var myChips = document.getElementById("seat-" + seatNo +"-chips");
+    var myName = document.getElementById("player-" + seatNo + "-name");
+
+    //Display seat and remove buy in sign
+    seat.style.display = "";
+    buyInSign.style.display = "none";
+    myChips.innerHTML = "$ " + amountFormatter(player.chipsOnHand);
+    myName.innerHTML = player.name;
+
+    //If it is the login user
+    if(player.name == sessionStorage.getItem("userName")){
+
+      //Remove other seat
+      for(var i = 1 ; i <= 5; i++){
+
+        var otherSeat = document.getElementById("buy-in-seat-" + i);
+
+        if(i != seatNo && otherSeat.style.display != "none"){
+          otherSeat.style.display = "none";
+        }
+      }
+    }
+  }
+}
 
 
 function cardDealing(){
