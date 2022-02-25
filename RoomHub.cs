@@ -178,7 +178,7 @@ public class GameHub : Hub
         //Find game
         var game = games.Find(g => g.Id == gameId);
 
-        if (game != null || !game.IsFull)
+        if (game != null)
         {
             //Remove player
             game.RemovePlayer(seatNo);

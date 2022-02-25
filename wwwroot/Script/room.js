@@ -40,22 +40,34 @@ con.on('LeaveSeat', (seatNo, chips, name) => {
   var buyInSign = document.getElementById("buy-in-seat-" + seatNo);
   var myChips = document.getElementById("seat-" + seatNo +"-chips");
   var myName = document.getElementById("player-" + seatNo + "-name");
+  var mySeat = sessionStorage.getItem("mySeatNo");
 
-  //Remove seat and recover buy in sign
-  seat.style.display = "none";
-  buyInSign.style.display = "";
-  myChips.innerHTML = "";
-  myName.innerHTML = "";
+  if(mySeat == seatNo){
+    //Remove session storage
+    sessionStorage.removeItem("mySeatNo");
 
-  //Recover other seat
-  for(var i = 1 ; i <= 5; i++){
+    //Remove seat and recover buy in sign
+    seat.style.display = "none";
+    buyInSign.style.display = "";
+    myChips.innerHTML = "";
+    myName.innerHTML = "";
 
-    var otherSeat = document.getElementById("buy-in-seat-" + i);
-    var occupiedSeat = document.getElementById("occupied-seat-" + i);
+    //Recover other seat
+    for(var i = 1 ; i <= 5; i++){
 
-    if(i != seatNo && otherSeat.style.display == "none" && occupiedSeat.style.display == "none"){
-      otherSeat.style.display = "";
+      var otherSeat = document.getElementById("buy-in-seat-" + i);
+      var occupiedSeat = document.getElementById("occupied-seat-" + i);
+
+      if(i != seatNo && otherSeat.style.display == "none" && occupiedSeat.style.display == "none"){
+        otherSeat.style.display = "";
+      }
     }
+  }
+  else{
+    //Remove seat
+    seat.style.display = "none";
+    myChips.innerHTML = "";
+    myName.innerHTML = "";
   }
 
 });
@@ -66,6 +78,9 @@ con.on('getSeat', (seatNo, chips, name) => {
   var buyInSign = document.getElementById("buy-in-seat-" + seatNo);
   var myChips = document.getElementById("seat-" + seatNo +"-chips");
   var myName = document.getElementById("player-" + seatNo + "-name");
+
+  //Set my seat no
+  sessionStorage.setItem("mySeatNo", seatNo);
 
   //Display seat and remove buy in sign
   seat.style.display = "";
