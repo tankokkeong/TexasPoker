@@ -125,6 +125,12 @@ function actionTimer(playerId){
   }, 100);
 }
 
+function chooseSeat(number){
+  var seatInput = document.getElementById("seat-no");
+
+  seatInput.value = number;
+}
+
 function buyInGame(){
   var buyInAmount = document.getElementById("buy-in-amount");
 
