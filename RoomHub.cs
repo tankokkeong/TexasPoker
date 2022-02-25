@@ -101,6 +101,10 @@ public class GameHub : Hub
         return game.Id;
     }
 
+    public string Testing(){
+        return "Success";
+    }
+
     // TODO: Start()
     public async Task Start()
     {
@@ -113,7 +117,7 @@ public class GameHub : Hub
             return;
         }
 
-        await Clients.Group(gameId).SendAsync("Start");
+        //await Clients.Group(gameId).SendAsync("Start");
     }
 
     // TODO: Run(letter)
@@ -151,8 +155,8 @@ public class GameHub : Hub
 
         switch (page)
         {
-            case "list": await ListConnected(); break;
-            case "game": await GameConnected(); break;
+            case "lobby": await ListConnected(); break;
+            case "game": await checkGameId(); break;
         }
 
         await base.OnConnectedAsync();
@@ -164,9 +168,20 @@ public class GameHub : Hub
         await UpdateList(id);
     }
 
-    private async Task GameConnected()
+    private async Task checkGameId()
     {
-
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        
+        var game = games.Find(g => g.Id == gameId);
+        if (game == null || game.IsFull)
+        {
+            await Clients.Caller.SendAsync("Reject");
+            return;
+        }
+        else{
+            await Clients.Caller.SendAsync("Success");
+            return;
+        }
     }
 
     // ----------------------------------------------------------------------------------------
@@ -180,7 +195,7 @@ public class GameHub : Hub
         switch (page)
         {
             case "list": ListDisconnected(); break;
-            case "game": await GameDisconnected(); break;
+            //case "game": await GameDisconnected(); break;
         }
 
         await base.OnDisconnectedAsync(exception);
@@ -191,10 +206,6 @@ public class GameHub : Hub
         // Do nothing
     }
 
-    private async Task GameDisconnected()
-    {
-       
-    }
 
     // End of GameHub -------------------------------------------------------------------------
 }

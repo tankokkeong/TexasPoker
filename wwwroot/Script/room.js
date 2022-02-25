@@ -2,11 +2,31 @@
 // ========================================================================================
 // Connect
 // ========================================================================================
+const gameId = new URL(location).searchParams.get('gameId');
+if (!gameId) {
+    location = 'lobby.html';
+    throw 'ERROR: Invalid game id';
+}       
+
 const param = $.param({ page: 'game', gameId });
 
 const con = new signalR.HubConnectionBuilder()
             .withUrl('/hub?' + param)
-            .build();
+            .build();     
+
+
+//Start connection
+con.start();
+
+//Invalid Id
+con.on('Reject', () => location = 'lobby.html');
+
+con.on('Success', () => {
+  console.log("successful")
+});
+
+
+
 
 var cards = 
 ["A♠", "K♠", "Q♠", "J♠", "10♠", "9♠", "8♠", "7♠", "6♠", "5♠", "4♠", "3♠", "2♠",
