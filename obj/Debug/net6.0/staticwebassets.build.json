@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "HtJjeHJGVXxO2XU2w/FZjzj5XztSCxL16RqB0rB8GbI=",
+  "Hash": "6FweaQxKohVpb3+jSMgloimt20ZjSuPUFXIN+tlMi54=",
   "Source": "TexasPoker",
   "BasePath": "_content/TexasPoker",
   "Mode": "Default",
@@ -8,19 +8,19 @@
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
-      "Name": "TexasPoker/wwwroot",
+      "Name": "TexasPoker\\wwwroot",
       "Source": "TexasPoker",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/audio/Call Bell.mp3",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\audio\\Call Bell.mp3",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "audio/Call Bell.mp3",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/audio/Call Bell.mp3"
+      "OriginalItemSpec": "wwwroot\\audio\\Call Bell.mp3"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/audio/Card-Shuffling.mp3",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\audio\\Card-Shuffling.mp3",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "audio/Card-Shuffling.mp3",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/audio/Card-Shuffling.mp3"
+      "OriginalItemSpec": "wwwroot\\audio\\Card-Shuffling.mp3"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/audio/Chips.mp3",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\audio\\Chips.mp3",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "audio/Chips.mp3",
       "AssetKind": "All",
@@ -65,13 +65,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/audio/Chips.mp3"
+      "OriginalItemSpec": "wwwroot\\audio\\Chips.mp3"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/forgotPassword.html",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\forgotPassword.html",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "forgotPassword.html",
       "AssetKind": "All",
@@ -82,13 +82,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/forgotPassword.html"
+      "OriginalItemSpec": "wwwroot\\forgotPassword.html"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/chips.ico",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Images\\chips.ico",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/chips.ico",
       "AssetKind": "All",
@@ -99,13 +99,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Images/chips.ico"
+      "OriginalItemSpec": "wwwroot\\Images\\chips.ico"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/chips.png",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Images\\chips.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/chips.png",
       "AssetKind": "All",
@@ -116,13 +116,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Images/chips.png"
+      "OriginalItemSpec": "wwwroot\\Images\\chips.png"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/chips1.png",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Images\\chips1.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/chips1.png",
       "AssetKind": "All",
@@ -133,13 +133,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Images/chips1.png"
+      "OriginalItemSpec": "wwwroot\\Images\\chips1.png"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/chips2.png",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Images\\chips2.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/chips2.png",
       "AssetKind": "All",
@@ -150,13 +150,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Images/chips2.png"
+      "OriginalItemSpec": "wwwroot\\Images\\chips2.png"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/chips3.png",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Images\\chips3.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/chips3.png",
       "AssetKind": "All",
@@ -167,13 +167,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Images/chips3.png"
+      "OriginalItemSpec": "wwwroot\\Images\\chips3.png"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/chips4.png",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Images\\chips4.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/chips4.png",
       "AssetKind": "All",
@@ -184,13 +184,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Images/chips4.png"
+      "OriginalItemSpec": "wwwroot\\Images\\chips4.png"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/dealer.png",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Images\\dealer.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dealer.png",
       "AssetKind": "All",
@@ -201,13 +201,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Images/dealer.png"
+      "OriginalItemSpec": "wwwroot\\Images\\dealer.png"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/dice1.png",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Images\\dice1.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dice1.png",
       "AssetKind": "All",
@@ -218,13 +218,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Images/dice1.png"
+      "OriginalItemSpec": "wwwroot\\Images\\dice1.png"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/dice2.png",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Images\\dice2.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dice2.png",
       "AssetKind": "All",
@@ -235,13 +235,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Images/dice2.png"
+      "OriginalItemSpec": "wwwroot\\Images\\dice2.png"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/dice3.png",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Images\\dice3.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dice3.png",
       "AssetKind": "All",
@@ -252,13 +252,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Images/dice3.png"
+      "OriginalItemSpec": "wwwroot\\Images\\dice3.png"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/dice4.png",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Images\\dice4.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dice4.png",
       "AssetKind": "All",
@@ -269,13 +269,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Images/dice4.png"
+      "OriginalItemSpec": "wwwroot\\Images\\dice4.png"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/dice5.png",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Images\\dice5.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dice5.png",
       "AssetKind": "All",
@@ -286,13 +286,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Images/dice5.png"
+      "OriginalItemSpec": "wwwroot\\Images\\dice5.png"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/dice6.png",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Images\\dice6.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dice6.png",
       "AssetKind": "All",
@@ -303,13 +303,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Images/dice6.png"
+      "OriginalItemSpec": "wwwroot\\Images\\dice6.png"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/dummy-user.png",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Images\\dummy-user.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dummy-user.png",
       "AssetKind": "All",
@@ -320,13 +320,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Images/dummy-user.png"
+      "OriginalItemSpec": "wwwroot\\Images\\dummy-user.png"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/google.png",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Images\\google.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/google.png",
       "AssetKind": "All",
@@ -337,13 +337,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Images/google.png"
+      "OriginalItemSpec": "wwwroot\\Images\\google.png"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/poker-background.jpg",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Images\\poker-background.jpg",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/poker-background.jpg",
       "AssetKind": "All",
@@ -354,13 +354,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Images/poker-background.jpg"
+      "OriginalItemSpec": "wwwroot\\Images\\poker-background.jpg"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/poker-hand-rankings.jpg",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Images\\poker-hand-rankings.jpg",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/poker-hand-rankings.jpg",
       "AssetKind": "All",
@@ -371,13 +371,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Images/poker-hand-rankings.jpg"
+      "OriginalItemSpec": "wwwroot\\Images\\poker-hand-rankings.jpg"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/sendImages.png",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Images\\sendImages.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/sendImages.png",
       "AssetKind": "All",
@@ -388,13 +388,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Images/sendImages.png"
+      "OriginalItemSpec": "wwwroot\\Images\\sendImages.png"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/tzuyu-2.jpg",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Images\\tzuyu-2.jpg",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/tzuyu-2.jpg",
       "AssetKind": "All",
@@ -405,13 +405,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Images/tzuyu-2.jpg"
+      "OriginalItemSpec": "wwwroot\\Images\\tzuyu-2.jpg"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/index.html",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\index.html",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "index.html",
       "AssetKind": "All",
@@ -422,13 +422,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/index.html"
+      "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/lobby.html",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\lobby.html",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "lobby.html",
       "AssetKind": "All",
@@ -439,13 +439,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lobby.html"
+      "OriginalItemSpec": "wwwroot\\lobby.html"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/mini-game.html",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\mini-game.html",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "mini-game.html",
       "AssetKind": "All",
@@ -456,13 +456,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/mini-game.html"
+      "OriginalItemSpec": "wwwroot\\mini-game.html"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/room.html",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\room.html",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "room.html",
       "AssetKind": "All",
@@ -473,13 +473,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/room.html"
+      "OriginalItemSpec": "wwwroot\\room.html"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Script/emojionearea.min.js",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Script\\emojionearea.min.js",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Script/emojionearea.min.js",
       "AssetKind": "All",
@@ -490,13 +490,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Script/emojionearea.min.js"
+      "OriginalItemSpec": "wwwroot\\Script\\emojionearea.min.js"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Script/jquery.slim.js",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Script\\jquery.slim.js",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Script/jquery.slim.js",
       "AssetKind": "All",
@@ -507,13 +507,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Script/jquery.slim.js"
+      "OriginalItemSpec": "wwwroot\\Script\\jquery.slim.js"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Script/lobby.js",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Script\\lobby.js",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Script/lobby.js",
       "AssetKind": "All",
@@ -524,13 +524,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Script/lobby.js"
+      "OriginalItemSpec": "wwwroot\\Script\\lobby.js"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Script/miniGame.js",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Script\\miniGame.js",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Script/miniGame.js",
       "AssetKind": "All",
@@ -541,13 +541,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Script/miniGame.js"
+      "OriginalItemSpec": "wwwroot\\Script\\miniGame.js"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Script/room.js",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Script\\room.js",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Script/room.js",
       "AssetKind": "All",
@@ -558,13 +558,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Script/room.js"
+      "OriginalItemSpec": "wwwroot\\Script\\room.js"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Script/signalr.js",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Script\\signalr.js",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Script/signalr.js",
       "AssetKind": "All",
@@ -575,13 +575,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Script/signalr.js"
+      "OriginalItemSpec": "wwwroot\\Script\\signalr.js"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/signup.html",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\signup.html",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "signup.html",
       "AssetKind": "All",
@@ -592,13 +592,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/signup.html"
+      "OriginalItemSpec": "wwwroot\\signup.html"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Style/emojionearea.min.css",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Style\\emojionearea.min.css",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Style/emojionearea.min.css",
       "AssetKind": "All",
@@ -609,13 +609,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Style/emojionearea.min.css"
+      "OriginalItemSpec": "wwwroot\\Style\\emojionearea.min.css"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Style/forgotPassword.css",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Style\\forgotPassword.css",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Style/forgotPassword.css",
       "AssetKind": "All",
@@ -626,13 +626,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Style/forgotPassword.css"
+      "OriginalItemSpec": "wwwroot\\Style\\forgotPassword.css"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Style/lobby.css",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Style\\lobby.css",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Style/lobby.css",
       "AssetKind": "All",
@@ -643,13 +643,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Style/lobby.css"
+      "OriginalItemSpec": "wwwroot\\Style\\lobby.css"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Style/login.css",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Style\\login.css",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Style/login.css",
       "AssetKind": "All",
@@ -660,13 +660,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Style/login.css"
+      "OriginalItemSpec": "wwwroot\\Style\\login.css"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Style/mini-game.css",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Style\\mini-game.css",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Style/mini-game.css",
       "AssetKind": "All",
@@ -677,13 +677,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Style/mini-game.css"
+      "OriginalItemSpec": "wwwroot\\Style\\mini-game.css"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Style/signup.css",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Style\\signup.css",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Style/signup.css",
       "AssetKind": "All",
@@ -694,13 +694,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Style/signup.css"
+      "OriginalItemSpec": "wwwroot\\Style\\signup.css"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Style/style.css",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\Style\\style.css",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Style/style.css",
       "AssetKind": "All",
@@ -711,13 +711,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Style/style.css"
+      "OriginalItemSpec": "wwwroot\\Style\\style.css"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/symbols.txt",
+      "Identity": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\symbols.txt",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "ContentRoot": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "symbols.txt",
       "AssetKind": "All",
@@ -728,7 +728,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/symbols.txt"
+      "OriginalItemSpec": "wwwroot\\symbols.txt"
     }
   ]
 }
