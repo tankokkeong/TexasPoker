@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.SignalR;
+using System;
+using System.Linq;
 
 // ============================================================================================
 // Class: Player
@@ -9,8 +11,8 @@ public class Player
     public string Id { get; set; }
     public string Icon { get; set; }
     public string Name { get; set; }
-    public string FirstHandCard {get; set;}
-    public string SecondHandCard {get; set;}
+    public string? FirstHandCard {get; set;} = null;
+    public string? SecondHandCard {get; set;} = null;
     public int ChipsOnHand { get; set; } = 0;
 
     public Player(string id, string icon, string name, int chipsOnHand) => (Id, Icon, Name, ChipsOnHand) = (id, icon, name, chipsOnHand);
@@ -27,6 +29,14 @@ public class Game
 {
     public string Id { get; set; } = Guid.NewGuid().ToString();
     public int NumberOfPlayer = 0;
+
+    public string[] cards = 
+    {"A♠", "K♠", "Q♠", "J♠", "10♠", "9♠", "8♠", "7♠", "6♠", "5♠", "4♠", "3♠", "2♠",
+    "A♥", "K♥", "Q♥", "J♥", "10♥", "9♥", "8♥", "7♥", "6♥", "5♥", "4♥", "3♥", "2♥",
+    "A♣", "K♣", "Q♣", "J♣", "10♣", "9♣", "8♣", "7♣", "6♣", "5♣", "4♣", "3♣", "2♣",
+    "A♦", "K♦", "Q♦", "J♦", "10♦", "9♦", "8♦", "7♦", "6♦", "5♦", "4♦", "3♦", "2♦",
+    };
+
     public Player? Seat1 { get; set; } = null;
     public Player? Seat2 { get; set; } = null;
     public Player? Seat3 { get; set; } = null;
@@ -45,6 +55,14 @@ public class Game
 
     public bool IsEmpty => NumberOfPlayer == 0;
     public bool IsFull  => NumberOfPlayer == 5;
+
+    public string[] Shuffle(){
+        int[] arr = { 1, 2, 3, 4, 5 };
+        Random random = new Random();
+        cards = cards.OrderBy(x => random.Next()).ToArray();
+
+        return cards;
+    }
 
     public string? AddPlayer(Player player, int seatNo)
     {
@@ -91,7 +109,7 @@ public class GameHub : Hub
     // ----------------------------------------------------------------------------------------
     // General
     // ----------------------------------------------------------------------------------------
-
+    
     private static List<Game> games = new List<Game>();
 
     public string Create()
@@ -101,29 +119,22 @@ public class GameHub : Hub
         return game.Id;
     }
 
-    public string Testing(){
-        return "Success";
-    }
-
-    // TODO: Start()
-    public async Task Start()
+    public async Task JoinGame(int seatNo, string id, string icon, string name, int chips)
     {
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
 
+        //Find game
         var game = games.Find(g => g.Id == gameId);
-        if (game == null)
+
+        if (game != null || !game.IsFull)
         {
+            //Create new player
+            var player = new Player(id, icon, name, chips);
+
+            game.AddPlayer(player, seatNo);
             await Clients.Caller.SendAsync("Reject");
             return;
         }
-
-        //await Clients.Group(gameId).SendAsync("Start");
-    }
-
-    // TODO: Run(letter)
-    public async Task Run(string letter)
-    {
-        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
 
     }
 
