@@ -132,6 +132,11 @@ function chooseSeat(number){
 }
 
 function buyInGame(){
-  var buyInAmount = document.getElementById("buy-in-amount");
+  var buyInAmount = parseInt(document.getElementById("buy-in-amount").value);
+  var seatNo = parseInt(document.getElementById("seat-no").value);
+  var userId = sessionStorage.getItem("userId");
+  var name = sessionStorage.getItem('userName');
 
+
+  con.invoke('JoinGame', seatNo, userId, "", name, buyInAmount);
 }

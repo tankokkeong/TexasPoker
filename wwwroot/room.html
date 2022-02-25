@@ -347,14 +347,14 @@
                     id="buy-in-amount" oninput="buyInDisplay()" value="100000">
 
                     <input type="text" class="form-control mt-3" placeholder="Buy In Amount" id="buy-in-manual"
-                    oninput="buyInManual()">
+                    oninput="buyInManual()" value="100000">
                     <div class="text-danger mt-2" id="buy-in-warning"></div>
 
                     <input type="hidden" id="seat-no" value="">
                 </div>
 
                 <div class="buy-in-options">
-                    <button type="button" class="btn btn-primary">Confirm</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" disabled="true">Confirm</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>  
                 </div>
                 
