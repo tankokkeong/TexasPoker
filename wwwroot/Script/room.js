@@ -22,6 +22,32 @@ con.start().then();
 //Invalid Id
 con.on('Reject', () => location = 'lobby.html');
 
+//Leave Seat
+con.on('leaveSeat', (seatNo, chips, name) => {
+  var seat = document.getElementById("occupied-seat-" + seatNo);
+  var buyInSign = document.getElementById("buy-in-seat-" + seatNo);
+  var myChips = document.getElementById("seat-" + seatNo +"-chips");
+  var myName = document.getElementById("player-" + seatNo + "-name");
+
+  //Remove seat and recover buy in sign
+  seat.style.display = "none";
+  buyInSign.style.display = "";
+  myChips.innerHTML = "";
+  myName.innerHTML = "";
+
+  //Recover other seat
+  for(var i = 1 ; i <= 5; i++){
+
+    var otherSeat = document.getElementById("buy-in-seat-" + i);
+    var occupiedSeat = document.getElementById("occupied-seat-" + i);
+
+    if(i != seatNo && otherSeat.style.display == "none" && occupiedSeat.style.display == "none"){
+      otherSeat.style.display = "";
+    }
+  }
+
+});
+
 //Get Seat
 con.on('getSeat', (seatNo, chips, name) => {
   var seat = document.getElementById("occupied-seat-" + seatNo);
@@ -29,16 +55,24 @@ con.on('getSeat', (seatNo, chips, name) => {
   var myChips = document.getElementById("seat-" + seatNo +"-chips");
   var myName = document.getElementById("player-" + seatNo + "-name");
 
-  console.log(seatNo)
-
   //Display seat and remove buy in sign
   seat.style.display = "";
   buyInSign.style.display = "none";
   myChips.innerHTML = "$ " + amountFormatter(chips);
   myName.innerHTML = name;
+
+  //Remove other seat
+  for(var i = 1 ; i <= 5; i++){
+
+    var otherSeat = document.getElementById("buy-in-seat-" + i);
+
+    if(i != seatNo && otherSeat.style.display != "none"){
+      otherSeat.style.display = "none";
+    }
+  }
+
 });
 
-var playerSeat = [false, false, false, false, false];
 
 function cardDealing(){
 
@@ -167,4 +201,9 @@ function buyInGame(){
   console.log("hi")
 
   con.invoke('JoinGame', seatNo, userId, "", name, buyInAmount);
+}
+
+function standUp(){
+  var seatNo = parseInt(document.getElementById("seat-no").value);
+  con.invoke('LeaveGame', seatNo);
 }

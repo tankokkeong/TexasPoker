@@ -68,7 +68,7 @@ public class Game
         return cards;
     }
 
-    public string? AddPlayer(Player player, int seatNo)
+    public void AddPlayer(Player player, int seatNo)
     {
         if (seatNo == 1 && Seat1 != null)
         {
@@ -96,9 +96,37 @@ public class Game
             NumberOfPlayer++;
         }
 
-        return null;
     }
 
+    public void RemovePlayer(int seatNo)
+    {
+        if (seatNo == 1 && Seat1 != null)
+        {
+            Seat1 = null;
+            NumberOfPlayer--;
+        }
+        else if (seatNo == 2 && Seat2 != null)
+        {
+            Seat2 = null;
+            NumberOfPlayer--;
+        }
+        else if (seatNo == 3 && Seat3 != null)
+        {
+            Seat3 = null;
+            NumberOfPlayer--;
+        }
+        else if (seatNo == 4 && Seat4 != null)
+        {
+            Seat4 = null;
+            NumberOfPlayer--;
+        }
+        else
+        {
+            Seat5 = null;
+            NumberOfPlayer--;
+        }
+
+    }
 
 }
 
@@ -137,6 +165,23 @@ public class GameHub : Hub
 
             game.AddPlayer(player, seatNo);
             await Clients.Caller.SendAsync("getSeat", seatNo, chips, name);
+            return;
+        }
+
+    }
+
+        public async Task LeaveGame(int seatNo)
+    {
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if (game != null || !game.IsFull)
+        {
+            //Remove player
+            game.RemovePlayer(seatNo);
+            await Clients.Caller.SendAsync("leaveSeat", seatNo);
             return;
         }
 
