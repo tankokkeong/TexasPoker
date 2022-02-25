@@ -137,11 +137,11 @@ input[type=text] {
     padding: 0;
 }
 
-#chat li {
+#chat div {
     margin-bottom: 3px;
 }
 
-#chat li div {
+#chat div {
     display: inline-block;
     max-width: 80%;
     padding: 3px 6px;
@@ -149,20 +149,16 @@ input[type=text] {
     word-break: break-all;
 }
 
-#chat li.caller {
+.me {
     text-align: right;
+    color: lightgreen;
+    margin-right: 20px;
 }
 
-#chat li.caller div {
-    background-color: #aed581;
-}
-
-#chat li.others {
+.others {
     text-align: left;
-}
-
-#chat li.others div {
-    background-color: #80deea;
+    color: white;
+    margin-left: 20px;
 }
 
 #chat li.status {
