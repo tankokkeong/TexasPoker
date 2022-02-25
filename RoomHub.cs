@@ -178,10 +178,7 @@ public class GameHub : Hub
             await Clients.Caller.SendAsync("Reject");
             return;
         }
-        else{
-            await Clients.Caller.SendAsync("Success");
-            return;
-        }
+
     }
 
     // ----------------------------------------------------------------------------------------

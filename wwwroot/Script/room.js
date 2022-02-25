@@ -21,13 +21,6 @@ con.start();
 //Invalid Id
 con.on('Reject', () => location = 'lobby.html');
 
-con.on('Success', () => {
-  console.log("successful")
-});
-
-
-
-
 var cards = 
 ["A♠", "K♠", "Q♠", "J♠", "10♠", "9♠", "8♠", "7♠", "6♠", "5♠", "4♠", "3♠", "2♠",
  "A♥", "K♥", "Q♥", "J♥", "10♥", "9♥", "8♥", "7♥", "6♥", "5♥", "4♥", "3♥", "2♥",
