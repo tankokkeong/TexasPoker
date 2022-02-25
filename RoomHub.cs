@@ -112,6 +112,8 @@ public class GameHub : Hub
     
     private static List<Game> games = new List<Game>();
 
+    private List<Player> playersOfTheRound = new List<Player>();
+
     public string Create()
     {
         var game = new Game();
@@ -135,6 +137,22 @@ public class GameHub : Hub
             await Clients.Caller.SendAsync("Reject");
             return;
         }
+
+    }
+
+    public async Task HandCardDealing(){
+
+    }
+
+    public async Task FlopRound(){
+
+    }
+
+    public async Task TurnRound(){
+
+    }
+
+    public async Task RiverRound(){
 
     }
 
