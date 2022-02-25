@@ -105,7 +105,7 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-app.js";
     import { getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.6.4/firebase-auth.js";
     import { signInWithPopup, GoogleAuthProvider} from "https://www.gstatic.com/firebasejs/9.6.4/firebase-auth.js";
-    import { getFirestore, collection, getDocs, addDoc, query, where } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-firestore.js";
+    import { getFirestore, collection, getDocs, doc, setDoc} from "https://www.gstatic.com/firebasejs/9.6.4/firebase-firestore.js";
 
     // Firebase config
     const firebaseConfig = {
@@ -148,11 +148,11 @@
                 const user = auth.currentUser;
                 console.log(user.uid);
 
-                addDoc(colRef , {
+                setDoc(doc(database, "players", user.uid),{
                     userId : user.uid,
                     email : email,
                     username: username,
-                    walletBalance: 100000
+                    walletBallance: 10000
                 })
                 .then(() => {
                     sessionStorage.setItem('userId', user.uid);
@@ -181,64 +181,6 @@
         }
 
     }, false);
-
-    // var gBtn = document.getElementById("googleSignUpButton");
-
-    // gBtn.addEventListener("click", function(e) {
-
-    //     e.preventDefault();
-
-    //     signInWithPopup(auth, provider)
-    //     .then((result) => {
-    //         // This gives you a Google Access Token. You can use it to access the Google API.
-    //         const credential = GoogleAuthProvider.credentialFromResult(result);
-    //         const token = credential.accessToken;
-    //         // The signed-in user info.
-    //         const user = result.user;
-    //         console.log(user.uid);
-
-    //         const q = query(collection(database, "players"), where ("email", "==", user.email));
-
-    //         const querySnapshot = getDocs(q);
-
-    //         if(querySnapshot.exists()){
-    //             alert("Your Account is Exists");
-    //             window.location.replace("signup.html")
-    //         }else{
-
-    //             addDoc(colRef , {
-    //                 userId : user.uid,
-    //                 email : user.email,
-    //                 username: user.displayName,
-    //                 walletBalance: 100000
-    //             })
-    //             .then(() => {
-    //                 sessionStorage.setItem('userId', user.uid);
-    //                 alert('Welcome ' + user.displayName);
-    //                 window.location.replace("lobby.html")
-    //             });
-
-    //         }
-
-
-
-    //     }).catch((error) => {
-    //         // Handle Errors here.
-    //         const errorCode = error.code;
-    //         const errorMessage = error.message;
-    //         // The email of the user's account used.
-    //         const email = error.email;
-    //         // The AuthCredential type that was used.
-    //         const credential = GoogleAuthProvider.credentialFromError(error);
-    //         // ...
-    //         console.log(errorCode);
-    //         console.log(errorMessage);
-    //         console.log(email);
-    //         console.log(credential);
-    //     });
-
-
-    // }, false);
 
     function resetForm(){
 
