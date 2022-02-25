@@ -3,7 +3,7 @@ body {
 }
 
 .container-xl {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.75);
     border-radius: 10px;
 }
 
@@ -96,11 +96,11 @@ th, td {
 .LiveChatContainerContents {
     height: 300px;
     width: 100%;
-    padding-top: 51px;
     max-height: 60vh;
     overflow-y: scroll;
     scrollbar-color: auto;
     position: relative;
+    padding: 15px;
 }
 
 .image {
@@ -150,9 +150,9 @@ input[type=text] {
 }
 
 .me {
-    text-align: right;
+    text-align: left;
     color: lightgreen;
-    margin-right: 20px;
+    margin-left: 20px;
 }
 
 .others {

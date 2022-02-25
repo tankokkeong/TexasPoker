@@ -32,7 +32,6 @@ public class ChatHub : Hub
         await base.OnDisconnectedAsync(exception);
     }
 
-    // TODO(2C): SendImage(name, url)  --> ReceiveImage(name, url, who)
     public async Task SendImage(string name, string url)
     {
         await Clients.Caller.SendAsync("ReceiveImage", name, url, "me");

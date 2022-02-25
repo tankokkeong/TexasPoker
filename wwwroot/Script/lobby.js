@@ -3,7 +3,7 @@
 // ========================================================================================
 const param = $.param({ page: 'lobby' });
 
-const username = 'alex';
+const username = sessionStorage.getItem("userName");
 
 const con = new signalR.HubConnectionBuilder()
     .withUrl('/hub?' + param)
@@ -68,18 +68,6 @@ conChat.on('ReceiveText', (name, message, who) => {
     $('#messages').append(`
         <div class="${who}">
             <b>${name}:</b> ${message}
-        </div>
-    `);
-    scrollToBottom();
-});
-
-conChat.on('UpdateStatus', (count, status) => {
-    $('#count').text(count);
-
-    isBottom();
-    $('#messages').append(`
-        <div class="status">
-            <div>${status}</div>
         </div>
     `);
     scrollToBottom();
