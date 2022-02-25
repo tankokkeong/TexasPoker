@@ -2,38 +2,27 @@
 // ========================================================================================
 // Connect
 // ========================================================================================
+const gameId = new URL(location).searchParams.get('gameId');
+if (!gameId) {
+    location = 'lobby.html';
+    throw 'ERROR: Invalid game id';
+}       
+
 const param = $.param({ page: 'game', gameId });
 
 const con = new signalR.HubConnectionBuilder()
             .withUrl('/hub?' + param)
-            .build();
+            .build();     
 
-var cards = 
-["A♠", "K♠", "Q♠", "J♠", "10♠", "9♠", "8♠", "7♠", "6♠", "5♠", "4♠", "3♠", "2♠",
- "A♥", "K♥", "Q♥", "J♥", "10♥", "9♥", "8♥", "7♥", "6♥", "5♥", "4♥", "3♥", "2♥",
- "A♣", "K♣", "Q♣", "J♣", "10♣", "9♣", "8♣", "7♣", "6♣", "5♣", "4♣", "3♣", "2♣",
- "A♦", "K♦", "Q♦", "J♦", "10♦", "9♦", "8♦", "7♦", "6♦", "5♦", "4♦", "3♦", "2♦",
-];
+
+//Start connection
+con.start().then();
+
+
+//Invalid Id
+con.on('Reject', () => location = 'lobby.html');
 
 var playerSeat = [false, false, false, false, false];
-
-function shuffle(array) {
-  let currentIndex = array.length,  randomIndex;
-
-  // While there remain elements to shuffle...
-  while (currentIndex != 0) {
-
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex], array[currentIndex]];
-  }
-
-  return array;
-}
 
 function cardDealing(){
 
@@ -134,6 +123,12 @@ function actionTimer(playerId){
       clearInterval(myTimeout);
     }
   }, 100);
+}
+
+function chooseSeat(number){
+  var seatInput = document.getElementById("seat-no");
+
+  seatInput.value = number;
 }
 
 function buyInGame(){

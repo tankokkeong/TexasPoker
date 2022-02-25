@@ -72,208 +72,229 @@
             <img src="Images/dealer.png" alt="" id="dealer-img">
 
             <div class="seat" id="seat-1">
-                <div class="seat-icon" data-toggle="modal" data-target="#buyInModal">
+                <div class="seat-icon" data-toggle="modal" data-target="#buyInModal" 
+                onclick="chooseSeat(1)">
                     <i class="fas fa-user-plus"></i>
                 </div>
 
-                <!-- <div class="sit-user-container">
-                    <div class="player-name text-light font-weight-bold">
-                        John
+                <div class="occupied-seat" style="display: none;">
+                    <div class="sit-user-container">
+                        <div class="player-name text-light font-weight-bold">
+                            John
+                        </div>
+                        <img src="Images/dummy-user.png" alt="" class="sit-user">
+    
+                        <div class="chips-on-hand text-light">
+                            $10,000,000
+                        </div>
+    
+                        <div class="timer rounded bg-light mb-1">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"
+                                id="player-1-timer"></div>
+                            </div>                
+                        </div>
                     </div>
-                    <img src="Images/dummy-user.png" alt="" class="sit-user">
-
-                    <div class="chips-on-hand text-light">
-                        $10,000,000
+    
+                    <div class="poker-card player-card" id="player-1-card-1">
+                        A <br>
+                        <span class="clubs">♣</span>
+                    </div> 
+    
+                    <div class="poker-card player-card" id="player-1-card-2">
+                        J <br>
+                        <span class="clubs">♣</span>
+                    </div> 
+    
+                    <div class="player-pour-chips" id="player-pour-chips-1">
+                        <img src="Images/chips.png" class="ml-3 chips" alt=""> 
+                        <span class="pour-chips-amount">15,000,000</span>
                     </div>
+                </div>
 
-                    <div class="timer rounded bg-light mb-1">
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"
-                            id="player-1-timer"></div>
-                        </div>                
-                    </div>
-                </div> -->
-
-
-                <!-- <div class="poker-card player-card" id="player-1-card-1">
-                    A <br>
-                    <span class="clubs">♣</span>
-                </div> 
-
-                <div class="poker-card player-card" id="player-1-card-2">
-                    J <br>
-                    <span class="clubs">♣</span>
-                </div> 
-
-                <div class="player-pour-chips" id="player-pour-chips-1">
-                    <img src="Images/chips.png" class="ml-3 chips" alt=""> 
-                    <span class="pour-chips-amount">15,000,000</span>
-                </div> -->
             </div>
 
             <div class="seat" id="seat-2">
-                <!-- <div class="seat-icon" data-toggle="modal" data-target="#buyInModal">
+                <div class="seat-icon" data-toggle="modal" data-target="#buyInModal" onclick="chooseSeat(2)">
                     <i class="fas fa-user-plus"></i>
-                </div> -->
-
-                <div class="sit-user-container">
-                    <div class="player-name text-light font-weight-bold">
-                        John
-                    </div>
-                    <img src="Images/dummy-user.png" alt="" class="sit-user">
-
-                    <div class="chips-on-hand text-light">
-                        $10,000,000
-                    </div>
-
-                    <div class="timer rounded bg-light mb-1">
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"
-                            id="player-1-timer"></div>
-                        </div>                
-                    </div>
                 </div>
 
-                <div class="poker-card player-card" id="player-2-card-1">
-                    J <br>
-                    <span class="clubs">♣</span>
-                </div> 
-
-                <div class="poker-card player-card" id="player-2-card-2">
-                    J <br>
-                    <span class="clubs">♣</span>
-                </div> 
-
-                <div class="player-pour-chips" id="player-pour-chips-2">
-                    <img src="Images/chips.png" class="ml-3 chips" alt=""> 
-                    <span class="pour-chips-amount">15,000,000</span>
+                <div class="occupied-seat" style="display: none;">
+                    <div class="sit-user-container">
+                        <div class="player-name text-light font-weight-bold">
+                            John
+                        </div>
+                        <img src="Images/dummy-user.png" alt="" class="sit-user">
+    
+                        <div class="chips-on-hand text-light">
+                            $10,000,000
+                        </div>
+    
+                        <div class="timer rounded bg-light mb-1">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"
+                                id="player-1-timer"></div>
+                            </div>                
+                        </div>
+                    </div>
+    
+                    <div class="poker-card player-card" id="player-2-card-1">
+                        J <br>
+                        <span class="clubs">♣</span>
+                    </div> 
+    
+                    <div class="poker-card player-card" id="player-2-card-2">
+                        J <br>
+                        <span class="clubs">♣</span>
+                    </div> 
+    
+                    <div class="player-pour-chips" id="player-pour-chips-2">
+                        <img src="Images/chips.png" class="ml-3 chips" alt=""> 
+                        <span class="pour-chips-amount">15,000,000</span>
+                    </div>
                 </div>
+                
             </div>
 
             <div class="seat" id="seat-3">
-                <!-- <div class="seat-icon" data-toggle="modal" data-target="#buyInModal">
+                <div class="seat-icon" data-toggle="modal" data-target="#buyInModal" 
+                onclick="chooseSeat(3)">
                     <i class="fas fa-user-plus"></i>
-                </div> -->
-
-                <div class="sit-user-container">
-                    <div class="player-name text-light font-weight-bold">
-                        John
-                    </div>
-                    <img src="Images/dummy-user.png" alt="" class="sit-user">
-
-                    <div class="chips-on-hand text-light">
-                        $10,000,000
-                    </div>
-
-                    <div class="timer rounded bg-light mb-1">
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"
-                            id="player-1-timer"></div>
-                        </div>                
-                    </div>
                 </div>
 
-                <div class="poker-card player-card" id="player-3-card-1">
-                    J <br>
-                    <span class="clubs">♣</span>
-                </div> 
-
-                <div class="poker-card player-card" id="player-3-card-2">
-                    J <br>
-                    <span class="clubs">♣</span>
-                </div> 
-
-                <div class="player-pour-chips" id="player-pour-chips-3">
-                    <img src="Images/chips.png" class="ml-3 chips" alt=""> 
-                    <span class="pour-chips-amount">15,000,000</span>
+                <div class="occupied-seat" style="display: none;">
+                    <div class="sit-user-container">
+                        <div class="player-name text-light font-weight-bold">
+                            John
+                        </div>
+                        <img src="Images/dummy-user.png" alt="" class="sit-user">
+    
+                        <div class="chips-on-hand text-light">
+                            $10,000,000
+                        </div>
+    
+                        <div class="timer rounded bg-light mb-1">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"
+                                id="player-1-timer"></div>
+                            </div>                
+                        </div>
+                    </div>
+    
+                    <div class="poker-card player-card" id="player-3-card-1">
+                        J <br>
+                        <span class="clubs">♣</span>
+                    </div> 
+    
+                    <div class="poker-card player-card" id="player-3-card-2">
+                        J <br>
+                        <span class="clubs">♣</span>
+                    </div> 
+    
+                    <div class="player-pour-chips" id="player-pour-chips-3">
+                        <img src="Images/chips.png" class="ml-3 chips" alt=""> 
+                        <span class="pour-chips-amount">15,000,000</span>
+                    </div>
                 </div>
+                
             </div>
 
             <div class="seat" id="seat-4">
-                <!-- <div class="seat-icon" data-toggle="modal" data-target="#buyInModal">
+                <div class="seat-icon" data-toggle="modal" data-target="#buyInModal" onclick="chooseSeat(4)">
                     <i class="fas fa-user-plus"></i>
-                </div> -->
-                <div class="sit-user-container">
-                    <div class="player-name text-light font-weight-bold">
-                        John
-                    </div>
-                    <img src="Images/dummy-user.png" alt="" class="sit-user">
-
-                    <div class="chips-on-hand text-light">
-                        $10,000,000
-                    </div>
-
-                    <div class="timer rounded bg-light mb-1">
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"
-                            id="player-1-timer"></div>
-                        </div>                
-                    </div>
                 </div>
 
-                <div class="poker-card player-card" id="player-4-card-1">
-                    J <br>
-                    <span class="clubs">♣</span>
-                </div> 
-
-                <div class="poker-card player-card" id="player-4-card-2">
-                    J <br>
-                    <span class="clubs">♣</span>
-                </div> 
-
-                <div class="player-pour-chips" id="player-pour-chips-4">
-                    <img src="Images/chips.png" class="ml-3 chips" alt=""> 
-                    <span class="pour-chips-amount">15,000,000</span>
+                <div class="occupied-seat" style="display: none;">
+                    <div class="sit-user-container">
+                        <div class="player-name text-light font-weight-bold">
+                            John
+                        </div>
+                        <img src="Images/dummy-user.png" alt="" class="sit-user">
+    
+                        <div class="chips-on-hand text-light">
+                            $10,000,000
+                        </div>
+    
+                        <div class="timer rounded bg-light mb-1">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"
+                                id="player-1-timer"></div>
+                            </div>                
+                        </div>
+                    </div>
+    
+                    <div class="poker-card player-card" id="player-4-card-1">
+                        J <br>
+                        <span class="clubs">♣</span>
+                    </div> 
+    
+                    <div class="poker-card player-card" id="player-4-card-2">
+                        J <br>
+                        <span class="clubs">♣</span>
+                    </div> 
+    
+                    <div class="player-pour-chips" id="player-pour-chips-4">
+                        <img src="Images/chips.png" class="ml-3 chips" alt=""> 
+                        <span class="pour-chips-amount">15,000,000</span>
+                    </div>
                 </div>
+                
             </div>
 
             <div class="seat" id="seat-5">
-                <!-- <div class="seat-icon" data-toggle="modal" data-target="#buyInModal">
+                <div class="seat-icon" data-toggle="modal" data-target="#buyInModal" 
+                onclick="chooseSeat(5)">
                     <i class="fas fa-user-plus"></i>
-                </div> -->
-
-                <div class="sit-user-container">
-                    <div class="player-name text-light font-weight-bold">
-                        John
-                    </div>
-                    <img src="Images/dummy-user.png" alt="" class="sit-user">
-
-                    <div class="chips-on-hand text-light">
-                        $10,000,000
-                    </div>
-
-                    <div class="timer rounded bg-light mb-1">
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"
-                            id="player-1-timer"></div>
-                        </div>                
-                    </div>
                 </div>
 
-                <div class="poker-card player-card" id="player-5-card-1">
-                    J <br>
-                    <span class="clubs">♣</span>
-                </div> 
-
-                <div class="poker-card player-card" id="player-5-card-2">
-                    J <br>
-                    <span class="clubs">♣</span>
-                </div> 
-
-                <div class="player-pour-chips" id="player-pour-chips-5">
-                    <img src="Images/chips.png" class="ml-3 chips" alt=""> 
-                    <span class="pour-chips-amount">15,000,000</span>
+                <div class="occupied-seat" style="display: none;">
+                    <div class="sit-user-container">
+                        <div class="player-name text-light font-weight-bold">
+                            John
+                        </div>
+                        <img src="Images/dummy-user.png" alt="" class="sit-user">
+    
+                        <div class="chips-on-hand text-light">
+                            $10,000,000
+                        </div>
+    
+                        <div class="timer rounded bg-light mb-1">
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"
+                                id="player-1-timer"></div>
+                            </div>                
+                        </div>
+                    </div>
+    
+                    <div class="poker-card player-card" id="player-5-card-1">
+                        J <br>
+                        <span class="clubs">♣</span>
+                    </div> 
+    
+                    <div class="poker-card player-card" id="player-5-card-2">
+                        J <br>
+                        <span class="clubs">♣</span>
+                    </div> 
+    
+                    <div class="player-pour-chips" id="player-pour-chips-5">
+                        <img src="Images/chips.png" class="ml-3 chips" alt=""> 
+                        <span class="pour-chips-amount">15,000,000</span>
+                    </div>
                 </div>
+               
             </div>
 
             <div class="poker-table">
                 <div class="table-inner">
-                    <div class="chips-section text-center">
+                    <div class="card-chips-area">
+
+                    </div>
+                    <div class="chips-section text-center" style="display: none;">
                         <img src="Images/chips.png" class="chips" alt=""> 
                         <span class="chips-amount">500K</span>
                     </div>
 
-                    <div class="card-section">
+                    <div class="card-section" style="display: none;">
                         <div class="poker-card-container">
                             <div class="poker-card">
                                 A <br>
@@ -328,6 +349,8 @@
                     <input type="text" class="form-control mt-3" placeholder="Buy In Amount" id="buy-in-manual"
                     oninput="buyInManual()">
                     <div class="text-danger mt-2" id="buy-in-warning"></div>
+
+                    <input type="hidden" id="seat-no" value="">
                 </div>
 
                 <div class="buy-in-options">

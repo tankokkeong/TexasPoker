@@ -129,7 +129,7 @@
 }
 
 #seat-1{
-    left: 50px;
+    left: 80px;
     top: 20px;
 }
 
@@ -139,7 +139,7 @@
 }
 
 #seat-3{
-    left: calc(50% - 70px);
+    left: calc(50% - 50px);
     top: 360px;
 }
 
@@ -149,7 +149,7 @@
 }
 
 #seat-5{
-    right: 50px;
+    right: 80px;
     top: 20px;
 }
 
@@ -240,7 +240,7 @@
 
 #player-pour-chips-1{
     left: 100px;
-    top: 80px;
+    top: 100px;
 }
 
 #player-pour-chips-2{
@@ -249,7 +249,7 @@
 }
 
 #player-pour-chips-3{
-    left: 0px;
+    right: 0px;
     bottom: 170px;
 }
 
@@ -260,7 +260,7 @@
 
 #player-pour-chips-5{
     right: 130px;
-    top: 80px;
+    top: 100px;
 }
 
 .sit-user{
