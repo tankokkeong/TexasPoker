@@ -74,7 +74,7 @@
                         </div>
 
                         <div class="createAcc text-center mt-4 mb-3">
-                            <a href="index.html">Already Have An Account? Click Here</a>
+                            <a href="login.html">Already Have An Account? Click Here</a>
                         </div>
                     </form>
 
@@ -152,12 +152,12 @@
                     userId : user.uid,
                     email : email,
                     username: username,
-                    walletBallance: 10000
+                    walletBallance: 10000000
                 })
                 .then(() => {
                     sessionStorage.setItem('userId', user.uid);
                     alert('Registered Succesful');
-                    window.location.replace("index.html")
+                    window.location.replace("login.html")
                 });
 
             })
