@@ -332,11 +332,10 @@
 
             <div id="messages" class="LiveChatContainerContents"></div>
 
-            <form enctype="multipart/form-data">
-                <div class="sendMessages">
-                    <input id="message" class="form-control" placeholder="Enter message" autocomplete="off" />
-                    <button type="button" class="bg-success text-light btn" onclick="sendMessage()">Send</button>
-                </div>
+            <form id="form" autocomplete="off">
+              <input type="text" id="message" placeholder="Enter Message" autofocus>
+              <button type="button" id="image">Image</button>
+              <input type="file" id="file" accept="image/*" hidden>
             </form>
           </div>
         </div>
@@ -350,108 +349,6 @@
             e.preventDefault();
             $(this).tab('show');
         })
-
-        function clearTextBox() {
-            document.getElementById("message").value = "";
-            document.getElementsByClassName("emojionearea-editor")[0].innerHTML = "";
-        }
-
-        function sendMessage() {
-            // get messages
-            var message = document.getElementById("message").value;
-
-            if (message != "" && query != "") {
-
-                //save in database
-                firebase.database().ref("Admin/" + query + "/").push({
-                    "sender": query,
-                    "message": message,
-                    "timeSent": sentTime,
-                    "sent": 1,
-                    "received": 0,
-                });
-
-                //save in firebase
-                firebase.database().ref("Member/" + query + "/").push({
-                    "sender": query,
-                    "message": message,
-                    "timeSent": sentTime,
-                    "sent": 0,
-                    "received": 1,
-                });
-
-                //save in firebase
-                firebase.database().ref("seenMessages/Admin/" + query + "/").set({
-                    "seen": "unseen",
-                });
-            }
-
-            //Clear textbox after sending the message
-            clearTextBox();
-        }
-
-        function enterMessagesLiveChatAdmin() {
-            if (event.keyCode === 13) {
-                event.preventDefault();
-                sendMessage();
-                scrollToBottomMessage();
-            }
-        }
-
-        function scrollToBottomMessage() {
-            var messages = document.getElementById("messages");
-            messages.scrollTop = messages.scrollHeight;
-        }
-
-        $("#message").emojioneArea({
-            pickerPosition: "top",
-            inline: true,
-            events: {
-                keyup: function (editor, event) {
-                    if (event.which == 13) {
-                        var message = document.getElementById("message").value;
-                        message = this.getText();
-
-                        if (message != "") {
-
-                            var verifyEmail = true;
-
-                            if (verifyEmail) {
-
-                                //save in firebase
-                                firebase.database().ref("seenMessages/Admin/" + query + "/").set({
-                                    "seen": "unseen",
-                                });
-
-                                //save in firebase
-                                firebase.database().ref("Admin/" + query + "/").push({
-                                    "sender": query,
-                                    "message": message,
-                                    "timeSent": sentTime,
-                                    "sent": 1,
-                                    "received": 0,
-                                });
-
-                                //save in firebase
-                                firebase.database().ref("Member/" + query + "/").push({
-                                    "sender": query,
-                                    "message": message,
-                                    "timeSent": sentTime,
-                                    "sent": 0,
-                                    "received": 1,
-                                });
-                            }
-
-                            //Clear textbox after sending the message
-                            clearTextBox();
-                        }
-
-                        var messages = document.getElementById("messages");
-                        messages.scrollTop = messages.scrollHeight;
-                    }
-                },
-            }
-        });
       </script>
 </body>
 </html>

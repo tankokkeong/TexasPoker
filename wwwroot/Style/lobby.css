@@ -103,64 +103,72 @@ th, td {
     position: relative;
 }
 
-.sendMessages {
+.image {
+    max-width: 200px;
+    max-height: 200px;
+    border: 1px solid #999;
+    cursor: pointer;
+}
+
+/* TODO(4B): Fullscreen CSS */
+.image:fullscreen {
+    object-fit: scale-down;
+}
+
+/* TODO(6A): Drag-and-drop CSS */
+.active {
+    outline-offset: -5px;
+}
+
+input[type=text] {
     padding: 5px;
+    box-sizing: border-box;
     width: 100%;
+}
+
+/* Chat ======================================================================= */
+#form {
     display: flex;
 }
 
-.LCusername {
-    display: none;
+#chat {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.sender-messagesContexts {
-    display: flex;
-    justify-content: flex-end;
+#chat li {
+    margin-bottom: 3px;
 }
 
-.sender-messagesContents {
-    background-color: #92989C;
-    color: white;
-    max-width: 25%;
-    padding: 10px;
-    border-radius: 15px;
-    margin: 15px;
-    overflow-wrap: break-word;
+#chat li div {
+    display: inline-block;
+    max-width: 80%;
+    padding: 3px 6px;
+    border-radius: 3px;
+    word-break: break-all;
 }
 
-.replier-messagesContexts {
-    display: block;
-}
-
-.replier-messagesContents {
-    background-color: #007d71;
-    color: white;
-    padding: 10px;
-    border-radius: 15px;
-    margin: 15px;
-    max-width: 25%;
-    margin-left: 45px;
-    overflow-wrap: break-word;
-}
-
-.replier-messagesContentsName {
-    text-decoration: underline;
-    font-weight: bold;
-}
-
-.sentTime {
-    font-size: 12px;
+#chat li.caller {
     text-align: right;
 }
 
-.sendImagePic {
-    width: 40px;
+#chat li.caller div {
+    background-color: #aed581;
 }
 
-.messageImage {
-    border-radius: 10px;
+#chat li.others {
+    text-align: left;
 }
 
-.form-control-plaintext {
-    outline: none;
+#chat li.others div {
+    background-color: #80deea;
+}
+
+#chat li.status {
+    text-align: center;
+}
+
+#chat li.status div {
+    background-color: #ffd54f;
 }
