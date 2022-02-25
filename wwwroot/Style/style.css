@@ -267,6 +267,23 @@
     width: 80px;
 }
 
+.player-name{
+    width: 80px;
+    overflow-x: scroll;
+}
+
+.player-name::-webkit-scrollbar {
+    height: 5px;
+}
+
+.player-name::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+.player-name::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
 .sit-user-container{
     background-color: black;
     padding: 5px;

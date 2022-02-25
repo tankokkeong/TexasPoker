@@ -136,7 +136,7 @@ public class GameHub : Hub
             var player = new Player(id, icon, name, chips);
 
             game.AddPlayer(player, seatNo);
-            await Clients.Caller.SendAsync("Reject");
+            await Clients.Caller.SendAsync("getSeat", seatNo, chips, name);
             return;
         }
 

@@ -22,6 +22,22 @@ con.start().then();
 //Invalid Id
 con.on('Reject', () => location = 'lobby.html');
 
+//Get Seat
+con.on('getSeat', (seatNo, chips, name) => {
+  var seat = document.getElementById("occupied-seat-" + seatNo);
+  var buyInSign = document.getElementById("buy-in-seat-" + seatNo);
+  var myChips = document.getElementById("seat-" + seatNo +"-chips");
+  var myName = document.getElementById("player-" + seatNo + "-name");
+
+  console.log(seatNo)
+
+  //Display seat and remove buy in sign
+  seat.style.display = "";
+  buyInSign.style.display = "none";
+  myChips.innerHTML = "$ " + amountFormatter(chips);
+  myName.innerHTML = name;
+});
+
 var playerSeat = [false, false, false, false, false];
 
 function cardDealing(){
@@ -32,11 +48,17 @@ function buyInDisplay(){
   var inputAmount = document.getElementById("buy-in-amount");
   var inputManual = document.getElementById("buy-in-manual");
   var displayAmount = document.getElementById("buy-in-amount-display");
+  var buyInBtn = document.getElementById("confirm-buyin-btn");
 
-  if(inputAmount.value >= 0){
+  if(inputAmount.value < 0 || inputAmount.value  > 1000000){
+    buyInBtn.disabled = true;
+  }
+  else{
       displayAmount.innerHTML = amountFormatter(inputAmount.value);
       inputManual.value = inputAmount.value;
+      buyInBtn.disabled = false;
   }
+  
 }
 
 function buyInManual(){
@@ -44,24 +66,29 @@ function buyInManual(){
   var inputManual = document.getElementById("buy-in-manual");
   var displayAmount = document.getElementById("buy-in-amount-display");
   var digit_validation = /^[0-9]+$/;
+  var buyInBtn = document.getElementById("confirm-buyin-btn");
 
   if(!digit_validation.test(inputManual.value)){
     inputManual.value =  inputManual.value.substring(0, inputManual.value.length-1);;
+    buyInBtn.disabled = false;
   }
   else if(inputManual.value >= 1000000){
     displayAmount.innerHTML = amountFormatter(1000000);
     inputAmount.value = 1000000
     inputManual.value = 1000000;
     $("#buy-in-warning").html("");
+    buyInBtn.disabled = false;
   }
   else if(inputManual.value >= 100000){
     displayAmount.innerHTML = amountFormatter(inputManual.value);
     inputAmount.value = inputManual.value
     inputManual.value = inputManual.value;
     $("#buy-in-warning").html("");
+    buyInBtn.disabled = false;
   }
   else{
     $("#buy-in-warning").html("Your amount is less than the minimum amount!");
+    buyInBtn.disabled = true;
   }
 }
 
@@ -137,6 +164,7 @@ function buyInGame(){
   var userId = sessionStorage.getItem("userId");
   var name = sessionStorage.getItem('userName');
 
+  console.log("hi")
 
   con.invoke('JoinGame', seatNo, userId, "", name, buyInAmount);
 }
