@@ -1,14 +1,19 @@
 // ========================================================================================
 // Connect
 // ========================================================================================
-
-const param = $.param({ page: 'game', gameId });
+const param = $.param({ page: 'lobby' });
 
 const con = new signalR.HubConnectionBuilder()
-.withUrl('/hub?' + param)
-.build();
+    .withUrl('/hub?' + param)
+    .build();
 
 $('#create').click(async e => {
     let gameId = await con.invoke('Create');
-    location = `game.html?gameId=${gameId}`;
+    location = `index.html?gameId=${gameId}`;
 });
+
+con.start().then(main);
+
+function main() {
+    $('#create').prop('disabled', false);
+}

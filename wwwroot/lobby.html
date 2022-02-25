@@ -51,7 +51,7 @@
                 <div class="startGame">
                   <div class="startGame-header">
                     <h2>Select Lobby to Join</h2>
-                    <button class="btn btn-success createGame">Create Game</button>
+                    <button class="btn btn-success createGame" id="create" disabled="true">Create Game</button>
                   </div>
                   <div class="table-responsive">
                     <table class="table table-hover">
@@ -342,6 +342,9 @@
         </div>
       </div>
 
+      <script src="Script/jquery.slim.js"></script>
+      <script src="Script/signalr.js"></script>
+      <script src="Script/lobby.js"></script>
       <script>
         $('#myTab a').on('click', function (e) {
             e.preventDefault();
