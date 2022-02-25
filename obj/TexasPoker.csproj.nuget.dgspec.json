@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/TexasPoker.csproj": {}
+    "D:\\Texas Poker\\TexasPoker\\TexasPoker.csproj": {}
   },
   "projects": {
-    "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/TexasPoker.csproj": {
+    "D:\\Texas Poker\\TexasPoker\\TexasPoker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/TexasPoker.csproj",
+        "projectUniqueName": "D:\\Texas Poker\\TexasPoker\\TexasPoker.csproj",
         "projectName": "TexasPoker",
-        "projectPath": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/TexasPoker.csproj",
-        "packagesPath": "/home/kenny/.nuget/packages/",
-        "outputPath": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/obj/",
+        "projectPath": "D:\\Texas Poker\\TexasPoker\\TexasPoker.csproj",
+        "packagesPath": "C:\\Users\\anson\\.nuget\\packages\\",
+        "outputPath": "D:\\Texas Poker\\TexasPoker\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/kenny/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\anson\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.200/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

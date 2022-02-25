@@ -350,10 +350,14 @@
             $(this).tab('show');
         })
 
-        var email = sessionStorage.getItem("userEmail");
-        var name = sessionStorage.getItem("userName");
-        var wallet = parseInt(sessionStorage.getItem("userWallet"));
-        console.log(wallet)
+        const email = sessionStorage.getItem("userEmail");
+        const name = sessionStorage.getItem("userName");
+        const wallet = parseInt(sessionStorage.getItem("userWallet"));
+
+        if(!email || !name){
+          location = '/';
+          throw 'ERROR: Invalid icon or name';
+        }
 
         document.getElementById("staticName").value = name;
         document.getElementById("staticEmail").value = email;
