@@ -107,7 +107,8 @@
     //import { getDatabase, ref, set, child } from "firebase/database";
 
     import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-auth.js";
-    import { getDatabase, ref, child, get, set } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-database.js";
+    import { getFirestore, doc, getDoc, setDoc} from "https://www.gstatic.com/firebasejs/9.6.4/firebase-firestore.js";
+
 
     const firebaseConfig = {
     apiKey: "AIzaSyB_MbVmybGR9UVpAb2nu0T1zrUEKC6LBqo",
@@ -124,7 +125,7 @@
     const app = initializeApp(firebaseConfig);
     // Initialize variables
     const auth = getAuth(app);
-    const database = getDatabase(app);
+    const database = getFirestore();
 
     var btn = document.getElementById("login");
 
@@ -138,17 +139,33 @@ btn.addEventListener("click", function(e) {
     if(validateInput(email,password) == true && emailValidation(email) == true){
 
         signInWithEmailAndPassword(auth, email, password)
-        .then(() => {
+        .then(async () => {
 
             const user = auth.currentUser;
-        
+       
             if (user){
+
+                console.log(user.uid);
+                const docRef = doc(database, "players", user.uid);
+                const docSnap = await getDoc(docRef);
+
+                if (docSnap.exists()) {
+                    console.log(docSnap.data().email);
+                    console.log(docSnap.data().username);
+                    console.log(docSnap.data().walletBallance);
+                    // const userData = {
+                    //     userEmail :docSnap.data().email,
+                    //     userName : docSnap.data().username,
+                    //     userWalletBallance:  docSnap.data().walletBallance
+                    // };
+                    sessionStorage.setItem("userEmail", docSnap.data().email);
+                    sessionStorage.setItem("userName", docSnap.data().username);
+                    sessionStorage.setItem("userWalletBalance", docSnap.data().walletBallance);
+                }   
 
                 alert('Welcome Back!!');
                 window.location.replace("lobby.html")
-
             }
-            
         })
         .catch((error) => {
             const errorCode = error.code;
