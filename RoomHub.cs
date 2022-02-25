@@ -15,6 +15,8 @@ public class Player
     public string? SecondHandCard {get; set;} = null;
     public int ChipsOnHand { get; set; } = 0;
 
+    public Player(){}
+
     public Player(string id, string icon, string name, int chipsOnHand) => (Id, Icon, Name, ChipsOnHand) = (id, icon, name, chipsOnHand);
 
 }
@@ -36,6 +38,8 @@ public class Game
     "A♣", "K♣", "Q♣", "J♣", "10♣", "9♣", "8♣", "7♣", "6♣", "5♣", "4♣", "3♣", "2♣",
     "A♦", "K♦", "Q♦", "J♦", "10♦", "9♦", "8♦", "7♦", "6♦", "5♦", "4♦", "3♦", "2♦",
     };
+
+    public List<Player> playersOfTheRound = new List<Player>();
 
     public Player? Seat1 { get; set; } = null;
     public Player? Seat2 { get; set; } = null;
@@ -112,8 +116,6 @@ public class GameHub : Hub
     
     private static List<Game> games = new List<Game>();
 
-    private List<Player> playersOfTheRound = new List<Player>();
-
     public string Create()
     {
         var game = new Game();
@@ -146,13 +148,33 @@ public class GameHub : Hub
 
     public async Task FlopRound(){
 
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if(game != null){
+            int cardIndex = ((game.playersOfTheRound.Count() * 2) - 1);
+        }
     }
 
     public async Task TurnRound(){
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
 
+        if(game != null){
+            int cardIndex = ((game.playersOfTheRound.Count() * 2) - 1) + 4;
+        }
     }
 
     public async Task RiverRound(){
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if(game != null){
+            int cardIndex = ((game.playersOfTheRound.Count() * 2) - 1) + 5;
+        }
 
     }
 
