@@ -11,7 +11,7 @@ const con = new signalR.HubConnectionBuilder()
 
 $('#create').click(async e => {
     let gameId = await con.invoke('Create');
-    location = `index.html?gameId=${gameId}`;
+    location = `room.html?gameId=${gameId}`;
 });
 
 con.start().then(main);

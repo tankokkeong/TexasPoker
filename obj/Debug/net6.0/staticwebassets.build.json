@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Rf5dseNaDOMSubOV4sSo+SIhHSfFqkp/BaYcbvhENf8=",
+  "Hash": "HtJjeHJGVXxO2XU2w/FZjzj5XztSCxL16RqB0rB8GbI=",
   "Source": "TexasPoker",
   "BasePath": "_content/TexasPoker",
   "Mode": "Default",
@@ -442,23 +442,6 @@
       "OriginalItemSpec": "wwwroot/lobby.html"
     },
     {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/login.html",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
-      "BasePath": "_content/TexasPoker",
-      "RelativePath": "login.html",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/login.html"
-    },
-    {
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/mini-game.html",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
@@ -474,6 +457,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/mini-game.html"
+    },
+    {
+      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/room.html",
+      "SourceId": "TexasPoker",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "BasePath": "_content/TexasPoker",
+      "RelativePath": "room.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/room.html"
     },
     {
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Script/emojionearea.min.js",
