@@ -154,6 +154,10 @@ public class GameHub : Hub
 
         if(game != null){
             int cardIndex = ((game.playersOfTheRound.Count() * 2) - 1);
+
+            game.FirstCard = game.cards[cardIndex + 1];
+            game.SecondCard = game.cards[cardIndex + 2];
+            game.ThirdCard = game.cards[cardIndex + 3];
         }
     }
 
@@ -164,6 +168,7 @@ public class GameHub : Hub
 
         if(game != null){
             int cardIndex = ((game.playersOfTheRound.Count() * 2) - 1) + 4;
+            game.FourthCard = game.cards[cardIndex + 1];
         }
     }
 
@@ -174,6 +179,7 @@ public class GameHub : Hub
 
         if(game != null){
             int cardIndex = ((game.playersOfTheRound.Count() * 2) - 1) + 5;
+            game.FifthCard = game.cards[cardIndex + 1];
         }
 
     }

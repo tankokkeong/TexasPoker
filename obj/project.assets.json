@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\festu\\.nuget\\packages\\": {}
+    "/home/kenny/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\TexasPoker.csproj",
+      "projectUniqueName": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/TexasPoker.csproj",
       "projectName": "TexasPoker",
-      "projectPath": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\TexasPoker.csproj",
-      "packagesPath": "C:\\Users\\festu\\.nuget\\packages\\",
-      "outputPath": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker\\obj\\",
+      "projectPath": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/TexasPoker.csproj",
+      "packagesPath": "/home/kenny/.nuget/packages/",
+      "outputPath": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\festu\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/kenny/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.200/RuntimeIdentifierGraph.json"
       }
     }
   }
