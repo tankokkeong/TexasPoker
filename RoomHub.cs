@@ -236,6 +236,11 @@ public class GameHub : Hub
 
         if (game != null)
         {
+            if(game.NumberOfPlayer <= 1){
+                //End Game
+                game.IsWaiting = true;
+            }
+
             //Remove player
             game.RemovePlayer(seatNo);
             await Clients.Group(gameId).SendAsync("LeaveSeat", seatNo);
@@ -293,7 +298,7 @@ public class GameHub : Hub
                 cardIndex = cardIndex + 2;
             }
 
-            await Clients.Caller.SendAsync("StartGame", game);
+            await Clients.Group(gameId).SendAsync("StartGame", game);
             return;
 
         }
