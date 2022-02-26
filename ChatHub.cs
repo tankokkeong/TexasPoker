@@ -12,7 +12,7 @@ public class ChatHub : Hub
 
     public override async Task OnConnectedAsync()
     {
-        string? name = Context.GetHttpContext()?.Request.Query["name"];
+        string? name = Context.GetHttpContext()?.Request.Cookies["username"];
         if (name != null)
         {
             count++;
@@ -23,7 +23,7 @@ public class ChatHub : Hub
 
     public override async Task OnDisconnectedAsync(Exception? exception) 
     {
-        string? name = Context.GetHttpContext()?.Request.Query["name"];
+        string? name = Context.GetHttpContext()?.Request.Cookies["username"];
         if (name != null)
         {
             count--;
