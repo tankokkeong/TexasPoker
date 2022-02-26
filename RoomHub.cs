@@ -33,10 +33,10 @@ public class Game
     public int NumberOfPlayer = 0;
 
     public string[] cards = 
-    {"A♠", "K♠", "Q♠", "J♠", "10♠", "9♠", "8♠", "7♠", "6♠", "5♠", "4♠", "3♠", "2♠",
-    "A♥", "K♥", "Q♥", "J♥", "10♥", "9♥", "8♥", "7♥", "6♥", "5♥", "4♥", "3♥", "2♥",
-    "A♣", "K♣", "Q♣", "J♣", "10♣", "9♣", "8♣", "7♣", "6♣", "5♣", "4♣", "3♣", "2♣",
-    "A♦", "K♦", "Q♦", "J♦", "10♦", "9♦", "8♦", "7♦", "6♦", "5♦", "4♦", "3♦", "2♦",
+    {"A <br> <span class='spades'>♠</span>", "K <br> <span class='spades'>♠</span>", "Q <br> <span class='spades'>♠</span>", "J <br> <span class='spades'>♠</span>", "10 <br> <span class='spades'>♠</span>", "9 <br> <span class='spades'>♠</span>", "8 <br> <span class='spades'>♠</span>", "7 <br> <span class='spades'>♠</span>", "6 <br> <span class='spades'>♠</span>", "5 <br> <span class='spades'>♠</span>", "4 <br> <span class='spades'>♠</span>", "3 <br> <span class='spades'>♠</span>", "2 <br> <span class='spades'>♠</span>",
+    "A <br> <span class='hearts'>♥</span>", "K <br> <span class='hearts'>♥</span>", "Q <br> <span class='hearts'>♥</span>", "J <br> <span class='hearts'>♥</span>", "10 <br> <span class='hearts'>♥</span>", "9 <br> <span class='hearts'>♥</span>", "8 <br> <span class='hearts'>♥</span>", "7 <br> <span class='hearts'>♥</span>", "6 <br> <span class='hearts'>♥</span>", "5 <br> <span class='hearts'>♥</span>", "4 <br> <span class='hearts'>♥</span>", "3 <br> <span class='hearts'>♥</span>", "2 <br> <span class='hearts'>♥</span>",
+    "A <br> <span class='clubs'>♣</span>", "K <br> <span class='clubs'>♣</span>", "Q <br> <span class='clubs'>♣</span>", "J <br> <span class='clubs'>♣</span>", "10 <br> <span class='clubs'>♣</span>", "9 <br> <span class='clubs'>♣</span>", "8 <br> <span class='clubs'>♣</span>", "7 <br> <span class='clubs'>♣</span>", "6 <br> <span class='clubs'>♣</span>", "5 <br> <span class='clubs'>♣</span>", "4 <br> <span class='clubs'>♣</span>", "3 <br> <span class='clubs'>♣</span>", "2 <br> <span class='clubs'>♣</span>",
+    "A <br> <span class='diamonds'>♦</span>", "K <br> <span class='diamonds'>♦</span>", "Q <br> <span class='diamonds'>♦</span>", "J <br> <span class='diamonds'>♦</span>", "10 <br> <span class='diamonds'>♦</span>", "9 <br> <span class='diamonds'>♦</span>", "8 <br> <span class='diamonds'>♦</span>", "7 <br> <span class='diamonds'>♦</span>", "6 <br> <span class='diamonds'>♦</span>", "5 <br> <span class='diamonds'>♦</span>", "4 <br> <span class='diamonds'>♦</span>", "3 <br> <span class='diamonds'>♦</span>", "2 <br> <span class='diamonds'>♦</span>",
     };
 
     public List<Player> playersOfTheRound = new List<Player>();
@@ -250,6 +250,7 @@ public class GameHub : Hub
 
         //Find game
         var game = games.Find(g => g.Id == gameId);
+        int cardIndex = 0;
 
         if (game != null){
             //Shuffle card
@@ -257,7 +258,43 @@ public class GameHub : Hub
 
             List<string> sequence = CardDealingSequence(game);
 
+            if (sequence.Contains("Seat 1") && game.Seat1 != null){
+                game.Seat1.FirstHandCard = game.cards[cardIndex];
+                game.Seat1.SecondHandCard = game.cards[cardIndex + 1];
 
+                cardIndex = cardIndex + 2;
+            }
+
+            if (sequence.Contains("Seat 2") && game.Seat2 != null){
+                game.Seat2.FirstHandCard = game.cards[cardIndex];
+                game.Seat2.SecondHandCard = game.cards[cardIndex + 1];
+
+                cardIndex = cardIndex + 2;
+            }
+
+            if (sequence.Contains("Seat 3") && game.Seat3 != null){
+                game.Seat3.FirstHandCard = game.cards[cardIndex];
+                game.Seat3.SecondHandCard = game.cards[cardIndex + 1];
+
+                cardIndex = cardIndex + 2;
+            }
+
+            if (sequence.Contains("Seat 4") && game.Seat4 != null){
+                game.Seat4.FirstHandCard = game.cards[cardIndex];
+                game.Seat4.SecondHandCard = game.cards[cardIndex + 1];
+
+                cardIndex = cardIndex + 2;
+            }
+
+            if (sequence.Contains("Seat 5") && game.Seat5 != null){
+                game.Seat5.FirstHandCard = game.cards[cardIndex];
+                game.Seat5.SecondHandCard = game.cards[cardIndex + 1];
+
+                cardIndex = cardIndex + 2;
+            }
+
+            await Clients.Caller.SendAsync("StartGame", game);
+            return;
 
         }
         

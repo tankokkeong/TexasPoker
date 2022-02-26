@@ -31,7 +31,32 @@ con.on('ViewGame', (game) => {
   showPlayer(game.seat4, 4);
   showPlayer(game.seat5, 5);
 
-  console.log(seat1)
+  console.log(game.seat1)
+
+});
+
+//Get current game info
+con.on('StartGame', (game) => {
+
+  var mySeatNo = parseInt(sessionStorage.getItem("mySeatNo"));
+
+  if(mySeatNo == 1){
+    showCard(game, 1);
+  }
+  else if(mySeatNo == 2){
+    showCard(game, 2);
+  }
+  else if(mySeatNo == 3){
+    showCard(game, 3);
+  }
+  else if(mySeatNo == 4){
+    showCard(game, 4);
+  }
+  else if(mySeatNo == 5){
+    showCard(game, 5);
+  }
+
+
 });
 
 //Leaving the room
@@ -143,9 +168,13 @@ function showPlayer(player, seatNo){
   }
 }
 
+function showCard(player, seatNo){
+  var firstCard = document.getElementById("player-" + seatNo + "-card-1");
+  var secondCard = document.getElementById("player-" + seatNo + "-card-2");
 
-function cardDealing(){
-
+  //reveal the card
+  firstCard.innerHTML = player.firstHandCard;
+  secondCard.innerHTML = player.secondHandCard
 }
 
 function buyInDisplay(){
