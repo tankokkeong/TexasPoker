@@ -149,7 +149,7 @@ input[type=text] {
     word-break: break-all;
 }
 
-.me {
+.caller {
     text-align: left;
     color: lightgreen;
     margin-left: 20px;

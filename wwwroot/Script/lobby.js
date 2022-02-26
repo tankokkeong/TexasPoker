@@ -84,6 +84,18 @@ conChat.on('ReceiveImage', (name, url, who) => {
     `);
 })
 
+conChat.on('UpdateStatus', (count, status) => {
+    $('#count').text(count);
+
+    isBottom();
+    $('#chat').append(`
+        <li class="status">
+            <div>${status}</div>
+        </li>
+    `);
+    scrollToBottom();
+});
+
 // Start ==============================================================
 conChat.start().then(chat);
 
@@ -267,20 +279,52 @@ function fit(f, w, h, to = 'blob', type = 'image/jpeg') {
     });
 }
 
-// Mini Game ===================================================
-// const conMini = new signalR.HubConnectionBuilder()
-//     .withUrl('/minigameHub?' + param)
-//     .build();
+// ========================================================================================
+// Mini Game Events
+// ========================================================================================
+$('#createMini').click(async e => {
 
-// $('#createMini').click(async e => {
-//     let minigameId = await conMini.invoke('MiniCreate');
-//     location = `mini-game.html?minigameId=${minigameId}`;
-// });
+    let minigameId = await conMini.invoke('Create');
+    location = `minigame.html?gameId=${minigameId}`;
+});
 
-// conMini.start().then(main);
+$('.gamelist').on('click', '[data-join]', e => {
+    let minigameId = $(e.target).data('join');
+    location = `minigame.html?gameId=${minigameId}`;
+});
 
+// ========================================================================================
+// Mini Game Connect
+// ========================================================================================
 
-// $('tbody').on('click', '[data-join]', e => {
-//     let gameId = $(e.target).data('join');
-//     location = `mini-game.html?gameId=${gameId}`;
-// });
+const conMini = new signalR.HubConnectionBuilder()
+.withUrl('/minigameHub?' + param)
+.build();
+
+conMini.on('UpdateList', list => {
+    let html = '';
+
+    for (let game of list){
+        html += `
+            <tr>
+                <td>${game.id}</td>
+                <td>${game.playerA.name}</td>
+                <td>0/5</td>
+                <td><button data-join="${game.id}">Join</button></td>
+            </tr>
+        `;
+    }
+
+    if(list.length == 0){
+        html = '<tr><td colspan="3">No game</td></tr>';
+    }
+
+    $('.gamelist').html(html);
+
+});
+
+conMini.start().then(miniMain);
+
+function miniMain(){
+    $('#createMini').prop('disabled', false);
+}
