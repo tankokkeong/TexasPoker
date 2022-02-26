@@ -95,7 +95,7 @@ public class MiniRoomHub : Hub
 
     private static List<MiniGame> minigames = new List<MiniGame>();
 
-    public string MiniCreate()
+    public string Create()
     {
         var minigame = new MiniGame();
         minigames.Add(minigame);

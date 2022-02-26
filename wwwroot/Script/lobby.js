@@ -285,12 +285,12 @@ function fit(f, w, h, to = 'blob', type = 'image/jpeg') {
 $('#createMini').click(async e => {
 
     let minigameId = await conMini.invoke('Create');
-    location = `minigame.html?gameId=${minigameId}`;
+    location = `mini-game.html?gameId=${minigameId}`;
 });
 
 $('.gamelist').on('click', '[data-join]', e => {
     let minigameId = $(e.target).data('join');
-    location = `minigame.html?gameId=${minigameId}`;
+    location = `mini-game.html?gameId=${minigameId}`;
 });
 
 // ========================================================================================
