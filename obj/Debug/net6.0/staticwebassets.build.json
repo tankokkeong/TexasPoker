@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BfFLfg8K2LEo+HyBBCgmHV/W1z6umYYE/PAVoWc1C6g=",
+  "Hash": "LLF9LU4e20rhBLCEyVzeOtz2mPt/eEwPJ9okZ0HxPs8=",
   "Source": "TexasPoker",
   "BasePath": "_content/TexasPoker",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "TexasPoker\\wwwroot",
       "Source": "TexasPoker",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\audio\\Call Bell.mp3",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\audio\\Call Bell.mp3",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "audio/Call Bell.mp3",
       "AssetKind": "All",
@@ -34,10 +34,10 @@
       "OriginalItemSpec": "wwwroot\\audio\\Call Bell.mp3"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\audio\\Card-Shuffling.mp3",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\audio\\Card-Shuffling.mp3",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "audio/Card-Shuffling.mp3",
       "AssetKind": "All",
@@ -51,10 +51,10 @@
       "OriginalItemSpec": "wwwroot\\audio\\Card-Shuffling.mp3"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\audio\\Chips.mp3",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\audio\\Chips.mp3",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "audio/Chips.mp3",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\audio\\Chips.mp3"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\forgotPassword.html",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\forgotPassword.html",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "forgotPassword.html",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\forgotPassword.html"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Images\\chips.ico",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Images\\chips.ico",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/chips.ico",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\chips.ico"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Images\\chips.png",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Images\\chips.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/chips.png",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\chips.png"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Images\\chips1.png",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Images\\chips1.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/chips1.png",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\chips1.png"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Images\\chips2.png",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Images\\chips2.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/chips2.png",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\chips2.png"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Images\\chips3.png",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Images\\chips3.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/chips3.png",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\chips3.png"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Images\\chips4.png",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Images\\chips4.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/chips4.png",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\chips4.png"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Images\\dealer.png",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Images\\dealer.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dealer.png",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\dealer.png"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Images\\dice1.png",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Images\\dice1.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dice1.png",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\dice1.png"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Images\\dice2.png",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Images\\dice2.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dice2.png",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\dice2.png"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Images\\dice3.png",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Images\\dice3.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dice3.png",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\dice3.png"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Images\\dice4.png",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Images\\dice4.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dice4.png",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\dice4.png"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Images\\dice5.png",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Images\\dice5.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dice5.png",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\dice5.png"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Images\\dice6.png",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Images\\dice6.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dice6.png",
       "AssetKind": "All",
@@ -306,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\dice6.png"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Images\\dummy-user.png",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Images\\dummy-user.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dummy-user.png",
       "AssetKind": "All",
@@ -323,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\dummy-user.png"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Images\\google.png",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Images\\google.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/google.png",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\google.png"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Images\\poker-background.jpg",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Images\\poker-background.jpg",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/poker-background.jpg",
       "AssetKind": "All",
@@ -357,10 +357,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\poker-background.jpg"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Images\\poker-hand-rankings.jpg",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Images\\poker-hand-rankings.jpg",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/poker-hand-rankings.jpg",
       "AssetKind": "All",
@@ -374,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\poker-hand-rankings.jpg"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Images\\sendImages.png",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Images\\sendImages.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/sendImages.png",
       "AssetKind": "All",
@@ -391,10 +391,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\sendImages.png"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Images\\tzuyu-2.jpg",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Images\\tzuyu-2.jpg",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/tzuyu-2.jpg",
       "AssetKind": "All",
@@ -408,10 +408,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\tzuyu-2.jpg"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\index.html",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\index.html",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "index.html",
       "AssetKind": "All",
@@ -425,10 +425,10 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\lobby.html",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\lobby.html",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "lobby.html",
       "AssetKind": "All",
@@ -442,10 +442,10 @@
       "OriginalItemSpec": "wwwroot\\lobby.html"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\mini-game.html",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\mini-game.html",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "mini-game.html",
       "AssetKind": "All",
@@ -459,10 +459,10 @@
       "OriginalItemSpec": "wwwroot\\mini-game.html"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\room.html",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\room.html",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "room.html",
       "AssetKind": "All",
@@ -476,10 +476,10 @@
       "OriginalItemSpec": "wwwroot\\room.html"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Script\\emojionearea.min.js",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Script\\emojionearea.min.js",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Script/emojionearea.min.js",
       "AssetKind": "All",
@@ -493,10 +493,10 @@
       "OriginalItemSpec": "wwwroot\\Script\\emojionearea.min.js"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Script\\jquery.slim.js",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Script\\jquery.slim.js",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Script/jquery.slim.js",
       "AssetKind": "All",
@@ -510,10 +510,10 @@
       "OriginalItemSpec": "wwwroot\\Script\\jquery.slim.js"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Script\\lobby.js",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Script\\lobby.js",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Script/lobby.js",
       "AssetKind": "All",
@@ -527,10 +527,10 @@
       "OriginalItemSpec": "wwwroot\\Script\\lobby.js"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Script\\miniGame.js",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Script\\miniGame.js",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Script/miniGame.js",
       "AssetKind": "All",
@@ -544,10 +544,10 @@
       "OriginalItemSpec": "wwwroot\\Script\\miniGame.js"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Script\\room.js",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Script\\room.js",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Script/room.js",
       "AssetKind": "All",
@@ -561,10 +561,10 @@
       "OriginalItemSpec": "wwwroot\\Script\\room.js"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Script\\signalr.js",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Script\\signalr.js",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Script/signalr.js",
       "AssetKind": "All",
@@ -578,10 +578,10 @@
       "OriginalItemSpec": "wwwroot\\Script\\signalr.js"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\signup.html",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\signup.html",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "signup.html",
       "AssetKind": "All",
@@ -595,10 +595,10 @@
       "OriginalItemSpec": "wwwroot\\signup.html"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Style\\emojionearea.min.css",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Style\\emojionearea.min.css",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Style/emojionearea.min.css",
       "AssetKind": "All",
@@ -612,10 +612,10 @@
       "OriginalItemSpec": "wwwroot\\Style\\emojionearea.min.css"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Style\\forgotPassword.css",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Style\\forgotPassword.css",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Style/forgotPassword.css",
       "AssetKind": "All",
@@ -629,10 +629,10 @@
       "OriginalItemSpec": "wwwroot\\Style\\forgotPassword.css"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Style\\lobby.css",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Style\\lobby.css",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Style/lobby.css",
       "AssetKind": "All",
@@ -646,10 +646,10 @@
       "OriginalItemSpec": "wwwroot\\Style\\lobby.css"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Style\\login.css",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Style\\login.css",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Style/login.css",
       "AssetKind": "All",
@@ -663,10 +663,10 @@
       "OriginalItemSpec": "wwwroot\\Style\\login.css"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Style\\mini-game.css",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Style\\mini-game.css",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Style/mini-game.css",
       "AssetKind": "All",
@@ -680,10 +680,10 @@
       "OriginalItemSpec": "wwwroot\\Style\\mini-game.css"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Style\\signup.css",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Style\\signup.css",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Style/signup.css",
       "AssetKind": "All",
@@ -697,10 +697,10 @@
       "OriginalItemSpec": "wwwroot\\Style\\signup.css"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\Style\\style.css",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Style\\style.css",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Style/style.css",
       "AssetKind": "All",
@@ -714,10 +714,10 @@
       "OriginalItemSpec": "wwwroot\\Style\\style.css"
     },
     {
-      "Identity": "D:\\Texas Poker\\TexasPoker\\wwwroot\\symbols.txt",
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\symbols.txt",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas Poker\\TexasPoker\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
       "BasePath": "_content/TexasPoker",
       "RelativePath": "symbols.txt",
       "AssetKind": "All",

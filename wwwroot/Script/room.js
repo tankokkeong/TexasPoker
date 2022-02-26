@@ -38,8 +38,6 @@ con.on('StartGame', (game) => {
 
   var mySeatNo = parseInt(sessionStorage.getItem("mySeatNo"));
 
-  console.log("Start Game: " + JSON.stringify(game))
-
   if(mySeatNo == 1){
     showCard(game.seat1, 1);
   }
@@ -56,7 +54,6 @@ con.on('StartGame', (game) => {
     showCard(game.seat5, 5);
   }
 
-
 });
 
 //Leaving the room
@@ -67,13 +64,18 @@ con.onclose(err => {
 });
 
 //Leave Seat
-con.on('LeaveSeat', (seatNo, chips, name) => {
+con.on('LeaveSeat', (seatNo, noCard) => {
   var seat = document.getElementById("occupied-seat-" + seatNo);
   var buyInSign = document.getElementById("buy-in-seat-" + seatNo);
   var myChips = document.getElementById("seat-" + seatNo +"-chips");
   var myName = document.getElementById("player-" + seatNo + "-name");
   var mySeat = sessionStorage.getItem("mySeatNo");
   var playerHandCards = document.getElementById("player-" + seatNo + "-handcards");
+
+  console.log("No Card:" + noCard)
+  if(noCard == "No Card"){
+    removeAllCards();
+  }
 
   if(mySeat == seatNo){
     //Remove session storage
@@ -141,6 +143,15 @@ con.on('getSeat', (seatNo, chips, name) => {
 
 });
 
+function removeAllCards(){
+
+  for(var i = 1; i <= 5; i++){
+    var playerHandCards = document.getElementById("player-" + i + "-handcards");
+
+    playerHandCards.style.display = "none";
+  }
+}
+
 function showPlayer(player, seatNo){
   if(player != null){
     var seat = document.getElementById("occupied-seat-" + seatNo);
@@ -174,8 +185,6 @@ function showCard(player, seatNo){
   var firstCard = document.getElementById("player-" + seatNo + "-card-1");
   var secondCard = document.getElementById("player-" + seatNo + "-card-2");
   var playerHandCards = document.getElementById("player-" + seatNo + "-handcards");
-
-  console.log("Player: " + JSON.stringify(player))
 
   //reveal the card
   playerHandCards.style.display = "";
