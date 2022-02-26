@@ -182,11 +182,13 @@ function showPlayer(player, seatNo){
 }
 
 function showCard(player, seatNo){
+  var soundEffect = document.getElementById("shuffle-sound-effect");
   var firstCard = document.getElementById("player-" + seatNo + "-card-1");
   var secondCard = document.getElementById("player-" + seatNo + "-card-2");
   var playerHandCards = document.getElementById("player-" + seatNo + "-handcards");
 
   //reveal the card
+  soundEffect.play();
   playerHandCards.style.display = "";
   firstCard.innerHTML = player.firstHandCard;
   secondCard.innerHTML = player.secondHandCard;
