@@ -28,6 +28,9 @@
                 <a class="nav-link" href="lobby.html">Home</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" id="logout">Logout</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#">Account Balance here</a>
             </li>
             </ul>
@@ -389,6 +392,14 @@
         document.getElementById("staticName").value = name;
         document.getElementById("staticEmail").value = email;
         document.getElementById("staticWallet").value = wallet;
+
+        document.getElementById("logout").style.cursor = "pointer";
+
+        $("#logout").on('click', function(e) {
+            e.preventDefault();
+            sessionStorage.clear();
+            location = '/';
+        });
 
       </script>
 </body>
