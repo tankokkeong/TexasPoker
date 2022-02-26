@@ -73,6 +73,7 @@ con.on('LeaveSeat', (seatNo, chips, name) => {
   var myChips = document.getElementById("seat-" + seatNo +"-chips");
   var myName = document.getElementById("player-" + seatNo + "-name");
   var mySeat = sessionStorage.getItem("mySeatNo");
+  var playerHandCards = document.getElementById("player-" + seatNo + "-handcards");
 
   if(mySeat == seatNo){
     //Remove session storage
@@ -83,6 +84,7 @@ con.on('LeaveSeat', (seatNo, chips, name) => {
     buyInSign.style.display = "";
     myChips.innerHTML = "";
     myName.innerHTML = "";
+    playerHandCards.style.display = "none";
 
     //Recover other seat
     for(var i = 1 ; i <= 5; i++){
