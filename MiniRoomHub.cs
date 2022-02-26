@@ -6,14 +6,12 @@ using Microsoft.AspNetCore.SignalR;
     
 public class MiniPlayer
 {
-    public string Id { get; set; }
-    public string Icon { get; set; }
-    public string Name { get; set; }
-    // public string FirstHandCard {get; set;}
-    // public string SecondHandCard {get; set;}
-    // public int ChipsOnHand { get; set; } = 0;
-
-    public MiniPlayer(string id, string icon, string name) => (Id, Icon, Name) = (id, icon, name);
+    public string? Id { get; set; } = null;
+    public string? Icon { get; set; } = null;
+    public string? Name { get; set; } = null;
+    public int CurrentChipOnHand { get; set; } = 0;
+    public MiniPlayer(){}
+    public MiniPlayer(string id, string icon, string name, int currentChipOnHand) => (Id, Icon, Name, CurrentChipOnHand) = (id, icon, name, currentChipOnHand);
 
 }
 
@@ -36,8 +34,8 @@ public class MiniGame
     public string? FirstDice {get; set;} = null;
     public string? SecondDice {get; set;} = null;
     public string? ThirdDice {get; set;} = null;
-
-    // public int PoolChips {get; set;}
+    
+    public int PoolChip {get; set;}
 
     public bool IsWaiting { get; set; } = false;
 
@@ -49,26 +47,31 @@ public class MiniGame
         if (seatNo == 1 && Seat1 != null)
         {
             Seat1 = miniPlayer;
+            IsWaiting = true;
             NumberOfPlayer++;
         }
         else if (seatNo == 2 && Seat2 != null)
         {
             Seat2 = miniPlayer;
+            IsWaiting = false;
             NumberOfPlayer++;
         }
         else if (seatNo == 3 && Seat3 != null)
         {
             Seat3 = miniPlayer;
+            IsWaiting = false;
             NumberOfPlayer++;
         }
         else if (seatNo == 4 && Seat4 != null)
         {
             Seat4 = miniPlayer;
+            IsWaiting = false;
             NumberOfPlayer++;
         }
         else
         {
             Seat5 = miniPlayer;
+            IsWaiting = false;
             NumberOfPlayer++;
         }
 
@@ -90,36 +93,36 @@ public class MiniRoomHub : Hub
     // General
     // ----------------------------------------------------------------------------------------
 
-    private static List<Game> games = new List<Game>();
+    private static List<MiniGame> minigames = new List<MiniGame>();
 
-    public string Create()
+    public string MiniCreate()
     {
-        var game = new Game();
-        games.Add(game);
-        return game.Id;
+        var minigame = new MiniGame();
+        minigames.Add(minigame);
+        return minigame.Id;
     }
 
-    // TODO: Start()
-    public async Task Start()
-    {
-        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+    // // TODO: Start()
+    // public async Task Start()
+    // {
+    //     string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
 
-        var game = games.Find(g => g.Id == gameId);
-        if (game == null)
-        {
-            await Clients.Caller.SendAsync("Reject");
-            return;
-        }
+    //     var game = games.Find(g => g.Id == gameId);
+    //     if (game == null)
+    //     {
+    //         await Clients.Caller.SendAsync("Reject");
+    //         return;
+    //     }
 
-        await Clients.Group(gameId).SendAsync("Start");
-    }
+    //     await Clients.Group(gameId).SendAsync("Start");
+    // }
 
-    // TODO: Run(letter)
-    public async Task Run(string letter)
-    {
-        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+    // // TODO: Run(letter)
+    // public async Task Run(string letter)
+    // {
+    //     string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
 
-    }
+    // }
 
     // ----------------------------------------------------------------------------------------
     // Functions
@@ -127,7 +130,7 @@ public class MiniRoomHub : Hub
 
     private async Task UpdateList(string? id = null)
     {
-        var list = games.FindAll(g => g.IsWaiting);
+        var list = minigames.FindAll(g => g.IsWaiting);
 
         if (id == null)
         {
@@ -149,8 +152,8 @@ public class MiniRoomHub : Hub
 
         switch (page)
         {
-            case "list": await ListConnected(); break;
-            case "game": await GameConnected(); break;
+            case "lobby": await ListConnected(); break;
+            case "minigame": await GameConnected(); break;
         }
 
         await base.OnConnectedAsync();
@@ -177,8 +180,8 @@ public class MiniRoomHub : Hub
 
         switch (page)
         {
-            case "list": ListDisconnected(); break;
-            case "game": await GameDisconnected(); break;
+            case "lobby": ListDisconnected(); break;
+            case "minigame": await GameDisconnected(); break;
         }
 
         await base.OnDisconnectedAsync(exception);

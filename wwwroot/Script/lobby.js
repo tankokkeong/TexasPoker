@@ -266,3 +266,21 @@ function fit(f, w, h, to = 'blob', type = 'image/jpeg') {
         img.src = URL.createObjectURL(f);
     });
 }
+
+// Mini Game ===================================================
+// const conMini = new signalR.HubConnectionBuilder()
+//     .withUrl('/minigameHub?' + param)
+//     .build();
+
+// $('#createMini').click(async e => {
+//     let minigameId = await conMini.invoke('MiniCreate');
+//     location = `mini-game.html?minigameId=${minigameId}`;
+// });
+
+// conMini.start().then(main);
+
+
+// $('tbody').on('click', '[data-join]', e => {
+//     let gameId = $(e.target).data('join');
+//     location = `mini-game.html?gameId=${gameId}`;
+// });

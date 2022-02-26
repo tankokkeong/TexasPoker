@@ -7,4 +7,5 @@ var app = builder.Build();
 app.UseFileServer();
 app.MapHub<GameHub>("/hub");
 app.MapHub<ChatHub>("/gChat");
+app.MapHub<MiniRoomHub>("/minigameHub");
 app.Run();
