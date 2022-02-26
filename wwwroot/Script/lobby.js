@@ -88,10 +88,10 @@ conChat.on('UpdateStatus', (count, status) => {
     $('#count').text(count);
 
     isBottom();
-    $('#chat').append(`
-        <li class="status">
+    $('#messages').append(`
+        <div class="status">
             <div>${status}</div>
-        </li>
+        </div>
     `);
     scrollToBottom();
 });

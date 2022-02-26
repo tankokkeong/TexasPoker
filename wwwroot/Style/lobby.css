@@ -161,10 +161,7 @@ input[type=text] {
     margin-left: 20px;
 }
 
-#chat li.status {
+.status {
     text-align: center;
-}
-
-#chat li.status div {
-    background-color: #ffd54f;
+    color: white;
 }
