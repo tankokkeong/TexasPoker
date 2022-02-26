@@ -64,28 +64,6 @@ C:/Users/anson/Desktop/Texas Poker/TexasPoker/obj/Debug/net6.0/ref/TexasPoker.dl
 C:/Users/anson/Desktop/Texas Poker/TexasPoker/obj/Debug/net6.0/TexasPoker.pdb
 C:/Users/anson/Desktop/Texas Poker/TexasPoker/obj/Debug/net6.0/TexasPoker.genruntimeconfig.cache
 /home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/obj/Debug/net6.0/refint/TexasPoker.dll
-D:/Texas Poker/TexasPoker/bin/Debug/net6.0/appsettings.Development.json
-D:/Texas Poker/TexasPoker/bin/Debug/net6.0/appsettings.json
-D:/Texas Poker/TexasPoker/bin/Debug/net6.0/TexasPoker.staticwebassets.runtime.json
-D:/Texas Poker/TexasPoker/bin/Debug/net6.0/TexasPoker.exe
-D:/Texas Poker/TexasPoker/bin/Debug/net6.0/TexasPoker.deps.json
-D:/Texas Poker/TexasPoker/bin/Debug/net6.0/TexasPoker.runtimeconfig.json
-D:/Texas Poker/TexasPoker/bin/Debug/net6.0/TexasPoker.dll
-D:/Texas Poker/TexasPoker/bin/Debug/net6.0/ref/TexasPoker.dll
-D:/Texas Poker/TexasPoker/bin/Debug/net6.0/TexasPoker.pdb
-D:/Texas Poker/TexasPoker/obj/Debug/net6.0/TexasPoker.csproj.AssemblyReference.cache
-D:/Texas Poker/TexasPoker/obj/Debug/net6.0/TexasPoker.GeneratedMSBuildEditorConfig.editorconfig
-D:/Texas Poker/TexasPoker/obj/Debug/net6.0/TexasPoker.AssemblyInfoInputs.cache
-D:/Texas Poker/TexasPoker/obj/Debug/net6.0/TexasPoker.AssemblyInfo.cs
-D:/Texas Poker/TexasPoker/obj/Debug/net6.0/TexasPoker.csproj.CoreCompileInputs.cache
-D:/Texas Poker/TexasPoker/obj/Debug/net6.0/TexasPoker.MvcApplicationPartsAssemblyInfo.cache
-D:/Texas Poker/TexasPoker/obj/Debug/net6.0/staticwebassets.build.json
-D:/Texas Poker/TexasPoker/obj/Debug/net6.0/staticwebassets.development.json
-D:/Texas Poker/TexasPoker/obj/Debug/net6.0/scopedcss/bundle/TexasPoker.styles.css
-D:/Texas Poker/TexasPoker/obj/Debug/net6.0/TexasPoker.dll
-D:/Texas Poker/TexasPoker/obj/Debug/net6.0/ref/TexasPoker.dll
-D:/Texas Poker/TexasPoker/obj/Debug/net6.0/TexasPoker.pdb
-D:/Texas Poker/TexasPoker/obj/Debug/net6.0/TexasPoker.genruntimeconfig.cache
 D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\TexasPoker\bin\Debug\net6.0\appsettings.Development.json
 D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\TexasPoker\bin\Debug\net6.0\appsettings.json
 D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\TexasPoker\bin\Debug\net6.0\TexasPoker.staticwebassets.runtime.json
@@ -130,3 +108,25 @@ C:\Users\tanko\Desktop\TexasPoker\obj\Debug\net6.0\TexasPoker.dll
 C:\Users\tanko\Desktop\TexasPoker\obj\Debug\net6.0\ref\TexasPoker.dll
 C:\Users\tanko\Desktop\TexasPoker\obj\Debug\net6.0\TexasPoker.pdb
 C:\Users\tanko\Desktop\TexasPoker\obj\Debug\net6.0\TexasPoker.genruntimeconfig.cache
+D:\Texas Poker\TexasPoker\bin\Debug\net6.0\appsettings.Development.json
+D:\Texas Poker\TexasPoker\bin\Debug\net6.0\appsettings.json
+D:\Texas Poker\TexasPoker\bin\Debug\net6.0\TexasPoker.staticwebassets.runtime.json
+D:\Texas Poker\TexasPoker\bin\Debug\net6.0\TexasPoker.exe
+D:\Texas Poker\TexasPoker\bin\Debug\net6.0\TexasPoker.deps.json
+D:\Texas Poker\TexasPoker\bin\Debug\net6.0\TexasPoker.runtimeconfig.json
+D:\Texas Poker\TexasPoker\bin\Debug\net6.0\TexasPoker.dll
+D:\Texas Poker\TexasPoker\bin\Debug\net6.0\ref\TexasPoker.dll
+D:\Texas Poker\TexasPoker\bin\Debug\net6.0\TexasPoker.pdb
+D:\Texas Poker\TexasPoker\obj\Debug\net6.0\TexasPoker.csproj.AssemblyReference.cache
+D:\Texas Poker\TexasPoker\obj\Debug\net6.0\TexasPoker.GeneratedMSBuildEditorConfig.editorconfig
+D:\Texas Poker\TexasPoker\obj\Debug\net6.0\TexasPoker.AssemblyInfoInputs.cache
+D:\Texas Poker\TexasPoker\obj\Debug\net6.0\TexasPoker.AssemblyInfo.cs
+D:\Texas Poker\TexasPoker\obj\Debug\net6.0\TexasPoker.csproj.CoreCompileInputs.cache
+D:\Texas Poker\TexasPoker\obj\Debug\net6.0\TexasPoker.MvcApplicationPartsAssemblyInfo.cache
+D:\Texas Poker\TexasPoker\obj\Debug\net6.0\staticwebassets.build.json
+D:\Texas Poker\TexasPoker\obj\Debug\net6.0\staticwebassets.development.json
+D:\Texas Poker\TexasPoker\obj\Debug\net6.0\scopedcss\bundle\TexasPoker.styles.css
+D:\Texas Poker\TexasPoker\obj\Debug\net6.0\TexasPoker.dll
+D:\Texas Poker\TexasPoker\obj\Debug\net6.0\ref\TexasPoker.dll
+D:\Texas Poker\TexasPoker\obj\Debug\net6.0\TexasPoker.pdb
+D:\Texas Poker\TexasPoker\obj\Debug\net6.0\TexasPoker.genruntimeconfig.cache

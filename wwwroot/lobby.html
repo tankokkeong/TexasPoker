@@ -42,6 +42,7 @@
               <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Start Game</a>
               <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">My Profile</a>
               <a class="nav-link" id="v-pills-learn-tab" data-toggle="pill" href="#v-pills-learn" role="tab" aria-controls="v-pills-settings" aria-selected="false">Learn to Play</a>
+              <a class="nav-link" id="v-pills-minigame-tab" data-toggle="pill" href="#v-pills-minigame" role="tab" aria-controls="v-pills-minigame" aria-selected="true">Mini Game</a>
             </div>
           </div>
           
@@ -318,6 +319,31 @@
                     left of the dealer button. Usually half the size of the big blind.<br>
                     Value Bet – A bet with a made hand in the hopes of getting paid off by worse holdings. 
                   </p>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="v-pills-minigame" role="tabpanel" aria-labelledby="v-pills-minigame-tab">
+                <div class="startGame">
+                  <div class="startGame-header">
+                    <h2>Select Room to Join</h2>
+                    <button class="btn btn-success createGame" id="createMiniGame">Create Game</button>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th class="text-center" scope="col">Room No.</th>
+                          <th class="text-center" scope="col">Owner</th>
+                          <th class="text-center" scope="col">Number of Players</th>
+                          <th class="text-center" scope="col">Join</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td colspan="4" class="mt-5">No Game Available Now</td>
+                        </tr>             
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
