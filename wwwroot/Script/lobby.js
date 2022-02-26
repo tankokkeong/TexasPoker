@@ -84,6 +84,18 @@ conChat.on('ReceiveImage', (name, url, who) => {
     `);
 })
 
+conChat.on('UpdateStatus', (count, status) => {
+    $('#count').text(count);
+
+    isBottom();
+    $('#chat').append(`
+        <li class="status">
+            <div>${status}</div>
+        </li>
+    `);
+    scrollToBottom();
+});
+
 // Start ==============================================================
 conChat.start().then(chat);
 

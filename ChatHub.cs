@@ -6,7 +6,7 @@ public class ChatHub : Hub
 
     public async Task SendText(string name, string message)
     {
-        await Clients.Caller.SendAsync("ReceiveText", name, message, "me");
+        await Clients.Caller.SendAsync("ReceiveText", name, message, "caller");
         await Clients.Others.SendAsync("ReceiveText", name, message, "others");
     }
 
@@ -34,7 +34,7 @@ public class ChatHub : Hub
 
     public async Task SendImage(string name, string url)
     {
-        await Clients.Caller.SendAsync("ReceiveImage", name, url, "me");
+        await Clients.Caller.SendAsync("ReceiveImage", name, url, "caller");
         await Clients.Others.SendAsync("ReceiveImage", name, url, "others");
     }
 }
