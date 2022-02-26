@@ -31,8 +31,6 @@ con.on('ViewGame', (game) => {
   showPlayer(game.seat4, 4);
   showPlayer(game.seat5, 5);
 
-  console.log(game.seat1)
-
 });
 
 //Get current game info
@@ -41,21 +39,20 @@ con.on('StartGame', (game) => {
   var mySeatNo = parseInt(sessionStorage.getItem("mySeatNo"));
 
   if(mySeatNo == 1){
-    showCard(game, 1);
+    showCard(game.seat1, 1);
   }
   else if(mySeatNo == 2){
-    showCard(game, 2);
+    showCard(game.seat2, 2);
   }
   else if(mySeatNo == 3){
-    showCard(game, 3);
+    showCard(game.seat3, 3);
   }
   else if(mySeatNo == 4){
-    showCard(game, 4);
+    showCard(game.seat4, 4);
   }
   else if(mySeatNo == 5){
-    showCard(game, 5);
+    showCard(game.seat5, 5);
   }
-
 
 });
 
@@ -67,12 +64,18 @@ con.onclose(err => {
 });
 
 //Leave Seat
-con.on('LeaveSeat', (seatNo, chips, name) => {
+con.on('LeaveSeat', (seatNo, noCard) => {
   var seat = document.getElementById("occupied-seat-" + seatNo);
   var buyInSign = document.getElementById("buy-in-seat-" + seatNo);
   var myChips = document.getElementById("seat-" + seatNo +"-chips");
   var myName = document.getElementById("player-" + seatNo + "-name");
   var mySeat = sessionStorage.getItem("mySeatNo");
+  var playerHandCards = document.getElementById("player-" + seatNo + "-handcards");
+
+  console.log("No Card:" + noCard)
+  if(noCard == "No Card"){
+    removeAllCards();
+  }
 
   if(mySeat == seatNo){
     //Remove session storage
@@ -83,6 +86,7 @@ con.on('LeaveSeat', (seatNo, chips, name) => {
     buyInSign.style.display = "";
     myChips.innerHTML = "";
     myName.innerHTML = "";
+    playerHandCards.style.display = "none";
 
     //Recover other seat
     for(var i = 1 ; i <= 5; i++){
@@ -139,6 +143,15 @@ con.on('getSeat', (seatNo, chips, name) => {
 
 });
 
+function removeAllCards(){
+
+  for(var i = 1; i <= 5; i++){
+    var playerHandCards = document.getElementById("player-" + i + "-handcards");
+
+    playerHandCards.style.display = "none";
+  }
+}
+
 function showPlayer(player, seatNo){
   if(player != null){
     var seat = document.getElementById("occupied-seat-" + seatNo);
@@ -169,12 +182,16 @@ function showPlayer(player, seatNo){
 }
 
 function showCard(player, seatNo){
+  var soundEffect = document.getElementById("shuffle-sound-effect");
   var firstCard = document.getElementById("player-" + seatNo + "-card-1");
   var secondCard = document.getElementById("player-" + seatNo + "-card-2");
+  var playerHandCards = document.getElementById("player-" + seatNo + "-handcards");
 
   //reveal the card
+  soundEffect.play();
+  playerHandCards.style.display = "";
   firstCard.innerHTML = player.firstHandCard;
-  secondCard.innerHTML = player.secondHandCard
+  secondCard.innerHTML = player.secondHandCard;
 }
 
 function buyInDisplay(){
