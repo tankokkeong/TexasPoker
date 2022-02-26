@@ -129,7 +129,14 @@ con.on('getSeat', (seatNo, chips, name) => {
   seat.style.display = "";
   buyInSign.style.display = "none";
   myChips.innerHTML = "$ " + amountFormatter(chips);
-  myName.innerHTML = name;
+
+  if(name.length > 6){
+    myName.innerHTML = name.substring(0,6) + "...";
+  }
+  else{
+    myName.innerHTML = name;
+  }
+  
 
   //Remove other seat
   for(var i = 1 ; i <= 5; i++){

@@ -70,6 +70,38 @@
     background-color: green;
 }
 
+.table-blind{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    z-index: 1000;
+}
+
+#player-1-blind{
+    left: 190px;
+    top: 160px;
+}
+
+#player-2-blind{
+    left: 190px;
+    bottom: 180px;
+}
+
+#player-3-blind{
+    left: 520px;
+    bottom: 160px;
+}
+
+#player-4-blind{
+    right: 200px;
+    bottom: 180px;
+}
+
+#player-5-blind{
+    right: 190px;
+    top: 160px;
+}
+
 .poker-card{
     background-color: rgb(248, 243, 243);
     width: auto;
@@ -269,10 +301,10 @@
 
 .player-name{
     width: 80px;
-    overflow-x: scroll;
+    /* overflow-x: scroll; */
 }
 
-.player-name::-webkit-scrollbar {
+/* .player-name::-webkit-scrollbar {
     height: 5px;
 }
 
@@ -282,7 +314,7 @@
 
 .player-name::-webkit-scrollbar-thumb {
     background: #888; 
-}
+} */
 
 .sit-user-container{
     background-color: black;

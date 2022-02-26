@@ -71,21 +71,46 @@
         <div class="table-container text-center">
             <img src="Images/dealer.png" alt="" id="dealer-img">
 
+            <div class="table-blind rounded-circle text-dark bg-light font-weight-bold"
+            id="player-1-blind" style="display: none;">
+                B
+            </div>
+
+            <div class="table-blind rounded-circle text-dark bg-light font-weight-bold"
+            id="player-2-blind" style="display: none;">
+                B
+            </div>
+
+            <div class="table-blind rounded-circle text-dark bg-light font-weight-bold"
+            id="player-3-blind" style="display: none;">
+                B
+            </div>
+
+            <div class="table-blind rounded-circle text-dark bg-light font-weight-bold"
+            id="player-4-blind" style="display: none;">
+                B
+            </div>
+
+            <div class="table-blind rounded-circle text-dark bg-light font-weight-bold"
+            id="player-5-blind" style="display: none;">
+                B
+            </div>
+
             <div class="seat" id="seat-1">
                 <div class="seat-icon" data-toggle="modal" data-target="#buyInModal" 
                 onclick="chooseSeat(1)" id="buy-in-seat-1">
                     <i class="fas fa-user-plus"></i>
                 </div>
 
-                <div class="occupied-seat" style="display: none;" id="occupied-seat-1">
+                <div class="occupied-seat"  id="occupied-seat-1" style="display: none;">
                     <div class="sit-user-container">
                         <div class="player-name text-light font-weight-bold" id="player-1-name">
-                            
+                            DummyUser
                         </div>
                         <img src="Images/dummy-user.png" alt="" class="sit-user">
     
                         <div class="chips-on-hand text-light" id="seat-1-chips">
-                            
+                            $ 10,000,000
                         </div>
     
                         <div class="timer rounded bg-light mb-1" id="seat-1-timer" style="display: none;">
@@ -122,15 +147,15 @@
                     <i class="fas fa-user-plus"></i>
                 </div>
 
-                <div class="occupied-seat" style="display: none;" id="occupied-seat-2">
+                <div class="occupied-seat" id="occupied-seat-2" style="display: none;">
                     <div class="sit-user-container">
                         <div class="player-name text-light font-weight-bold" id="player-2-name">
-                           
+                            DummyUser
                         </div>
                         <img src="Images/dummy-user.png" alt="" class="sit-user">
     
                         <div class="chips-on-hand text-light" id="seat-2-chips">
-                            
+                            $ 10,000,000
                         </div>
     
                         <div class="timer rounded bg-light mb-1" id="seat-2-timer" style="display: none;">
@@ -152,7 +177,7 @@
                             <span class="clubs">♣</span>
                         </div> 
                     </div>
-                   
+                    
                     <div class="player-pour-chips" id="player-pour-chips-2" style="display: none;">
                         <img src="Images/chips.png" class="ml-3 chips" alt=""> 
                         <span class="pour-chips-amount">15,000,000</span>
@@ -167,15 +192,15 @@
                     <i class="fas fa-user-plus"></i>
                 </div>
 
-                <div class="occupied-seat" style="display: none;" id="occupied-seat-3">
+                <div class="occupied-seat" id="occupied-seat-3" style="display: none;">
                     <div class="sit-user-container">
                         <div class="player-name text-light font-weight-bold" id="player-3-name">
-                            
+                            DummyUser
                         </div>
                         <img src="Images/dummy-user.png" alt="" class="sit-user">
     
                         <div class="chips-on-hand text-light" id="seat-3-chips">
-                            
+                            $ 10,000,000
                         </div>
     
                         <div class="timer rounded bg-light mb-1" id="seat-3-timer" style="display: none;">
@@ -212,15 +237,15 @@
                     <i class="fas fa-user-plus"></i>
                 </div>
 
-                <div class="occupied-seat" style="display: none;" id="occupied-seat-4">
+                <div class="occupied-seat" id="occupied-seat-4" style="display: none;">
                     <div class="sit-user-container">
                         <div class="player-name text-light font-weight-bold" id="player-4-name">
-                            
+                            DummyUser
                         </div>
                         <img src="Images/dummy-user.png" alt="" class="sit-user">
     
                         <div class="chips-on-hand text-light" id="seat-4-chips">
-                            
+                            $ 10,000,000
                         </div>
     
                         <div class="timer rounded bg-light mb-1" id="seat-4-timer" style="display: none;">
@@ -257,15 +282,15 @@
                     <i class="fas fa-user-plus"></i>
                 </div>
 
-                <div class="occupied-seat" style="display: none;" id="occupied-seat-5">
+                <div class="occupied-seat"  id="occupied-seat-5" style="display: none;">
                     <div class="sit-user-container">
                         <div class="player-name text-light font-weight-bold" id="player-5-name"> 
-                            
+                            DummyUser
                         </div>
                         <img src="Images/dummy-user.png" alt="" class="sit-user">
     
                         <div class="chips-on-hand text-light" id="seat-5-chips">
-                            
+                            $ 10,000,000
                         </div>
     
                         <div class="timer rounded bg-light mb-1" id="seat-5-timer" style="display: none;">
@@ -294,7 +319,7 @@
                         <span class="pour-chips-amount">15,000,000</span>
                     </div>
                 </div>
-               
+                
             </div>
 
             <div class="poker-table">
@@ -307,29 +332,29 @@
                         <span class="chips-amount">500K</span>
                     </div>
 
-                    <div class="card-section" style="display: none;">
+                    <div class="card-section" >
                         <div class="poker-card-container">
-                            <div class="poker-card">
+                            <div class="poker-card" id="table-card-1" style="display: none;">
                                 A <br>
                                 <span class="spades">♠</span>
                             </div>  
 
-                            <div class="poker-card">
+                            <div class="poker-card" id="table-card-2" style="display: none;">
                                 K <br>
                                 <span class="spades">♠</span>
                             </div> 
 
-                            <div class="poker-card">
+                            <div class="poker-card" id="table-card-3" style="display: none;">
                                 Q <br>
                                 <span class="hearts">♥</span>
                             </div> 
 
-                            <div class="poker-card">
+                            <div class="poker-card" id="table-card-4" style="display: none;">
                                 J <br>
                                 <span class="clubs">♣</span>
                             </div> 
 
-                            <div class="poker-card">
+                            <div class="poker-card" id="table-card-5" style="display: none;">
                                 10 <br>
                                 <span class="diamonds">♦</span>
                             </div> 
