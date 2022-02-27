@@ -288,7 +288,7 @@ $('#createMini').click(async e => {
     location = `mini-game.html?gameId=${minigameId}`;
 });
 
-$('.gamelist').on('click', '[data-join]', e => {
+$('#gamelist').on('click', '[data-join]', e => {
     let minigameId = $(e.target).data('join');
     location = `mini-game.html?gameId=${minigameId}`;
 });
@@ -309,19 +309,19 @@ conMini.on('UpdateList', list => {
             <tr>
                 <td>${game.id}</td>
                 <td>${game.playerA.name}</td>
-                <td>0/5</td>
-                <td><button data-join="${game.id}">Join</button></td>
+                <td><button data-join="${game.id}" class="btn btn-primary">Join Game</button></td>
             </tr>
         `;
     }
 
     if(list.length == 0){
-        html = '<tr><td colspan="3">No game</td></tr>';
+        html = '<tr><td colspan="3">No game is available now</td></tr>';
     }
 
-    $('.gamelist').html(html);
+    $('#gamelist').html(html);
 
-});
+});u
+
 
 conMini.start().then(miniMain);
 

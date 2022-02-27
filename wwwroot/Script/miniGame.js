@@ -1,30 +1,51 @@
-// ========================================================================================
-// Connect
-// ========================================================================================
+        // ========================================================================================
+        // General
+        // ========================================================================================
+        const userName = sessionStorage.getItem('userName');
+        const userId = sessionStorage.getItem('userId');
 
-const gameId = new URL(location).searchParams.get('gameId');
-if (!gameId) {
-    location = 'lobby.html';
-    throw 'ERROR: Invalid mini game id';
-}   
-
-const param = $.param({ page: 'mini-game' });
-
-const conn = new signalR.HubConnectionBuilder()
-    .withUrl('/minigameHub?' + param)
-    .build();
+        if(!userName || !userId){
+            location = 'lobby.html';
+            throw 'ERROR: Invalid Name or User ID';
+        }
 
 
-//Start Connection
-conn.start().then();
+        const gameId = new URL(location).searchParams.get('gameId');
 
-//Invalid id
-conn.on('Reject', () => location = 'lobby.html');
+        if (!gameId) {
+            location = 'lobby.html';
+            throw 'ERROR: Invalid mini game id';
+        }   
+        
+        let started = false;
+        
+        let me = null;
+
+
+        const $status = $('status');
+
+        // ========================================================================================
+        // Events
+        // ========================================================================================
 
 
 
+        // ========================================================================================
+        // Connect
+        // ========================================================================================
+
+        const param = $.param({ page: 'mini-game', userName, userId, gameId});
 
 
 
+        const conn = new signalR.HubConnectionBuilder()
+            .withUrl('/minigameHub?' + param)
+            .build();
 
 
+        //Start Connection
+        conn.start().then(main);
+
+        function main(){
+        
+        }
