@@ -8,17 +8,9 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TexasPoker
 build_property.RootNamespace = TexasPoker
-<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\tanko\Desktop\TexasPoker\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = C:\Users\tanko\Desktop\TexasPoker
-=======
-build_property.ProjectDir = D:\TexasPoker\TexasPoker\
-build_property.RazorLangVersion = 6.0
-build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\TexasPoker\TexasPoker
->>>>>>> aa41dcf770b6daf567ccc1b6a83dbc990178c9f8
 build_property._RazorSourceGeneratorDebug = 
