@@ -2,32 +2,29 @@
 // Connect
 // ========================================================================================
 
-const param = $.param({ page: 'minigame' });
+const gameId = new URL(location).searchParams.get('gameId');
+if (!gameId) {
+    location = 'lobby.html';
+    throw 'ERROR: Invalid mini game id';
+}   
 
-const con = new signalR.HubConnectionBuilder()
-    .withUrl('/hub?' + param)
+const param = $.param({ page: 'mini-game' });
+
+const conn = new signalR.HubConnectionBuilder()
+    .withUrl('/minigameHub?' + param)
     .build();
 
 
-var playerSeat = [false, false, false, false, false];
+//Start Connection
+conn.start().then();
 
-let images = [
-    "dice1.png",
-    "dice2.png",
-    "dice3.png",
-    "dice4.png",
-    "dice5.png",
-    "dice6.png",
-]
+//Invalid id
+conn.on('Reject', () => location = 'lobby.html');
 
 
-function diceRoller(){
 
-    let dice = document.querySelectorAll(".dices");
-    const randomDice = images[0];
-    randomDice.selectedIndex = Math.floor(Math.random() * 6) + 1;
 
-}
+
 
 
 

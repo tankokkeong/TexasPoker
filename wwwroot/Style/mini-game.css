@@ -1,16 +1,17 @@
 *{
-    padding: 0;
-    margin: 0;
-    background-color: rgb(173, 32, 7);
+    margin:0;
+    padding:0;
+    background: rgb(173, 32, 7);
 }
 
-.title-nav{
-    padding: 15px;
-    position: fixed;
-    background-color: black;
-    width: 100%;
-    z-index: 1000;
-    top: 0;
-    left: 0;
+
+.dice-container{
+    padding-left :600px;
+    padding-right: 600px;
 }
 
+.dices{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+}
