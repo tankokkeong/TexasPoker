@@ -158,12 +158,13 @@ btn.addEventListener("click", function(e) {
                     //     userName : docSnap.data().username,
                     //     userWalletBallance:  docSnap.data().walletBallance
                     // };
+                    sessionStorage.setItem("userId",docSnap.data().userId);
                     sessionStorage.setItem("userEmail", docSnap.data().email);
                     sessionStorage.setItem("userName", docSnap.data().username);
                     sessionStorage.setItem("userWallet", docSnap.data().walletBallance);
 
-                    const username = docSnap.data().username;
-                    checkCookie(username);
+                    // const username = docSnap.data().username;
+                    // checkCookie(username);
                 }   
 
                 alert('Welcome Back!!');
