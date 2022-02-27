@@ -6,12 +6,10 @@ using Microsoft.AspNetCore.SignalR;
     
 public class MiniPlayer
 {
-    public string? Id { get; set; } = null;
-    public string? Icon { get; set; } = null;
-    public string? Name { get; set; } = null;
-    public int CurrentChipOnHand { get; set; } = 0;
-    public MiniPlayer(){}
-    public MiniPlayer(string id, string icon, string name, int currentChipOnHand) => (Id, Icon, Name, CurrentChipOnHand) = (id, icon, name, currentChipOnHand);
+    public string Id {get; set;}
+    public string Icon {get; set;}
+    public string Name {get; set;}
+    public MiniPlayer(string id, string icon, string name) => (Id, Icon, Name) = (id, icon, name);
 
 }
 
@@ -23,62 +21,28 @@ public class MiniPlayer
 
 public class MiniGame
 {
-    public string Id { get; set; } = Guid.NewGuid().ToString();
-    public int NumberOfPlayer = 0;
-    public MiniPlayer? Seat1 { get; set; } = null;
-    public MiniPlayer? Seat2 { get; set; } = null;
-    public MiniPlayer? Seat3 { get; set; } = null;
-    public MiniPlayer? Seat4 { get; set; } = null;
-    public MiniPlayer? Seat5 { get; set; } = null;
-
-    public string? FirstDice {get; set;} = null;
-    public string? SecondDice {get; set;} = null;
-    public string? ThirdDice {get; set;} = null;
-    
-    public int PoolChip {get; set;}
-
+    public string Id {get; set;} = Guid.NewGuid().ToString();
+    public MiniPlayer? PlayerA { get; set; } = null;
+    public MiniPlayer? PlayerB { get; set; } = null;
     public bool IsWaiting { get; set; } = false;
+    public bool isEmpty => PlayerA == null && PlayerB ==null;
+    public bool isFull => PlayerA != null && PlayerB != null;
 
-    public bool IsEmpty => NumberOfPlayer == 0;
-    public bool IsFull  => NumberOfPlayer == 5;
+    public string? AddPlayer(MiniPlayer player){
 
-    public string? AddPlayer(MiniPlayer miniPlayer, int seatNo)
-    {
-        if (seatNo == 1 && Seat1 != null)
-        {
-            Seat1 = miniPlayer;
+        if (PlayerA == null){
+            PlayerA = player;
             IsWaiting = true;
-            NumberOfPlayer++;
+            return "A";
         }
-        else if (seatNo == 2 && Seat2 != null)
-        {
-            Seat2 = miniPlayer;
+        else if (PlayerB == null){
+            PlayerB = player;
             IsWaiting = false;
-            NumberOfPlayer++;
-        }
-        else if (seatNo == 3 && Seat3 != null)
-        {
-            Seat3 = miniPlayer;
-            IsWaiting = false;
-            NumberOfPlayer++;
-        }
-        else if (seatNo == 4 && Seat4 != null)
-        {
-            Seat4 = miniPlayer;
-            IsWaiting = false;
-            NumberOfPlayer++;
-        }
-        else
-        {
-            Seat5 = miniPlayer;
-            IsWaiting = false;
-            NumberOfPlayer++;
+            return "B";
         }
 
         return null;
     }
-
-
 }
 
 
@@ -93,7 +57,11 @@ public class MiniRoomHub : Hub
     // General
     // ----------------------------------------------------------------------------------------
 
-    private static List<MiniGame> minigames = new List<MiniGame>();
+    private static List<MiniGame> minigames = new()
+    {
+        //new MiniGame { PlayerA = new MiniPlayer("P001", "🧑🏻", "Boy"), IsWaiting = true },
+        //new MiniGame { PlayerA = new MiniPlayer("P001", "👧🏻", "Girl"), IsWaiting = true },
+    };
 
     public string Create()
     {
@@ -102,38 +70,15 @@ public class MiniRoomHub : Hub
         return minigame.Id;
     }
 
-    // // TODO: Start()
-    // public async Task Start()
-    // {
-    //     string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-
-    //     var game = games.Find(g => g.Id == gameId);
-    //     if (game == null)
-    //     {
-    //         await Clients.Caller.SendAsync("Reject");
-    //         return;
-    //     }
-
-    //     await Clients.Group(gameId).SendAsync("Start");
-    // }
-
-    // // TODO: Run(letter)
-    // public async Task Run(string letter)
-    // {
-    //     string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-
-    // }
-
     // ----------------------------------------------------------------------------------------
     // Functions
     // ----------------------------------------------------------------------------------------
-
-    private async Task UpdateList(string? id = null)
+    private async Task UpdateList (string? id = null)
     {
-        var list = minigames.FindAll(g => g.IsWaiting);
+        var list = minigames.FindAll(g => g.IsWaiting == true);
 
-        if (id == null)
-        {
+        if(id == null){
+            
             await Clients.All.SendAsync("UpdateList", list);
         }
         else
@@ -150,10 +95,10 @@ public class MiniRoomHub : Hub
     {
         string page = Context.GetHttpContext()?.Request.Query["page"] ?? "";
 
-        switch (page)
-        {
-            case "lobby": await ListConnected(); break;
-            case "minigame": await GameConnected(); break;
+        switch (page){
+            case "lobby" : await ListConnected(); break;
+            case "mini-game" : await GameConnected(); break;
+
         }
 
         await base.OnConnectedAsync();
@@ -167,25 +112,41 @@ public class MiniRoomHub : Hub
 
     private async Task GameConnected()
     {
+        string id = Context.ConnectionId;
+        string icon = Context.GetHttpContext()?.Request.Query["icon"] ?? "";
+        string name = Context.GetHttpContext()?.Request.Query["name"] ?? "";
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
 
+        var game = minigames.Find(g=> g.Id == gameId);
+        if (game == null || game.isFull){
+            await Clients.Caller.SendAsync("Reject");
+            return ;
+        }
+
+        var player = new MiniPlayer(id , icon, name);
+        var letter = game.AddPlayer(player);
+
+        await Groups.AddToGroupAsync(id, gameId);
+        await Clients.Group(gameId).SendAsync("Ready", letter, game);
+        await UpdateList();
     }
 
     // ----------------------------------------------------------------------------------------
     // Disconnected
     // ----------------------------------------------------------------------------------------
-
     public override async Task OnDisconnectedAsync(Exception? exception) 
     {
+
         string page = Context.GetHttpContext()?.Request.Query["page"] ?? "";
 
-        switch (page)
-        {
-            case "lobby": ListDisconnected(); break;
-            case "minigame": await GameDisconnected(); break;
-        }
+        switch (page){
+            case "lobby" : ListDisconnected(); break;
+            case "mini-game" : await GameDisconnected(); break;
 
+        }
         await base.OnDisconnectedAsync(exception);
     }
+
 
     private void ListDisconnected()
     {
@@ -194,7 +155,32 @@ public class MiniRoomHub : Hub
 
     private async Task GameDisconnected()
     {
-       
+        string id = Context.ConnectionId;
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+
+        var game = minigames.Find(g => g.Id == gameId);
+
+        if(game == null){
+            await Clients.Caller.SendAsync("Reject");
+            return;
+        }
+
+        if(game.PlayerA?.Id == id)
+        {
+            game.PlayerA = null;
+            await Clients.Group(gameId).SendAsync("Left", "A");
+        }
+        else if (game.PlayerB?.Id == id){
+
+            game.PlayerB = null;
+            await Clients.Group(gameId).SendAsync("Left", "B");
+        }
+
+        if(game.isEmpty)
+        {
+            minigames.Remove(game);
+            await UpdateList();
+        }
     }
 
     // End of GameHub -------------------------------------------------------------------------
