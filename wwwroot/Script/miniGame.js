@@ -28,6 +28,7 @@
         // Events
         // ========================================================================================
 
+        $('#leave').click( e => location = 'lobby.html');
 
 
         // ========================================================================================
@@ -41,6 +42,33 @@
         const conn = new signalR.HubConnectionBuilder()
             .withUrl('/minigameHub?' + param)
             .build();
+
+            conn.on('Reject', () => location = "lobby.html");
+
+            conn.on('Ready', (letter, game) => {
+                if (game.playerA){
+                    $('#nameA').text(game.playerA.name).show();
+                   
+                }
+    
+                if (game.playerB){
+                    $('#nameB').text(game.playerB.name).show();
+                    
+                }
+    
+                if(me == null){
+                    me = letter;
+                    $('#' + me).addClass('me');
+                }
+            });
+    
+            conn.on('Left', letter => {
+    
+                started = false;
+                $status.text(`Player ${letter} left. You win!`);
+                setTimeout(() => location = 'list.html', 3000);
+    
+            });
 
 
         //Start Connection
