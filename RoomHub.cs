@@ -30,7 +30,7 @@ public class Player
 public class Game
 {
     public string Id { get; set; } = Guid.NewGuid().ToString();
-    public int NumberOfPlayer = 0;
+    public int NumberOfPlayer {get; set;} = 0;
 
     public string[] cards = 
     {"A <br> <span class='spades'>♠</span>", "K <br> <span class='spades'>♠</span>", "Q <br> <span class='spades'>♠</span>", "J <br> <span class='spades'>♠</span>", "10 <br> <span class='spades'>♠</span>", "9 <br> <span class='spades'>♠</span>", "8 <br> <span class='spades'>♠</span>", "7 <br> <span class='spades'>♠</span>", "6 <br> <span class='spades'>♠</span>", "5 <br> <span class='spades'>♠</span>", "4 <br> <span class='spades'>♠</span>", "3 <br> <span class='spades'>♠</span>", "2 <br> <span class='spades'>♠</span>",
@@ -101,10 +101,50 @@ public class Game
         }
 
         if(IsWaiting){
-            playersOfTheRound.Add(player);
+
+            if(Seat1 != null){
+                playersOfTheRound.Add(Seat1);
+            }
+
+            if(Seat2 != null){
+                playersOfTheRound.Add(Seat2);
+            }
+
+            if(Seat3 != null){
+                playersOfTheRound.Add(Seat3);
+            }
+
+            if(Seat4 != null){
+                playersOfTheRound.Add(Seat4);
+            }
+
+            if(Seat5 != null){
+                playersOfTheRound.Add(Seat5);
+            }
+            
         }
         else{
-            playersOfNextRound.Add(player);
+            if(Seat1 != null){
+                playersOfNextRound.Add(Seat1);
+            }
+
+            if(Seat2 != null){
+                playersOfNextRound.Add(Seat2);
+            }
+
+            if(Seat3 != null){
+                playersOfNextRound.Add(Seat3);
+            }
+
+            if(Seat4 != null){
+                playersOfNextRound.Add(Seat4);
+            }
+            
+            if(Seat5 != null){
+                playersOfNextRound.Add(Seat5);
+            }
+
+            Console.WriteLine("Player Of Next Round Triggered");
         }
 
     }
@@ -241,6 +281,9 @@ public class GameHub : Hub
                 //End Game
                 game.IsWaiting = true;
                 await Clients.Group(gameId).SendAsync("LeaveSeat", seatNo, "No Card");
+                game.playersOfTheRound.Clear();
+                game.playersOfNextRound.Clear();
+                game.TimerPosition = 0;
                 return;
             }
 
@@ -251,7 +294,7 @@ public class GameHub : Hub
     }
 
     public async Task TimerTrigger(){
-
+        Console.WriteLine("hi");
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
         List<string> sequence = DetermineTimerSequence();
 
@@ -262,12 +305,12 @@ public class GameHub : Hub
 
             if(game.TimerPosition >= sequence.Count() -1){
                 game.TimerPosition = 0;
-                await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition]);
+                await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
                 game.TimerPosition++;
                 return;
             }
             else{
-                await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition]);
+                await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
                 game.TimerPosition++;
                 return;
             }

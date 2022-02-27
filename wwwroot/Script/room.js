@@ -61,13 +61,13 @@ con.on('StartGame', (game) => {
 
 
 //Trigger the timer
-con.on('DisplayTimer', (game, id) => {
+con.on('DisplayTimer', (game, id, sequence) => {
 
-  var seat1 = game.seat1;
-  var seat2 = game.seat1;
-  var seat3 = game.seat1;
-  var seat4 = game.seat1;
-  var seat5 = game.seat1;
+  var seat1 = (game.seat1 == null ? "" : game.seat1.id);
+  var seat2 = (game.seat2 == null ? "" : game.seat2.id)
+  var seat3 = (game.seat3 == null ? "" : game.seat3.id)
+  var seat4 = (game.seat4 == null ? "" : game.seat4.id)
+  var seat5 = (game.seat5 == null ? "" : game.seat5.id)
 
   var soundEffect = document.getElementById("bell-sound-effect");
   var seat1Timer = document.getElementById("seat-1-timer");
@@ -76,18 +76,18 @@ con.on('DisplayTimer', (game, id) => {
   var seat4Timer = document.getElementById("seat-4-timer");
   var seat5Timer = document.getElementById("seat-5-timer");
 
-  console.log("id: " + id)
+  console.log("trigger ID: " + id + " Compare " + seat1.id)
 
-  if(seat1.id == id){
+  if(seat1 == id){
     seat1Timer.style.display = "";
   }
-  else if(seat2.id == id){
+  else if(seat2 == id){
     seat2Timer.style.display = "";
   }
-  else if(seat3.id == id){
+  else if(seat3 == id){
     seat3Timer.style.display = "";
   }
-  else if(seat4.id == id){
+  else if(seat4 == id){
     seat4Timer.style.display = "";
   }
   else{
@@ -114,6 +114,7 @@ con.on('LeaveSeat', (seatNo, noCard) => {
   var myName = document.getElementById("player-" + seatNo + "-name");
   var mySeat = sessionStorage.getItem("mySeatNo");
   var playerHandCards = document.getElementById("player-" + seatNo + "-handcards");
+  var seatTimer = document.getElementById("seat-" + seatNo +"-timer");
 
   console.log("No Card:" + noCard)
   if(noCard == "No Card"){
@@ -155,6 +156,8 @@ con.on('LeaveSeat', (seatNo, noCard) => {
     myChips.innerHTML = "";
     myName.innerHTML = "";
   }
+
+  seatTimer.style.display = "none";
 
 });
 
