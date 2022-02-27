@@ -56,7 +56,8 @@ con.on('StartGame', (game) => {
     showCard(game.seat5, 5);
   }
 
-  //Trigger the time
+  //Trigger the timer and blinds
+  con.invoke("BlindTrigger");
   con.invoke("TimerTrigger");
 
 });
@@ -77,8 +78,6 @@ con.on('DisplayTimer', (game, id, sequence) => {
   var seat3Timer = document.getElementById("seat-3-timer");
   var seat4Timer = document.getElementById("seat-4-timer");
   var seat5Timer = document.getElementById("seat-5-timer");
-
-  console.log("trigger ID: " + id + " Compare " + seat1.id)
 
   if(seat1 == id){
     seat1Timer.style.display = "";
@@ -106,6 +105,22 @@ con.on('DisplayTimer', (game, id, sequence) => {
 
 });
 
+//Get current game info
+con.on('BlindChips', (bigBlindPosition, smallBlindPosition, sequence) => {
+  var blindSign = document.getElementById("player-" + bigBlindPosition + "-blind");
+
+  console.log("Big Blind: " + bigBlindPosition + ", Small Blind: " + smallBlindPosition)
+  console.log("Sequence: " + sequence)
+
+  //Reveal the blind sign
+  blindSign.style.display = "";
+
+  //Remove other signs
+  removeBlind(bigBlindPosition, false);
+
+  console.log("after blind")
+});
+
 //Leaving the room
 con.onclose(err => {
   if(sessionStorage.getItem("mySeatNo") != null){
@@ -128,6 +143,7 @@ con.on('LeaveSeat', (seatNo, noCard) => {
     removeAllCards();
     removeAllTimer();
     recoverPlayerTimer("", true);
+    removeBlind("", true);
   }
 
   if(mySeat == seatNo){
@@ -140,6 +156,9 @@ con.on('LeaveSeat', (seatNo, noCard) => {
     myChips.innerHTML = "";
     myName.innerHTML = "";
     playerHandCards.style.display = "none";
+
+    //Remove blind
+    removeBlind(mySeat, "");
 
     //Recover other seat
     for(var i = 1 ; i <= 5; i++){
@@ -204,6 +223,24 @@ con.on('getSeat', (seatNo, chips, name) => {
   }
 
 });
+
+function removeBlind(blindId, isAll){
+
+  if(blindId != ""){
+
+    for(var i = 1; i <= 5; i++){
+      if(blindId != i){
+        document.getElementById("player-" + i + "-blind").style.display = "none";
+      }
+    }
+  }
+  else{
+    for(var i = 1; i <= 5; i++){
+      document.getElementById("player-" + i + "-blind").style.display = "none";
+    }
+  }
+
+}
 
 function removeAllCards(){
 

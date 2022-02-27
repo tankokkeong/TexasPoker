@@ -45,6 +45,13 @@ public class Game
 
     public int TimerPosition {get; set;} = 0;
 
+    public int BigBlindPosition {get; set;} = 0;
+    public int SmallBlindPosition {get; set;} = 0;
+
+    // public Dictionary<string, int> BlindPosition {get; set;} = new Dictionary<string, int>
+    // {{"Seat 1", 1}, {"Seat 2", 2}, {"Seat 3", 3}
+    // ,{"Seat 4", 4}, {"Seat 5", 5}};
+
     public Player? Seat1 { get; set; } = null;
     public Player? Seat2 { get; set; } = null;
     public Player? Seat3 { get; set; } = null;
@@ -101,6 +108,9 @@ public class Game
         }
 
         if(IsWaiting){
+            //Clear the previous record
+            playersOfTheRound.Clear();
+
 
             if(Seat1 != null){
                 playersOfTheRound.Add(Seat1);
@@ -284,6 +294,7 @@ public class GameHub : Hub
                 game.playersOfTheRound.Clear();
                 game.playersOfNextRound.Clear();
                 game.TimerPosition = 0;
+                game.BigBlindPosition = 1;
                 return;
             }
 
@@ -316,6 +327,52 @@ public class GameHub : Hub
             
         }
 
+    }
+
+    public async Task BlindTrigger(){
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        List<string> sequence = DetermineTimerSequence();
+
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+
+        if (game != null){
+
+            //Find Big Blind and Small Blind Position
+            game.BigBlindPosition = FindSeatUserPosition(sequence[0], gameId);
+            game.SmallBlindPosition = FindSeatUserPosition(sequence[1], gameId);
+
+            await Clients.Group(gameId).SendAsync("BlindChips", game.BigBlindPosition, game.SmallBlindPosition, sequence);
+            return;
+        }
+    }
+
+    private int FindSeatUserPosition(string playerID, string gameID){
+        //Find game
+        var game = games.Find(g => g.Id == gameID);
+        int position = 0;
+
+        if (game != null){
+            if(playerID == game.Seat1?.Id){
+                position = 1;
+            }
+            else if(playerID == game.Seat2?.Id){
+                position = 2;
+            }
+            else if(playerID == game.Seat3?.Id){
+                position = 3;
+            }
+            else if(playerID == game.Seat4?.Id){
+                position = 4;
+            }
+            else if(playerID == game.Seat5?.Id){
+                position = 5;
+            }
+
+        }
+
+        return position;
     }
 
     private List<string> DetermineTimerSequence(){
