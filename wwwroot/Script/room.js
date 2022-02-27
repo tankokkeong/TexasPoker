@@ -119,6 +119,7 @@ con.on('LeaveSeat', (seatNo, noCard) => {
   console.log("No Card:" + noCard)
   if(noCard == "No Card"){
     removeAllCards();
+    removeAllTimer();
   }
 
   if(mySeat == seatNo){
@@ -202,6 +203,14 @@ function removeAllCards(){
     var playerHandCards = document.getElementById("player-" + i + "-handcards");
 
     playerHandCards.style.display = "none";
+  }
+}
+
+function removeAllTimer(){
+  for(var i = 1; i <= 5; i++){
+    var seatTimer = document.getElementById("seat-" + i +"-timer");
+
+    seatTimer.style.display = "none";
   }
 }
 
