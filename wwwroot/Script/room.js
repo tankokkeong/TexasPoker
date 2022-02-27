@@ -108,6 +108,16 @@ con.on('DisplayTimer', (game, id, sequence) => {
 //Get current game info
 con.on('BlindChips', (bigBlindPosition, smallBlindPosition, sequence) => {
   var blindSign = document.getElementById("player-" + bigBlindPosition + "-blind");
+  var bigBlind = document.getElementById("player-pour-chips-" + bigBlindPosition);
+  var smallBlind = document.getElementById("player-pour-chips-" + smallBlindPosition);
+  var bigBlindAmount = document.getElementById("chips-amount-" + bigBlindPosition);
+  var smallBlindAmount = document.getElementById("chips-amount-" + smallBlindPosition);
+
+  //Set the big blind and small blind
+  bigBlind.style.display = "";
+  smallBlind.style.display = "";
+  bigBlindAmount.innerHTML = amountFormatter("10000");
+  smallBlindAmount.innerHTML = amountFormatter("5000");
 
   console.log("Big Blind: " + bigBlindPosition + ", Small Blind: " + smallBlindPosition)
   console.log("Sequence: " + sequence)
@@ -118,7 +128,6 @@ con.on('BlindChips', (bigBlindPosition, smallBlindPosition, sequence) => {
   //Remove other signs
   removeBlind(bigBlindPosition, false);
 
-  console.log("after blind")
 });
 
 //Leaving the room
@@ -144,6 +153,7 @@ con.on('LeaveSeat', (seatNo, noCard) => {
     removeAllTimer();
     recoverPlayerTimer("", true);
     removeBlind("", true);
+    removeChips("", true);
   }
 
   if(mySeat == seatNo){
@@ -223,6 +233,23 @@ con.on('getSeat', (seatNo, chips, name) => {
   }
 
 });
+
+function removeChips(chipsId, isAll){
+
+  if(chipsId != ""){
+
+    for(var i = 1; i <= 5; i++){
+      if(chipsId != i){
+        document.getElementById("player-pour-chips-" + i).style.display = "none";
+      }
+    }
+  }
+  else{
+    for(var i = 1; i <= 5; i++){
+      document.getElementById("player-pour-chips-" + i).style.display = "none";
+    }
+  }
+}
 
 function removeBlind(blindId, isAll){
 
