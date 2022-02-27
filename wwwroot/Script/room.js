@@ -353,24 +353,20 @@ function actionTimer(playerId, timerId){
 
   var timerLength = document.getElementById(playerId);
   var timer = document.getElementById(timerId);
-  fixedTime = 100;
+  fixedTime = 300;
 
   const myTimeout = setInterval(function(){
 
-    if(fixedTime < 20){
+    if(fixedTime/3 < 20){
       timerLength.classList.remove("bg-warning");
       timerLength.classList.add("bg-danger");
-      timerLength.style.width = (fixedTime) + "%";
     }
-    else if(fixedTime < 50){
+    else if(fixedTime/3 < 50){
       timerLength.classList.remove("bg-success");
       timerLength.classList.add("bg-warning");
-      timerLength.style.width = (fixedTime) + "%";
     }
-    else if(fixedTime <= 100){
-      timerLength.style.width = (fixedTime) + "%";
 
-    }
+    timerLength.style.width = fixedTime/3 + "%";
 
     fixedTime--;
 
