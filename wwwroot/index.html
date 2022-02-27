@@ -163,8 +163,8 @@ btn.addEventListener("click", function(e) {
                     sessionStorage.setItem("userName", docSnap.data().username);
                     sessionStorage.setItem("userWallet", docSnap.data().walletBallance);
 
-                    // const username = docSnap.data().username;
-                    // checkCookie(username);
+                    const username = docSnap.data().username;
+                    checkCookie(username);
                 }   
 
                 alert('Welcome Back!!');
