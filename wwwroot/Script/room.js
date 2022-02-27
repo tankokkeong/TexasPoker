@@ -1,4 +1,6 @@
-//Variables
+//Global Variables
+var fixedTime;
+
 // ========================================================================================
 // Connect
 // ========================================================================================
@@ -80,18 +82,23 @@ con.on('DisplayTimer', (game, id, sequence) => {
 
   if(seat1 == id){
     seat1Timer.style.display = "";
+    actionTimer("player-" + 1 + "-timer", "seat-1-timer");
   }
   else if(seat2 == id){
     seat2Timer.style.display = "";
+    actionTimer("player-" + 2 + "-timer", "seat-2-timer");
   }
   else if(seat3 == id){
     seat3Timer.style.display = "";
+    actionTimer("player-" + 3 + "-timer", "seat-3-timer");
   }
   else if(seat4 == id){
     seat4Timer.style.display = "";
+    actionTimer("player-" + 4 + "-timer", "seat-4-timer");
   }
   else{
     seat5Timer.style.display = "";
+    actionTimer("player-" + 5 + "-timer", "seat-5-timer");
   }
 
   //Play the sound effect
@@ -120,6 +127,7 @@ con.on('LeaveSeat', (seatNo, noCard) => {
   if(noCard == "No Card"){
     removeAllCards();
     removeAllTimer();
+    recoverPlayerTimer("", true);
   }
 
   if(mySeat == seatNo){
@@ -341,10 +349,11 @@ function allInAmount(){
 
 }
 
-function actionTimer(playerId){
+function actionTimer(playerId, timerId){
 
   var timerLength = document.getElementById(playerId);
-  var fixedTime = 100;
+  var timer = document.getElementById(timerId);
+  fixedTime = 100;
 
   const myTimeout = setInterval(function(){
 
@@ -354,21 +363,58 @@ function actionTimer(playerId){
       timerLength.style.width = (fixedTime) + "%";
     }
     else if(fixedTime < 50){
+      timerLength.classList.remove("bg-success");
       timerLength.classList.add("bg-warning");
       timerLength.style.width = (fixedTime) + "%";
     }
-    else{
+    else if(fixedTime <= 100){
       timerLength.style.width = (fixedTime) + "%";
+
     }
 
     fixedTime--;
 
-    console.log(fixedTime)
-    if(fixedTime == -1){
-      clearInterval(myTimeout);
+    if(fixedTime <= -1){
+      stopTimer(myTimeout);
+
+      //Recover the timer
+      recoverPlayerTimer(playerId);
+
+      //Remove the timer
+      timer.style.display = "none";
+
     }
   }, 100);
 }
+
+function stopTimer(id){
+  clearInterval(id);
+}
+
+function recoverPlayerTimer(playerId, isAll){
+  var timerLength = document.getElementById(playerId);
+
+  //Recover the timer
+  fixedTime = -1;
+
+  if(isAll){
+    for(var i = 1; i <= 5; i++){
+      var allTimer = document.getElementById("player-" + i + "-timer");
+
+      allTimer.classList.add("bg-success");
+      allTimer.classList.remove("bg-danger");
+      allTimer.classList.remove("bg-warning");
+      allTimer.style.width = "100%";
+    }
+  }
+  else{
+    timerLength.classList.add("bg-success");
+    timerLength.classList.remove("bg-danger");
+    timerLength.classList.remove("bg-warning");
+    timerLength.style.width = "100%";
+  }
+
+} 
 
 function chooseSeat(number){
   var seatInput = document.getElementById("seat-no");

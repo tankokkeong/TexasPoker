@@ -294,7 +294,6 @@ public class GameHub : Hub
     }
 
     public async Task TimerTrigger(){
-        Console.WriteLine("hi");
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
         List<string> sequence = DetermineTimerSequence();
 
