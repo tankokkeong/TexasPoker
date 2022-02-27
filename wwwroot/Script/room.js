@@ -234,6 +234,43 @@ con.on('getSeat', (seatNo, chips, name) => {
 
 });
 
+
+con.on('checkAction', () => {
+
+
+});
+
+con.on('RaiseAction', () => {
+
+
+});
+
+con.on('CallAction', () => {
+
+
+});
+
+con.on('FoldAction', () => {
+
+
+});
+
+function checkCard(){
+
+}
+
+function raiseCard(){
+
+}
+
+function callCard(){
+
+}
+
+function foldCard(){
+
+}
+
 function buyInGame(){
   var buyInAmount = parseInt(document.getElementById("buy-in-amount").value);
   var seatNo = parseInt(document.getElementById("seat-no").value);

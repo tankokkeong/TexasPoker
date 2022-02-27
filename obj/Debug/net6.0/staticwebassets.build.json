@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LLF9LU4e20rhBLCEyVzeOtz2mPt/eEwPJ9okZ0HxPs8=",
+  "Hash": "Ajv1FbRAi8nNo7ODldQSOWemtgMemIo9z2FcQsYy1QM=",
   "Source": "TexasPoker",
   "BasePath": "_content/TexasPoker",
   "Mode": "Default",
@@ -491,6 +491,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Script\\emojionearea.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Script\\helper.js",
+      "SourceId": "TexasPoker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
+      "BasePath": "_content/TexasPoker",
+      "RelativePath": "Script/helper.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Script\\helper.js"
     },
     {
       "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Script\\jquery.slim.js",

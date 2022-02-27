@@ -156,6 +156,7 @@ function buyInManual(){
     var displayAmount = document.getElementById("buy-in-amount-display");
     var digit_validation = /^[0-9]+$/;
     var buyInBtn = document.getElementById("confirm-buyin-btn");
+    var walletAmount = sessionStorage.getItem("userWallet");
 
     if(!digit_validation.test(inputManual.value)){
         inputManual.value =  inputManual.value.substring(0, inputManual.value.length-1);;
@@ -176,9 +177,10 @@ function buyInManual(){
         buyInBtn.disabled = false;
     }
     else{
-        $("#buy-in-warning").html("Your amount is less than the minimum amount!");
-        buyInBtn.disabled = true;
+        inputAmount.value = 100000;
+        inputManual.value = 100000;
     }
+
 }
 
 function showRaisePopUp(){
@@ -247,3 +249,23 @@ function chooseSeat(number){
 
     seatInput.value = number;
 }
+
+function displayWalletAmount(){
+    var walletDisplay = document.getElementById("my-wallet-amount");
+    var buyInWalletDisplay = document.getElementById("buy-in-wallet-display");
+    var walletAmount = sessionStorage.getItem("userWallet");
+    var buyInBtn = document.getElementById("confirm-buyin-btn");
+
+    if(walletAmount != null){
+        walletDisplay.innerHTML = amountFormatter(walletAmount);
+        buyInWalletDisplay.innerHTML = amountFormatter(walletAmount);
+
+        if(walletAmount < 100000){
+            $("#buy-in-warning").html("Your wallet amount is less than the minimum amount!");
+            buyInBtn.disabled = true;
+        }
+    }
+}
+
+//Call Default Functions
+displayWalletAmount();
