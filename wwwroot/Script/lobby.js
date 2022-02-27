@@ -284,24 +284,23 @@ function fit(f, w, h, to = 'blob', type = 'image/jpeg') {
 // ========================================================================================
 $('#createMini').click(async e => {
 
-    let minigameId = await conMini.invoke('Create');
-    location = `mini-game.html?gameId=${minigameId}`;
+    let gameId = await conn.invoke('Create');
+    location = `mini-game.html?gameId=${gameId}`;
 });
 
 $('#gamelist').on('click', '[data-join]', e => {
-    let minigameId = $(e.target).data('join');
-    location = `mini-game.html?gameId=${minigameId}`;
+    let gameId = $(e.target).data('join');
+    location = `mini-game.html?gameId=${gameId}`;
 });
 
 // ========================================================================================
 // Mini Game Connect
 // ========================================================================================
-
-const conMini = new signalR.HubConnectionBuilder()
+const conn = new signalR.HubConnectionBuilder()
 .withUrl('/minigameHub?' + param)
 .build();
 
-conMini.on('UpdateList', list => {
+conn.on('UpdateList', list => {
     let html = '';
 
     for (let game of list){
@@ -320,10 +319,10 @@ conMini.on('UpdateList', list => {
 
     $('#gamelist').html(html);
 
-});u
+});
 
 
-conMini.start().then(miniMain);
+conn.start().then(miniMain);
 
 function miniMain(){
     $('#createMini').prop('disabled', false);
