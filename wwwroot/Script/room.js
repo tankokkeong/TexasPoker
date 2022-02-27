@@ -76,6 +76,8 @@ con.on('DisplayTimer', (game, id) => {
   var seat4Timer = document.getElementById("seat-4-timer");
   var seat5Timer = document.getElementById("seat-5-timer");
 
+  console.log("id: " + id)
+
   if(seat1.id == id){
     seat1Timer.style.display = "";
   }
@@ -211,7 +213,13 @@ function showPlayer(player, seatNo){
     seat.style.display = "";
     buyInSign.style.display = "none";
     myChips.innerHTML = "$ " + amountFormatter(player.chipsOnHand);
-    myName.innerHTML = player.name;
+
+    if(player.name.length > 6){
+      myName.innerHTML = player.name.substring(0,6) + "...";
+    }
+    else{
+      myName.innerHTML = player.name;
+    }
 
     //If it is the login user
     if(player.name == sessionStorage.getItem("userName")){
