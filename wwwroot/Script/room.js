@@ -54,6 +54,47 @@ con.on('StartGame', (game) => {
     showCard(game.seat5, 5);
   }
 
+  //Trigger the time
+  con.invoke("TimerTrigger");
+
+});
+
+
+//Trigger the timer
+con.on('DisplayTimer', (game, id) => {
+
+  var seat1 = game.seat1;
+  var seat2 = game.seat1;
+  var seat3 = game.seat1;
+  var seat4 = game.seat1;
+  var seat5 = game.seat1;
+
+  var soundEffect = document.getElementById("bell-sound-effect");
+  var seat1Timer = document.getElementById("seat-1-timer");
+  var seat2Timer = document.getElementById("seat-2-timer");
+  var seat3Timer = document.getElementById("seat-3-timer");
+  var seat4Timer = document.getElementById("seat-4-timer");
+  var seat5Timer = document.getElementById("seat-5-timer");
+
+  if(seat1.id == id){
+    seat1Timer.style.display = "";
+  }
+  else if(seat2.id == id){
+    seat2Timer.style.display = "";
+  }
+  else if(seat3.id == id){
+    seat3Timer.style.display = "";
+  }
+  else if(seat4.id == id){
+    seat4Timer.style.display = "";
+  }
+  else{
+    seat5Timer.style.display = "";
+  }
+
+  //Play the sound effect
+  soundEffect.play();
+
 });
 
 //Leaving the room

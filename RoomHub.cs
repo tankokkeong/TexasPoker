@@ -43,6 +43,8 @@ public class Game
 
     public List<Player> playersOfNextRound = new List<Player>();
 
+    public int TimerPosition {get; set;} = 0;
+
     public Player? Seat1 { get; set; } = null;
     public Player? Seat2 { get; set; } = null;
     public Player? Seat3 { get; set; } = null;
@@ -118,7 +120,6 @@ public class Game
                 playersOfNextRound.Remove(Seat1);
             }
 
-            playersOfTheRound.Remove(Seat1);
             Seat1 = null;
             NumberOfPlayer--;
         }
@@ -131,7 +132,6 @@ public class Game
                 playersOfNextRound.Remove(Seat2);
             }
 
-            playersOfTheRound.Remove(Seat2);
             Seat2 = null;
             NumberOfPlayer--; 
         }
@@ -144,7 +144,6 @@ public class Game
                 playersOfNextRound.Remove(Seat3);
             }
 
-            playersOfTheRound.Remove(Seat3);
             Seat3 = null;
             NumberOfPlayer--;
         }
@@ -157,7 +156,6 @@ public class Game
                 playersOfNextRound.Remove(Seat4);
             }
 
-            playersOfTheRound.Remove(Seat4);
             Seat4 = null;
             NumberOfPlayer--;
         }
@@ -250,6 +248,49 @@ public class GameHub : Hub
             return;
         }
 
+    }
+
+    public async Task TimerTrigger(){
+
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        List<string> sequence = DetermineTimerSequence();
+
+         //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if (game != null){
+
+            if(game.TimerPosition >= sequence.Count() -1){
+                game.TimerPosition = 0;
+                await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition]);
+                game.TimerPosition++;
+                return;
+            }
+            else{
+                await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition]);
+                game.TimerPosition++;
+                return;
+            }
+            
+        }
+
+    }
+
+    private List<string> DetermineTimerSequence(){
+
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        List<string> timer_sequence = new List<string>();
+
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if (game != null){
+            foreach(Player player in game.playersOfTheRound){
+                timer_sequence.Add(player.Id);
+            }
+        }
+
+        return timer_sequence;
     }
 
     public async Task HandCardDealing(){
