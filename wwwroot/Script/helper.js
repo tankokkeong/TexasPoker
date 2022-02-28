@@ -56,7 +56,6 @@ function removeAllActionButtons(){
     var raiseBtn = document.getElementById("raise-btn");
     var foldBtn = document.getElementById("fold-btn");
 
-    console.log("remove btn")
     //Disabled all button
     checkBtn.disabled = true;
     callBtn.disabled = true;
@@ -279,6 +278,35 @@ function displayWalletAmount(){
             buyInBtn.disabled = true;
         }
     }
+}
+
+function checkCardSoundEffect(){
+    var checkSoundEffect = document.getElementById("check-card-sound-effect");
+  
+    //Play Sound Effect
+    checkSoundEffect.play();
+    
+  }
+  
+function raiseCardSoundEffect(){
+    var raiseSoundEffect = document.getElementById("raise-card-sound-effect");
+
+    //Play Sound Effect
+    raiseSoundEffect.play();
+}
+
+function callCardSoundEffect(){
+    var callSoundEffect = document.getElementById("call-card-sound-effect");
+
+    //Play Sound Effect
+    callSoundEffect.play();
+}
+
+function foldCardSoundEffect(){
+    var foldSoundEffect = document.getElementById("fold-card-sound-effect");
+
+    //Play Sound Effect
+    foldSoundEffect.play();
 }
 
 //Call Default Functions

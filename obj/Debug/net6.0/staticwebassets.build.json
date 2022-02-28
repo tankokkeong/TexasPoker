@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ILOzkDRl/iJxF/TpstmOaACBlXDHc6xERQqbcQc/sQQ=",
+  "Hash": "v9u3mDcDNBBsfSOC6Nz9dT+V0OtfigGoZvvQgfyub9A=",
   "Source": "TexasPoker",
   "BasePath": "_content/TexasPoker",
   "Mode": "Default",
@@ -32,23 +32,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/audio/all-in.mp3"
-    },
-    {
-      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/audio/Call Bell.mp3",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
-      "BasePath": "_content/TexasPoker",
-      "RelativePath": "audio/Call Bell.mp3",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/audio/Call Bell.mp3"
     },
     {
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/audio/call-card.mp3",
@@ -83,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/audio/Card-Shuffling.mp3"
+    },
+    {
+      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/audio/check-card.mp3",
+      "SourceId": "TexasPoker",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "BasePath": "_content/TexasPoker",
+      "RelativePath": "audio/check-card.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/audio/check-card.mp3"
     },
     {
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/audio/Chips.mp3",

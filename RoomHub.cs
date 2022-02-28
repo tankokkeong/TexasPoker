@@ -306,6 +306,18 @@ public class GameHub : Hub
 
     }
 
+    public async Task TriggerCheck(int seatNo){
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+
+         //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if (game != null){
+            await Clients.Group(gameId).SendAsync("CheckAction");
+            return;
+        }
+    }
+
     public async Task TimerTrigger(){
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
         List<string> sequence = DetermineTimerSequence();

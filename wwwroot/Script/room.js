@@ -268,7 +268,10 @@ con.on('GameAction', (chipsOfTheRound, userId) => {
 });
 
 con.on('CheckAction', () => {
+  checkCardSoundEffect();
 
+  //Invoke the timer
+  //con.invoke("TimerTrigger");
 
 });
 
@@ -288,7 +291,9 @@ con.on('FoldAction', () => {
 });
 
 function checkCard(){
-
+  var mySeatNo = sessionStorage.getItem("mySeatNo");
+  con.invoke("TriggerCheck");
+  
 }
 
 function raiseCard(){
