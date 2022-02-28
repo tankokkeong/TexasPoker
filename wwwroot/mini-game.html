@@ -18,15 +18,16 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/0b0c148d48.js" crossorigin="anonymous"></script>
 </head>
-<body>
-
+<header>
     <!-- Image and text -->
     <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand text-ce">
-      Bet Big/Small (Sic Bo)
-    </a>
-  </nav>
+        <a class="navbar-brand text-ce">
+        Bet Big/Small (Sic Bo)
+        </a>
+    </nav>
+</header>
 
+<body class="bg-success">
     <div class="mini-game-container">
         <div class="mini-room-action text-light ml-5">
             <button class="exit-container btn btn-danger mt-5" id="leave">
@@ -59,41 +60,31 @@
             </div>
         </div>
 
-        <div class="bet-section">
-            <div class="bet-size-container mt-2 text-center">
-                <div class="row p-5">
-                    <div class="col-md-6 p-5">
-                        <div class="big-size bg-light p-5">
-                            <h1 class="big-size text-danger bg-light">
-                                Big (大)
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="col-md-6 p-5">
-                        <div class="small-size bg-light p-5">
-                            <h1 class="small-size text-dark bg-light">
-                                Small (小)
-                            </h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="bet-button mb-2 text-center">
+        <div class="bet-button mt-5 text-center">
             <div>
-                <button type="button" class="btn btn-success">Big (大)</button>
-                <button type="button" class="btn btn-info">Small (小)</button>
+                <button class="btn btn-warning" id="big">Big (大)</button>
+                <button class="btn btn-danger" id="small">Small (小)</button>
             </div>
         </div>
-
-        <div class="player-container">
-            <div class="player ml-5">
-                <div class="text-light h4">Player 1 (Host) : <b id="nameA" class="h5"></b></div>
-            </div>
-            <div class="player ml-5">
-                <div class="text-light h4">Player 2 (Guest): <b id="nameB" class="h5"></b></div>
-            </div>
+        <div class="player-container mt-5">
+            <table class="table table-bordered table-dark table-list">
+                <thead>
+                  <tr>
+                    <th scope="col">Player</th>
+                    <th scope="col">Player Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">A</th>
+                    <td><b id="A"></b></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">B</th>
+                    <td><b id="B"></b></td>
+                  </tr>
+                </tbody>
+              </table>
         </div>
     </div>
 </body>

@@ -17,11 +17,8 @@
         }   
         
         let started = false;
-        
-        let me = null;
-
-
-        const $status = $('status');
+        let me = null; //A or B
+        const $status = $('#status');
 
         // ========================================================================================
         // Events
@@ -43,57 +40,28 @@
             conn.on('Reject', () => location = "lobby.html");
 
             conn.on('Ready', (letter, game) => {
-                if (game.playerA){
-                    $('#nameA').text(game.playerA.name).show();
-                }  
-                if (game.playerB){
-                    $('#nameB').text(game.playerB.name).show();            
+                if(game.playerA){
+                    $('#A').text(game.playerA.name).show();
                 }
-    
-                if(me == null){
-                    me = letter;
-                    $('#' + me).addClass('me');
+                if(game.playerB){
+                    $('#B').text(game.playerB.name).show(); 
                 }
 
-                if(me == 'A' && game.isFull){
-                    conn.invoke('Start');
+                if (me == null){
+                    me = letter;
+                    $('#' + me).addClass('me');
                 }
             });
 
             conn.on('Left', letter => {
-                let id = setTimeout(() => location = 'lobby.html', 3000);
-                while (id--) clearTimeout(id);
-                
                 started = false;
-                $status.text(`Player ${letter} left. You win!`);
-                
+                winnerSound.play();
+
+                $status.text(`Player ${letter} left. You Win !!`)
+
+                document.getElementById("big").style.display = "none";
+                document.getElementById("small").style.display = "none";
             });
-
-            conn.on('Start', () => {
-                setTimeout(() => $status.text('Ready... 3'), 1000);
-                setTimeout(() => $status.text('Ready... 2'), 2000);
-                setTimeout(() => $status.text('Ready... 1'), 3000);
-                setTimeout(() => {
-                    $status.text('Place your bet!');
-                    started = true;
-                    }, 10000);
-    
-            });
-
-
-            conn.on('Win', letter => {
-                started = false;
-    
-                if(me == letter){
-                    $status.text("You Win!");
-                }else{
-                    $status.text("You Lose!");
-                }
-    
-                setTimeout(() => location = 'lobby.html', 3000);
-            });
-    
-
 
         //Start Connection
         conn.start().then(main);

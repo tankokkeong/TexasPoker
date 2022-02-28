@@ -1,10 +1,3 @@
-*{
-    margin:0;
-    padding:0;
-    background: rgb(71, 113, 72);
-}
-
-
 .dice-container{
     padding-left :600px;
     padding-right: 600px;
@@ -18,4 +11,13 @@
 
 #status{
     font-size: 2rem;
+}
+
+.me{
+    text-decoration: none;
+    color: #008CBA;
+}
+
+.player-container{
+    padding: 30px 100px;
 }
