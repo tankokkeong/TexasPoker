@@ -1,12 +1,11 @@
         // ========================================================================================
         // General
         // ========================================================================================
-        const userName = sessionStorage.getItem('userName');
-        const userId = sessionStorage.getItem('userId');
+        const username = sessionStorage.getItem('userName');
 
-        if(!userName || !userId){
+        if(!username){
             location = 'lobby.html';
-            throw 'ERROR: Invalid Name or User ID';
+            throw 'ERROR: Invalid Name';
         }
 
 
@@ -35,9 +34,7 @@
         // Connect
         // ========================================================================================
 
-        const param = $.param({ page: 'mini-game', userName, userId, gameId});
-
-
+        const param = $.param({ page: 'mini-game', username, gameId});
 
         const conn = new signalR.HubConnectionBuilder()
             .withUrl('/minigameHub?' + param)
@@ -48,27 +45,54 @@
             conn.on('Ready', (letter, game) => {
                 if (game.playerA){
                     $('#nameA').text(game.playerA.name).show();
-                   
-                }
-    
+                }  
                 if (game.playerB){
-                    $('#nameB').text(game.playerB.name).show();
-                    
+                    $('#nameB').text(game.playerB.name).show();            
                 }
     
                 if(me == null){
                     me = letter;
                     $('#' + me).addClass('me');
                 }
+
+                if(me == 'A' && game.isFull){
+                    conn.invoke('Start');
+                }
             });
-    
+
             conn.on('Left', letter => {
-    
+                let id = setTimeout(() => location = 'lobby.html', 3000);
+                while (id--) clearTimeout(id);
+                
                 started = false;
                 $status.text(`Player ${letter} left. You win!`);
-                setTimeout(() => location = 'list.html', 3000);
+                
+            });
+
+            conn.on('Start', () => {
+                setTimeout(() => $status.text('Ready... 3'), 1000);
+                setTimeout(() => $status.text('Ready... 2'), 2000);
+                setTimeout(() => $status.text('Ready... 1'), 3000);
+                setTimeout(() => {
+                    $status.text('Place your bet!');
+                    started = true;
+                    }, 10000);
     
             });
+
+
+            conn.on('Win', letter => {
+                started = false;
+    
+                if(me == letter){
+                    $status.text("You Win!");
+                }else{
+                    $status.text("You Lose!");
+                }
+    
+                setTimeout(() => location = 'lobby.html', 3000);
+            });
+    
 
 
         //Start Connection

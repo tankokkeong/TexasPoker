@@ -1,7 +1,7 @@
 *{
     margin:0;
     padding:0;
-    background: rgb(173, 32, 7);
+    background: rgb(71, 113, 72);
 }
 
 
@@ -14,4 +14,8 @@
     margin-top: 20px;
     margin-bottom: 20px;
     display: flex;
+}
+
+#status{
+    font-size: 2rem;
 }
