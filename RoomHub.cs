@@ -15,6 +15,8 @@ public class Player
     public string? SecondHandCard {get; set;} = null;
     public int ChipsOnHand { get; set; } = 0;
 
+    public int ChipsOfTheRound{get; set;} = 0;
+
     public Player(){}
 
     public Player(string id, string icon, string name, int chipsOnHand) => (Id, Icon, Name, ChipsOnHand) = (id, icon, name, chipsOnHand);

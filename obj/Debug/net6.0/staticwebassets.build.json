@@ -1,10 +1,6 @@
 {
   "Version": 1,
-<<<<<<< HEAD
-  "Hash": "suo55JOfG1bVWAzBXfg3Mcy7G//+dYF3LH0vbGfTWnY=",
-=======
-  "Hash": "7zyWhnk9ffdb+zzvanT46CyQyFt9e497hcP8L3rEa0o=",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
+  "Hash": "ILOzkDRl/iJxF/TpstmOaACBlXDHc6xERQqbcQc/sQQ=",
   "Source": "TexasPoker",
   "BasePath": "_content/TexasPoker",
   "Mode": "Default",
@@ -14,28 +10,34 @@
     {
       "Name": "TexasPoker/wwwroot",
       "Source": "TexasPoker",
-<<<<<<< HEAD
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\audio\\Call Bell.mp3",
+      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/audio/all-in.mp3",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
+      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "BasePath": "_content/TexasPoker",
+      "RelativePath": "audio/all-in.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/audio/all-in.mp3"
+    },
+    {
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/audio/Call Bell.mp3",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "audio/Call Bell.mp3",
       "AssetKind": "All",
@@ -49,17 +51,27 @@
       "OriginalItemSpec": "wwwroot/audio/Call Bell.mp3"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\audio\\Card-Shuffling.mp3",
+      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/audio/call-card.mp3",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
+      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "BasePath": "_content/TexasPoker",
+      "RelativePath": "audio/call-card.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/audio/call-card.mp3"
+    },
+    {
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/audio/Card-Shuffling.mp3",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "audio/Card-Shuffling.mp3",
       "AssetKind": "All",
@@ -73,17 +85,10 @@
       "OriginalItemSpec": "wwwroot/audio/Card-Shuffling.mp3"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\audio\\Chips.mp3",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/audio/Chips.mp3",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "audio/Chips.mp3",
       "AssetKind": "All",
@@ -97,17 +102,44 @@
       "OriginalItemSpec": "wwwroot/audio/Chips.mp3"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\forgotPassword.html",
+      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/audio/fold-card.mp3",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
+      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "BasePath": "_content/TexasPoker",
+      "RelativePath": "audio/fold-card.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/audio/fold-card.mp3"
+    },
+    {
+      "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/audio/raise-card.mp3",
+      "SourceId": "TexasPoker",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
+      "BasePath": "_content/TexasPoker",
+      "RelativePath": "audio/raise-card.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/audio/raise-card.mp3"
+    },
+    {
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/forgotPassword.html",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "forgotPassword.html",
       "AssetKind": "All",
@@ -121,17 +153,10 @@
       "OriginalItemSpec": "wwwroot/forgotPassword.html"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Images\\chips.ico",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/chips.ico",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/chips.ico",
       "AssetKind": "All",
@@ -145,17 +170,10 @@
       "OriginalItemSpec": "wwwroot/Images/chips.ico"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Images\\chips.png",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/chips.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/chips.png",
       "AssetKind": "All",
@@ -169,17 +187,10 @@
       "OriginalItemSpec": "wwwroot/Images/chips.png"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Images\\chips1.png",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/chips1.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/chips1.png",
       "AssetKind": "All",
@@ -193,17 +204,10 @@
       "OriginalItemSpec": "wwwroot/Images/chips1.png"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Images\\chips2.png",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/chips2.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/chips2.png",
       "AssetKind": "All",
@@ -217,17 +221,10 @@
       "OriginalItemSpec": "wwwroot/Images/chips2.png"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Images\\chips3.png",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/chips3.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/chips3.png",
       "AssetKind": "All",
@@ -241,17 +238,10 @@
       "OriginalItemSpec": "wwwroot/Images/chips3.png"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Images\\chips4.png",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/chips4.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/chips4.png",
       "AssetKind": "All",
@@ -265,17 +255,10 @@
       "OriginalItemSpec": "wwwroot/Images/chips4.png"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Images\\dealer.png",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/dealer.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dealer.png",
       "AssetKind": "All",
@@ -289,17 +272,10 @@
       "OriginalItemSpec": "wwwroot/Images/dealer.png"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Images\\dice1.png",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/dice1.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dice1.png",
       "AssetKind": "All",
@@ -313,17 +289,10 @@
       "OriginalItemSpec": "wwwroot/Images/dice1.png"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Images\\dice2.png",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/dice2.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dice2.png",
       "AssetKind": "All",
@@ -337,17 +306,10 @@
       "OriginalItemSpec": "wwwroot/Images/dice2.png"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Images\\dice3.png",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/dice3.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dice3.png",
       "AssetKind": "All",
@@ -361,17 +323,10 @@
       "OriginalItemSpec": "wwwroot/Images/dice3.png"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Images\\dice4.png",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/dice4.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dice4.png",
       "AssetKind": "All",
@@ -385,17 +340,10 @@
       "OriginalItemSpec": "wwwroot/Images/dice4.png"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Images\\dice5.png",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/dice5.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dice5.png",
       "AssetKind": "All",
@@ -409,17 +357,10 @@
       "OriginalItemSpec": "wwwroot/Images/dice5.png"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Images\\dice6.png",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/dice6.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dice6.png",
       "AssetKind": "All",
@@ -433,17 +374,10 @@
       "OriginalItemSpec": "wwwroot/Images/dice6.png"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Images\\dummy-user.png",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/dummy-user.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/dummy-user.png",
       "AssetKind": "All",
@@ -457,17 +391,10 @@
       "OriginalItemSpec": "wwwroot/Images/dummy-user.png"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Images\\google.png",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/google.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/google.png",
       "AssetKind": "All",
@@ -481,17 +408,10 @@
       "OriginalItemSpec": "wwwroot/Images/google.png"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Images\\poker-background.jpg",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/poker-background.jpg",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/poker-background.jpg",
       "AssetKind": "All",
@@ -505,17 +425,10 @@
       "OriginalItemSpec": "wwwroot/Images/poker-background.jpg"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Images\\poker-hand-rankings.jpg",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/poker-hand-rankings.jpg",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/poker-hand-rankings.jpg",
       "AssetKind": "All",
@@ -529,17 +442,10 @@
       "OriginalItemSpec": "wwwroot/Images/poker-hand-rankings.jpg"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Images\\sendImages.png",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/sendImages.png",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/sendImages.png",
       "AssetKind": "All",
@@ -553,17 +459,10 @@
       "OriginalItemSpec": "wwwroot/Images/sendImages.png"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Images\\tzuyu-2.jpg",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Images/tzuyu-2.jpg",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Images/tzuyu-2.jpg",
       "AssetKind": "All",
@@ -577,17 +476,10 @@
       "OriginalItemSpec": "wwwroot/Images/tzuyu-2.jpg"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\index.html",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/index.html",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "index.html",
       "AssetKind": "All",
@@ -601,17 +493,10 @@
       "OriginalItemSpec": "wwwroot/index.html"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\lobby.html",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/lobby.html",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "lobby.html",
       "AssetKind": "All",
@@ -625,17 +510,10 @@
       "OriginalItemSpec": "wwwroot/lobby.html"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\mini-game.html",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/mini-game.html",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "mini-game.html",
       "AssetKind": "All",
@@ -649,17 +527,10 @@
       "OriginalItemSpec": "wwwroot/mini-game.html"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\room.html",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/room.html",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "room.html",
       "AssetKind": "All",
@@ -673,17 +544,10 @@
       "OriginalItemSpec": "wwwroot/room.html"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Script\\emojionearea.min.js",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Script/emojionearea.min.js",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Script/emojionearea.min.js",
       "AssetKind": "All",
@@ -697,17 +561,10 @@
       "OriginalItemSpec": "wwwroot/Script/emojionearea.min.js"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Script\\helper.js",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Script/helper.js",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Script/helper.js",
       "AssetKind": "All",
@@ -721,17 +578,10 @@
       "OriginalItemSpec": "wwwroot/Script/helper.js"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Script\\jquery.slim.js",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Script/jquery.slim.js",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Script/jquery.slim.js",
       "AssetKind": "All",
@@ -745,17 +595,10 @@
       "OriginalItemSpec": "wwwroot/Script/jquery.slim.js"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Script\\lobby.js",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Script/lobby.js",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Script/lobby.js",
       "AssetKind": "All",
@@ -769,17 +612,10 @@
       "OriginalItemSpec": "wwwroot/Script/lobby.js"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Script\\miniGame.js",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Script/miniGame.js",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Script/miniGame.js",
       "AssetKind": "All",
@@ -793,17 +629,10 @@
       "OriginalItemSpec": "wwwroot/Script/miniGame.js"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Script\\room.js",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Script/room.js",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Script/room.js",
       "AssetKind": "All",
@@ -817,17 +646,10 @@
       "OriginalItemSpec": "wwwroot/Script/room.js"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Script\\signalr.js",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Script/signalr.js",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Script/signalr.js",
       "AssetKind": "All",
@@ -841,17 +663,10 @@
       "OriginalItemSpec": "wwwroot/Script/signalr.js"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\signup.html",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/signup.html",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "signup.html",
       "AssetKind": "All",
@@ -865,17 +680,10 @@
       "OriginalItemSpec": "wwwroot/signup.html"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Style\\emojionearea.min.css",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Style/emojionearea.min.css",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Style/emojionearea.min.css",
       "AssetKind": "All",
@@ -889,17 +697,10 @@
       "OriginalItemSpec": "wwwroot/Style/emojionearea.min.css"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Style\\forgotPassword.css",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Style/forgotPassword.css",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Style/forgotPassword.css",
       "AssetKind": "All",
@@ -913,17 +714,10 @@
       "OriginalItemSpec": "wwwroot/Style/forgotPassword.css"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Style\\lobby.css",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Style/lobby.css",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Style/lobby.css",
       "AssetKind": "All",
@@ -937,17 +731,10 @@
       "OriginalItemSpec": "wwwroot/Style/lobby.css"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Style\\login.css",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Style/login.css",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Style/login.css",
       "AssetKind": "All",
@@ -961,17 +748,10 @@
       "OriginalItemSpec": "wwwroot/Style/login.css"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Style\\mini-game.css",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Style/mini-game.css",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Style/mini-game.css",
       "AssetKind": "All",
@@ -985,17 +765,10 @@
       "OriginalItemSpec": "wwwroot/Style/mini-game.css"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Style\\signup.css",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Style/signup.css",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Style/signup.css",
       "AssetKind": "All",
@@ -1009,17 +782,10 @@
       "OriginalItemSpec": "wwwroot/Style/signup.css"
     },
     {
-<<<<<<< HEAD
-      "Identity": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\Style\\style.css",
-      "SourceId": "TexasPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Texas-Poker\\TexasPoker\\wwwroot\\",
-=======
       "Identity": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/Style/style.css",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
       "ContentRoot": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/wwwroot/",
->>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "BasePath": "_content/TexasPoker",
       "RelativePath": "Style/style.css",
       "AssetKind": "All",

@@ -234,12 +234,13 @@ con.on('getSeat', (seatNo, chips, name) => {
 
 });
 
-con.on('GameAction', () => {
+con.on('GameAction', (chipsOfTheRound) => {
   var checkBtn = document.getElementById("check-btn");
   var callBtn = document.getElementById("call-btn");
   var raiseBtn = document.getElementById("raise-btn");
   var foldBtn = document.getElementById("fold-btn");
 
+  
 });
 
 con.on('CheckAction', () => {
