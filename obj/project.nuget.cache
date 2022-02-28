@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "87H182zhV/e/XkwX0kyZptVjqesRxig4WirR39Es3zPdJ7aofEm8c/J/nrSN3riqbjmFSdFZEORIjIYk/fG4SQ==",
   "success": true,
   "projectFilePath": "D:\\Texas-Poker\\TexasPoker\\TexasPoker.csproj",
+=======
+  "dgSpecHash": "ox3yWzA18hnXIY+p2IteuB7RuKBtKMR94WdV7w72uwG0zAxh1aJJ5yAm0flklt/Fcz+eH2nhDWzRAqoq/KWG2A==",
+  "success": true,
+  "projectFilePath": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/TexasPoker.csproj",
+>>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
   "expectedPackageFiles": [],
   "logs": []
 }
