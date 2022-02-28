@@ -48,6 +48,8 @@ public class Game
     public int BigBlindPosition {get; set;} = 0;
     public int SmallBlindPosition {get; set;} = 0;
 
+    public int ChipsOfTheRound {get; set;} = 10000;
+
     // public Dictionary<string, int> BlindPosition {get; set;} = new Dictionary<string, int>
     // {{"Seat 1", 1}, {"Seat 2", 2}, {"Seat 3", 3}
     // ,{"Seat 4", 4}, {"Seat 5", 5}};
