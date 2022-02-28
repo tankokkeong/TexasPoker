@@ -8,24 +8,47 @@
     "net6.0": []
   },
   "packageFolders": {
+<<<<<<< HEAD
+    "C:\\Users\\anson\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+=======
     "/home/kenny/.nuget/packages/": {}
+>>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
+      "projectUniqueName": "D:\\Texas-Poker\\TexasPoker\\TexasPoker.csproj",
+      "projectName": "TexasPoker",
+      "projectPath": "D:\\Texas-Poker\\TexasPoker\\TexasPoker.csproj",
+      "packagesPath": "C:\\Users\\anson\\.nuget\\packages\\",
+      "outputPath": "D:\\Texas-Poker\\TexasPoker\\obj\\",
+=======
       "projectUniqueName": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/TexasPoker.csproj",
       "projectName": "TexasPoker",
       "projectPath": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/TexasPoker.csproj",
       "packagesPath": "/home/kenny/.nuget/packages/",
       "outputPath": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/obj/",
+>>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
+<<<<<<< HEAD
+        "C:\\Users\\anson\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
         "/home/kenny/.nuget/NuGet/NuGet.Config"
+>>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

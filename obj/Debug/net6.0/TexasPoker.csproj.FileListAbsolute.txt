@@ -1,3 +1,71 @@
+<<<<<<< HEAD
+C:\Users\tanko\Desktop\TexasPoker\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\tanko\Desktop\TexasPoker\bin\Debug\net6.0\appsettings.json
+C:\Users\tanko\Desktop\TexasPoker\bin\Debug\net6.0\TexasPoker.staticwebassets.runtime.json
+C:\Users\tanko\Desktop\TexasPoker\bin\Debug\net6.0\TexasPoker.exe
+C:\Users\tanko\Desktop\TexasPoker\bin\Debug\net6.0\TexasPoker.deps.json
+C:\Users\tanko\Desktop\TexasPoker\bin\Debug\net6.0\TexasPoker.runtimeconfig.json
+C:\Users\tanko\Desktop\TexasPoker\bin\Debug\net6.0\TexasPoker.dll
+C:\Users\tanko\Desktop\TexasPoker\bin\Debug\net6.0\ref\TexasPoker.dll
+C:\Users\tanko\Desktop\TexasPoker\bin\Debug\net6.0\TexasPoker.pdb
+C:\Users\tanko\Desktop\TexasPoker\obj\Debug\net6.0\TexasPoker.csproj.AssemblyReference.cache
+C:\Users\tanko\Desktop\TexasPoker\obj\Debug\net6.0\TexasPoker.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tanko\Desktop\TexasPoker\obj\Debug\net6.0\TexasPoker.AssemblyInfoInputs.cache
+C:\Users\tanko\Desktop\TexasPoker\obj\Debug\net6.0\TexasPoker.AssemblyInfo.cs
+C:\Users\tanko\Desktop\TexasPoker\obj\Debug\net6.0\TexasPoker.csproj.CoreCompileInputs.cache
+C:\Users\tanko\Desktop\TexasPoker\obj\Debug\net6.0\TexasPoker.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\tanko\Desktop\TexasPoker\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\tanko\Desktop\TexasPoker\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\tanko\Desktop\TexasPoker\obj\Debug\net6.0\scopedcss\bundle\TexasPoker.styles.css
+C:\Users\tanko\Desktop\TexasPoker\obj\Debug\net6.0\TexasPoker.dll
+C:\Users\tanko\Desktop\TexasPoker\obj\Debug\net6.0\ref\TexasPoker.dll
+C:\Users\tanko\Desktop\TexasPoker\obj\Debug\net6.0\TexasPoker.pdb
+C:\Users\tanko\Desktop\TexasPoker\obj\Debug\net6.0\TexasPoker.genruntimeconfig.cache
+D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\bin\Debug\net6.0\appsettings.Development.json
+D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\bin\Debug\net6.0\appsettings.json
+D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\bin\Debug\net6.0\TexasPoker.staticwebassets.runtime.json
+D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\bin\Debug\net6.0\TexasPoker.exe
+D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\bin\Debug\net6.0\TexasPoker.deps.json
+D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\bin\Debug\net6.0\TexasPoker.runtimeconfig.json
+D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\bin\Debug\net6.0\TexasPoker.dll
+D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\bin\Debug\net6.0\ref\TexasPoker.dll
+D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\bin\Debug\net6.0\TexasPoker.pdb
+D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\obj\Debug\net6.0\TexasPoker.csproj.AssemblyReference.cache
+D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\obj\Debug\net6.0\TexasPoker.GeneratedMSBuildEditorConfig.editorconfig
+D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\obj\Debug\net6.0\TexasPoker.AssemblyInfoInputs.cache
+D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\obj\Debug\net6.0\TexasPoker.AssemblyInfo.cs
+D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\obj\Debug\net6.0\TexasPoker.csproj.CoreCompileInputs.cache
+D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\obj\Debug\net6.0\TexasPoker.MvcApplicationPartsAssemblyInfo.cache
+D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\obj\Debug\net6.0\staticwebassets.build.json
+D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\obj\Debug\net6.0\staticwebassets.development.json
+D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\obj\Debug\net6.0\scopedcss\bundle\TexasPoker.styles.css
+D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\obj\Debug\net6.0\TexasPoker.dll
+D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\obj\Debug\net6.0\ref\TexasPoker.dll
+D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\obj\Debug\net6.0\TexasPoker.pdb
+D:\School Stuff\Degree\Degree Year 2 Sem 3\BAIT3093 - EMERGING WEB TECHNOLOGIES\Assignment\TexasPoker\obj\Debug\net6.0\TexasPoker.genruntimeconfig.cache
+D:\Texas-Poker\TexasPoker\bin\Debug\net6.0\appsettings.Development.json
+D:\Texas-Poker\TexasPoker\bin\Debug\net6.0\appsettings.json
+D:\Texas-Poker\TexasPoker\bin\Debug\net6.0\TexasPoker.staticwebassets.runtime.json
+D:\Texas-Poker\TexasPoker\bin\Debug\net6.0\TexasPoker.exe
+D:\Texas-Poker\TexasPoker\bin\Debug\net6.0\TexasPoker.deps.json
+D:\Texas-Poker\TexasPoker\bin\Debug\net6.0\TexasPoker.runtimeconfig.json
+D:\Texas-Poker\TexasPoker\bin\Debug\net6.0\TexasPoker.dll
+D:\Texas-Poker\TexasPoker\bin\Debug\net6.0\ref\TexasPoker.dll
+D:\Texas-Poker\TexasPoker\bin\Debug\net6.0\TexasPoker.pdb
+D:\Texas-Poker\TexasPoker\obj\Debug\net6.0\TexasPoker.csproj.AssemblyReference.cache
+D:\Texas-Poker\TexasPoker\obj\Debug\net6.0\TexasPoker.GeneratedMSBuildEditorConfig.editorconfig
+D:\Texas-Poker\TexasPoker\obj\Debug\net6.0\TexasPoker.AssemblyInfoInputs.cache
+D:\Texas-Poker\TexasPoker\obj\Debug\net6.0\TexasPoker.AssemblyInfo.cs
+D:\Texas-Poker\TexasPoker\obj\Debug\net6.0\TexasPoker.csproj.CoreCompileInputs.cache
+D:\Texas-Poker\TexasPoker\obj\Debug\net6.0\TexasPoker.MvcApplicationPartsAssemblyInfo.cache
+D:\Texas-Poker\TexasPoker\obj\Debug\net6.0\staticwebassets.build.json
+D:\Texas-Poker\TexasPoker\obj\Debug\net6.0\staticwebassets.development.json
+D:\Texas-Poker\TexasPoker\obj\Debug\net6.0\scopedcss\bundle\TexasPoker.styles.css
+D:\Texas-Poker\TexasPoker\obj\Debug\net6.0\TexasPoker.dll
+D:\Texas-Poker\TexasPoker\obj\Debug\net6.0\ref\TexasPoker.dll
+D:\Texas-Poker\TexasPoker\obj\Debug\net6.0\TexasPoker.pdb
+D:\Texas-Poker\TexasPoker\obj\Debug\net6.0\TexasPoker.genruntimeconfig.cache
+=======
 C:/Users/tanko/Desktop/TexasPoker/bin/Debug/net6.0/appsettings.Development.json
 C:/Users/tanko/Desktop/TexasPoker/bin/Debug/net6.0/appsettings.json
 C:/Users/tanko/Desktop/TexasPoker/bin/Debug/net6.0/TexasPoker.staticwebassets.runtime.json
@@ -64,3 +132,4 @@ D:/School Stuff/Degree/Degree Year 2 Sem 3/BAIT3093 - EMERGING WEB TECHNOLOGIES/
 /home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/obj/Debug/net6.0/TexasPoker.pdb
 /home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/obj/Debug/net6.0/TexasPoker.genruntimeconfig.cache
 /home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/obj/Debug/net6.0/ref/TexasPoker.dll
+>>>>>>> 43dde606942faf1fb34dbfc8f8048088c413fe2f

@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.SignalR;
 public class MiniPlayer
 {
     public string Id {get; set;}
-    public string Icon {get; set;}
+    // public string Icon {get; set;}
     public string Name {get; set;}
-    public MiniPlayer(string id, string icon, string name) => (Id, Icon, Name) = (id, icon, name);
+    public MiniPlayer(string id, string name) => (Id, Name) = (id, name);
 
 }
 
@@ -113,8 +113,7 @@ public class MiniRoomHub : Hub
     private async Task GameConnected()
     {
         string id = Context.ConnectionId;
-        string icon = Context.GetHttpContext()?.Request.Query["icon"] ?? "";
-        string name = Context.GetHttpContext()?.Request.Query["name"] ?? "";
+        string name = Context.GetHttpContext()?.Request.Query["username"] ?? "";
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
 
         var game = minigames.Find(g=> g.Id == gameId);
@@ -123,7 +122,7 @@ public class MiniRoomHub : Hub
             return ;
         }
 
-        var player = new MiniPlayer(id , icon, name);
+        var player = new MiniPlayer(id, name);
         var letter = game.AddPlayer(player);
 
         await Groups.AddToGroupAsync(id, gameId);
