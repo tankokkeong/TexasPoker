@@ -1,3 +1,12 @@
 obj/staticwebassets.pack.sentinel
 obj/Debug/net6.0/TexasPoker.assets.cache
 obj/Debug/net6.0/TexasPoker.csproj.AssemblyReference.cache
+bin/Debug/net6.0/TexasPoker.dll
+obj/staticwebassets.pack.sentinel
+bin/Debug/net6.0/TexasPoker.pdb
+obj/Debug/net6.0/TexasPoker.assets.cache
+obj/Debug/net6.0/TexasPoker.csproj.AssemblyReference.cache
+obj/Debug/net6.0/TexasPoker.dll
+obj/Debug/net6.0/TexasPoker.pdb
+obj/Debug/net6.0/ref/TexasPoker.dll
+obj/Debug/net6.0/refint/TexasPoker.dll

@@ -15,8 +15,6 @@ public class Player
     public string? SecondHandCard {get; set;} = null;
     public int ChipsOnHand { get; set; } = 0;
 
-    public int ChipsOfTheRound{get; set;} = 0;
-
     public Player(){}
 
     public Player(string id, string icon, string name, int chipsOnHand) => (Id, Icon, Name, ChipsOnHand) = (id, icon, name, chipsOnHand);
@@ -319,11 +317,13 @@ public class GameHub : Hub
 
             if(game.TimerPosition >= sequence.Count() -1){
                 game.TimerPosition = 0;
+                await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition]);
                 await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
                 game.TimerPosition++;
                 return;
             }
             else{
+                await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition]);
                 await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
                 game.TimerPosition++;
                 return;
@@ -347,7 +347,7 @@ public class GameHub : Hub
             game.BigBlindPosition = FindSeatUserPosition(sequence[0], gameId);
             game.SmallBlindPosition = FindSeatUserPosition(sequence[1], gameId);
 
-            await Clients.Group(gameId).SendAsync("BlindChips", game.BigBlindPosition, game.SmallBlindPosition, sequence, game.ChipsOfTheRound);
+            await Clients.Group(gameId).SendAsync("BlindChips", game.BigBlindPosition, game.SmallBlindPosition, sequence);
             return;
         }
     }

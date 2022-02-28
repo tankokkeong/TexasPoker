@@ -50,6 +50,20 @@ function removeAllTimer(){
     }
 }
 
+function removeAllActionButtons(){
+    var checkBtn = document.getElementById("check-btn");
+    var callBtn = document.getElementById("call-btn");
+    var raiseBtn = document.getElementById("raise-btn");
+    var foldBtn = document.getElementById("fold-btn");
+
+    console.log("remove btn")
+    //Disabled all button
+    checkBtn.disabled = true;
+    callBtn.disabled = true;
+    raiseBtn.disabled = true;
+    foldBtn.disabled = true;
+}
+
 function showPlayer(player, seatNo){
 
     if(player != null){

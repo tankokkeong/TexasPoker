@@ -1,5 +1,6 @@
 //Global Variables
 var fixedTime;
+var playerChipsOfTheRound = [0, 0, 0, 0, 0];
 
 // ========================================================================================
 // Connect
@@ -119,8 +120,13 @@ con.on('BlindChips', (bigBlindPosition, smallBlindPosition, sequence) => {
   bigBlindAmount.innerHTML = amountFormatter("10000");
   smallBlindAmount.innerHTML = amountFormatter("5000");
 
+  //Assign the chips of the round
+  playerChipsOfTheRound[bigBlindPosition -1] = 10000;
+  playerChipsOfTheRound[smallBlindPosition -1] = 5000;
+
   console.log("Big Blind: " + bigBlindPosition + ", Small Blind: " + smallBlindPosition)
   console.log("Sequence: " + sequence)
+  console.log("Player Chips of the round: " + playerChipsOfTheRound)
 
   //Reveal the blind sign
   blindSign.style.display = "";
@@ -154,6 +160,8 @@ con.on('LeaveSeat', (seatNo, noCard) => {
     recoverPlayerTimer("", true);
     removeBlind("", true);
     removeChips("", true);
+    removeAllActionButtons();
+    playerChipsOfTheRound = [0, 0, 0, 0, 0];
   }
 
   if(mySeat == seatNo){
@@ -234,12 +242,28 @@ con.on('getSeat', (seatNo, chips, name) => {
 
 });
 
-con.on('GameAction', (chipsOfTheRound) => {
+con.on('GameAction', (chipsOfTheRound, userId) => {
   var checkBtn = document.getElementById("check-btn");
   var callBtn = document.getElementById("call-btn");
   var raiseBtn = document.getElementById("raise-btn");
   var foldBtn = document.getElementById("fold-btn");
+  var myUserId = sessionStorage.getItem("userId");
+  var mySeatNo = sessionStorage.getItem("mySeatNo");
 
+  if(userId == myUserId){
+    if(playerChipsOfTheRound[parseInt(mySeatNo) - 1] == chipsOfTheRound){
+      checkBtn.disabled = false;
+      callBtn.disabled = false;
+      raiseBtn.disabled = false;
+      foldBtn.disabled = false;
+    }
+    else{
+      checkBtn.disabled = true;
+      callBtn.disabled =  false;
+      raiseBtn.disabled =  false;
+      foldBtn.disabled =  false;
+    }
+  }
   
 });
 
