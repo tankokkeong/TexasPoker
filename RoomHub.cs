@@ -345,7 +345,7 @@ public class GameHub : Hub
             game.BigBlindPosition = FindSeatUserPosition(sequence[0], gameId);
             game.SmallBlindPosition = FindSeatUserPosition(sequence[1], gameId);
 
-            await Clients.Group(gameId).SendAsync("BlindChips", game.BigBlindPosition, game.SmallBlindPosition, sequence);
+            await Clients.Group(gameId).SendAsync("BlindChips", game.BigBlindPosition, game.SmallBlindPosition, sequence, game.ChipsOfTheRound);
             return;
         }
     }
