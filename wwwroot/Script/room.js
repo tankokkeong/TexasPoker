@@ -80,6 +80,8 @@ con.on('DisplayTimer', (game, id, sequence) => {
   var seat4Timer = document.getElementById("seat-4-timer");
   var seat5Timer = document.getElementById("seat-5-timer");
 
+  console.log("Next ID: " + id + " Sequence: " + sequence)
+
   if(seat1 == id){
     seat1Timer.style.display = "";
     actionTimer("player-" + 1 + "-timer", "seat-1-timer");
@@ -124,9 +126,9 @@ con.on('BlindChips', (bigBlindPosition, smallBlindPosition, sequence) => {
   playerChipsOfTheRound[bigBlindPosition -1] = 10000;
   playerChipsOfTheRound[smallBlindPosition -1] = 5000;
 
-  console.log("Big Blind: " + bigBlindPosition + ", Small Blind: " + smallBlindPosition)
-  console.log("Sequence: " + sequence)
-  console.log("Player Chips of the round: " + playerChipsOfTheRound)
+  // console.log("Big Blind: " + bigBlindPosition + ", Small Blind: " + smallBlindPosition)
+  // console.log("Sequence: " + sequence)
+  // console.log("Player Chips of the round: " + playerChipsOfTheRound)
 
   //Reveal the blind sign
   blindSign.style.display = "";
@@ -271,7 +273,7 @@ con.on('CheckAction', () => {
   checkCardSoundEffect();
 
   //Invoke the timer
-  //con.invoke("TimerTrigger");
+  con.invoke("TimerTrigger");
 
 });
 
@@ -292,7 +294,7 @@ con.on('FoldAction', () => {
 
 function checkCard(){
   var mySeatNo = sessionStorage.getItem("mySeatNo");
-  con.invoke("TriggerCheck");
+  con.invoke("checkTrigger");
   
 }
 

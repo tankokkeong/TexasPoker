@@ -306,7 +306,7 @@ public class GameHub : Hub
 
     }
 
-    public async Task TriggerCheck(int seatNo){
+    public async Task checkTrigger(){
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
 
          //Find game
@@ -490,43 +490,43 @@ public class GameHub : Hub
         return sequence;
     }
 
-    public async Task FlopRound(){
+    // public async Task FlopRound(){
 
-        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-        //Find game
-        var game = games.Find(g => g.Id == gameId);
+    //     string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+    //     //Find game
+    //     var game = games.Find(g => g.Id == gameId);
 
-        if(game != null){
-            int cardIndex = ((game.playersOfTheRound.Count() * 2) - 1);
+    //     if(game != null){
+    //         int cardIndex = ((game.playersOfTheRound.Count() * 2) - 1);
 
-            game.FirstCard = game.cards[cardIndex + 1];
-            game.SecondCard = game.cards[cardIndex + 2];
-            game.ThirdCard = game.cards[cardIndex + 3];
-        }
-    }
+    //         game.FirstCard = game.cards[cardIndex + 1];
+    //         game.SecondCard = game.cards[cardIndex + 2];
+    //         game.ThirdCard = game.cards[cardIndex + 3];
+    //     }
+    // }
 
-    public async Task TurnRound(){
-        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-        //Find game
-        var game = games.Find(g => g.Id == gameId);
+    // public async Task TurnRound(){
+    //     string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+    //     //Find game
+    //     var game = games.Find(g => g.Id == gameId);
 
-        if(game != null){
-            int cardIndex = ((game.playersOfTheRound.Count() * 2) - 1) + 4;
-            game.FourthCard = game.cards[cardIndex + 1];
-        }
-    }
+    //     if(game != null){
+    //         int cardIndex = ((game.playersOfTheRound.Count() * 2) - 1) + 4;
+    //         game.FourthCard = game.cards[cardIndex + 1];
+    //     }
+    // }
 
-    public async Task RiverRound(){
-        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-        //Find game
-        var game = games.Find(g => g.Id == gameId);
+    // public async Task RiverRound(){
+    //     string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+    //     //Find game
+    //     var game = games.Find(g => g.Id == gameId);
 
-        if(game != null){
-            int cardIndex = ((game.playersOfTheRound.Count() * 2) - 1) + 5;
-            game.FifthCard = game.cards[cardIndex + 1];
-        }
+    //     if(game != null){
+    //         int cardIndex = ((game.playersOfTheRound.Count() * 2) - 1) + 5;
+    //         game.FifthCard = game.cards[cardIndex + 1];
+    //     }
 
-    }
+    // }
 
     // ----------------------------------------------------------------------------------------
     // Functions
