@@ -286,8 +286,8 @@ public class GameHub : Hub
 
         if (game != null)
         {
-                //Remove player
-                game.RemovePlayer(seatNo);
+            //Remove player
+            game.RemovePlayer(seatNo);
 
             if(game.NumberOfPlayer <= 1){
                 //End Game
@@ -314,15 +314,15 @@ public class GameHub : Hub
 
         if (game != null){
             await Clients.Group(gameId).SendAsync("CheckAction");
-            return;
         }
     }
 
     public async Task TimerTrigger(){
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
         List<string> sequence = DetermineTimerSequence();
-
-         //Find game
+        
+        Console.WriteLine("Triggered");
+        //Find game
         var game = games.Find(g => g.Id == gameId);
 
         if (game != null){
@@ -343,6 +343,8 @@ public class GameHub : Hub
             
         }
 
+        return;
+
     }
 
     public async Task BlindTrigger(){
@@ -360,8 +362,9 @@ public class GameHub : Hub
             game.SmallBlindPosition = FindSeatUserPosition(sequence[1], gameId);
 
             await Clients.Group(gameId).SendAsync("BlindChips", game.BigBlindPosition, game.SmallBlindPosition, sequence);
-            return;
         }
+
+        return;
     }
 
     private int FindSeatUserPosition(string playerID, string gameID){
@@ -410,6 +413,7 @@ public class GameHub : Hub
 
     public async Task HandCardDealing(){
 
+        Console.WriteLine("Hand Card Dealing triggered");
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
 
         //Find game
@@ -457,7 +461,7 @@ public class GameHub : Hub
                 cardIndex = cardIndex + 2;
             }
 
-            await Clients.Group(gameId).SendAsync("StartGame", game);
+            await Clients.Client(this.Context.ConnectionId).SendAsync("StartGame", game);
             return;
 
         }
@@ -600,7 +604,7 @@ public class GameHub : Hub
         switch (page)
         {
             case "list": ListDisconnected(); break;
-            //case "game": await GameDisconnected(); break;
+            case "game": await GameDisconnected(); break;
         }
 
         await base.OnDisconnectedAsync(exception);
@@ -611,6 +615,23 @@ public class GameHub : Hub
         // Do nothing
     }
 
+private async Task GameDisconnected()
+    {
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+
+        var game = games.Find(g => g.Id == gameId);
+        if (game == null)
+        {
+            await Clients.Caller.SendAsync("Reject");
+            return;
+        }
+
+        if (game.IsEmpty)
+        {
+            games.Remove(game);
+            await UpdateList();
+        }
+    }
 
     // End of GameHub -------------------------------------------------------------------------
 }

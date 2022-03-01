@@ -17,11 +17,6 @@ const con = new signalR.HubConnectionBuilder()
             .withUrl('/hub?' + param)
             .build();     
 
-
-//Start connection
-con.start().then();
-
-
 //Invalid Id
 con.on('Reject', () => location = 'lobby.html');
 
@@ -34,6 +29,7 @@ con.on('ViewGame', (game) => {
   showPlayer(game.seat4, 4);
   showPlayer(game.seat5, 5);
 
+  console.log("View Game Trigger")
 });
 
 //Get current game info
@@ -115,6 +111,8 @@ con.on('BlindChips', (bigBlindPosition, smallBlindPosition, sequence) => {
   var smallBlind = document.getElementById("player-pour-chips-" + smallBlindPosition);
   var bigBlindAmount = document.getElementById("chips-amount-" + bigBlindPosition);
   var smallBlindAmount = document.getElementById("chips-amount-" + smallBlindPosition);
+
+  console.log("BLind Chips triggered")
 
   //Set the big blind and small blind
   bigBlind.style.display = "";
@@ -273,7 +271,7 @@ con.on('CheckAction', () => {
   checkCardSoundEffect();
 
   //Invoke the timer
-  con.invoke("TimerTrigger");
+  //con.invoke("TimerTrigger");
 
 });
 
@@ -335,3 +333,6 @@ function exit(){
       location = "lobby.html";
   }
 }
+
+//Start connection
+con.start();
