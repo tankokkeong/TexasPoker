@@ -17,23 +17,19 @@ const con = new signalR.HubConnectionBuilder()
             .withUrl('/hub?' + param)
             .build();     
 
-
-//Start connection
-con.start().then();
-
-
 //Invalid Id
 con.on('Reject', () => location = 'lobby.html');
 
 //Get current game info
 con.on('ViewGame', (game) => {
 
-  showPlayer(game.seat1, 1);
-  showPlayer(game.seat2, 2);
-  showPlayer(game.seat3, 3);
-  showPlayer(game.seat4, 4);
-  showPlayer(game.seat5, 5);
+  showPlayer(game.seat[0], 1);
+  showPlayer(game.seat[1], 2);
+  showPlayer(game.seat[2], 3);
+  showPlayer(game.seat[3], 4);
+  showPlayer(game.seat[4], 5);
 
+  console.log("View Game Trigger: ")
 });
 
 //Get current game info
@@ -42,19 +38,19 @@ con.on('StartGame', (game) => {
   var mySeatNo = parseInt(sessionStorage.getItem("mySeatNo"));
 
   if(mySeatNo == 1){
-    showCard(game.seat1, 1);
+    showCard(game.seat[0], 1);
   }
   else if(mySeatNo == 2){
-    showCard(game.seat2, 2);
+    showCard(game.seat[1], 2);
   }
   else if(mySeatNo == 3){
-    showCard(game.seat3, 3);
+    showCard(game.seat[2], 3);
   }
   else if(mySeatNo == 4){
-    showCard(game.seat4, 4);
+    showCard(ggame.seat[3], 4);
   }
   else if(mySeatNo == 5){
-    showCard(game.seat5, 5);
+    showCard(game.seat[4], 5);
   }
 
   //Trigger the timer and blinds
@@ -67,11 +63,11 @@ con.on('StartGame', (game) => {
 //Trigger the timer
 con.on('DisplayTimer', (game, id, sequence) => {
 
-  var seat1 = (game.seat1 == null ? "" : game.seat1.id);
-  var seat2 = (game.seat2 == null ? "" : game.seat2.id)
-  var seat3 = (game.seat3 == null ? "" : game.seat3.id)
-  var seat4 = (game.seat4 == null ? "" : game.seat4.id)
-  var seat5 = (game.seat5 == null ? "" : game.seat5.id)
+  var seat1 = (game.seat[0] == null ? "" : game.seat[0].id);
+  var seat2 = (game.seat[1] == null ? "" : game.seat[1].id);
+  var seat3 = (game.seat[2] == null ? "" : game.seat[2].id);
+  var seat4 = (game.seat[3] == null ? "" : game.seat[3].id);
+  var seat5 = (game.seat[4] == null ? "" : game.seat[4].id);
 
   var soundEffect = document.getElementById("bell-sound-effect");
   var seat1Timer = document.getElementById("seat-1-timer");
@@ -115,6 +111,8 @@ con.on('BlindChips', (bigBlindPosition, smallBlindPosition, sequence) => {
   var smallBlind = document.getElementById("player-pour-chips-" + smallBlindPosition);
   var bigBlindAmount = document.getElementById("chips-amount-" + bigBlindPosition);
   var smallBlindAmount = document.getElementById("chips-amount-" + smallBlindPosition);
+
+  console.log("BLind Chips triggered")
 
   //Set the big blind and small blind
   bigBlind.style.display = "";
@@ -272,6 +270,9 @@ con.on('GameAction', (chipsOfTheRound, userId) => {
 con.on('CheckAction', () => {
   checkCardSoundEffect();
 
+  //Reset the fixed time
+  fixedTime = -1;
+
   //Invoke the timer
   con.invoke("TimerTrigger");
 
@@ -335,3 +336,6 @@ function exit(){
       location = "lobby.html";
   }
 }
+
+//Start connection
+con.start();

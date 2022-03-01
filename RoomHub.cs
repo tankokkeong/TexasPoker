@@ -8,6 +8,7 @@ using System.Linq;
     
 public class Player
 {
+    public string? SignalRConnectionId{get; set;} = null;
     public string? Id { get; set; } = null;
     public string? Icon { get; set; } = null;
     public string? Name { get; set; } = null;
@@ -17,7 +18,7 @@ public class Player
 
     public Player(){}
 
-    public Player(string id, string icon, string name, int chipsOnHand) => (Id, Icon, Name, ChipsOnHand) = (id, icon, name, chipsOnHand);
+    public Player(string signalRConnectionId, string id, string icon, string name, int chipsOnHand) => (SignalRConnectionId, Id, Icon, Name, ChipsOnHand) = (signalRConnectionId, id, icon, name, chipsOnHand);
 
 }
 
@@ -39,9 +40,9 @@ public class Game
     "A <br> <span class='diamonds'>♦</span>", "K <br> <span class='diamonds'>♦</span>", "Q <br> <span class='diamonds'>♦</span>", "J <br> <span class='diamonds'>♦</span>", "10 <br> <span class='diamonds'>♦</span>", "9 <br> <span class='diamonds'>♦</span>", "8 <br> <span class='diamonds'>♦</span>", "7 <br> <span class='diamonds'>♦</span>", "6 <br> <span class='diamonds'>♦</span>", "5 <br> <span class='diamonds'>♦</span>", "4 <br> <span class='diamonds'>♦</span>", "3 <br> <span class='diamonds'>♦</span>", "2 <br> <span class='diamonds'>♦</span>",
     };
 
-    public List<Player> playersOfTheRound = new List<Player>();
+    public List<Player?> playersOfTheRound = new List<Player?>();
 
-    public List<Player> playersOfNextRound = new List<Player>();
+    public List<Player?> playersOfNextRound = new List<Player?>();
 
     public int TimerPosition {get; set;} = 0;
 
@@ -53,6 +54,10 @@ public class Game
     // public Dictionary<string, int> BlindPosition {get; set;} = new Dictionary<string, int>
     // {{"Seat 1", 1}, {"Seat 2", 2}, {"Seat 3", 3}
     // ,{"Seat 4", 4}, {"Seat 5", 5}};
+
+    //Default 5 players
+    public List<Player?> Seat {get; set;} = 
+    new List<Player?>{null, null, null, null, null};
 
     public Player? Seat1 { get; set; } = null;
     public Player? Seat2 { get; set; } = null;
@@ -83,29 +88,29 @@ public class Game
 
     public void AddPlayer(Player player, int seatNo)
     {
-        if (seatNo == 1 && Seat1 == null)
+        if (seatNo == 1 && Seat[0] == null)
         {
-            Seat1 = player;
+            Seat[0] = player;
             NumberOfPlayer++;
         }
-        else if (seatNo == 2 && Seat2 == null)
+        else if (seatNo == 2 && Seat[1] == null)
         {
-            Seat2 = player;
+            Seat[1] = player;
             NumberOfPlayer++;
         }
-        else if (seatNo == 3 && Seat3 == null)
+        else if (seatNo == 3 && Seat[2] == null)
         {
-            Seat3 = player;
+            Seat[2] = player;
             NumberOfPlayer++;
         }
-        else if (seatNo == 4 && Seat4 == null)
+        else if (seatNo == 4 && Seat[3] == null)
         {
-            Seat4 = player;
+            Seat[3] = player;
             NumberOfPlayer++;
         }
         else
         {
-            Seat5 = player;
+            Seat[4] = player;
             NumberOfPlayer++;
         }
 
@@ -114,46 +119,46 @@ public class Game
             playersOfTheRound.Clear();
 
 
-            if(Seat1 != null){
-                playersOfTheRound.Add(Seat1);
+            if(Seat[0] != null){
+                playersOfTheRound.Add(Seat[0]);
             }
 
-            if(Seat2 != null){
-                playersOfTheRound.Add(Seat2);
+            if(Seat[1] != null){
+                playersOfTheRound.Add(Seat[1]);
             }
 
-            if(Seat3 != null){
-                playersOfTheRound.Add(Seat3);
+            if(Seat[2] != null){
+                playersOfTheRound.Add(Seat[2]);
             }
 
-            if(Seat4 != null){
-                playersOfTheRound.Add(Seat4);
+            if(Seat[3] != null){
+                playersOfTheRound.Add(Seat[3]);
             }
 
-            if(Seat5 != null){
-                playersOfTheRound.Add(Seat5);
+            if(Seat[4] != null){
+                playersOfTheRound.Add(Seat[4]);
             }
             
         }
         else{
-            if(Seat1 != null){
-                playersOfNextRound.Add(Seat1);
+            if(Seat[0] != null){
+                playersOfNextRound.Add(Seat[0]);
             }
 
-            if(Seat2 != null){
-                playersOfNextRound.Add(Seat2);
+            if(Seat[1] != null){
+                playersOfNextRound.Add(Seat[1]);
             }
 
-            if(Seat3 != null){
-                playersOfNextRound.Add(Seat3);
+            if(Seat[2] != null){
+                playersOfNextRound.Add(Seat[2]);
             }
 
-            if(Seat4 != null){
-                playersOfNextRound.Add(Seat4);
+            if(Seat[3] != null){
+                playersOfNextRound.Add(Seat[3]);
             }
             
-            if(Seat5 != null){
-                playersOfNextRound.Add(Seat5);
+            if(Seat[4] != null){
+                playersOfNextRound.Add(Seat[4]);
             }
 
             Console.WriteLine("Player Of Next Round Triggered");
@@ -163,64 +168,64 @@ public class Game
 
     public void RemovePlayer(int seatNo)
     {
-        if (seatNo == 1 && Seat1 != null)
+        if (seatNo == 1 && Seat[0] != null)
         {
-            if(playersOfTheRound.FindAll(p => p.Id == Seat1.Id) != null){
-                playersOfTheRound.Remove(Seat1);
+            if(playersOfTheRound.FindAll(p => p?.Id == Seat[0]?.Id) != null){
+                playersOfTheRound.Remove(Seat[0]);
             }
-            else if(playersOfNextRound.FindAll(p => p.Id == Seat1.Id) != null){
-                playersOfNextRound.Remove(Seat1);
+            else if(playersOfNextRound.FindAll(p => p?.Id == Seat[0]?.Id) != null){
+                playersOfNextRound.Remove(Seat[0]);
             }
 
-            Seat1 = null;
+            Seat[0] = null;
             NumberOfPlayer--;
         }
-        else if (seatNo == 2 && Seat2 != null)
+        else if (seatNo == 2 && Seat[1] != null)
         {
-            if(playersOfTheRound.FindAll(p => p.Id == Seat2.Id) != null){
-                playersOfTheRound.Remove(Seat2);
+            if(playersOfTheRound.FindAll(p => p?.Id == Seat[1]?.Id) != null){
+                playersOfTheRound.Remove(Seat[1]);
             }
-            else if(playersOfNextRound.FindAll(p => p.Id == Seat2.Id) != null){
-                playersOfNextRound.Remove(Seat2);
+            else if(playersOfNextRound.FindAll(p => p?.Id == Seat[1]?.Id) != null){
+                playersOfNextRound.Remove(Seat[1]);
             }
 
-            Seat2 = null;
+            Seat[1] = null;
             NumberOfPlayer--; 
         }
-        else if (seatNo == 3 && Seat3 != null)
+        else if (seatNo == 3 && Seat[2] != null)
         {
-            if(playersOfTheRound.FindAll(p => p.Id == Seat3.Id) != null){
-                playersOfTheRound.Remove(Seat3);
+            if(playersOfTheRound.FindAll(p => p?.Id == Seat[2]?.Id) != null){
+                playersOfTheRound.Remove(Seat[2]);
             }
-            else if(playersOfNextRound.FindAll(p => p.Id == Seat3.Id) != null){
-                playersOfNextRound.Remove(Seat3);
+            else if(playersOfNextRound.FindAll(p => p?.Id == Seat[2]?.Id) != null){
+                playersOfNextRound.Remove(Seat[2]);
             }
 
-            Seat3 = null;
+            Seat[2] = null;
             NumberOfPlayer--;
         }
-        else if (seatNo == 4 && Seat4 != null)
+        else if (seatNo == 4 && Seat[3] != null)
         {
-            if(playersOfTheRound.FindAll(p => p.Id == Seat4.Id) != null){
-                playersOfTheRound.Remove(Seat4);
+            if(playersOfTheRound.FindAll(p => p?.Id == Seat[3]?.Id) != null){
+                playersOfTheRound.Remove(Seat[3]);
             }
-            else if(playersOfNextRound.FindAll(p => p.Id == Seat4.Id) != null){
-                playersOfNextRound.Remove(Seat4);
+            else if(playersOfNextRound.FindAll(p => p?.Id == Seat[3]?.Id) != null){
+                playersOfNextRound.Remove(Seat[3]);
             }
 
-            Seat4 = null;
+            Seat[3] = null;
             NumberOfPlayer--;
         }
-        else if (seatNo == 5 && Seat5 != null)
+        else if (seatNo == 5 && Seat[4] != null)
         {
-            if(playersOfTheRound.FindAll(p => p.Id == Seat5.Id) != null){
-                playersOfTheRound.Remove(Seat5);
+            if(playersOfTheRound.FindAll(p => p?.Id == Seat[4]?.Id) != null){
+                playersOfTheRound.Remove(Seat[4]);
             }
-            else if(playersOfNextRound.FindAll(p => p.Id == Seat5.Id) != null){
-                playersOfNextRound.Remove(Seat5);
+            else if(playersOfNextRound.FindAll(p => p?.Id == Seat[4]?.Id) != null){
+                playersOfNextRound.Remove(Seat[4]);
             }
             
-            Seat5 = null;
+            Seat[4] = null;
             NumberOfPlayer--;
         }
 
@@ -246,12 +251,14 @@ public class GameHub : Hub
     {
         var game = new Game();
         games.Add(game);
+
         return game.Id;
     }
 
     public async Task JoinGame(int seatNo, string id, string icon, string name, int chips)
     {
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        string connectionId     = Context.ConnectionId;
 
         //Find game
         var game = games.Find(g => g.Id == gameId);
@@ -259,7 +266,7 @@ public class GameHub : Hub
         if (game != null || !game.IsFull)
         {
             //Create new player
-            var player = new Player(id, icon, name, chips);
+            var player = new Player(connectionId, id, icon, name, chips);
 
             game.AddPlayer(player, seatNo);
             await Clients.Caller.SendAsync("getSeat", seatNo, chips, name);
@@ -286,8 +293,8 @@ public class GameHub : Hub
 
         if (game != null)
         {
-                //Remove player
-                game.RemovePlayer(seatNo);
+            //Remove player
+            game.RemovePlayer(seatNo);
 
             if(game.NumberOfPlayer <= 1){
                 //End Game
@@ -314,24 +321,23 @@ public class GameHub : Hub
 
         if (game != null){
             await Clients.Group(gameId).SendAsync("CheckAction");
-            return;
         }
     }
 
     public async Task TimerTrigger(){
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
         List<string> sequence = DetermineTimerSequence();
-
-         //Find game
+        
+        Console.WriteLine("Timer Triggered");
+        //Find game
         var game = games.Find(g => g.Id == gameId);
 
         if (game != null){
 
             if(game.TimerPosition >= sequence.Count() -1){
-                game.TimerPosition = 0;
                 await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition]);
                 await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
-                game.TimerPosition++;
+                game.TimerPosition = 0;
                 return;
             }
             else{
@@ -343,11 +349,15 @@ public class GameHub : Hub
             
         }
 
+        return;
+
     }
 
     public async Task BlindTrigger(){
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
         List<string> sequence = DetermineTimerSequence();
+
+        Console.WriteLine("Blind Triggered");
 
         //Find game
         var game = games.Find(g => g.Id == gameId);
@@ -360,8 +370,9 @@ public class GameHub : Hub
             game.SmallBlindPosition = FindSeatUserPosition(sequence[1], gameId);
 
             await Clients.Group(gameId).SendAsync("BlindChips", game.BigBlindPosition, game.SmallBlindPosition, sequence);
-            return;
         }
+
+        return;
     }
 
     private int FindSeatUserPosition(string playerID, string gameID){
@@ -370,19 +381,19 @@ public class GameHub : Hub
         int position = 0;
 
         if (game != null){
-            if(playerID == game.Seat1?.Id){
+            if(playerID == game.Seat[0]?.Id){
                 position = 1;
             }
-            else if(playerID == game.Seat2?.Id){
+            else if(playerID == game.Seat[1]?.Id){
                 position = 2;
             }
-            else if(playerID == game.Seat3?.Id){
+            else if(playerID == game.Seat[2]?.Id){
                 position = 3;
             }
-            else if(playerID == game.Seat4?.Id){
+            else if(playerID == game.Seat[3]?.Id){
                 position = 4;
             }
-            else if(playerID == game.Seat5?.Id){
+            else if(playerID == game.Seat[4]?.Id){
                 position = 5;
             }
 
@@ -410,6 +421,7 @@ public class GameHub : Hub
 
     public async Task HandCardDealing(){
 
+        Console.WriteLine("Hand Card Dealing triggered");
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
 
         //Find game
@@ -422,42 +434,42 @@ public class GameHub : Hub
 
             List<string> sequence = CardDealingSequence(game);
 
-            if (sequence.Contains("Seat 1") && game.Seat1 != null){
-                game.Seat1.FirstHandCard = game.cards[cardIndex];
-                game.Seat1.SecondHandCard = game.cards[cardIndex + 1];
+            if (sequence.Contains("Seat 1") && game.Seat[0] != null){
+                game.Seat[0].FirstHandCard = game.cards[cardIndex];
+                game.Seat[0].SecondHandCard = game.cards[cardIndex + 1];
 
                 cardIndex = cardIndex + 2;
             }
 
-            if (sequence.Contains("Seat 2") && game.Seat2 != null){
-                game.Seat2.FirstHandCard = game.cards[cardIndex];
-                game.Seat2.SecondHandCard = game.cards[cardIndex + 1];
+            if (sequence.Contains("Seat 2") && game.Seat[1] != null){
+                game.Seat[1].FirstHandCard = game.cards[cardIndex];
+                game.Seat[1].SecondHandCard = game.cards[cardIndex + 1];
 
                 cardIndex = cardIndex + 2;
             }
 
-            if (sequence.Contains("Seat 3") && game.Seat3 != null){
-                game.Seat3.FirstHandCard = game.cards[cardIndex];
-                game.Seat3.SecondHandCard = game.cards[cardIndex + 1];
+            if (sequence.Contains("Seat 3") && game.Seat[2] != null){
+                game.Seat[2].FirstHandCard = game.cards[cardIndex];
+                game.Seat[2].SecondHandCard = game.cards[cardIndex + 1];
 
                 cardIndex = cardIndex + 2;
             }
 
-            if (sequence.Contains("Seat 4") && game.Seat4 != null){
-                game.Seat4.FirstHandCard = game.cards[cardIndex];
-                game.Seat4.SecondHandCard = game.cards[cardIndex + 1];
+            if (sequence.Contains("Seat 4") && game.Seat[3] != null){
+                game.Seat[3].FirstHandCard = game.cards[cardIndex];
+                game.Seat[3].SecondHandCard = game.cards[cardIndex + 1];
 
                 cardIndex = cardIndex + 2;
             }
 
-            if (sequence.Contains("Seat 5") && game.Seat5 != null){
-                game.Seat5.FirstHandCard = game.cards[cardIndex];
-                game.Seat5.SecondHandCard = game.cards[cardIndex + 1];
+            if (sequence.Contains("Seat 5") && game.Seat[4] != null){
+                game.Seat[4].FirstHandCard = game.cards[cardIndex];
+                game.Seat[4].SecondHandCard = game.cards[cardIndex + 1];
 
                 cardIndex = cardIndex + 2;
             }
 
-            await Clients.Group(gameId).SendAsync("StartGame", game);
+            await Clients.Group(game.Id).SendAsync("StartGame", game);
             return;
 
         }
@@ -467,23 +479,23 @@ public class GameHub : Hub
     private List<string> CardDealingSequence(Game game){
         List<string> sequence = new List<string>();
 
-        if(game.Seat1 != null){
+        if(game.Seat[0] != null){
             sequence.Add("Seat 1");
         }
 
-        if(game.Seat2 != null){
+        if(game.Seat[1] != null){
             sequence.Add("Seat 2");
         }
 
-        if(game.Seat3 != null){
+        if(game.Seat[2] != null){
             sequence.Add("Seat 3");
         }
 
-        if(game.Seat4 != null){
+        if(game.Seat[3] != null){
             sequence.Add("Seat 4");
         }
 
-        if(game.Seat5 != null){
+        if(game.Seat[4] != null){
             sequence.Add("Seat 5");
         }
 
@@ -582,7 +594,6 @@ public class GameHub : Hub
         }
         else{
             await Groups.AddToGroupAsync(id, gameId);
-            //await Clients.Group(gameId).SendAsync("Ready", letter, game);
             await Clients.Caller.SendAsync("ViewGame", game);
             return;
         }
@@ -600,7 +611,7 @@ public class GameHub : Hub
         switch (page)
         {
             case "list": ListDisconnected(); break;
-            //case "game": await GameDisconnected(); break;
+            case "game": await GameDisconnected(); break;
         }
 
         await base.OnDisconnectedAsync(exception);
@@ -611,6 +622,23 @@ public class GameHub : Hub
         // Do nothing
     }
 
+private async Task GameDisconnected()
+    {
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+
+        var game = games.Find(g => g.Id == gameId);
+        if (game == null)
+        {
+            await Clients.Caller.SendAsync("Reject");
+            return;
+        }
+
+        if (game.IsEmpty)
+        {
+            games.Remove(game);
+            await UpdateList();
+        }
+    }
 
     // End of GameHub -------------------------------------------------------------------------
 }
