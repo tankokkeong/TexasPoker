@@ -37,7 +37,8 @@
         </div>
 
         <p id="status" class="text-center mt-3 text-light">Waiting for another player...</p>
-
+        <p id="countdown" class="text-center mt-2 text-light"></p>
+ 
         <div class="dice-section">
             <div class="dice-container mt-5 text-center">
                 <div class="row dice-row">
@@ -60,12 +61,18 @@
             </div>
         </div>
 
-        <div class="bet-button mt-5 text-center">
-            <div>
-                <button class="btn btn-warning" id="big">Big (大)</button>
-                <button class="btn btn-danger" id="small">Small (小)</button>
-            </div>
+        <div class="bet-section mt-5 text-center">
+            <form class="betsize-form">
+                <div class="form-group">
+                    <select class="form-control" id="betsize" disabled>
+                      <option id="big">Big (大)</option>
+                      <option id="small">Small (小)</option>
+                    </select>
+                  </div>
+            </form>
         </div>
+
+
         <div class="player-container mt-5">
             <table class="table table-bordered table-dark table-list">
                 <thead>

@@ -19,6 +19,7 @@
         let started = false;
         let me = null; //A or B
         const $status = $('#status');
+        const $countdownTimer = $('#countdown');
 
         // ========================================================================================
         // Events
@@ -51,17 +52,45 @@
                     me = letter;
                     $('#' + me).addClass('me');
                 }
+
+                // TODO: Host starts the game
+                if(me == 'A' && game.isFull){
+                    conn.invoke('Start');
+                }
             });
 
             conn.on('Left', letter => {
                 started = false;
-                winnerSound.play();
-
                 $status.text(`Player ${letter} left. You Win !!`)
-
                 document.getElementById("big").style.display = "none";
                 document.getElementById("small").style.display = "none";
             });
+
+        // TODO: Start()
+        conn.on('Start', () => {
+
+            setTimeout(() => $status.text('Ready to Bet Big or Small!!'), 1000);
+            setTimeout(() => $status.text('You have 10 second to bet your size!'), 3000);
+            setTimeout(() => {
+                document.getElementById("betsize").disabled = false;
+                $countdownTimer.text('10')
+            }, 4000);
+            setTimeout(() => $countdownTimer.text('9'), 5000);
+            setTimeout(() => $countdownTimer.text('8'), 6000);
+            setTimeout(() => $countdownTimer.text('7'), 7000);
+            setTimeout(() => $countdownTimer.text('6'), 8000);
+            setTimeout(() => $countdownTimer.text('5'), 9000);
+            setTimeout(() => $countdownTimer.text('4'), 10000);
+            setTimeout(() => $countdownTimer.text('3'), 11000);
+            setTimeout(() => $countdownTimer.text('2'), 12000);
+            setTimeout(() => $countdownTimer.text('1'), 13000);
+            setTimeout(() => $countdownTimer.text('0'), 14000);
+            setTimeout(() => {
+                $status.text('Times Out!!!');
+                //started = true;
+                document.getElementById("betsize").disabled = true;
+                }, 15000);
+        });
 
         //Start Connection
         conn.start().then(main);
