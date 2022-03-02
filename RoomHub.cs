@@ -16,6 +16,8 @@ public class Player
     public string? SecondHandCard {get; set;} = null;
     public int ChipsOnHand { get; set; } = 0;
 
+    public int ChipsOnTable { get; set; } = 0;
+
     public Player(){}
 
     public Player(string signalRConnectionId, string id, string icon, string name, int chipsOnHand) => (SignalRConnectionId, Id, Icon, Name, ChipsOnHand) = (signalRConnectionId, id, icon, name, chipsOnHand);
@@ -47,6 +49,7 @@ public class Game
     public int TimerPosition {get; set;} = 0;
 
     public int connectionCall {get; set;} = 1;
+    public int chipsConnectionCall {get; set;} = 1;
 
     public int BigBlindPosition {get; set;} = 0;
     public int SmallBlindPosition {get; set;} = 0;
@@ -334,6 +337,17 @@ public class GameHub : Hub
         var game = games.Find(g => g.Id == gameId);
 
         if (game != null){
+            if(game.chipsConnectionCall == game.playersOfTheRound.Count()){
+
+                //Deduct the user chips on hand
+                game.Seat[seatNo - 1].ChipsOnHand = game.Seat[seatNo - 1].ChipsOnHand - (game.ChipsOfTheRound - game.Seat[seatNo - 1].ChipsOnTable);
+                await updateChipsOnHand();
+                game.chipsConnectionCall = 1;
+            }
+            else{
+                game.chipsConnectionCall++;
+            }
+
             await Clients.Group(gameId).SendAsync("CallAction", seatNo);
         }
     }
@@ -401,11 +415,20 @@ public class GameHub : Hub
             game.BigBlindPosition = FindSeatUserPosition(sequence[0], gameId);
             game.SmallBlindPosition = FindSeatUserPosition(sequence[1], gameId);
 
-            //Deduct the user chips on hand
-            game.Seat[game.BigBlindPosition - 1].ChipsOnHand = game.Seat[game.BigBlindPosition - 1].ChipsOnHand - 10000;
-            game.Seat[game.SmallBlindPosition - 1].ChipsOnHand = game.Seat[game.SmallBlindPosition - 1].ChipsOnHand - 5000;
+            if(game.chipsConnectionCall == sequence.Count()){
 
-            await updateChipsOnHand();
+                //Deduct the user chips on hand
+                game.Seat[game.BigBlindPosition - 1].ChipsOnHand = game.Seat[game.BigBlindPosition - 1].ChipsOnHand - 10000;
+                game.Seat[game.SmallBlindPosition - 1].ChipsOnHand = game.Seat[game.SmallBlindPosition - 1].ChipsOnHand - 5000;
+                game.Seat[game.BigBlindPosition - 1].ChipsOnTable = 10000;
+                game.Seat[game.SmallBlindPosition - 1].ChipsOnTable = 5000;
+
+                await updateChipsOnHand();
+                game.chipsConnectionCall = 1;
+            }
+            else{
+                game.chipsConnectionCall++;
+            }          
 
             await Clients.Group(gameId).SendAsync("BlindChips", game.BigBlindPosition, game.SmallBlindPosition, sequence);
         }

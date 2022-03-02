@@ -29,12 +29,13 @@ con.on('ViewGame', (game) => {
   showPlayer(game.seat[3], 4);
   showPlayer(game.seat[4], 5);
 
-  console.log("View Game Trigger: ")
+  //console.log("View Game Trigger: ")
 });
 
 //Get current game info
 con.on('updateChipsOnHand', (chip1, chip2, chip3, chip4, chip5) => {
 
+  console.log("Update Chips Triggered")
   var userChips1 = document.getElementById("seat-1-chips");
   var userChips2 = document.getElementById("seat-2-chips");
   var userChips3 = document.getElementById("seat-3-chips");
@@ -110,7 +111,7 @@ con.on('DisplayTimer', (game, id, sequence) => {
   var seat4Timer = document.getElementById("seat-4-timer");
   var seat5Timer = document.getElementById("seat-5-timer");
 
-  console.log("Next ID: " + id + " Sequence: " + sequence)
+  //console.log("Next ID: " + id + " Sequence: " + sequence)
 
   if(seat1 == id){
     seat1Timer.style.display = "";
@@ -146,7 +147,7 @@ con.on('BlindChips', (bigBlindPosition, smallBlindPosition, sequence) => {
   var bigBlindAmount = document.getElementById("chips-amount-" + bigBlindPosition);
   var smallBlindAmount = document.getElementById("chips-amount-" + smallBlindPosition);
 
-  console.log("Blind Chips triggered")
+  //console.log("Blind Chips triggered")
 
   //Set the big blind and small blind
   bigBlind.style.display = "";
@@ -187,7 +188,7 @@ con.on('LeaveSeat', (seatNo, noCard) => {
   var playerHandCards = document.getElementById("player-" + seatNo + "-handcards");
   var seatTimer = document.getElementById("seat-" + seatNo +"-timer");
 
-  console.log("No Card:" + noCard)
+  console.log("No Card: " + noCard)
   if(noCard == "No Card"){
     removeAllCards();
     removeAllTimer();
@@ -325,8 +326,20 @@ con.on('RaiseAction', () => {
 
 });
 
-con.on('CallAction', () => {
+con.on('CallAction', (seatNo) => {
+  callCardSoundEffect();
 
+  //Show the action status to all users
+  showActionStatus(seatNo, "Call");
+
+  //Remove the timer
+  removeTimer(seatNo);
+
+  //Disable the timer
+  removeAllActionButtons();
+
+  //Invoke the timer
+  con.invoke("TimerTrigger");
 
 });
 
