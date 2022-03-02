@@ -327,6 +327,17 @@ public class GameHub : Hub
         }
     }
 
+    public async Task CallTrigger(int seatNo = 0){
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if (game != null){
+            await Clients.Group(gameId).SendAsync("CallAction", seatNo);
+        }
+    }
+
     public async Task TimerTrigger(){
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
         List<string> sequence = DetermineTimerSequence();
@@ -390,11 +401,18 @@ public class GameHub : Hub
             game.BigBlindPosition = FindSeatUserPosition(sequence[0], gameId);
             game.SmallBlindPosition = FindSeatUserPosition(sequence[1], gameId);
 
+            //Deduct the user chips on hand
+            game.Seat[game.BigBlindPosition - 1].ChipsOnHand = game.Seat[game.BigBlindPosition - 1].ChipsOnHand - 10000;
+            game.Seat[game.SmallBlindPosition - 1].ChipsOnHand = game.Seat[game.SmallBlindPosition - 1].ChipsOnHand - 5000;
+
+            await updateChipsOnHand();
+
             await Clients.Group(gameId).SendAsync("BlindChips", game.BigBlindPosition, game.SmallBlindPosition, sequence);
         }
 
         return;
     }
+
 
     private int FindSeatUserPosition(string playerID, string gameID){
         //Find game
@@ -521,6 +539,20 @@ public class GameHub : Hub
         }
 
         return sequence;
+    }
+
+    private async Task updateChipsOnHand(){
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if(game != null){
+            await Clients.Group(game.Id).
+            SendAsync("updateChipsOnHand", game.Seat[0]?.ChipsOnHand, game.Seat[1]?.ChipsOnHand, game.Seat[2]?.ChipsOnHand,
+            game.Seat[3]?.ChipsOnHand, game.Seat[4]?.ChipsOnHand);
+            return;
+        }
     }
 
     // public async Task FlopRound(){

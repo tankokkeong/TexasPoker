@@ -33,6 +33,37 @@ con.on('ViewGame', (game) => {
 });
 
 //Get current game info
+con.on('updateChipsOnHand', (chip1, chip2, chip3, chip4, chip5) => {
+
+  var userChips1 = document.getElementById("seat-1-chips");
+  var userChips2 = document.getElementById("seat-2-chips");
+  var userChips3 = document.getElementById("seat-3-chips");
+  var userChips4 = document.getElementById("seat-4-chips");
+  var userChips5 = document.getElementById("seat-5-chips");
+
+  if(chip1 != null){
+    userChips1.innerHTML = "$ " + amountFormatter(chip1);
+  }
+
+  if(chip2 != null){
+    userChips2.innerHTML = "$ " + amountFormatter(chip2);
+  }
+
+  if(chip3 != null){
+    userChips3.innerHTML = "$ " + amountFormatter(chip3);
+  }
+
+  if(chip4 != null){
+    userChips4.innerHTML = "$ " + amountFormatter(chip4);
+  }
+
+  if(chip5 != null){
+    userChips5.innerHTML = "$ " + amountFormatter(chip5);
+  }
+
+});
+
+//Get current game info
 con.on('StartGame', (game) => {
 
   var mySeatNo = parseInt(sessionStorage.getItem("mySeatNo"));
@@ -115,7 +146,7 @@ con.on('BlindChips', (bigBlindPosition, smallBlindPosition, sequence) => {
   var bigBlindAmount = document.getElementById("chips-amount-" + bigBlindPosition);
   var smallBlindAmount = document.getElementById("chips-amount-" + smallBlindPosition);
 
-  console.log("BLind Chips triggered")
+  console.log("Blind Chips triggered")
 
   //Set the big blind and small blind
   bigBlind.style.display = "";
@@ -315,7 +346,8 @@ function raiseCard(){
 }
 
 function callCard(){
-
+  var mySeatNo = sessionStorage.getItem("mySeatNo");
+  con.invoke("callTrigger", parseInt(mySeatNo));
 }
 
 function foldCard(){
