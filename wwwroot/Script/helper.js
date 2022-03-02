@@ -1,3 +1,4 @@
+var fixedTime;
 function removeChips(chipsId, isAll){
 
     if(chipsId != ""){
@@ -48,6 +49,12 @@ function removeAllTimer(){
 
         seatTimer.style.display = "none";
     }
+}
+
+function removeTimer(seatNo){
+
+    var seatTimer = document.getElementById("seat-" + seatNo +"-timer");
+    seatTimer.style.display = "none";
 }
 
 function removeAllActionButtons(){
@@ -307,6 +314,13 @@ function foldCardSoundEffect(){
 
     //Play Sound Effect
     foldSoundEffect.play();
+}
+
+function showActionStatus(seatNo, action){
+    var actionStatus = document.getElementById("user-" + seatNo + "-action");
+    actionStatus.innerHTML = action;
+    actionStatus.style.display = "";
+    
 }
 
 //Call Default Functions

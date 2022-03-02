@@ -1,5 +1,5 @@
 //Global Variables
-var fixedTime;
+//var fixedTime;
 var playerChipsOfTheRound = [0, 0, 0, 0, 0];
 
 // ========================================================================================
@@ -62,6 +62,9 @@ con.on('StartGame', (game) => {
 
 //Trigger the timer
 con.on('DisplayTimer', (game, id, sequence) => {
+
+  //Reset the timer time
+  fixedTime = -1;
 
   var seat1 = (game.seat[0] == null ? "" : game.seat[0].id);
   var seat2 = (game.seat[1] == null ? "" : game.seat[1].id);
@@ -242,13 +245,15 @@ con.on('getSeat', (seatNo, chips, name) => {
 
 });
 
-con.on('GameAction', (chipsOfTheRound, userId) => {
+con.on('GameAction', (chipsOfTheRound, userId, timerPosition) => {
   var checkBtn = document.getElementById("check-btn");
   var callBtn = document.getElementById("call-btn");
   var raiseBtn = document.getElementById("raise-btn");
   var foldBtn = document.getElementById("fold-btn");
   var myUserId = sessionStorage.getItem("userId");
   var mySeatNo = sessionStorage.getItem("mySeatNo");
+
+  console.log("Timer position: "+ timerPosition)
 
   if(userId == myUserId){
     if(playerChipsOfTheRound[parseInt(mySeatNo) - 1] == chipsOfTheRound){
@@ -267,11 +272,17 @@ con.on('GameAction', (chipsOfTheRound, userId) => {
   
 });
 
-con.on('CheckAction', () => {
+con.on('CheckAction', (seatNo) => {
   checkCardSoundEffect();
 
-  //Reset the fixed time
-  fixedTime = -1;
+  //Show the action status to all users
+  showActionStatus(seatNo, "Check");
+
+  //Remove the timer
+  removeTimer(seatNo);
+
+  //Disable the timer
+  removeAllActionButtons();
 
   //Invoke the timer
   con.invoke("TimerTrigger");
@@ -295,7 +306,7 @@ con.on('FoldAction', () => {
 
 function checkCard(){
   var mySeatNo = sessionStorage.getItem("mySeatNo");
-  con.invoke("checkTrigger");
+  con.invoke("checkTrigger", parseInt(mySeatNo));
   
 }
 

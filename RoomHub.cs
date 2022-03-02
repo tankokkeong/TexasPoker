@@ -46,6 +46,8 @@ public class Game
 
     public int TimerPosition {get; set;} = 0;
 
+    public int connectionCall {get; set;} = 1;
+
     public int BigBlindPosition {get; set;} = 0;
     public int SmallBlindPosition {get; set;} = 0;
 
@@ -304,6 +306,7 @@ public class GameHub : Hub
                 game.playersOfNextRound.Clear();
                 game.TimerPosition = 0;
                 game.BigBlindPosition = 1;
+                game.connectionCall = 1;
                 return;
             }
 
@@ -313,14 +316,14 @@ public class GameHub : Hub
 
     }
 
-    public async Task checkTrigger(){
+    public async Task checkTrigger(int seatNo = 0){
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
 
          //Find game
         var game = games.Find(g => g.Id == gameId);
 
         if (game != null){
-            await Clients.Group(gameId).SendAsync("CheckAction");
+            await Clients.Group(gameId).SendAsync("CheckAction", seatNo);
         }
     }
 
@@ -335,16 +338,34 @@ public class GameHub : Hub
         if (game != null){
 
             if(game.TimerPosition >= sequence.Count() -1){
-                await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition]);
-                await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
-                game.TimerPosition = 0;
-                return;
+
+                if(game.connectionCall == sequence.Count()){
+                    await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition],  game.TimerPosition);
+                    await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
+                    game.TimerPosition = 0;
+                    game.connectionCall = 1;
+                }
+                else{
+                    await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition],  game.TimerPosition);
+                    await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
+                    game.connectionCall++;
+                }
+                
             }
             else{
-                await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition]);
-                await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
-                game.TimerPosition++;
-                return;
+
+                if(game.connectionCall == sequence.Count()){
+                    await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition], game.TimerPosition);
+                    await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
+                    game.TimerPosition++;
+                    game.connectionCall = 1;
+                }
+                else{
+                    await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition], game.TimerPosition);
+                    await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
+                    game.connectionCall++;
+                }
+
             }
             
         }
