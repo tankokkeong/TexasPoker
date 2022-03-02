@@ -70,6 +70,19 @@ public class MiniRoomHub : Hub
         return minigame.Id;
     }
 
+    public async Task Start()
+    {
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+
+        var game = minigames.Find(g => g.Id == gameId);
+        if(game == null){
+            await Clients.Caller.SendAsync("Reject");
+            return;
+        }
+
+        await Clients.Group(gameId).SendAsync("Start");
+    }
+
     // ----------------------------------------------------------------------------------------
     // Functions
     // ----------------------------------------------------------------------------------------
