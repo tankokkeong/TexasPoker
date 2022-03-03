@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.SignalR;
 public class ChatHub : Hub
 {
     private static int count = 0;
+    private static List<string> nameList = new List<string>();
 
     public async Task SendText(string name, string message)
     {
@@ -13,10 +14,15 @@ public class ChatHub : Hub
     public override async Task OnConnectedAsync()
     {
         string? name = Context.GetHttpContext()?.Request.Cookies["username"];
-        if (name != null)
+
+        if (nameList.Contains(name))
         {
+            await Clients.All.SendAsync("UpdateStatus", count, "");
+        } 
+        else if (name != null && !nameList.Contains(name)){
             count++;
             await Clients.All.SendAsync("UpdateStatus", count, $"<b>{name}</b> joined");
+            nameList.Add(name);
         }
         await base.OnConnectedAsync();
     }
@@ -24,10 +30,15 @@ public class ChatHub : Hub
     public override async Task OnDisconnectedAsync(Exception? exception) 
     {
         string? name = Context.GetHttpContext()?.Request.Cookies["username"];
-        if (name != null)
+
+        if (nameList.Contains(name))
         {
+            await Clients.All.SendAsync("UpdateStatus", count, "");
+        } 
+        else if (name != null && !nameList.Contains(name)){
             count--;
             await Clients.All.SendAsync("UpdateStatus", count, $"<b>{name}</b> left");
+            nameList.Remove(name);
         }
         await base.OnDisconnectedAsync(exception);
     }
