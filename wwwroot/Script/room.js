@@ -32,6 +32,17 @@ con.on('ViewGame', (game) => {
   //console.log("View Game Trigger: ")
 });
 
+con.on("updateChipsOnTable", (chipsAmount1, chipsAmount2, ChipsAmount3, ChipsAmount4, ChipsAmount5) => {
+  var chipsOnTable1 = document.getElementById("chips-amount-1");
+  var chipsOnTable2 = document.getElementById("chips-amount-2");
+  var chipsOnTable3 = document.getElementById("chips-amount-3");
+  var chipsOnTable4 = document.getElementById("chips-amount-4");
+  var chipsOnTable5 = document.getElementById("chips-amount-5");
+
+  
+});
+
+
 //Get current game info
 con.on('updateChipsOnHand', (chip1, chip2, chip3, chip4, chip5) => {
 
