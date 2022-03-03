@@ -32,14 +32,57 @@ con.on('ViewGame', (game) => {
   //console.log("View Game Trigger: ")
 });
 
-con.on("updateChipsOnTable", (chipsAmount1, chipsAmount2, ChipsAmount3, ChipsAmount4, ChipsAmount5) => {
+con.on("updateChipsOnTable", (chipsAmount1, chipsAmount2, chipsAmount3, chipsAmount4, chipsAmount5) => {
+
+  console.log("Update chips on table triggered: " + chipsAmount1 + " " + chipsAmount2 + " " 
+  + chipsAmount3 + " " + chipsAmount4 + " " + chipsAmount5)
+
   var chipsOnTable1 = document.getElementById("chips-amount-1");
   var chipsOnTable2 = document.getElementById("chips-amount-2");
   var chipsOnTable3 = document.getElementById("chips-amount-3");
   var chipsOnTable4 = document.getElementById("chips-amount-4");
   var chipsOnTable5 = document.getElementById("chips-amount-5");
 
-  
+  if(chipsAmount1 != 0){
+    chipsOnTable1.innerHTML = amountFormatter(chipsAmount1);
+    chipsOnTable1.style.display = "";
+  }
+  else{
+    chipsOnTable1.style.display = "none";
+  }
+
+  if(chipsAmount2 != 0){
+    chipsOnTable2.innerHTML = amountFormatter(chipsAmount2);
+    chipsOnTable2.style.display = "";
+  }
+  else{
+    chipsOnTable2.style.display = "none";
+  }
+
+  if(chipsAmount3 != 0){
+    chipsOnTable3.innerHTML = amountFormatter(chipsAmount3);
+    chipsOnTable3.style.display = "";
+  }
+  else{
+    chipsOnTable3.style.display = "none";
+  }
+
+  if(chipsAmount4 != 0){
+    chipsOnTable4.innerHTML = amountFormatter(chipsAmount4);
+    chipsOnTable4.style.display = "";
+  }
+  else{
+    chipsOnTable4.style.display = "none";
+  }
+
+  if(chipsAmount5 != 0){
+    chipsOnTable5.innerHTML = amountFormatter(chipsAmount5);
+    chipsOnTable5.style.display = "";
+  }
+  else{
+    chipsOnTable5.style.display = "none";
+  }
+
 });
 
 

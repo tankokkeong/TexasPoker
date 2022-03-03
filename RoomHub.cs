@@ -337,17 +337,11 @@ public class GameHub : Hub
         var game = games.Find(g => g.Id == gameId);
 
         if (game != null){
-            if(game.chipsConnectionCall == game.playersOfTheRound.Count()){
-
-                //Deduct the user chips on hand
-                game.Seat[seatNo - 1].ChipsOnHand = game.Seat[seatNo - 1].ChipsOnHand - (game.ChipsOfTheRound - game.Seat[seatNo - 1].ChipsOnTable);
-                await updateChipsOnHand();
-                game.chipsConnectionCall = 1;
-            }
-            else{
-                game.chipsConnectionCall++;
-            }
-
+           
+            //Deduct the user chips on hand
+            game.Seat[seatNo - 1].ChipsOnHand = game.Seat[seatNo - 1].ChipsOnHand - (game.ChipsOfTheRound - game.Seat[seatNo - 1].ChipsOnTable);
+            game.Seat[seatNo - 1].ChipsOnTable = game.ChipsOfTheRound;
+            await updateChipsOnHand();
             await Clients.Group(gameId).SendAsync("CallAction", seatNo);
         }
     }
@@ -571,10 +565,16 @@ public class GameHub : Hub
         var game = games.Find(g => g.Id == gameId);
 
         if(game != null){
+
+            //Update the chips on hand
             await Clients.Group(game.Id).
             SendAsync("updateChipsOnHand", game.Seat[0]?.ChipsOnHand, game.Seat[1]?.ChipsOnHand, game.Seat[2]?.ChipsOnHand,
             game.Seat[3]?.ChipsOnHand, game.Seat[4]?.ChipsOnHand);
-            return;
+            
+            //Update the chips on the table
+            await Clients.Group(game.Id).
+            SendAsync("updateChipsOnTable", game.Seat[0]?.ChipsOnTable, game.Seat[1]?.ChipsOnTable, game.Seat[2]?.ChipsOnTable,
+            game.Seat[3]?.ChipsOnTable, game.Seat[4]?.ChipsOnTable);
         }
     }
 
