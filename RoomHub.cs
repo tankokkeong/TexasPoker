@@ -46,6 +46,7 @@ public class Game
 
     public List<Player?> playersOfNextRound = new List<Player?>();
 
+    public int CardRoundCount {get; set;} = 0;
     public int TimerPosition {get; set;} = 0;
 
     public int connectionCall {get; set;} = 1;
@@ -363,6 +364,19 @@ public class GameHub : Hub
                     await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
                     game.TimerPosition = 0;
                     game.connectionCall = 1;
+
+                    game.CardRoundCount++;
+
+                    //Determine the flop round, turn round, and river round
+                    if(game.CardRoundCount == 1){
+
+                    }
+                    else if(game.CardRoundCount == 2){
+
+                    }
+                    else if(game.CardRoundCount == 3){
+
+                    }
                 }
                 else{
                     await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition],  game.TimerPosition);
