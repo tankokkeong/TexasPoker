@@ -32,6 +32,11 @@ con.on('ViewGame', (game) => {
   //console.log("View Game Trigger: ")
 });
 
+con.on('updatePotChips', (total) => {
+  console.log("Pot total: " + total)
+  displayPotChips(total);
+});
+
 con.on("updateChipsOnTable", (chipsAmount1, chipsAmount2, chipsAmount3, chipsAmount4, chipsAmount5) => {
 
   console.log("Update chips on table triggered: " + chipsAmount1 + " " + chipsAmount2 + " " 
@@ -246,6 +251,7 @@ con.on('LeaveSeat', (seatNo, noCard) => {
 
   console.log("No Card: " + noCard)
   if(noCard == "No Card"){
+    removePotChips();
     removeAllActionStatus();
     removeAllTableCards();
     removeAllCards();

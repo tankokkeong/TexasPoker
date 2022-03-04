@@ -374,13 +374,16 @@ public class GameHub : Hub
                 //Determine the flop round, turn round, and river round
                 if(game.CardRoundCount == 1){
                     await FlopRound();
+                    await updatePotChips();
                 }
                 else if(game.CardRoundCount == 2){
                     await TurnRound();
+                    await updatePotChips();
                 }
                 else if(game.CardRoundCount == 3){
                     await RiverRound();
                     game.CardRoundCount = 0;
+                    await updatePotChips();
                 }
 
                 game.CardRoundCount++; 
@@ -436,7 +439,6 @@ public class GameHub : Hub
 
         return;
     }
-
 
     private int FindSeatUserPosition(string playerID, string gameID){
         //Find game
@@ -632,6 +634,40 @@ public class GameHub : Hub
             await Clients.Group(game.Id).SendAsync("RiverRound", game.FifthCard);
         }
 
+    }
+
+    private async Task updatePotChips(){
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if(game != null){
+            
+            int ?totalChips = 0;
+
+            if(game.Seat[0] != null){
+                totalChips += game.Seat[0]?.ChipsOnTable;   
+            }
+
+            if(game.Seat[1] != null){
+                totalChips += game.Seat[1]?.ChipsOnTable;   
+            }
+
+            if(game.Seat[2] != null){
+                totalChips += game.Seat[2]?.ChipsOnTable;   
+            }
+
+            if(game.Seat[3] != null){
+                totalChips += game.Seat[3]?.ChipsOnTable;   
+            }
+
+            if(game.Seat[4] != null){
+                totalChips += game.Seat[4]?.ChipsOnTable;   
+            }
+
+            //Reveal the foruth card 
+            await Clients.Group(game.Id).SendAsync("updatePotChips", totalChips);
+        }
     }
 
     // ----------------------------------------------------------------------------------------
