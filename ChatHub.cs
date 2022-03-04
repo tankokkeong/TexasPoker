@@ -5,10 +5,10 @@ public class ChatHub : Hub
     private static int count = 0;
     private static List<string> nameList = new List<string>();
 
-    public async Task SendText(string name, string message)
+    public async Task SendText(string name, string message, string sentTime)
     {
-        await Clients.Caller.SendAsync("ReceiveText", name, message, "caller");
-        await Clients.Others.SendAsync("ReceiveText", name, message, "others");
+        await Clients.Caller.SendAsync("ReceiveText", name, message, "caller", sentTime);
+        await Clients.Others.SendAsync("ReceiveText", name, message, "others", sentTime);
     }
 
     public override async Task OnConnectedAsync()
@@ -39,9 +39,17 @@ public class ChatHub : Hub
         await base.OnDisconnectedAsync(exception);
     }
 
-    public async Task SendImage(string name, string url)
+    // TODO(2C): SendImage(name, url)  --> ReceiveImage(name, url, who)
+    public async Task SendImage(string name, string url, string sentTime)
     {
-        await Clients.Caller.SendAsync("ReceiveImage", name, url, "caller");
-        await Clients.Others.SendAsync("ReceiveImage", name, url, "others");
+        await Clients.Caller.SendAsync("ReceiveImage", name, url, "caller", sentTime);
+        await Clients.Others.SendAsync("ReceiveImage", name, url, "others", sentTime);
+    }
+
+    // TODO(3C): SendYouTube(name, id) --> ReceiveYouTube(name, id, who)
+    public async Task SendYouTube(string name, string id, string sentTime)
+    {
+        await Clients.Caller.SendAsync("ReceiveYouTube", name, id, "caller", sentTime);
+        await Clients.Others.SendAsync("ReceiveYouTube", name, id, "others", sentTime);
     }
 }
