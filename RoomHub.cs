@@ -391,7 +391,6 @@ public class GameHub : Hub
                 else if(game.CardRoundCount == 3){
 
                     await RiverRound();
-                    game.CardRoundCount = 0;
                     await updatePotChips();
 
                     //Reset the chips of the round
@@ -401,21 +400,26 @@ public class GameHub : Hub
                 game.CardRoundCount++; 
             }
 
-            if(game.TimerPosition >= sequence.Count() -1){
-
-                await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition],  game.TimerPosition);
-                await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
-                game.TimerPosition = 0;
+            if(game.CardRoundCount > 3){
 
             }
             else{
+                if(game.TimerPosition >= sequence.Count() -1){
 
-                await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition], game.TimerPosition);
-                await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
-                game.TimerPosition++;
+                    await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition],  game.TimerPosition);
+                    await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
+                    game.TimerPosition = 0;
 
+                }
+                else{
+
+                    await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition], game.TimerPosition);
+                    await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
+                    game.TimerPosition++;
+
+                }
             }
-            
+
         }
 
         return;
