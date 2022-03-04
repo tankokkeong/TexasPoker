@@ -230,6 +230,8 @@ con.onclose(err => {
   if(sessionStorage.getItem("mySeatNo") != null){
     con.invoke('LeaveGame', parseInt(sessionStorage.getItem("mySeatNo")));
   }
+
+  alert("Disconnected");
 });
 
 //Leave Seat
@@ -244,6 +246,8 @@ con.on('LeaveSeat', (seatNo, noCard) => {
 
   console.log("No Card: " + noCard)
   if(noCard == "No Card"){
+    removeAllActionStatus();
+    removeAllTableCards();
     removeAllCards();
     removeAllTimer();
     recoverPlayerTimer("", true);
@@ -400,6 +404,45 @@ con.on('CallAction', (seatNo) => {
 con.on('FoldAction', () => {
 
 
+});
+
+con.on('FlopRound', (card1, card2, card3) => {
+  var firstCard = document.getElementById("table-card-1");
+  var secondCard = document.getElementById("table-card-2");
+  var thirdCard = document.getElementById("table-card-3");
+
+  //Card sound effect
+  cardSoundEffect();
+
+  firstCard.style.display = "";
+  secondCard.style.display = "";
+  thirdCard.style.display = "";
+
+  firstCard.innerHTML = card1;
+  secondCard.innerHTML = card2;
+  thirdCard.innerHTML = card3;
+
+});
+
+con.on('TurnRound', (card4) => {
+  var fourthCard = document.getElementById("table-card-4");
+
+  //Card sound effect
+  cardSoundEffect();
+
+  fourthCard.style.display = "";
+  fourthCard.innerHTML = card4;
+
+});
+
+con.on('RiverRound', (card5) => {
+  var fifthCard = document.getElementById("table-card-5");
+  
+  //Card sound effect
+  cardSoundEffect();
+
+  fifthCard.style.display = "";
+  fifthCard.innerHTML = card5;
 });
 
 function checkCard(){

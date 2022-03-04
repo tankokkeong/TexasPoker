@@ -17,7 +17,7 @@ public class Player
     public int ChipsOnHand { get; set; } = 0;
 
     public int ChipsOnTable { get; set; } = 0;
-
+    
     public Player(){}
 
     public Player(string signalRConnectionId, string id, string icon, string name, int chipsOnHand) => (SignalRConnectionId, Id, Icon, Name, ChipsOnHand) = (signalRConnectionId, id, icon, name, chipsOnHand);
@@ -35,6 +35,7 @@ public class Game
     public string Id { get; set; } = Guid.NewGuid().ToString();
     public int NumberOfPlayer {get; set;} = 0;
 
+    public int NumberOfConnection {get; set;} = 0;
     public string[] cards = 
     {"A <br> <span class='spades'>♠</span>", "K <br> <span class='spades'>♠</span>", "Q <br> <span class='spades'>♠</span>", "J <br> <span class='spades'>♠</span>", "10 <br> <span class='spades'>♠</span>", "9 <br> <span class='spades'>♠</span>", "8 <br> <span class='spades'>♠</span>", "7 <br> <span class='spades'>♠</span>", "6 <br> <span class='spades'>♠</span>", "5 <br> <span class='spades'>♠</span>", "4 <br> <span class='spades'>♠</span>", "3 <br> <span class='spades'>♠</span>", "2 <br> <span class='spades'>♠</span>",
     "A <br> <span class='hearts'>♥</span>", "K <br> <span class='hearts'>♥</span>", "Q <br> <span class='hearts'>♥</span>", "J <br> <span class='hearts'>♥</span>", "10 <br> <span class='hearts'>♥</span>", "9 <br> <span class='hearts'>♥</span>", "8 <br> <span class='hearts'>♥</span>", "7 <br> <span class='hearts'>♥</span>", "6 <br> <span class='hearts'>♥</span>", "5 <br> <span class='hearts'>♥</span>", "4 <br> <span class='hearts'>♥</span>", "3 <br> <span class='hearts'>♥</span>", "2 <br> <span class='hearts'>♥</span>",
@@ -302,6 +303,10 @@ public class GameHub : Hub
             //Remove player
             game.RemovePlayer(seatNo);
 
+            if(game.NumberOfPlayer == 0){
+
+            }
+
             if(game.NumberOfPlayer <= 1){
                 //End Game
                 game.IsWaiting = true;
@@ -365,17 +370,18 @@ public class GameHub : Hub
                     game.TimerPosition = 0;
                     game.connectionCall = 1;
 
-                    game.CardRoundCount++;
+                    game.CardRoundCount++; 
 
                     //Determine the flop round, turn round, and river round
                     if(game.CardRoundCount == 1){
-
+                        await FlopRound();
                     }
                     else if(game.CardRoundCount == 2){
-
+                        await TurnRound();
                     }
                     else if(game.CardRoundCount == 3){
-
+                        await RiverRound();
+                        game.CardRoundCount = 0;
                     }
                 }
                 else{
@@ -392,6 +398,7 @@ public class GameHub : Hub
                     await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
                     game.TimerPosition++;
                     game.connectionCall = 1;
+
                 }
                 else{
                     await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition], game.TimerPosition);
@@ -592,43 +599,52 @@ public class GameHub : Hub
         }
     }
 
-    // public async Task FlopRound(){
+    private async Task FlopRound(){
 
-    //     string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-    //     //Find game
-    //     var game = games.Find(g => g.Id == gameId);
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
 
-    //     if(game != null){
-    //         int cardIndex = ((game.playersOfTheRound.Count() * 2) - 1);
+        if(game != null){
+            int cardIndex = ((game.playersOfTheRound.Count() * 2) - 1);
 
-    //         game.FirstCard = game.cards[cardIndex + 1];
-    //         game.SecondCard = game.cards[cardIndex + 2];
-    //         game.ThirdCard = game.cards[cardIndex + 3];
-    //     }
-    // }
+            game.FirstCard = game.cards[cardIndex + 1];
+            game.SecondCard = game.cards[cardIndex + 2];
+            game.ThirdCard = game.cards[cardIndex + 3];
 
-    // public async Task TurnRound(){
-    //     string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-    //     //Find game
-    //     var game = games.Find(g => g.Id == gameId);
+            //Reveal the first 3 cards 
+            await Clients.Group(game.Id).SendAsync("FlopRound", game.FirstCard, game.SecondCard, game.ThirdCard);
+        }
+    }
 
-    //     if(game != null){
-    //         int cardIndex = ((game.playersOfTheRound.Count() * 2) - 1) + 4;
-    //         game.FourthCard = game.cards[cardIndex + 1];
-    //     }
-    // }
+    private async Task TurnRound(){
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
 
-    // public async Task RiverRound(){
-    //     string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-    //     //Find game
-    //     var game = games.Find(g => g.Id == gameId);
+        if(game != null){
+            int cardIndex = ((game.playersOfTheRound.Count() * 2) - 1) + 4;
+            game.FourthCard = game.cards[cardIndex + 1];
 
-    //     if(game != null){
-    //         int cardIndex = ((game.playersOfTheRound.Count() * 2) - 1) + 5;
-    //         game.FifthCard = game.cards[cardIndex + 1];
-    //     }
+            //Reveal the foruth card 
+            await Clients.Group(game.Id).SendAsync("TurnRound", game.FourthCard);
+        }
+    }
 
-    // }
+    private async Task RiverRound(){
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if(game != null){
+            int cardIndex = ((game.playersOfTheRound.Count() * 2) - 1) + 5;
+            game.FifthCard = game.cards[cardIndex + 1];
+
+            //Reveal the foruth card 
+            await Clients.Group(game.Id).SendAsync("RiverRound", game.FifthCard);
+        }
+
+    }
 
     // ----------------------------------------------------------------------------------------
     // Functions
@@ -683,6 +699,7 @@ public class GameHub : Hub
             return;
         }
         else{
+            game.NumberOfConnection++;
             await Groups.AddToGroupAsync(id, gameId);
             await Clients.Caller.SendAsync("ViewGame", game);
             return;
@@ -723,7 +740,10 @@ private async Task GameDisconnected()
             return;
         }
 
-        if (game.IsEmpty)
+        game.NumberOfConnection--;
+
+        //Remove the room if there is no player in the room
+        if (game.NumberOfConnection == 0)
         {
             games.Remove(game);
             await UpdateList();

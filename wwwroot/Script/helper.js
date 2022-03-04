@@ -34,6 +34,24 @@ function removeBlind(blindId, isAll){
 
 }
 
+function removeAllActionStatus(){
+
+    for(var i = 1; i <= 5; i++){
+        var actionStatus = document.getElementById("user-" + i + "-action");
+
+        actionStatus.style.display = "none";
+    }
+}
+
+function removeAllTableCards(){
+
+    for(var i = 1; i <= 5; i++){
+        var tableCards = document.getElementById("table-card-" + i);
+
+        tableCards.style.display = "none";
+    }
+}
+
 function removeAllCards(){
 
     for(var i = 1; i <= 5; i++){
@@ -108,13 +126,12 @@ function showPlayer(player, seatNo){
 }
 
 function showCard(player, seatNo){
-    var soundEffect = document.getElementById("shuffle-sound-effect");
     var firstCard = document.getElementById("player-" + seatNo + "-card-1");
     var secondCard = document.getElementById("player-" + seatNo + "-card-2");
     var playerHandCards = document.getElementById("player-" + seatNo + "-handcards");
 
     //reveal the card
-    soundEffect.play();
+    cardSoundEffect();
     playerHandCards.style.display = "";
     firstCard.innerHTML = player.firstHandCard;
     secondCard.innerHTML = player.secondHandCard;
@@ -314,6 +331,12 @@ function foldCardSoundEffect(){
 
     //Play Sound Effect
     foldSoundEffect.play();
+}
+
+function cardSoundEffect(){
+    var soundEffect = document.getElementById("shuffle-sound-effect");
+
+    soundEffect.play();
 }
 
 function showActionStatus(seatNo, action){
