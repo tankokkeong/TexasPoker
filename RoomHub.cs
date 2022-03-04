@@ -43,6 +43,8 @@ public class Game
     "A <br> <span class='diamonds'>♦</span>", "K <br> <span class='diamonds'>♦</span>", "Q <br> <span class='diamonds'>♦</span>", "J <br> <span class='diamonds'>♦</span>", "10 <br> <span class='diamonds'>♦</span>", "9 <br> <span class='diamonds'>♦</span>", "8 <br> <span class='diamonds'>♦</span>", "7 <br> <span class='diamonds'>♦</span>", "6 <br> <span class='diamonds'>♦</span>", "5 <br> <span class='diamonds'>♦</span>", "4 <br> <span class='diamonds'>♦</span>", "3 <br> <span class='diamonds'>♦</span>", "2 <br> <span class='diamonds'>♦</span>",
     };
 
+    public bool TimerRoundComplete {get; set; } = false;
+
     public List<Player?> playersOfTheRound = new List<Player?>();
 
     public List<Player?> playersOfNextRound = new List<Player?>();
@@ -316,6 +318,7 @@ public class GameHub : Hub
                 game.TimerPosition = 0;
                 game.BigBlindPosition = 1;
                 game.connectionCall = 1;
+                game.CardRoundCount = 0;
                 return;
             }
 
@@ -333,6 +336,7 @@ public class GameHub : Hub
 
         if (game != null){
             await Clients.Group(gameId).SendAsync("CheckAction", seatNo);
+            await TimerTrigger();
         }
     }
 
@@ -349,62 +353,51 @@ public class GameHub : Hub
             game.Seat[seatNo - 1].ChipsOnTable = game.ChipsOfTheRound;
             await updateChipsOnHand();
             await Clients.Group(gameId).SendAsync("CallAction", seatNo);
+            await TimerTrigger();
         }
     }
 
     public async Task TimerTrigger(){
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
         List<string> sequence = DetermineTimerSequence();
-        
-        Console.WriteLine("Timer Triggered");
+
         //Find game
         var game = games.Find(g => g.Id == gameId);
 
         if (game != null){
 
+            Console.WriteLine("Timer Triggered Card Round: " + game.CardRoundCount + " Timer Position: " + game.TimerPosition);
+
+            if(game.TimerPosition == 0){
+
+                Console.WriteLine("I am in " + game.CardRoundCount);
+                //Determine the flop round, turn round, and river round
+                if(game.CardRoundCount == 1){
+                    await FlopRound();
+                }
+                else if(game.CardRoundCount == 2){
+                    await TurnRound();
+                }
+                else if(game.CardRoundCount == 3){
+                    await RiverRound();
+                    game.CardRoundCount = 0;
+                }
+
+                game.CardRoundCount++; 
+            }
+
             if(game.TimerPosition >= sequence.Count() -1){
 
-                if(game.connectionCall == sequence.Count()){
-                    await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition],  game.TimerPosition);
-                    await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
-                    game.TimerPosition = 0;
-                    game.connectionCall = 1;
+                await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition],  game.TimerPosition);
+                await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
+                game.TimerPosition = 0;
 
-                    game.CardRoundCount++; 
-
-                    //Determine the flop round, turn round, and river round
-                    if(game.CardRoundCount == 1){
-                        await FlopRound();
-                    }
-                    else if(game.CardRoundCount == 2){
-                        await TurnRound();
-                    }
-                    else if(game.CardRoundCount == 3){
-                        await RiverRound();
-                        game.CardRoundCount = 0;
-                    }
-                }
-                else{
-                    await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition],  game.TimerPosition);
-                    await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
-                    game.connectionCall++;
-                }
-                
             }
             else{
 
-                if(game.connectionCall == sequence.Count()){
-                    await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition], game.TimerPosition);
-                    await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
-                    game.TimerPosition++;
-                    game.connectionCall = 1;
-
-                }
-                else{
-                    await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition], game.TimerPosition);
-                    await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
-                    game.connectionCall++;
-                }
+                await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition], game.TimerPosition);
+                await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
+                game.TimerPosition++;
 
             }
             
@@ -430,20 +423,13 @@ public class GameHub : Hub
             game.BigBlindPosition = FindSeatUserPosition(sequence[0], gameId);
             game.SmallBlindPosition = FindSeatUserPosition(sequence[1], gameId);
 
-            if(game.chipsConnectionCall == sequence.Count()){
+            //Deduct the user chips on hand
+            game.Seat[game.BigBlindPosition - 1].ChipsOnHand = game.Seat[game.BigBlindPosition - 1].ChipsOnHand - 10000;
+            game.Seat[game.SmallBlindPosition - 1].ChipsOnHand = game.Seat[game.SmallBlindPosition - 1].ChipsOnHand - 5000;
+            game.Seat[game.BigBlindPosition - 1].ChipsOnTable = 10000;
+            game.Seat[game.SmallBlindPosition - 1].ChipsOnTable = 5000;
 
-                //Deduct the user chips on hand
-                game.Seat[game.BigBlindPosition - 1].ChipsOnHand = game.Seat[game.BigBlindPosition - 1].ChipsOnHand - 10000;
-                game.Seat[game.SmallBlindPosition - 1].ChipsOnHand = game.Seat[game.SmallBlindPosition - 1].ChipsOnHand - 5000;
-                game.Seat[game.BigBlindPosition - 1].ChipsOnTable = 10000;
-                game.Seat[game.SmallBlindPosition - 1].ChipsOnTable = 5000;
-
-                await updateChipsOnHand();
-                game.chipsConnectionCall = 1;
-            }
-            else{
-                game.chipsConnectionCall++;
-            }          
+            await updateChipsOnHand();
 
             await Clients.Group(gameId).SendAsync("BlindChips", game.BigBlindPosition, game.SmallBlindPosition, sequence);
         }
@@ -547,6 +533,8 @@ public class GameHub : Hub
             }
 
             await Clients.Group(game.Id).SendAsync("StartGame", game);
+            await BlindTrigger();
+            await TimerTrigger();
             return;
 
         }
@@ -745,7 +733,7 @@ private async Task GameDisconnected()
         //Remove the room if there is no player in the room
         if (game.NumberOfConnection == 0)
         {
-            games.Remove(game);
+            //games.Remove(game);
             await UpdateList();
         }
     }

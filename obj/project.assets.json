@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tanko\\Desktop\\RIT2 S3\\Emerging Web Technologies\\TexasPoker\\TexasPoker.csproj",
+      "projectUniqueName": "C:\\Users\\tanko\\Desktop\\TexasPoker\\TexasPoker.csproj",
       "projectName": "TexasPoker",
-      "projectPath": "C:\\Users\\tanko\\Desktop\\RIT2 S3\\Emerging Web Technologies\\TexasPoker\\TexasPoker.csproj",
+      "projectPath": "C:\\Users\\tanko\\Desktop\\TexasPoker\\TexasPoker.csproj",
       "packagesPath": "C:\\Users\\tanko\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tanko\\Desktop\\RIT2 S3\\Emerging Web Technologies\\TexasPoker\\obj\\",
+      "outputPath": "C:\\Users\\tanko\\Desktop\\TexasPoker\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\tanko\\AppData\\Roaming\\NuGet\\NuGet.Config",
