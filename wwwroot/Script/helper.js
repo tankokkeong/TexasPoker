@@ -346,5 +346,20 @@ function showActionStatus(seatNo, action){
     
 }
 
+function displayPotChips(number){
+    var potTotal = document.getElementById("pot-chips-total");
+    var potDisplay = document.getElementById("pot-total-display");
+
+    potDisplay.style.display = "";
+    potTotal.innerHTML = amountFormatter(number);
+}
+
+function removePotChips(){
+    var potDisplay = document.getElementById("pot-total-display");
+
+    //Remove the stylingg
+    potDisplay.style.display = "none";
+}
+
 //Call Default Functions
 displayWalletAmount();
