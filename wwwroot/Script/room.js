@@ -140,8 +140,8 @@ con.on('StartGame', (game) => {
   }
 
   //Trigger the timer and blinds
-  con.invoke("BlindTrigger");
-  con.invoke("TimerTrigger");
+  //con.invoke("BlindTrigger");
+  //con.invoke("TimerTrigger");
 
 });
 
@@ -374,9 +374,6 @@ con.on('CheckAction', (seatNo) => {
   //Disable the timer
   removeAllActionButtons();
 
-  //Invoke the timer
-  con.invoke("TimerTrigger");
-
 });
 
 con.on('RaiseAction', () => {
@@ -395,9 +392,6 @@ con.on('CallAction', (seatNo) => {
 
   //Disable the timer
   removeAllActionButtons();
-
-  //Invoke the timer
-  con.invoke("TimerTrigger");
 
 });
 
