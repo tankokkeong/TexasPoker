@@ -8,7 +8,11 @@
     "net6.0": []
   },
   "packageFolders": {
+<<<<<<< HEAD
     "/home/kenny/.nuget/packages/": {}
+=======
+    "C:\\Users\\festu\\.nuget\\packages\\": {}
+>>>>>>> b02b496409d6f3b55e735cc183491b17a4aa2519
   },
   "project": {
     "version": "1.0.0",
@@ -20,7 +24,11 @@
       "outputPath": "/home/kenny/Desktop/RIT2 S3/EWT/Assignment/TexasPoker/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
+<<<<<<< HEAD
         "/home/kenny/.nuget/NuGet/NuGet.Config"
+=======
+        "C:\\Users\\festu\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> b02b496409d6f3b55e735cc183491b17a4aa2519
       ],
       "originalTargetFrameworks": [
         "net6.0"

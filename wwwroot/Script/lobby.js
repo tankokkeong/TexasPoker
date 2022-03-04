@@ -96,6 +96,26 @@ conChat.on('UpdateStatus', (count, status) => {
     scrollToBottom();
 });
 
+con.on('UpdateList', list => {
+    let html = '';
+
+    for (let game of list) {
+        html += `
+            <tr>
+                <td>${game.id}</td>
+                <td>${game.playerA.icon} ${game.playerA.name}</td>
+                <td><button data-join="${game.id}">Join</button></td>
+            </tr>
+        `;
+    }
+
+    if (list.length == 0) {
+        html = '<tr><td colspan="5">No game</td></tr>';
+    }
+
+    $('#pokerGameList').html(html);
+});
+
 // Start ==============================================================
 conChat.start().then(chat);
 
