@@ -144,10 +144,6 @@ con.on('StartGame', (game) => {
     showCard(game.seat[4], 5);
   }
 
-  //Trigger the timer and blinds
-  //con.invoke("BlindTrigger");
-  //con.invoke("TimerTrigger");
-
 });
 
 
@@ -352,9 +348,10 @@ con.on('GameAction', (chipsOfTheRound, userId, timerPosition) => {
   console.log("Timer position: "+ timerPosition)
 
   if(userId == myUserId){
+    console.log("my chips of the round : " + playerChipsOfTheRound[parseInt(mySeatNo) - 1] + " COMPARE " + chipsOfTheRound)
     if(playerChipsOfTheRound[parseInt(mySeatNo) - 1] == chipsOfTheRound){
       checkBtn.disabled = false;
-      callBtn.disabled = false;
+      callBtn.disabled = true;
       raiseBtn.disabled = false;
       foldBtn.disabled = false;
     }
@@ -411,6 +408,15 @@ con.on('FlopRound', (card1, card2, card3) => {
   var secondCard = document.getElementById("table-card-2");
   var thirdCard = document.getElementById("table-card-3");
 
+  //Remove chips
+  removeChips("", true);
+  
+  //Reset player chips of the round
+  resetPlayerChipsOfTheRound();
+
+  //Remove action status
+  removeAllActionStatus();
+
   //Card sound effect
   cardSoundEffect();
 
@@ -427,6 +433,15 @@ con.on('FlopRound', (card1, card2, card3) => {
 con.on('TurnRound', (card4) => {
   var fourthCard = document.getElementById("table-card-4");
 
+  //Remove chips
+  removeChips("", true);
+
+  //Reset player chips of the round
+  resetPlayerChipsOfTheRound();
+
+  //Remove action status
+  removeAllActionStatus();
+
   //Card sound effect
   cardSoundEffect();
 
@@ -438,6 +453,15 @@ con.on('TurnRound', (card4) => {
 con.on('RiverRound', (card5) => {
   var fifthCard = document.getElementById("table-card-5");
   
+  //Remove chips
+  removeChips("", true);
+
+  //Reset player chips of the round
+  resetPlayerChipsOfTheRound();
+
+  //Remove action status
+  removeAllActionStatus();
+
   //Card sound effect
   cardSoundEffect();
 
@@ -489,6 +513,11 @@ function exit(){
       location = "lobby.html";
   }
 }
+
+function resetPlayerChipsOfTheRound(){
+    playerChipsOfTheRound = [0, 0, 0, 0, 0];
+}
+
 
 //Start connection
 con.start();

@@ -373,17 +373,29 @@ public class GameHub : Hub
                 Console.WriteLine("I am in " + game.CardRoundCount);
                 //Determine the flop round, turn round, and river round
                 if(game.CardRoundCount == 1){
+
                     await FlopRound();
                     await updatePotChips();
+
+                    //Reset the chips of the round
+                    game.ChipsOfTheRound = 0;
                 }
                 else if(game.CardRoundCount == 2){
+
                     await TurnRound();
                     await updatePotChips();
+
+                    //Reset the chips of the round
+                    game.ChipsOfTheRound = 0;
                 }
                 else if(game.CardRoundCount == 3){
+
                     await RiverRound();
                     game.CardRoundCount = 0;
                     await updatePotChips();
+
+                    //Reset the chips of the round
+                    game.ChipsOfTheRound = 0;
                 }
 
                 game.CardRoundCount++; 
@@ -568,6 +580,20 @@ public class GameHub : Hub
 
         return sequence;
     }
+
+    // private void ResetPlayerChipsOfTheRound(){
+
+    //     string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+    //     //Find game
+    //     var game = games.Find(g => g.Id == gameId);
+
+    //     if (game != null){
+
+    //         if(game.Seat[0] != null){
+                
+    //         }
+    //     }
+    // }
 
     private async Task updateChipsOnHand(){
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";

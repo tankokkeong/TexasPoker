@@ -360,6 +360,5 @@ function removePotChips(){
     //Remove the stylingg
     potDisplay.style.display = "none";
 }
-
 //Call Default Functions
 displayWalletAmount();
