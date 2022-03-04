@@ -43,6 +43,11 @@ public class Game
     "A <br> <span class='diamonds'>♦</span>", "K <br> <span class='diamonds'>♦</span>", "Q <br> <span class='diamonds'>♦</span>", "J <br> <span class='diamonds'>♦</span>", "10 <br> <span class='diamonds'>♦</span>", "9 <br> <span class='diamonds'>♦</span>", "8 <br> <span class='diamonds'>♦</span>", "7 <br> <span class='diamonds'>♦</span>", "6 <br> <span class='diamonds'>♦</span>", "5 <br> <span class='diamonds'>♦</span>", "4 <br> <span class='diamonds'>♦</span>", "3 <br> <span class='diamonds'>♦</span>", "2 <br> <span class='diamonds'>♦</span>",
     };
 
+    public Dictionary<string, int> cardPoint = new Dictionary<string, int>{
+        {"A", 1}, {"2", 2}, {"3", 3}, {"4", 4}, {"5", 5}, {"6", 6}, {"7", 7}, {"8", 8}, {"9", 9}, {"10", 10}, {"J", 11}, {"Q", 12}, {"13", 13},
+        {"diamo", 10}, {"clubs", 20}, {"heart", 30}, {"spade", 40}
+    };
+
     public bool TimerRoundComplete {get; set; } = false;
 
     public List<Player?> playersOfTheRound = new List<Player?>();
@@ -559,6 +564,10 @@ public class GameHub : Hub
         
     }
 
+    public async Task CheckWinningHand(){
+
+    }
+
     private List<string> CardDealingSequence(Game game){
         List<string> sequence = new List<string>();
 
@@ -698,6 +707,154 @@ public class GameHub : Hub
             //Reveal the foruth card 
             await Clients.Group(game.Id).SendAsync("updatePotChips", totalChips);
         }
+    }
+
+    private List<string> CheckRoyalFlush(){
+        List<string> handCard = new List<string>();
+
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if(game != null){
+
+        }
+
+        return handCard;
+    }
+
+    private List<string> CheckStraightFlush(){
+        List<string> handCard = new List<string>();
+
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if(game != null){
+
+        }
+
+        return handCard;
+    }
+
+    private List<string> CheckFourOfAKind(){
+        List<string> handCard = new List<string>();
+
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if(game != null){
+
+        }
+
+        return handCard;
+    }
+
+    private List<string> CheckFullHouse(){
+        List<string> handCard = new List<string>();
+
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if(game != null){
+
+        }
+
+        return handCard;
+    }
+
+    private List<string> CheckFlush(){
+        List<string> handCard = new List<string>();
+
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if(game != null){
+
+        }
+
+        return handCard;
+    }
+
+    private List<string> CheckStraight(){
+        List<string> handCard = new List<string>();
+        
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if(game != null){
+
+        }
+
+        return handCard;
+    }
+
+    private List<string> CheckThreeOfAKind(){
+        List<string> handCard = new List<string>();
+
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if(game != null){
+
+        }
+
+        return handCard;
+    }
+
+    private List<string> CheckTwoPair(){
+        List<string> handCard = new List<string>();
+
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if(game != null){
+
+        }
+
+        return handCard;
+    }
+
+    private List<string> CheckOnePair(string handCard1, string handCard2){
+        List<string> handCard = new List<string>();
+
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if(game != null){
+            int ?card1 = game.cardPoint[game.FirstCard.Substring(0, 1)];
+            int ?card2 = game.cardPoint[game.SecondCard.Substring(0,1)];
+            int ?card3 = game.cardPoint[game.ThirdCard.Substring(0,1)];
+            int ?card4 = game.cardPoint[game.FourthCard.Substring(0,1)];
+            int ?card5 = game.cardPoint[game.FifthCard.Substring(0,1)];
+            int ?card6 = game.cardPoint[handCard2];
+            int ?card7 = game.cardPoint[handCard1];
+
+            
+        }
+
+        return handCard;
+    }
+
+    private List<string> checkHighCard(){
+        List<string> handCard = new List<string>();
+
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if(game != null){
+
+        }
+
+        return handCard;
     }
 
     // ----------------------------------------------------------------------------------------
