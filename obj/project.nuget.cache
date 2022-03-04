@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "8f1yEvQ2rj94c0CeWpHYZ3HkfqDIb6opZ6f2QfDGMN70T03eFq+Q/O8kQNiO95cLPZZONPwTmKdRWbXWGHcMgw==",
   "success": true,
   "projectFilePath": "C:\\Users\\tanko\\Desktop\\TexasPoker\\TexasPoker.csproj",
+=======
+  "dgSpecHash": "1bOliweOwzkXDNjOgjqe7WAp5lP3xLPvQk4Ec8AQi0t0SavTldWHAwbWPdDLkz4rNV3e3EpzVnfeUDQMTbpONQ==",
+  "success": true,
+  "projectFilePath": "D:\\School Stuff\\Degree\\Degree Year 2 Sem 3\\BAIT3093 - EMERGING WEB TECHNOLOGIES\\Assignment\\TexasPoker\\TexasPoker.csproj",
+>>>>>>> 2c6d5d7f45c41153e409753c22ca6a486a757708
   "expectedPackageFiles": [],
   "logs": []
 }
