@@ -31,11 +31,7 @@ public class ChatHub : Hub
     {
         string? name = Context.GetHttpContext()?.Request.Cookies["username"];
 
-        if (nameList.Contains(name))
-        {
-            await Clients.All.SendAsync("UpdateStatus", count, "");
-        } 
-        else if (name != null && !nameList.Contains(name)){
+        if (name != null){
             count--;
             await Clients.All.SendAsync("UpdateStatus", count, $"<b>{name}</b> left");
             nameList.Remove(name);
