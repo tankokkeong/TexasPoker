@@ -83,6 +83,16 @@ th, td {
     border-radius: 5px;
 }
 
+.fa-circle {
+    color: green;
+}
+
+#userListBtn {
+    position: absolute;
+    left: 87.5%;
+    top: 15%;
+}
+
 .LiveChatContainerHeader {
     position: relative;
     width: 100%;
@@ -129,6 +139,7 @@ input[type=text] {
 /* Chat ======================================================================= */
 #form {
     display: flex;
+    width: 100%;
 }
 
 #chat {

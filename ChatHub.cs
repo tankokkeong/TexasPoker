@@ -21,7 +21,7 @@ public class ChatHub : Hub
         } 
         else if (name != null && !nameList.Contains(name)){
             count++;
-            await Clients.All.SendAsync("UpdateStatus", count, $"<b>{name}</b> joined");
+            await Clients.All.SendAsync("UpdateStatus", count, $"<b>{name}</b> joined", name);
             nameList.Add(name);
         }
         await base.OnConnectedAsync();
