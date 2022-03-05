@@ -3,12 +3,6 @@
     padding-right: 600px;
 }
 
-.dices{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: flex;
-}
-
 #status{
     font-size: 2rem;
 }
@@ -23,9 +17,10 @@
 }
 
 .player-container{
-    padding: 30px 100px;
+    padding: 0 100px;
+    margin-top: 20%;
 }
 
-.betsize-form{
-    padding: 30px 300px;
+.selectSize-container{
+    padding: 30px 500px;
 }

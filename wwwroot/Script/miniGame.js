@@ -18,8 +18,18 @@
         
         let started = false;
         let me = null; //A or B
+        const $gameResult = $('#gameResult');
         const $status = $('#status');
         const $countdownTimer = $('#countdown');
+
+        const images = 
+        [
+        "Images/dice1.png",
+        "Images/dice2.png",
+        "Images/dice3.png",
+        "Images/dice4.png",
+        "Images/dice5.png",
+        "Images/dice6.png"];
 
         // ========================================================================================
         // Events
@@ -61,18 +71,21 @@
 
             conn.on('Left', letter => {
                 started = false;
-                $status.text(`Player ${letter} left. You Win !!`)
-                document.getElementById("big").style.display = "none";
-                document.getElementById("small").style.display = "none";
+                $status.text(`Player ${letter} left.`)
             });
 
-        // TODO: Start()
+        
+        var soundEffect = document.getElementById("diceRoll-sound-effect");
+        var winSoundEffect = document.getElementById("win-sound-effect");
+        var loseSoundEffect = document.getElementById("lose-sound-effect");
+
         conn.on('Start', () => {
 
-            setTimeout(() => $status.text('Ready to Bet Big or Small!!'), 1000);
-            setTimeout(() => $status.text('You have 10 second to bet your size!'), 3000);
+            setTimeout(() => $status.text('Game Start!!'), 1000);
+            setTimeout(() => $status.text('You have 10 second to guess the size!'), 3000);
             setTimeout(() => {
                 document.getElementById("betsize").disabled = false;
+                document.getElementById("betSubmit").disabled = false;
                 $countdownTimer.text('10')
             }, 4000);
             setTimeout(() => $countdownTimer.text('9'), 5000);
@@ -87,14 +100,77 @@
             setTimeout(() => $countdownTimer.text('0'), 14000);
             setTimeout(() => {
                 $status.text('Times Out!!!');
-                //started = true;
+                $countdownTimer.text('');
                 document.getElementById("betsize").disabled = true;
-                }, 15000);
+            }, 15000);
+            setTimeout(() => {
+                $status.text('Rolling Time!!!');
+                $countdownTimer.text('');
+                //Sound effect TO:DO
+                soundEffect.play();
+            }, 12000);
+            setTimeout(() => {
+                conn.invoke("Roll");
+            }, 17000);
+            setTimeout(() => {
+                conn.invoke("CheckPlayerDecision");
+            }, 20000);
+        });
+
+        conn.on('Result', (one,two,three,total) => {
+
+            document.querySelector("#dice1").setAttribute("src", images[one - 1]);
+            document.querySelector("#dice2").setAttribute("src", images[two - 1]);
+            document.querySelector("#dice3").setAttribute("src", images[three - 1]);
+            $status.text("Total Score: " + total);
+        });
+
+        conn.on('betSizeResult', (bigSmall, oddEven, triple) => {
+
+            try{
+                var betsize = document.getElementById("betsize").selectedIndex;
+                var option = document.getElementsByTagName("option")[betsize].value;
+
+                if(option == bigSmall){
+                    //Sound effect TO:DO
+                    winSoundEffect.play();
+                    $gameResult.text("Well Done!! You have choose the correct one");
+                    //Update Chips
+                    
+
+                }else if(option == oddEven){
+                    //Sound effect TO:DO
+                    winSoundEffect.play();
+                    $gameResult.text("Well Done!! You have choose the correct one");
+
+                    //Update Chips
+                    
+
+                }else if(option == triple){
+                    //Sound effect TO:DO
+                    winSoundEffect.play();
+                    $gameResult.text("Marvelous!!! Triple!!!");
+
+                    //Update Chips
+                    
+                }
+                else{
+                    //Sound effect 
+                    loseSoundEffect.play();
+                    $gameResult.text("No Way!! You have choose the wrong one");
+                    //Update Chips
+                    
+                }
+            }
+            catch (e){
+                alert(e.message);
+            }
         });
 
         //Start Connection
         conn.start().then(main);
 
-        function main(){
-        
+        function betSubmit(){
+            document.getElementById("betsize").disabled = true;
+            document.getElementById("betSubmit").disabled = true;
         }

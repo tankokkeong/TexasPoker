@@ -7,10 +7,8 @@ using Microsoft.AspNetCore.SignalR;
 public class MiniPlayer
 {
     public string Id {get; set;}
-    // public string Icon {get; set;}
     public string Name {get; set;}
     public MiniPlayer(string id, string name) => (Id, Name) = (id, name);
-
 }
 
 
@@ -28,6 +26,7 @@ public class MiniGame
     public bool isEmpty => PlayerA == null && PlayerB ==null;
     public bool isFull => PlayerA != null && PlayerB != null;
 
+
     public string? AddPlayer(MiniPlayer player){
 
         if (PlayerA == null){
@@ -42,6 +41,12 @@ public class MiniGame
         }
 
         return null;
+    }
+
+    public int Rolling(){
+        Random random = new Random();
+        int roll = random.Next(1,7);    
+        return roll;   
     }
 }
 
@@ -83,12 +88,80 @@ public class MiniRoomHub : Hub
         await Clients.Group(gameId).SendAsync("Start");
     }
 
+    public async Task Roll(){
+
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        var game = minigames.Find(g => g.Id == gameId);
+
+        if(game == null){
+            await Clients.Caller.SendAsync("Reject");
+            return;
+        }    
+        
+        int one = game.Rolling();
+        int two = game.Rolling();
+        int three = game.Rolling();
+
+        int total = one + two + three;
+
+        await CheckPlayerDecision(one,two, three, total);
+
+        await Clients.Group(gameId).SendAsync("Result", one, two, three, total);
+      
+        return;
+    }
+    
+    public async Task CheckPlayerDecision(int diceNo1, int diceNo2, int diceNo3, int totalDice){
+
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        var game = minigames.Find(g => g.Id == gameId);
+
+        if(game == null){
+            await Clients.Caller.SendAsync("Reject");
+            return;
+        }
+
+        string bigOrSmall = "";
+        string OddOrEven = "";
+        string triple = "";
+
+        // Big or Small
+        if (totalDice >= 11 && totalDice <=18){
+
+                bigOrSmall = "Big";
+                await Clients.Group(gameId).SendAsync("betSizeResult", bigOrSmall, OddOrEven, triple);
+            
+        }else if(totalDice >= 4 && totalDice <=18){
+
+                bigOrSmall = "Small";
+                await Clients.Group(gameId).SendAsync("betSizeResult", bigOrSmall, OddOrEven, triple);    
+        }
+
+        //Odd or Even
+        if(totalDice % 2 == 0){
+            OddOrEven = "Even";
+            await Clients.Group(gameId).SendAsync("betSizeResult", bigOrSmall, OddOrEven, triple);
+        }else{
+            OddOrEven = "Odd";
+            await Clients.Group(gameId).SendAsync("betSizeResult",bigOrSmall, OddOrEven, triple);
+        }
+
+        // Triple
+        if(totalDice == 3 || totalDice == 6 ||totalDice == 9 ||totalDice == 12 ||totalDice == 15 || totalDice == 18){
+            triple = "Triple";
+            await Clients.Group(gameId).SendAsync("betSizeResult",bigOrSmall, OddOrEven, triple);
+
+
+        }
+    }
+
     // ----------------------------------------------------------------------------------------
     // Functions
     // ----------------------------------------------------------------------------------------
     private async Task UpdateList (string? id = null)
     {
         var list = minigames.FindAll(g => g.IsWaiting == true);
+        
 
         if(id == null){
             
@@ -96,6 +169,7 @@ public class MiniRoomHub : Hub
         }
         else
         {
+            
             await Clients.Client(id).SendAsync("UpdateList", list);
         }
     }

@@ -30,48 +30,54 @@
 <body class="bg-success">
     <div class="mini-game-container">
         <div class="mini-room-action text-light ml-5">
+          <div>
             <button class="exit-container btn btn-danger mt-5" id="leave">
-                <i class="fa fa-sign-out" aria-hidden="true"></i>
-                Leave
-            </button>
-        </div>
-
-        <p id="status" class="text-center mt-3 text-light">Waiting for another player...</p>
-        <p id="countdown" class="text-center mt-2 text-light"></p>
- 
-        <div class="dice-section">
-            <div class="dice-container mt-5 text-center">
-                <div class="row dice-row">
-                    <div class="col-md-4">
-                        <div class="dices">
-                            <img src="Images/dice1.png" width="60" height="60">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="dices">
-                            <img src="Images/dice2.png" width="60" height="60">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="dices">
-                            <img src="Images/dice3.png" width="60" height="60">
-                        </div>
-                    </div>
-                </div>
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+              Leave
+          </button>
+          </div>
+          <div class="chips mt-3 ml-2">
+            <div class="row">
+              <img src="Images/chips.png" height="30px;" width="30px;">
+              <p class="ml-3 h4" id="playerChipAmount"></p>
             </div>
+          </div>
         </div>
 
-        <div class="bet-section mt-5 text-center">
-            <form class="betsize-form">
-                <div class="form-group">
-                    <select class="form-control" id="betsize" disabled>
-                      <option id="big">Big (大)</option>
-                      <option id="small">Small (小)</option>
-                    </select>
-                  </div>
-            </form>
+        <div class="words-container mt-3 mb-3">
+          <p id="status" class="text-center mt-3 text-light">Waiting for another player...</p>
+          <p id="countdown" class="text-center mt-2 text-light"></p>
+          <p id="gameResult" class="text-center mt-2 text-light"></p>
         </div>
 
+        <div class="dice-container text-center">
+            <div class="row">
+              <div class="col">
+                <img width="60" height="60" id="dice1">
+              </div>
+              <div class="col">
+                <img width="60" height="60" id="dice2">
+              </div>
+              <div class="col">
+                <img width="60" height="60" id="dice3">
+              </di>
+            </div>
+          </div>
+        </div>
+
+        <div class="selectSize-container">
+          <select class="form-control text-center mt-5" id="betsize" disabled>
+            <option value="Big">Big</option>
+            <option value="Small">Small</option>
+            <option value="Odd">Odd</option>
+            <option value="Even">Even</option>
+            <option value="Triple">Triple</option>
+          </select>
+        </div>
+
+        <div class="betSubmitButton mt-3 text-center">
+          <button class="btn btn-primary" onclick="betSubmit()" id="betSubmit" disabled>Guess the size</button>
+        </div>
 
         <div class="player-container mt-5">
             <table class="table table-bordered table-dark table-list">
@@ -94,6 +100,12 @@
               </table>
         </div>
     </div>
+
+    <!-- Audio -->
+    <audio src="audio/diceShake4.mp3" id="diceRoll-sound-effect"></audio>
+    <audio src="audio/winner.mp3" id="win-sound-effect"></audio>
+    <audio src="audio/losing.mp3" id="lose-sound-effect"></audio>
+
 </body>
 
 <!-- Scipt -->
