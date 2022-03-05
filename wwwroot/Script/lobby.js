@@ -470,7 +470,6 @@ function fit(f, w, h, to = 'blob', type = 'image/jpeg') {
 // Mini Game Events
 // ========================================================================================
 $('#createMini').click(async e => {
-
     let gameId = await conn.invoke('Create');
     location = `mini-game.html?gameId=${gameId}`;
 });
@@ -487,17 +486,20 @@ const conn = new signalR.HubConnectionBuilder()
 .withUrl('/minigameHub?' + param)
 .build();
 
-conn.on('UpdateList', list => {
+conn.on('UpdateList', (list) => {
     let html = '';
+    let no = 1;
 
     for (let game of list){
         html += `
             <tr>
-                <td>${game.id}</td>
+                <td>${no}</td>
                 <td>${game.playerA.name}</td>
+                <td>1000</td>
                 <td><button data-join="${game.id}" class="btn btn-primary">Join Game</button></td>
             </tr>
         `;
+        no++;
     }
 
     if(list.length == 0){
