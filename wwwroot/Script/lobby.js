@@ -115,11 +115,6 @@ function checkSymbols(message) {
     return checked;
 }
 
-function removeSymbols(message) {
-    message = message.replace(/[~*_]/g, '');
-    return message;
-}
-
 $('#myTab a').on('click', function (e) {
     e.preventDefault();
     $(this).tab('show');
