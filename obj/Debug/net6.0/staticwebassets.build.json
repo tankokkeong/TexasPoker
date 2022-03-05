@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ZfFFU8Jt9nx11asvzcmYiJCwcAUcvV5VUlggHIUnfx0=",
+  "Hash": "PYzp2itPyNmlZUuH4oTgJ45KUMx69bKf74F3d7wH834=",
   "Source": "TexasPoker",
   "BasePath": "_content/TexasPoker",
   "Mode": "Default",
@@ -119,6 +119,23 @@
       "OriginalItemSpec": "wwwroot\\audio\\Chips.mp3"
     },
     {
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\audio\\diceShake4.mp3",
+      "SourceId": "TexasPoker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
+      "BasePath": "_content/TexasPoker",
+      "RelativePath": "audio/diceShake4.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\audio\\diceShake4.mp3"
+    },
+    {
       "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\audio\\fold-card.mp3",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
@@ -136,6 +153,23 @@
       "OriginalItemSpec": "wwwroot\\audio\\fold-card.mp3"
     },
     {
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\audio\\losing.mp3",
+      "SourceId": "TexasPoker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
+      "BasePath": "_content/TexasPoker",
+      "RelativePath": "audio/losing.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\audio\\losing.mp3"
+    },
+    {
       "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\audio\\raise-card.mp3",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
@@ -151,6 +185,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\audio\\raise-card.mp3"
+    },
+    {
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\audio\\winner.mp3",
+      "SourceId": "TexasPoker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
+      "BasePath": "_content/TexasPoker",
+      "RelativePath": "audio/winner.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\audio\\winner.mp3"
     },
     {
       "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\forgotPassword.html",

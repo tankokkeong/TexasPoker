@@ -339,6 +339,12 @@ function cardSoundEffect(){
     soundEffect.play();
 }
 
+function chipsSoundEffect(){
+    var soundEffect = document.getElementById("chips-sound-effect");
+
+    soundEffect.play();
+}
+
 function showActionStatus(seatNo, action){
     var actionStatus = document.getElementById("user-" + seatNo + "-action");
     actionStatus.innerHTML = action;
@@ -360,5 +366,19 @@ function removePotChips(){
     //Remove the stylingg
     potDisplay.style.display = "none";
 }
+
+function displayWinnerDeclaration(winnerName){
+    var winnerDeclaration = document.getElementById("winner-name");
+
+    winnerDeclaration.style.display = "";
+    winnerDeclaration.innerHTML = winnerName + " won the game!";
+}
+
+function removeWinnerDeclaration(){
+    var winnerDeclaration = document.getElementById("winner-name");
+
+    winnerDeclaration.style.display = "none";
+}
+
 //Call Default Functions
 displayWalletAmount();
