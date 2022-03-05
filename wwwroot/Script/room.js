@@ -32,6 +32,15 @@ con.on('ViewGame', (game) => {
   //console.log("View Game Trigger: ")
 });
 
+con.on('updateWinnerChipsOnHands', (seatNo, total, poolChips) => {
+
+  seatNo = seatNo + 1;
+  console.log("Winner seat: " + seatNo + " Winner Chips: " + total + " Pool Chips: " + poolChips)
+  var winnerChips = document.getElementById("seat-" + seatNo + "-chips");
+
+  winnerChips.innerHTML = "$ " + amountFormatter(total);
+});
+
 con.on('updatePotChips', (total) => {
   console.log("Pot total: " + total)
 
@@ -131,6 +140,10 @@ con.on('updateChipsOnHand', (chip1, chip2, chip3, chip4, chip5) => {
 con.on('StartGame', (game) => {
 
   var mySeatNo = parseInt(sessionStorage.getItem("mySeatNo"));
+
+  //Remove winner declaration
+  removeWinnerDeclaration();
+  removeAllActionStatus();
 
   if(mySeatNo == 1){
     showCard(game.seat[0], 1);
@@ -371,9 +384,15 @@ con.on('GameAction', (chipsOfTheRound, userId, timerPosition) => {
 
 con.on('DeclareWinner', (userId, winnerName, seatNo) => {
 
+  seatNo = seatNo + 1;
+  //Play sound effect
+  chipsSoundEffect();
 
   //Show winner declaration
   displayWinnerDeclaration(winnerName);
+
+  //Remove pool chips
+  removePotChips();
 
   //Remove all the chips
   removeChips("", true);

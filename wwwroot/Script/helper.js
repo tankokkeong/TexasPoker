@@ -339,6 +339,12 @@ function cardSoundEffect(){
     soundEffect.play();
 }
 
+function chipsSoundEffect(){
+    var soundEffect = document.getElementById("chips-sound-effect");
+
+    soundEffect.play();
+}
+
 function showActionStatus(seatNo, action){
     var actionStatus = document.getElementById("user-" + seatNo + "-action");
     actionStatus.innerHTML = action;
