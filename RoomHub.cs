@@ -1,11 +1,18 @@
 using Microsoft.AspNetCore.SignalR;
 using System;
-using System.Linq;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 // ============================================================================================
 // Class: Player
 // ============================================================================================
-    
+
+public class HandCardRanking{
+    public int HandType{get; set;}
+    public int HankRank {get; set;}
+    public int Value {get; set;}
+    public string? HandName {get; set;}
+}
 public class Player
 {
     public string? SignalRConnectionId{get; set;} = null;
@@ -510,6 +517,8 @@ public class GameHub : Hub
         Console.WriteLine("Hand Card Dealing triggered");
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
 
+        await CheckWinningHand();
+
         //Find game
         var game = games.Find(g => g.Id == gameId);
         int cardIndex = 0;
@@ -565,7 +574,10 @@ public class GameHub : Hub
     }
 
     public async Task CheckWinningHand(){
-
+        var client = new HttpClient();
+        var content = await client.GetStringAsync("https://ewt-poker-evaluator.herokuapp.com/?card1=2s&card2=2c&card3=Qs&card4=Qc&card5=Ts&card6=9d&card7=4d");
+        HandCardRanking? myObject = JsonConvert.DeserializeObject<HandCardRanking>(content);
+        Console.WriteLine(myObject?.HandName);
     }
 
     private List<string> CardDealingSequence(Game game){

@@ -64,3 +64,5 @@ C:\Users\tanko\Desktop\TexasPoker\obj\Debug\net6.0\TexasPoker.dll
 C:\Users\tanko\Desktop\TexasPoker\obj\Debug\net6.0\ref\TexasPoker.dll
 C:\Users\tanko\Desktop\TexasPoker\obj\Debug\net6.0\TexasPoker.pdb
 C:\Users\tanko\Desktop\TexasPoker\obj\Debug\net6.0\TexasPoker.genruntimeconfig.cache
+C:\Users\tanko\Desktop\TexasPoker\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\tanko\Desktop\TexasPoker\obj\Debug\net6.0\TexasPoker.csproj.CopyComplete

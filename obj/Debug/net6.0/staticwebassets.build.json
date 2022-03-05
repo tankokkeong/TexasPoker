@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xGuPNr/P4xZnXybCfoVBy7b8i7GHwrKPPdKJbMnVwiM=",
+  "Hash": "ZfFFU8Jt9nx11asvzcmYiJCwcAUcvV5VUlggHIUnfx0=",
   "Source": "TexasPoker",
   "BasePath": "_content/TexasPoker",
   "Mode": "Default",
@@ -561,6 +561,23 @@
       "OriginalItemSpec": "wwwroot\\room.html"
     },
     {
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Script\\badWords.js",
+      "SourceId": "TexasPoker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
+      "BasePath": "_content/TexasPoker",
+      "RelativePath": "Script/badWords.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Script\\badWords.js"
+    },
+    {
       "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Script\\emojionearea.min.js",
       "SourceId": "TexasPoker",
       "SourceType": "Discovered",
@@ -678,6 +695,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Script\\signalr.js"
+    },
+    {
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Script\\webcam.min.js",
+      "SourceId": "TexasPoker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
+      "BasePath": "_content/TexasPoker",
+      "RelativePath": "Script/webcam.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Script\\webcam.min.js"
     },
     {
       "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\signup.html",

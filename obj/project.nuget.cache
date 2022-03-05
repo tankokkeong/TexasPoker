@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "8f1yEvQ2rj94c0CeWpHYZ3HkfqDIb6opZ6f2QfDGMN70T03eFq+Q/O8kQNiO95cLPZZONPwTmKdRWbXWGHcMgw==",
+  "dgSpecHash": "hqM41kRvKXrGBda3/dUdi+ChGv9QcXP/TQZqYXySAqmzeq3EC04Z9JBEQwnjm1CggfkfESufyqW0pU5MrzOAnw==",
   "success": true,
   "projectFilePath": "C:\\Users\\tanko\\Desktop\\TexasPoker\\TexasPoker.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\tanko\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
