@@ -238,20 +238,18 @@ conChat.on('UpdateStatus', (count, status, name) => {
 });
 
 // TODO(3D): ReceiveYouTube(name, id, who)
-con.on('ReceiveYouTube', (name, id, who, sentTime) => {
+conChat.on('ReceiveYouTube', (name, id, who, sentTime) => {
     isBottom();
     $('#messages').append(`
-        <li class=${who}>
-            <div>
-                <b>${name}:</b> sent a video<br>
-                <iframe width="400" height="300" 
-                    src="https://www.youtube.com/embed/${id}" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                </iframe>
-                <p>Sent Time : ${sentTime}</p>
-            </div>
-        </li>
+        <div class=${who}>
+            <b>${name}:</b> sent a video<br>
+            <iframe width="400" height="300" 
+                src="https://www.youtube.com/embed/${id}" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+            <p>Sent Time : ${sentTime}</p>
+        </div>
     `);
     scrollToBottom();
 });
@@ -294,8 +292,8 @@ function chat() {
                             clearTextBox();
                         }
                         $('#message').val('').focus();
+                        scrollToBottom();
                     }
-                    scrollToBottom();
                 }
             },
         }
@@ -315,7 +313,7 @@ function chat() {
         let sentTime = time + ' ' + date;
 
         if(f && f.type.startsWith('image/')) {
-            fit(f, 500, 500, 'dataURL', 'image/webp').then(url => con.invoke('SendImage', username, url, sentTime));
+            fit(f, 500, 500, 'dataURL', 'image/webp').then(url => conChat.invoke('SendImage', username, url, sentTime));
         }
 
         e.target.value = null;
@@ -342,7 +340,7 @@ function chat() {
         let sentTime = time + ' ' + date;
 
         if(f && f.type.startsWith('image/')) {
-            fit(f, 500, 500, 'dataURL', 'image/webp').then(url => con.invoke('SendImage', username, url, sentTime));
+            fit(f, 500, 500, 'dataURL', 'image/webp').then(url => conChat.invoke('SendImage', username, url, sentTime));
         }
     });
 }   
