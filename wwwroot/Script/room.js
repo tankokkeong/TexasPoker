@@ -34,7 +34,6 @@ con.on('ViewGame', (game) => {
 
 con.on('updateWinnerChipsOnHands', (seatNo, total, poolChips) => {
 
-  seatNo = seatNo + 1;
   console.log("Winner seat: " + seatNo + " Winner Chips: " + total + " Pool Chips: " + poolChips)
   var winnerChips = document.getElementById("seat-" + seatNo + "-chips");
 
