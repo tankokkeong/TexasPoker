@@ -381,9 +381,36 @@ con.on('GameAction', (chipsOfTheRound, userId, timerPosition) => {
   
 });
 
+con.on('RoundWinner', (userId, winnerName, seatNo) => {
+
+  //Play sound effect
+  chipsSoundEffect();
+
+  //Show winner declaration
+  displayWinnerDeclaration(winnerName);
+
+  //Remove pool chips
+  removePotChips();
+
+  //Remove all the chips
+  removeChips("", true);
+
+  //Show the action status to all users
+  showActionStatus(seatNo, "Win");
+
+  //Remove the timer
+  removeTimer(seatNo);
+
+  //Disable the timer
+  removeAllActionButtons();
+
+  //Reset player chips of the round
+  resetPlayerChipsOfTheRound();
+
+});
+
 con.on('DeclareWinner', (userId, winnerName, seatNo) => {
 
-  seatNo = seatNo + 1;
   //Play sound effect
   chipsSoundEffect();
 
