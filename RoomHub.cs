@@ -319,12 +319,14 @@ public class GameHub : Hub
     public async Task LeaveGame(int seatNo)
     {
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        List<string> sequence = DetermineTimerSequence();
 
         //Find game
         var game = games.Find(g => g.Id == gameId);
 
         if (game != null)
         {
+
             //Remove player
             game.RemovePlayer(seatNo);
 
@@ -333,6 +335,18 @@ public class GameHub : Hub
             }
 
             if(game.NumberOfPlayer <= 1){
+                await updatePotChips();
+                await Clients.Group(gameId).SendAsync("DeclareWinner", sequence[0], game.Seat.Find(s => s?.Id == sequence[0])?.Name, game.TimerPosition);
+
+                Console.WriteLine("Winner timer position: " + FindSeatUserPosition(sequence[0], game.Id));
+
+                //Update winner's chips
+                game.Seat[FindSeatUserPosition(sequence[0], game.Id) - 1].ChipsOnHand = game.Seat[FindSeatUserPosition(sequence[0], game.Id) - 1].ChipsOnHand  + game.PoolChips;
+                await Clients.Group(gameId).SendAsync("updateWinnerChipsOnHands", FindSeatUserPosition(sequence[0], game.Id), game.Seat[FindSeatUserPosition(sequence[0], game.Id) - 1].ChipsOnHand, game.PoolChips);
+
+                //Remove player
+                game.RemovePlayer(seatNo);
+
                 //End Game
                 game.IsWaiting = true;
                 await Clients.Group(gameId).SendAsync("LeaveSeat", seatNo, "No Card");
@@ -417,9 +431,11 @@ public class GameHub : Hub
                 await updatePotChips();
                 await Clients.Group(gameId).SendAsync("DeclareWinner", sequence[0], game.Seat.Find(s => s?.Id == sequence[0])?.Name, game.TimerPosition);
 
+                Console.WriteLine("Winner timer position: " + game.TimerPosition);
+
                 //Update winner's chips
-                game.Seat[game.TimerPosition].ChipsOnHand = game.Seat[game.TimerPosition].ChipsOnHand  + game.PoolChips;
-                await Clients.Group(gameId).SendAsync("updateWinnerChipsOnHands", game.TimerPosition, game.Seat[game.TimerPosition].ChipsOnHand, game.PoolChips);
+                game.Seat[FindSeatUserPosition(sequence[0], game.Id) - 1].ChipsOnHand = game.Seat[FindSeatUserPosition(sequence[0], game.Id) - 1].ChipsOnHand  + game.PoolChips;
+                await Clients.Group(gameId).SendAsync("updateWinnerChipsOnHands", FindSeatUserPosition(sequence[0], game.Id), game.Seat[FindSeatUserPosition(sequence[0], game.Id) - 1].ChipsOnHand, game.PoolChips);
 
                 //Reset all the attributes
                 game.CardRoundCount = 0;
@@ -496,17 +512,17 @@ public class GameHub : Hub
 
                 }
                 else{
-                    if(game.TimerPosition >= sequence.Count() -1){
+                    if(game.TimerPosition == sequence.Count() -1){
 
-                        await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition],  game.TimerPosition);
-                        await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
+                        await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,game.Seat[game.TimerPosition].Id,  game.TimerPosition);
+                        await Clients.Group(gameId).SendAsync("DisplayTimer", game, game.Seat[game.TimerPosition].Id, sequence);
                         game.TimerPosition = 0;
 
                     }
                     else{
 
-                        await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition], game.TimerPosition);
-                        await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
+                        await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,game.Seat[game.TimerPosition].Id, game.TimerPosition);
+                        await Clients.Group(gameId).SendAsync("DisplayTimer", game, game.Seat[game.TimerPosition].Id, sequence);
                         game.TimerPosition++;
 
                     }
