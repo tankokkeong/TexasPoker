@@ -34,6 +34,10 @@ con.on('ViewGame', (game) => {
 
 con.on('updatePotChips', (total) => {
   console.log("Pot total: " + total)
+
+  //Remove all the chips
+  removeChips("", true);
+
   displayPotChips(total);
 });
 
@@ -365,6 +369,29 @@ con.on('GameAction', (chipsOfTheRound, userId, timerPosition) => {
   
 });
 
+con.on('DeclareWinner', (userId, winnerName, seatNo) => {
+
+
+  //Show winner declaration
+  displayWinnerDeclaration(winnerName);
+
+  //Remove all the chips
+  removeChips("", true);
+
+  //Show the action status to all users
+  showActionStatus(seatNo, "Win");
+
+  //Remove the timer
+  removeTimer(seatNo);
+
+  //Disable the timer
+  removeAllActionButtons();
+
+  //Reset player chips of the round
+  resetPlayerChipsOfTheRound();
+
+});
+
 con.on('CheckAction', (seatNo) => {
   checkCardSoundEffect();
 
@@ -398,8 +425,18 @@ con.on('CallAction', (seatNo) => {
 
 });
 
-con.on('FoldAction', () => {
+con.on('FoldAction', (seatNo) => {
 
+  foldCardSoundEffect();
+
+  //Show the action status to all users
+  showActionStatus(seatNo, "Fold");
+
+  //Remove the timer
+  removeTimer(seatNo);
+
+  //Disable the timer
+  removeAllActionButtons();
 
 });
 
@@ -485,7 +522,8 @@ function callCard(){
 }
 
 function foldCard(){
-
+  var mySeatNo = sessionStorage.getItem("mySeatNo");
+  con.invoke("FoldTrigger", parseInt(mySeatNo));
 }
 
 function buyInGame(){

@@ -369,6 +369,26 @@ public class GameHub : Hub
         }
     }
 
+    public async Task FoldTrigger(int seatNo = 0){
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if (game != null){
+
+            //remove the cards on hand
+            game.Seat[seatNo - 1].FirstHandCard = null;
+            game.Seat[seatNo - 1].SecondHandCard = null;
+
+            //Remove from players of the round
+            game.playersOfTheRound.Remove(game.Seat[seatNo - 1]);
+
+            await Clients.Group(gameId).SendAsync("FoldAction", seatNo);
+            await TimerTrigger();
+        }
+    }
+
     public async Task TimerTrigger(){
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
         List<string> sequence = DetermineTimerSequence();
@@ -380,58 +400,69 @@ public class GameHub : Hub
 
             Console.WriteLine("Timer Triggered Card Round: " + game.CardRoundCount + " Timer Position: " + game.TimerPosition);
 
-            if(game.TimerPosition == 0){
+            if(sequence.Count() == 1){
+                await updatePotChips();
+                await Clients.Group(gameId).SendAsync("DeclareWinner", sequence[0], game.Seat.Find(s => s?.Id == sequence[0])?.Name, game.TimerPosition);
 
-                Console.WriteLine("I am in " + game.CardRoundCount);
-                //Determine the flop round, turn round, and river round
-                if(game.CardRoundCount == 1){
-
-                    await FlopRound();
-                    await updatePotChips();
-
-                    //Reset the chips of the round
-                    game.ChipsOfTheRound = 0;
-                }
-                else if(game.CardRoundCount == 2){
-
-                    await TurnRound();
-                    await updatePotChips();
-
-                    //Reset the chips of the round
-                    game.ChipsOfTheRound = 0;
-                }
-                else if(game.CardRoundCount == 3){
-
-                    await RiverRound();
-                    await updatePotChips();
-
-                    //Reset the chips of the round
-                    game.ChipsOfTheRound = 0;
-                }
-
-                game.CardRoundCount++; 
-            }
-
-            if(game.CardRoundCount > 3){
-
+                //Reset all the attributes
+                game.TimerPosition = 0;
+                game.CardRoundCount = 0;
             }
             else{
-                if(game.TimerPosition >= sequence.Count() -1){
+                if(game.TimerPosition == 0){
 
-                    await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition],  game.TimerPosition);
-                    await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
-                    game.TimerPosition = 0;
+                    Console.WriteLine("I am in " + game.CardRoundCount);
+                    //Determine the flop round, turn round, and river round
+                    if(game.CardRoundCount == 1){
+
+                        await FlopRound();
+                        await updatePotChips();
+
+                        //Reset the chips of the round
+                        game.ChipsOfTheRound = 0;
+                    }
+                    else if(game.CardRoundCount == 2){
+
+                        await TurnRound();
+                        await updatePotChips();
+
+                        //Reset the chips of the round
+                        game.ChipsOfTheRound = 0;
+                    }
+                    else if(game.CardRoundCount == 3){
+
+                        await RiverRound();
+                        await updatePotChips();
+
+                        //Reset the chips of the round
+                        game.ChipsOfTheRound = 0;
+                    }
+
+                    game.CardRoundCount++; 
+                }
+
+                if(game.CardRoundCount > 3){
 
                 }
                 else{
+                    if(game.TimerPosition >= sequence.Count() -1){
 
-                    await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition], game.TimerPosition);
-                    await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
-                    game.TimerPosition++;
+                        await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition],  game.TimerPosition);
+                        await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
+                        game.TimerPosition = 0;
 
+                    }
+                    else{
+
+                        await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,sequence[game.TimerPosition], game.TimerPosition);
+                        await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition], sequence);
+                        game.TimerPosition++;
+
+                    }
                 }
-            }
 
+            }
+            
         }
 
         return;
@@ -517,7 +548,7 @@ public class GameHub : Hub
         Console.WriteLine("Hand Card Dealing triggered");
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
 
-        await CheckWinningHand();
+        //await CheckWinningHand();
 
         //Find game
         var game = games.Find(g => g.Id == gameId);
