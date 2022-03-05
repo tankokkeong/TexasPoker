@@ -230,7 +230,7 @@ conChat.on('UpdateStatus', (count, status, name) => {
     `);
     scrollToBottom();
 
-    $('#modal-body').append(`
+    $('#modal-body1').append(`
         <p>
             <i class="fas fa-circle"></i> ${name}
         </p>
