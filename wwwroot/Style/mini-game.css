@@ -1,6 +1,6 @@
 .dice-container{
-    padding-left :600px;
-    padding-right: 600px;
+    padding-left :300px;
+    padding-right: 300px;
 }
 
 #status{
@@ -21,6 +21,15 @@
     margin-top: 20%;
 }
 
-.selectSize-container{
+/* .selectSize-container{
     padding: 30px 500px;
+}
+
+.range-container{
+    padding: 30px 400px;
+} */
+
+.bet-section-container{
+    padding-left: 150px;
+    padding-right: 150px;
 }

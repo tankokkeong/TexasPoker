@@ -480,7 +480,6 @@ conn.on('UpdateList', (list) => {
             <tr>
                 <td>${no}</td>
                 <td>${game.playerA.name}</td>
-                <td>1000</td>
                 <td><button data-join="${game.id}" class="btn btn-primary">Join Game</button></td>
             </tr>
         `;
