@@ -112,6 +112,8 @@
                 $status.text('Times Out!!!');
                 $countdownTimer.text('');
                 document.getElementById("betsize").disabled = true;
+                document.getElementById("betSubmit").disabled = true;
+                document.getElementById("betRange").disabled = true;
             }, 14000);
             setTimeout(() => {
                 $status.text('Rolling Time!!!');
@@ -120,6 +122,7 @@
             setTimeout(() => {
                 $status.text('');
                 conn.invoke("Roll");
+                
             }, 21000);
             setTimeout(() => {
                 conn.invoke("CheckPlayerDecision");
