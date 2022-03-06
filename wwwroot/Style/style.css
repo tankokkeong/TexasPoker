@@ -384,3 +384,28 @@
     position: absolute;
     right: 5px;
 }
+
+#chats {
+    width: 100%;
+}
+
+form {
+    display: flex;
+    width: 100%;
+}
+
+#chat-content {
+    padding: 1%;
+    overflow-y: scroll;
+    height: 160px;
+}
+
+.chatFeatures{
+    margin-left: 60%;
+}
+
+.image {
+    width: 250px;
+    height: 125px;
+    display: block;
+}

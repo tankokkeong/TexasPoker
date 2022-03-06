@@ -176,3 +176,9 @@ input[type=text] {
     text-align: center;
     color: white;
 }
+
+.image {
+    width: 250px;
+    height: 125px;
+    display: block;
+}

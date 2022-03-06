@@ -9,6 +9,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="Style/style.css">
+    <link rel="stylesheet" href="Style/emojionearea.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -30,7 +31,7 @@
 
         <div class="room-action text-light">
 
-            <a class="exit-container btn btn-danger" onclick="exit()">
+            <a id="exit-container" class="exit-container btn btn-danger" onclick="exit()">
                 <i class="fa fa-sign-out" aria-hidden="true"></i>
                 Exit
             </a>
@@ -458,23 +459,81 @@
 
         <div class="tab-content popup-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit
-                . Quas quia dignissimos minima repellat cumque eaque, in 
-                tempora tenetur reprehenderit dolor perferendis aperiam quo sequi at accusamus numquam, iste ex. Libero blanditiis quaerat dolores fugiat voluptatum aperiam esse? Ex deleniti 
-                quidem modi labore harum dolor in itaque iure. Dolorem, culpa totam?
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis reprehenderit 
-                nihil excepturi inventore vitae aliquam, dolorum culpa tempore, provident velit
-                reiciendis quae quisquam eaque laborum quia animi esse officiis praesentium. 
-                Officiis earum cum recusandae, itaque, veritatis laudantium culpa molestias unde 
-                ratione veniam totam, atque quasi impedit dolorem cupiditate sunt et.
+                <div id="chats">
+                    <div class="page-content page-container" id="page-content">
+                        <div class="padding">
+                            <div class="chatFeatures">
+                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#playersOnline">
+                                    👧🏻 = <b id="count">0</b>
+                                </button>          
+                                <button type="button" id="takepic" class="btn btn-warning mr-2" data-toggle="modal" data-target="#useWebCam">
+                                    <i class="fas fa-camera"></i>  
+                                </button>  
+                            </div>
+                            <div class="ps-container ps-theme-default ps-active-y" id="chat-content">
+                                <div class="media media-chat">
+                                    <div class="media-body">
+                                        <div id="messages">
+                                            <div id="chat"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="publisher bt-1 border-light"> 
+                                <form id="form" autocomplete="off">
+                                    <input type="text" id="message" class="publisher-input form-control" placeholder="Enter Message" style="display: none;" autofocus>
+                                    <span class="publisher-btn file-group"> 
+                                        <button type="button" class="btn btn-warning" id="image">Image</button>
+                                        <input type="file" class="form-control" id="file" accept="image/*" hidden>
+                                    </span> 
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="tab-pane fade" id="game-record" role="tabpanel" aria-labelledby="game-record-tab">
                 <!-- <div class="mb-2 font-weight-bold">
                     [10:14] John Doe won the pool chips of $ 200,000 with a Flush with the hand card of A K
                 </div> -->
+            </div>   
+        </div>
+    </div>
+    <!-- Show Online Players Modal -->
+    <div class="modal fade" id="playersOnline" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Number of Players Online</h5>
+                </div>
+                <div id="modal-body1" class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
             </div>
-
+        </div>
+    </div>           
+    <!-- Take Pic Modal -->
+    <div class="modal fade" id="useWebCam" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Take a Picture</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="my_camera"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="closePic" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="takePic" class="btn btn-warning">
+                        Take Picture 
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -492,5 +551,10 @@
 <!-- Scipt -->
 <script src="Script/helper.js"></script>
 <script src="Script/room.js"></script>
+<script src="Script/webcam.min.js"></script>
+<script src="Script/privateChat.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="Script/emojionearea.min.js"></script>
+<script src="Script/badWords.js"></script>
 
 </html>

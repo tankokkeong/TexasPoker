@@ -373,6 +373,11 @@ function crop(f, w, h, to = 'blob', type = 'image/jpeg') {
             }
             // --------------------------------------------
 
+            const can = document.createElement('canvas');
+            can.width  = w;
+            can.height = h;
+            can.getContext('2d').drawImage(img, sx, sy, sw, sh, 0, 0, w, h);
+
             // Resolve to blob or dataURL
             if (to == 'blob') {
                 can.toBlob(blob => resolve(blob), type);
@@ -428,6 +433,9 @@ function fit(f, w, h, to = 'blob', type = 'image/jpeg') {
             // --------------------------------------------
 
             const can = document.createElement('canvas');
+            can.width  = w;
+            can.height = h;
+            can.getContext('2d').drawImage(img, 0, 0, w, h);
 
             // Resolve
             if (to == 'blob') {

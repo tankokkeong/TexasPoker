@@ -1,6 +1,7 @@
 //Global Variables
 //var fixedTime;
 var playerChipsOfTheRound = [0, 0, 0, 0, 0];
+const userID = sessionStorage.getItem("userId");
 
 // ========================================================================================
 // Connect
@@ -625,10 +626,11 @@ function standUp(){
 
 function exit(){
   if(sessionStorage.getItem("mySeatNo") != null){
-      con.invoke('LeaveGame', parseInt(sessionStorage.getItem("mySeatNo"))).then(()=>
-      {
-          location = "lobby.html";
-      });
+    
+    con.invoke('LeaveGame', parseInt(sessionStorage.getItem("mySeatNo"))).then(()=>
+    {
+        location = "lobby.html";
+    });
   }
   else{
       location = "lobby.html";
