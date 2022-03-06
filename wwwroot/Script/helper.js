@@ -380,6 +380,29 @@ function removeWinnerDeclaration(){
     winnerDeclaration.style.display = "none";
 }
 
+function addGameRecord(message){
+
+    var gameRecord = document.getElementById("game-record");
+    const d = new Date();
+    var hours = d.getHours();
+    var minutes = d.getHours();
+
+    gameRecord.innerHTML = gameRecord.innerHTML + 
+    '<div class="mb-2 font-weight-bold">' +
+        "[" + hours + ":" + minutes + "] " + message +
+    '</div>';
+
+    scrollToBottom("myTabContent");
+}
+
+function scrollToBottom(id) {
+
+    setTimeout(function(){
+        var messages = document.getElementById(id);
+        messages.scrollTop = messages.scrollHeight;
+    }, 175);
+}
+
 //Call Default Functions
 displayWalletAmount();
 

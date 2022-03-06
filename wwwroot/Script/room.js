@@ -252,7 +252,7 @@ con.onclose(err => {
 });
 
 //Leave Seat
-con.on('LeaveSeat', (seatNo, noCard) => {
+con.on('LeaveSeat', (seatNo, onePlayer) => {
   var seat = document.getElementById("occupied-seat-" + seatNo);
   var buyInSign = document.getElementById("buy-in-seat-" + seatNo);
   var myChips = document.getElementById("seat-" + seatNo +"-chips");
@@ -261,8 +261,8 @@ con.on('LeaveSeat', (seatNo, noCard) => {
   var playerHandCards = document.getElementById("player-" + seatNo + "-handcards");
   var seatTimer = document.getElementById("seat-" + seatNo +"-timer");
 
-  console.log("No Card: " + noCard)
-  if(noCard == "No Card"){
+  console.log("Remaining One Player: " + onePlayer)
+  if(onePlayer == "Remaining One Player"){
     removePotChips();
     removeAllActionStatus();
     removeAllTableCards();
@@ -300,12 +300,14 @@ con.on('LeaveSeat', (seatNo, noCard) => {
       }
     }
   }
-  else if(mySeat != null){
-    //Remove seat
-    seat.style.display = "none";
-    myChips.innerHTML = "";
-    myName.innerHTML = "";
-  }
+  // else if(mySeat != null){
+
+  //   //If I am playing
+  //   //Remove seat
+  //   seat.style.display = "none";
+  //   myChips.innerHTML = "";
+  //   myName.innerHTML = "";
+  // }
   else{
     //Remove seat
     seat.style.display = "none";
@@ -381,7 +383,7 @@ con.on('GameAction', (chipsOfTheRound, userId, timerPosition) => {
   
 });
 
-con.on('RoundWinner', (winner) => {
+con.on('RoundWinner', (winner, poolChips) => {
 
   console.log("Winner of the round: " + JSON.stringify(winner))
 });
@@ -393,6 +395,8 @@ con.on('DeclareWinner', (userId, winnerName, seatNo) => {
 
   //Show winner declaration
   displayWinnerDeclaration(winnerName);
+
+  addGameRecord(winnerName + " won the game!");
 
   //Remove pool chips
   removePotChips();
@@ -414,11 +418,13 @@ con.on('DeclareWinner', (userId, winnerName, seatNo) => {
 
 });
 
-con.on('CheckAction', (seatNo) => {
+con.on('CheckAction', (seatNo, name) => {
   checkCardSoundEffect();
 
   //Show the action status to all users
   showActionStatus(seatNo, "Check");
+
+  addGameRecord(name + " checks");
 
   //Remove the timer
   removeTimer(seatNo);
@@ -433,11 +439,13 @@ con.on('RaiseAction', () => {
 
 });
 
-con.on('CallAction', (seatNo) => {
+con.on('CallAction', (seatNo, name) => {
   callCardSoundEffect();
 
   //Show the action status to all users
   showActionStatus(seatNo, "Call");
+
+  addGameRecord(name + " calls");
 
   //Remove the timer
   removeTimer(seatNo);
@@ -447,12 +455,14 @@ con.on('CallAction', (seatNo) => {
 
 });
 
-con.on('FoldAction', (seatNo) => {
+con.on('FoldAction', (seatNo, name) => {
 
   foldCardSoundEffect();
 
   //Show the action status to all users
   showActionStatus(seatNo, "Fold");
+
+  addGameRecord(name + " folds");
 
   //Remove the timer
   removeTimer(seatNo);

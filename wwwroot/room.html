@@ -442,12 +442,12 @@
 
     <div class="popup-container" id="popup-container">
         <ul class="nav nav-tabs popup-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
+            <li class="nav-item" role="presentation" onclick='scrollToBottom("myTabContent")'>
                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Chat</a>
             </li>
 
-            <li class="nav-item" role="presentation">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Game Record</a>
+            <li class="nav-item" role="presentation" onclick='scrollToBottom("myTabContent")'>
+                <a class="nav-link" id="game-tab" data-toggle="tab" href="#game-record" role="tab" aria-controls="game-record" aria-selected="false">Game Record</a>
             </li>
 
             <div class="popup-close-btn" id="popup-close-btn">
@@ -468,13 +468,12 @@
                 ratione veniam totam, atque quasi impedit dolorem cupiditate sunt et.
             </div>
 
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                ...
+            <div class="tab-pane fade" id="game-record" role="tabpanel" aria-labelledby="game-record-tab">
+                <!-- <div class="mb-2 font-weight-bold">
+                    [10:14] John Doe won the pool chips of $ 200,000 with a Flush with the hand card of A K
+                </div> -->
             </div>
 
-            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                ...
-            </div>
         </div>
     </div>
 
