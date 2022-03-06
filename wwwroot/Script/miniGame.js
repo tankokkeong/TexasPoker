@@ -18,9 +18,13 @@
         
         let started = false;
         let me = null; //A or B
+
         const $gameResult = $('#gameResult');
         const $status = $('#status');
         const $countdownTimer = $('#countdown');
+        const $rewards = $('#Rewards');
+        const $current = $('#Current');
+
 
         const images = 
         [
@@ -81,12 +85,16 @@
 
         conn.on('Start', () => {
 
-            setTimeout(() => $status.text('Game Start!!'), 1000);
-            setTimeout(() => $status.text('You have 10 second to guess the size!'), 3000);
+            setTimeout (() => {
+                $countdownTimer.text('');
+                $status.text('Game Start!')}, 1000);
+            setTimeout(() => $status.text('You have 10 second to guess the size!'), 2000);
             setTimeout(() => {
+                $countdownTimer.text('10');
                 document.getElementById("betsize").disabled = false;
                 document.getElementById("betSubmit").disabled = false;
-                $countdownTimer.text('10')
+                document.getElementById("betRange").disabled = false;
+                
             }, 4000);
             setTimeout(() => $countdownTimer.text('9'), 5000);
             setTimeout(() => $countdownTimer.text('8'), 6000);
@@ -97,24 +105,37 @@
             setTimeout(() => $countdownTimer.text('3'), 11000);
             setTimeout(() => $countdownTimer.text('2'), 12000);
             setTimeout(() => $countdownTimer.text('1'), 13000);
-            setTimeout(() => $countdownTimer.text('0'), 14000);
             setTimeout(() => {
                 $status.text('Times Out!!!');
                 $countdownTimer.text('');
                 document.getElementById("betsize").disabled = true;
-            }, 15000);
+            }, 14000);
             setTimeout(() => {
                 $status.text('Rolling Time!!!');
-                $countdownTimer.text('');
-                //Sound effect TO:DO
                 soundEffect.play();
-            }, 12000);
+            }, 16000);
             setTimeout(() => {
+                $status.text('');
                 conn.invoke("Roll");
-            }, 17000);
+            }, 21000);
             setTimeout(() => {
                 conn.invoke("CheckPlayerDecision");
-            }, 20000);
+            }, 24000);
+            setTimeout(() => {
+                $status.text("Ready for the next game!!!");
+                $gameResult.text('')
+                $rewards.text('');
+                $current.text('');
+            }, 30000);
+            setTimeout(() => $countdownTimer.text('3'), 32000);
+            setTimeout(() => $countdownTimer.text('2'), 33000);
+            setTimeout(() => {
+                $countdownTimer.text("1");
+            }, 34000);
+            setTimeout(() => {
+                conn.invoke("Start");
+            }, 34000);
+
         });
 
         conn.on('Result', (one,two,three,total) => {
@@ -122,49 +143,7 @@
             document.querySelector("#dice1").setAttribute("src", images[one - 1]);
             document.querySelector("#dice2").setAttribute("src", images[two - 1]);
             document.querySelector("#dice3").setAttribute("src", images[three - 1]);
-            $status.text("Total Score: " + total);
-        });
-
-        conn.on('betSizeResult', (bigSmall, oddEven, triple) => {
-
-            try{
-                var betsize = document.getElementById("betsize").selectedIndex;
-                var option = document.getElementsByTagName("option")[betsize].value;
-
-                if(option == bigSmall){
-                    //Sound effect TO:DO
-                    winSoundEffect.play();
-                    $gameResult.text("Well Done!! You have choose the correct one");
-                    //Update Chips
-                    
-
-                }else if(option == oddEven){
-                    //Sound effect TO:DO
-                    winSoundEffect.play();
-                    $gameResult.text("Well Done!! You have choose the correct one");
-
-                    //Update Chips
-                    
-
-                }else if(option == triple){
-                    //Sound effect TO:DO
-                    winSoundEffect.play();
-                    $gameResult.text("Marvelous!!! Triple!!!");
-
-                    //Update Chips
-                    
-                }
-                else{
-                    //Sound effect 
-                    loseSoundEffect.play();
-                    $gameResult.text("No Way!! You have choose the wrong one");
-                    //Update Chips
-                    
-                }
-            }
-            catch (e){
-                alert(e.message);
-            }
+            $status.text(`Dice ${one} ${two} ${three}. Total Score : ${total}`);
         });
 
         //Start Connection
@@ -173,4 +152,5 @@
         function betSubmit(){
             document.getElementById("betsize").disabled = true;
             document.getElementById("betSubmit").disabled = true;
+            document.getElementById("betRange").disabled = true;
         }

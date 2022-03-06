@@ -36,47 +36,47 @@
               Leave
           </button>
           </div>
-          <div class="chips mt-3 ml-2">
-            <div class="row">
-              <img src="Images/chips.png" height="30px;" width="30px;">
-              <p class="ml-3 h4" id="playerChipAmount"></p>
-            </div>
-          </div>
         </div>
-
+        
         <div class="words-container mt-3 mb-3">
           <p id="status" class="text-center mt-3 text-light">Waiting for another player...</p>
           <p id="countdown" class="text-center mt-2 text-light"></p>
           <p id="gameResult" class="text-center mt-2 text-light"></p>
+          <p id="Rewards" class="text-center mt-2 text-light"></p>
+          <p id="Current" class="text-center mt-2 text-light"></p>
         </div>
 
         <div class="dice-container text-center">
-            <div class="row">
-              <div class="col">
-                <img width="60" height="60" id="dice1">
-              </div>
-              <div class="col">
-                <img width="60" height="60" id="dice2">
-              </div>
-              <div class="col">
-                <img width="60" height="60" id="dice3">
-              </di>
+          <div class="row">
+            <div class="col order-last">
+              <img width="60" height="60" id="dice1">
+            </div>
+            <div class="col">
+              <img width="60" height="60" id="dice2">
+            </div>
+            <div class="col order-first">
+              <img width="60" height="60" id="dice3">
             </div>
           </div>
         </div>
 
-        <div class="selectSize-container">
-          <select class="form-control text-center mt-5" id="betsize" disabled>
-            <option value="Big">Big</option>
-            <option value="Small">Small</option>
-            <option value="Odd">Odd</option>
-            <option value="Even">Even</option>
-            <option value="Triple">Triple</option>
-          </select>
-        </div>
-
-        <div class="betSubmitButton mt-3 text-center">
-          <button class="btn btn-primary" onclick="betSubmit()" id="betSubmit" disabled>Guess the size</button>
+        <div class="bet-section-container mt-5">
+            <div class="form-group">
+              <select class="form-control text-center" id="betsize" disabled>
+                <option value="Big">Big</option>
+                <option value="Small">Small</option>
+                <option value="Odd">Odd</option>
+                <option value="Even">Even</option>
+                <option value="Triple">Triple</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <p class="text-center">Bet Amount : $ <span id="betAmount"></span></p>
+              <input type="range" min="1000" max="5000" class="form-control-range" id="betRange" disabled>
+            </div>
+            <div class="text-center">
+              <button class="btn btn-primary" onclick="betSubmit()" id="betSubmit" disabled>Guess the size</button>
+            </div> 
         </div>
 
         <div class="player-container mt-5">
@@ -113,6 +113,126 @@
 <script src="Script/signalr.js"></script>
 <script src="https://ajax.govogleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="Script/miniGame.js"></script>
+
+<script>
+
+  var slider = document.getElementById("betRange");
+  var output = document.getElementById("betAmount");
+  
+  output.innerHTML = slider.value;
+        
+  slider.oninput = function() {
+    output.innerHTML = this.value;
+  }
+
+</script>
+
+<script type="module">
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-app.js";
+  import { getFirestore, doc, setDoc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyB_MbVmybGR9UVpAb2nu0T1zrUEKC6LBqo",
+    authDomain: "fir-authtesting-34735.firebaseapp.com",
+    databaseURL: "https://fir-authtesting-34735-default-rtdb.firebaseio.com",
+    projectId: "fir-authtesting-34735",
+    storageBucket: "fir-authtesting-34735.appspot.com",
+    messagingSenderId: "780895199575",
+    appId: "1:780895199575:web:ead33c3ccc4a59eaa39e12",
+    measurementId: "G-Q4TJMFRG1D"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getFirestore();
+  const userId = sessionStorage.getItem("userId");
+
+  async function updateReward(reward){
+
+    const docRef = doc(database, "players", userId);
+    const docSnap = await getDoc(docRef);
+    let balance = 0;
+
+    if (docSnap.exists()) {
+
+      console.log("Document data:", docSnap.data());
+      console.log("Document data:", docSnap.data().walletBallance);
+      balance = docSnap.data().walletBallance;
+
+    }
+
+    await updateDoc(docRef, {
+      walletBallance : balance + reward
+    });
+
+    $rewards.text(`Rewards : ${reward}`);
+    $current.text(`Current Chips : ${(balance + reward)}`);
+
+  }
+
+async function deductReward(deductAmount){
+
+  const ref = doc(database, "players", userId);
+  const snap = await getDoc(ref);
+  let wallet = 0;
+
+  if (snap.exists()) {
+
+    console.log("Document data:", snap.data());
+    console.log("Document data:", snap.data().walletBallance);
+    wallet = snap.data().walletBallance;
+  }
+
+  await updateDoc(ref, {
+    walletBallance : (wallet - deductAmount) 
+  });
+
+  $rewards.text(`Lose : ${deductAmount}`);
+  $current.text(`Current Chips : ${(wallet - deductAmount)}`);
+
+}
+  conn.on('betSizeResult', (bigSmall, oddEven, triple, odds) => {
+
+    let reward = 0;
+
+    try{
+        var betsize = document.getElementById("betsize").selectedIndex;
+        var option = document.getElementsByTagName("option")[betsize].value;
+        var betAmount = parseInt(document.getElementById("betRange").value);
+
+        if(option == bigSmall){
+            
+            winSoundEffect.play();
+            $gameResult.text(`Well Done!!! It is a ${bigSmall}`);
+            //Update Chips
+            reward = (betAmount - betAmount) + (betAmount * odds);
+            updateReward(reward);
+
+        }else if(option == oddEven){
+            
+            winSoundEffect.play();
+            $gameResult.text(`Well Done!!! It is an ${oddEven}`);
+
+            //UpdateChips
+            reward = (betAmount - betAmount) + (betAmount * odds);
+            updateReward(reward);
+
+        }
+        else{
+            
+            loseSoundEffect.play();
+            $gameResult.text("No Way!! You have choose the wrong one");
+
+            //Update Chips
+            deductReward(betAmount);        
+        }
+    }
+    catch (e){
+        alert(e.message);
+    }
+  });
+</script>
 
 
 </html>

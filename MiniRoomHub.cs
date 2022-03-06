@@ -123,35 +123,33 @@ public class MiniRoomHub : Hub
 
         string bigOrSmall = "";
         string OddOrEven = "";
-        string triple = "";
+        int odds = 0;
 
         // Big or Small
         if (totalDice >= 11 && totalDice <=18){
 
                 bigOrSmall = "Big";
-                await Clients.Group(gameId).SendAsync("betSizeResult", bigOrSmall, OddOrEven, triple);
+                odds = 1;
+                await Clients.Group(gameId).SendAsync("betSizeResult", bigOrSmall, OddOrEven, odds);
             
         }else if(totalDice >= 4 && totalDice <=18){
 
                 bigOrSmall = "Small";
-                await Clients.Group(gameId).SendAsync("betSizeResult", bigOrSmall, OddOrEven, triple);    
+                odds = 1;
+                await Clients.Group(gameId).SendAsync("betSizeResult", bigOrSmall, OddOrEven, odds);    
         }
 
         //Odd or Even
         if(totalDice % 2 == 0){
             OddOrEven = "Even";
-            await Clients.Group(gameId).SendAsync("betSizeResult", bigOrSmall, OddOrEven, triple);
+            odds = 2;
+            await Clients.Group(gameId).SendAsync("betSizeResult", bigOrSmall, OddOrEven, odds);
+
         }else{
+            
             OddOrEven = "Odd";
-            await Clients.Group(gameId).SendAsync("betSizeResult",bigOrSmall, OddOrEven, triple);
-        }
-
-        // Triple
-        if(totalDice == 3 || totalDice == 6 ||totalDice == 9 ||totalDice == 12 ||totalDice == 15 || totalDice == 18){
-            triple = "Triple";
-            await Clients.Group(gameId).SendAsync("betSizeResult",bigOrSmall, OddOrEven, triple);
-
-
+            odds = 2;
+            await Clients.Group(gameId).SendAsync("betSizeResult",bigOrSmall, OddOrEven, odds);
         }
     }
 
