@@ -384,12 +384,48 @@ public class GameHub : Hub
         var game = games.Find(g => g.Id == gameId);
 
         if (game != null){
-           
+        
+            int callAmount = game.ChipsOfTheRound - game.Seat[seatNo - 1].ChipsOnTable;
             //Deduct the user chips on hand
-            game.Seat[seatNo - 1].ChipsOnHand = game.Seat[seatNo - 1].ChipsOnHand - (game.ChipsOfTheRound - game.Seat[seatNo - 1].ChipsOnTable);
+            game.Seat[seatNo - 1].ChipsOnHand = game.Seat[seatNo - 1].ChipsOnHand - callAmount;
             game.Seat[seatNo - 1].ChipsOnTable = game.ChipsOfTheRound;
+
+            //reset the pool chips
+            game.PoolChips = game.PoolChips + callAmount;
+
             await updateChipsOnHand();
             await Clients.Group(gameId).SendAsync("CallAction", seatNo, game.Seat[seatNo - 1]?.Name);
+            await TimerTrigger();
+        }
+    }
+
+    public async Task RaiseTrigger(int seatNo = 0, int raiseAmount = 0){
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if (game != null){
+            
+            bool isAllIn = false;
+
+            //Check if the user all-in
+            if(game.Seat[seatNo - 1].ChipsOnHand == raiseAmount){
+                isAllIn = true;
+            }
+
+            //Deduct the user chips on hand
+            game.Seat[seatNo - 1].ChipsOnHand = game.Seat[seatNo - 1].ChipsOnHand - (raiseAmount - game.Seat[seatNo - 1].ChipsOnTable);
+            game.Seat[seatNo - 1].ChipsOnTable = raiseAmount;
+
+            //reset the chips of the round
+            game.ChipsOfTheRound = raiseAmount;
+
+            //reset the pool chips
+            game.PoolChips = game.PoolChips + raiseAmount;
+
+            await updateChipsOnHand();
+            await Clients.Group(gameId).SendAsync("RaiseAction", seatNo, game.Seat[seatNo - 1]?.Name, isAllIn);
             await TimerTrigger();
         }
     }

@@ -86,6 +86,9 @@ function removeAllActionButtons(){
     callBtn.disabled = true;
     raiseBtn.disabled = true;
     foldBtn.disabled = true;
+
+    //Remove raise container
+    removeRaiseContainer();
 }
 
 function showPlayer(player, seatNo){
@@ -343,6 +346,12 @@ function cardSoundEffect(){
     soundEffect.play();
 }
 
+function allInSoundEffect(){
+    var soundEffect = document.getElementById("all-in-sound-effect");
+
+    soundEffect.play();
+}
+
 function chipsSoundEffect(){
     var soundEffect = document.getElementById("chips-sound-effect");
 
@@ -397,6 +406,29 @@ function addGameRecord(message){
     '</div>';
 
     scrollToBottom("myTabContent");
+}
+
+function removeRaiseContainer(){
+    var raiseContainer = document.getElementById("raise-popup");
+
+    //Remove
+    raiseContainer.style.display = "none";
+}
+
+
+function removeTableCards(){
+    var tableCard1 = document.getElementById("table-card-1");
+    var tableCard2 = document.getElementById("table-card-2");
+    var tableCard3 = document.getElementById("table-card-3");
+    var tableCard4 = document.getElementById("table-card-4");
+    var tableCard5 = document.getElementById("table-card-5");
+
+    //Remove all the card
+    tableCard1.style.display = "none";
+    tableCard2.style.display = "none";
+    tableCard3.style.display = "none";
+    tableCard4.style.display = "none";
+    tableCard5.style.display = "none";
 }
 
 function scrollToBottom(id) {

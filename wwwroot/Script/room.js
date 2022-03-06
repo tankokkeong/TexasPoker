@@ -143,6 +143,8 @@ con.on('StartGame', (game) => {
   //Remove winner declaration
   removeWinnerDeclaration();
   removeAllActionStatus();
+  removeTableCards();
+  removePotChips();
 
   if(mySeatNo == 1){
     showCard(game.seat[0], 1);
@@ -272,6 +274,7 @@ con.on('LeaveSeat', (seatNo, onePlayer) => {
     removeBlind("", true);
     removeChips("", true);
     removeAllActionButtons();
+    removeTableCards();
     playerChipsOfTheRound = [0, 0, 0, 0, 0];
   }
 
@@ -366,6 +369,10 @@ con.on('GameAction', (chipsOfTheRound, userId, timerPosition) => {
   var foldBtn = document.getElementById("fold-btn");
   var myUserId = sessionStorage.getItem("userId");
   var mySeatNo = sessionStorage.getItem("mySeatNo");
+  var raiseInput = document.getElementById("raise-amount-input");
+
+  //Set the minimum raise amount
+  raiseInput.setAttribute("min", parseInt(chipsOfTheRound)*2);
 
   //console.log("Timer position: "+ timerPosition)
 
@@ -440,8 +447,31 @@ con.on('CheckAction', (seatNo, name) => {
 
 });
 
-con.on('RaiseAction', () => {
+con.on('RaiseAction', (seatNo, name, isAllIn) => {
 
+  //Check if the users all in
+  if(isAllIn){
+    allInSoundEffect();
+
+    //Show the action status to all users
+    showActionStatus(seatNo, "All In");
+
+    addGameRecord(name + " all in");
+  }
+  else{
+    raiseCardSoundEffect();
+
+    //Show the action status to all users
+    showActionStatus(seatNo, "Raise");
+
+    addGameRecord(name + " raises");
+  }
+
+    //Remove the timer
+    removeTimer(seatNo);
+
+    //Remove all the action buttons
+    removeAllActionButtons();
 
 });
 
@@ -456,7 +486,7 @@ con.on('CallAction', (seatNo, name) => {
   //Remove the timer
   removeTimer(seatNo);
 
-  //Disable the timer
+  //Remove all the action buttons
   removeAllActionButtons();
 
 });
@@ -473,7 +503,7 @@ con.on('FoldAction', (seatNo, name) => {
   //Remove the timer
   removeTimer(seatNo);
 
-  //Disable the timer
+  //Remove all the action buttons
   removeAllActionButtons();
 
 });
@@ -551,7 +581,10 @@ function checkCard(){
 }
 
 function raiseCard(){
+  var mySeatNo = sessionStorage.getItem("mySeatNo");
+  var raiseAmount = parseInt(document.getElementById("raise-amount-input").value);
 
+  con.invoke("RaiseTrigger", parseInt(mySeatNo), raiseAmount);
 }
 
 function callCard(){
@@ -569,6 +602,13 @@ function buyInGame(){
   var seatNo = parseInt(document.getElementById("seat-no").value);
   var userId = sessionStorage.getItem("userId");
   var name = sessionStorage.getItem('userName');
+  var raiseInput = document.getElementById("raise-amount-input");
+  var raiseAmountDisplay = document.getElementById("raise-amount-display");
+
+  raiseInput.value = 20000;
+  raiseInput.setAttribute("min", "20000");
+  raiseInput.setAttribute("max", buyInAmount);
+  raiseAmountDisplay.innerHTML = amountFormatter(20000);
 
   con.invoke('JoinGame', seatNo, userId, "", name, buyInAmount);
 }
