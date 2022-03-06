@@ -362,7 +362,7 @@ con.on('getSeat', (seatNo, chips, name) => {
 
 });
 
-con.on('GameAction', (chipsOfTheRound, userId, timerPosition) => {
+con.on('GameAction', (chipsOfTheRound, userId, minRaise, maxAllIn) => {
   var checkBtn = document.getElementById("check-btn");
   var callBtn = document.getElementById("call-btn");
   var raiseBtn = document.getElementById("raise-btn");
@@ -371,10 +371,13 @@ con.on('GameAction', (chipsOfTheRound, userId, timerPosition) => {
   var mySeatNo = sessionStorage.getItem("mySeatNo");
   var raiseInput = document.getElementById("raise-amount-input");
 
-  //Set the minimum raise amount
-  raiseInput.setAttribute("min", parseInt(chipsOfTheRound)*2);
+  //Set the minimum and maximum raise amount
+  raiseInput.setAttribute("min", parseInt(minRaise));
+  raiseInput.setAttribute("max", parseInt(maxAllIn));
+  raiseInput.value = minRaise;
+  raiseAmount();
 
-  //console.log("Timer position: "+ timerPosition)
+  console.log("Min Raise: "+ minRaise + " Max All In: " + maxAllIn)
 
   if(userId == myUserId){
     console.log("my chips of the round : " + playerChipsOfTheRound[parseInt(mySeatNo) - 1] + " COMPARE " + chipsOfTheRound)
@@ -450,7 +453,7 @@ con.on('CheckAction', (seatNo, name) => {
 con.on('RaiseAction', (seatNo, name, isAllIn) => {
 
   console.log("All in: " + isAllIn)
-  
+
   //Check if the users all in
   if(isAllIn){
     allInSoundEffect();

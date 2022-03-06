@@ -601,15 +601,21 @@ public class GameHub : Hub
                     Console.WriteLine("Timer Position Count: " + game.TimerPosition);
 
                     if(game.TimerPosition == sequence.Count() -1){
+                        
+                        int maxAllInAmount = game.Seat[FindSeatUserPosition(sequence[game.TimerPosition].Id, gameId) - 1].ChipsOnHand + game.Seat[FindSeatUserPosition(sequence[game.TimerPosition].Id, gameId) - 1].ChipsOnTable;
+                        int minRaiseAmount = game.ChipsOfTheRound * 2;
 
-                        await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound , sequence[game.TimerPosition].Id,  game.TimerPosition);
+                        await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound , sequence[game.TimerPosition].Id, minRaiseAmount, maxAllInAmount);
                         await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition].Id, sequence);
                         Console.WriteLine("Player's Turn: " + sequence[game.TimerPosition].Name);
                         game.TimerPosition = 0;
                     }
                     else{
 
-                        await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound , sequence[game.TimerPosition].Id, game.TimerPosition);
+                        int maxAllInAmount = game.Seat[FindSeatUserPosition(sequence[game.TimerPosition].Id, gameId) - 1].ChipsOnHand + game.Seat[FindSeatUserPosition(sequence[game.TimerPosition].Id, gameId) - 1].ChipsOnTable;
+                        int minRaiseAmount = game.ChipsOfTheRound * 2;
+
+                        await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound , sequence[game.TimerPosition].Id, minRaiseAmount, maxAllInAmount);
                         await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition].Id, sequence);
                         Console.WriteLine("Player's Turn: " + sequence[game.TimerPosition].Name);
                         game.TimerPosition++;
