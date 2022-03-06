@@ -449,6 +449,8 @@ con.on('CheckAction', (seatNo, name) => {
 
 con.on('RaiseAction', (seatNo, name, isAllIn) => {
 
+  console.log("All in: " + isAllIn)
+  
   //Check if the users all in
   if(isAllIn){
     allInSoundEffect();

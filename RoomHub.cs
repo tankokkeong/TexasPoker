@@ -410,7 +410,7 @@ public class GameHub : Hub
             bool isAllIn = false;
 
             //Check if the user all-in
-            if(game.Seat[seatNo - 1].ChipsOnHand == raiseAmount){
+            if(game.Seat[seatNo - 1].ChipsOnHand == (raiseAmount - game.Seat[seatNo - 1].ChipsOnTable)){
                 isAllIn = true;
             }
 
@@ -722,10 +722,10 @@ public class GameHub : Hub
             }
 
             foreach(Player player in game.playersOfTheRound){
-                Console.WriteLine("Sorted, Seat: " + player.SeatNo + " Name: " + player.Name);
+                //Console.WriteLine("Sorted, Seat: " + player.SeatNo + " Name: " + player.Name);
             }
 
-            Console.WriteLine("Sorting done");
+            //Console.WriteLine("Sorting done");
 
             
         }
@@ -737,7 +737,7 @@ public class GameHub : Hub
 
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
 
-        //printAllUser();
+        printAllUser();
 
         //Find game
         var game = games.Find(g => g.Id == gameId);
