@@ -332,3 +332,55 @@
 .chips-on-hand{
     margin-top: 5px;
 }
+
+.popup-btn{
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 2000;
+    padding: 15px!important;
+}
+
+.popup-icon{
+    font-size: 40px;
+}
+
+.popup-container{
+    width: 400px;
+    height: 300px;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: white;
+    border-radius: 10px;
+    padding:5px;
+    overflow-y: hidden;
+}
+
+.popup-content{
+    overflow-y: scroll;
+    height: 250px;
+    padding: 10px;
+}
+
+.popup-content::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+}
+
+.popup-content::-webkit-scrollbar-track {
+    background: #cccccc; 
+}
+
+.popup-content::-webkit-scrollbar-thumb {
+    background: rgb(8, 8, 8); 
+}
+
+.popup-tab{
+    position: relative;
+}
+
+.popup-close-btn{
+    position: absolute;
+    right: 5px;
+}

@@ -382,3 +382,17 @@ function removeWinnerDeclaration(){
 
 //Call Default Functions
 displayWalletAmount();
+
+// JQuery animation section
+$(document).ready(function(){
+
+    $("#popup-close-btn").click(function(){
+        $("#popup-container").hide();
+        $("#popup-btn").show();
+    });
+
+    $("#popup-btn").click(function(){
+        $("#popup-container").show();
+        $("#popup-btn").hide();
+    });
+});

@@ -60,11 +60,6 @@ public class Game
     "A <br> <span class='diamonds'>♦</span>", "K <br> <span class='diamonds'>♦</span>", "Q <br> <span class='diamonds'>♦</span>", "J <br> <span class='diamonds'>♦</span>", "10 <br> <span class='diamonds'>♦</span>", "9 <br> <span class='diamonds'>♦</span>", "8 <br> <span class='diamonds'>♦</span>", "7 <br> <span class='diamonds'>♦</span>", "6 <br> <span class='diamonds'>♦</span>", "5 <br> <span class='diamonds'>♦</span>", "4 <br> <span class='diamonds'>♦</span>", "3 <br> <span class='diamonds'>♦</span>", "2 <br> <span class='diamonds'>♦</span>",
     };
 
-    public Dictionary<string, int> cardPoint = new Dictionary<string, int>{
-        {"A", 1}, {"2", 2}, {"3", 3}, {"4", 4}, {"5", 5}, {"6", 6}, {"7", 7}, {"8", 8}, {"9", 9}, {"10", 10}, {"J", 11}, {"Q", 12}, {"13", 13},
-        {"diamo", 10}, {"clubs", 20}, {"heart", 30}, {"spade", 40}
-    };
-
     public int previousBlindPosition {get; set; } = 0;
 
     public List<Player?> playersOfTheRound = new List<Player?>();
@@ -514,32 +509,53 @@ public class GameHub : Hub
                 }
 
                 if(game.CardRoundCount > 4){
+                    
+                    string ?card1 = CardFormatter(game.FirstCard);
+                    string ?card2 = CardFormatter(game.SecondCard);
+                    string ?card3 = CardFormatter(game.ThirdCard);
+                    string ?card4 = CardFormatter(game.FourthCard);
+                    string ?card5 = CardFormatter(game.FifthCard);
 
                     //Check hand card ranking
                     if(game.Seat[0] != null){
-                        await CheckHandRanking(1);
+                        string ?card6 = CardFormatter(game.Seat[0].FirstHandCard);
+                        string ?card7 = CardFormatter(game.Seat[0].SecondHandCard);
+
+                        await CheckHandRanking(1, card1, card2, card3, card4, card5, card6, card7);
                     }
 
                     if(game.Seat[1] != null){
-                        await CheckHandRanking(2);
+                        string ?card6 = CardFormatter(game.Seat[1].FirstHandCard);
+                        string ?card7 = CardFormatter(game.Seat[1].SecondHandCard);
+
+                        await CheckHandRanking(2, card1, card2, card3, card4, card5, card6, card7);
                     }
 
                     if(game.Seat[2] != null){
-                        await CheckHandRanking(3);
+                        string ?card6 = CardFormatter(game.Seat[2].FirstHandCard);
+                        string ?card7 = CardFormatter(game.Seat[2].SecondHandCard);
+
+                        await CheckHandRanking(3, card1, card2, card3, card4, card5, card6, card7);
                     }
 
                     if(game.Seat[3] != null){
-                        await CheckHandRanking(4);
+                        string ?card6 = CardFormatter(game.Seat[3].FirstHandCard);
+                        string ?card7 = CardFormatter(game.Seat[3].SecondHandCard);
+
+                        await CheckHandRanking(4, card1, card2, card3, card4, card5, card6, card7);
                     }
 
                     if(game.Seat[4] != null){
-                        await CheckHandRanking(5);
+                        string ?card6 = CardFormatter(game.Seat[4].FirstHandCard);
+                        string ?card7 = CardFormatter(game.Seat[4].SecondHandCard);
+
+                        await CheckHandRanking(5, card1, card2, card3, card4, card5, card6, card7);
                     }
 
                     List<string> winningPlayers = CompareWinningHand();
 
                     for(int i = 0; i < winningPlayers.Count(); i++){
-                        
+                        await Clients.Group(gameId).SendAsync("RoundWinner", game.Seat[FindSeatUserPosition(winningPlayers[i], game.Id) - 1]);
                     }
                     
                 }
@@ -717,10 +733,8 @@ public class GameHub : Hub
         
     }
 
-    public async Task CheckHandRanking(int seatNo = 0){
-        var client = new HttpClient();
-        var content = await client.GetStringAsync("https://ewt-poker-evaluator.herokuapp.com/?card1=2s&card2=2c&card3=Qs&card4=Qc&card5=Ts&card6=9d&card7=4d");
-        HandCardRanking? myObject = JsonConvert.DeserializeObject<HandCardRanking>(content);
+    public async Task CheckHandRanking(int seatNo = 0, string? card1 = null, string? card2 = null, string? card3 = null, string? card4 = null, string? card5 = null,
+    string? card6 = null, string? card7 = null){
         
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
         //Find game
@@ -730,25 +744,47 @@ public class GameHub : Hub
 
             if (game != null){
                 
-                if(seatNo == 1 && game.Seat[0] != null){
-                    game.Seat[0].HandCardValue = myObject.Value;
-                    game.Seat[0].HandCardName = myObject.HandName;
-                }
-                else if(seatNo == 2 && game.Seat[1] != null){
-                    game.Seat[1].HandCardValue = myObject.Value;
-                    game.Seat[1].HandCardName = myObject.HandName;
-                }
-                else if(seatNo == 3 && game.Seat[2] != null){
-                    game.Seat[2].HandCardValue = myObject.Value;
-                    game.Seat[2].HandCardName = myObject.HandName;
-                }
-                else if(seatNo == 4 && game.Seat[3] != null){
-                    game.Seat[3].HandCardValue = myObject.Value;
-                    game.Seat[3].HandCardName = myObject.HandName;
-                }
-                else if(seatNo == 5 && game.Seat[4] != null){
-                    game.Seat[4].HandCardValue = myObject.Value;
-                    game.Seat[4].HandCardName = myObject.HandName;
+                if(card1 != null && card2 != null && card3 != null && card4 != null && card5 !=null
+                && card6 != null && card7 != null){
+
+                    var client = new HttpClient();
+                    var URL = "https://ewt-poker-evaluator.herokuapp.com/?card1=" + card1 +
+                    "&card2=" + card2 +
+                    "&card3=" + card3 +
+                    "&card4=" + card4 + 
+                    "&card5=" + card5 + 
+                    "&card6=" + card6 +
+                    "&card7=" + card7;
+
+                    Console.WriteLine("Card 1: " + card1 + "Card 2: " + card2 + " Card 3: " + card3 + " Card 4: " + card4 + " Card 5: " + card5 + " Card 6: " + card6 + " Card 7: " + card7);
+                    Console.WriteLine("URL: "+ URL);
+
+                    var content = await client.GetStringAsync(URL);
+
+                    HandCardRanking? myObject = JsonConvert.DeserializeObject<HandCardRanking>(content);
+
+
+                    if(seatNo == 1 && game.Seat[0] != null){
+                        game.Seat[0].HandCardValue = myObject.Value;
+                        game.Seat[0].HandCardName = myObject.HandName;
+                    }
+                    else if(seatNo == 2 && game.Seat[1] != null){
+                        game.Seat[1].HandCardValue = myObject.Value;
+                        game.Seat[1].HandCardName = myObject.HandName;
+                    }
+                    else if(seatNo == 3 && game.Seat[2] != null){
+                        game.Seat[2].HandCardValue = myObject.Value;
+                        game.Seat[2].HandCardName = myObject.HandName;
+                    }
+                    else if(seatNo == 4 && game.Seat[3] != null){
+                        game.Seat[3].HandCardValue = myObject.Value;
+                        game.Seat[3].HandCardName = myObject.HandName;
+                    }
+                    else if(seatNo == 5 && game.Seat[4] != null){
+                        game.Seat[4].HandCardValue = myObject.Value;
+                        game.Seat[4].HandCardName = myObject.HandName;
+                    }
+
                 }
             }
         }
@@ -966,6 +1002,9 @@ public class GameHub : Hub
                     
                     if(game.Seat[i].HandCardValue > highestValue){
 
+                        //Clear previous winning hand
+                        winningId.Clear();
+
                         //Add the winning record
                         highestValue = game.Seat[i].HandCardValue;
                         winningId.Add(game.Seat[i].Id);
@@ -978,9 +1017,22 @@ public class GameHub : Hub
             }
         }
 
-
-
         return winningId;
+    }
+
+    private string? CardFormatter(string card){
+
+        if(card != null){
+            if(card.Substring(0,1) == "1"){
+                return "T" + card.Substring(21,1);
+            }
+            else{
+                return card.Substring(0, 1) + card.Substring(20,1);
+            }
+        }
+        else{
+            return null;
+        }
     }
 
     private List<string> CheckRoyalFlush(){
@@ -1103,13 +1155,6 @@ public class GameHub : Hub
         var game = games.Find(g => g.Id == gameId);
 
         if(game != null){
-            int ?card1 = game.cardPoint[game.FirstCard.Substring(0, 1)];
-            int ?card2 = game.cardPoint[game.SecondCard.Substring(0,1)];
-            int ?card3 = game.cardPoint[game.ThirdCard.Substring(0,1)];
-            int ?card4 = game.cardPoint[game.FourthCard.Substring(0,1)];
-            int ?card5 = game.cardPoint[game.FifthCard.Substring(0,1)];
-            int ?card6 = game.cardPoint[handCard2];
-            int ?card7 = game.cardPoint[handCard1];
 
             
         }
