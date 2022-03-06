@@ -175,9 +175,9 @@ function buyInDisplay(){
     var inputManual = document.getElementById("buy-in-manual");
     var displayAmount = document.getElementById("buy-in-amount-display");
     var buyInBtn = document.getElementById("confirm-buyin-btn");
-  
+
     if(inputAmount.value < 0 || inputAmount.value  > 1000000){
-      buyInBtn.disabled = true;
+        buyInBtn.disabled = true;
     }
     else{
         displayAmount.innerHTML = amountFormatter(inputAmount.value);
@@ -185,16 +185,16 @@ function buyInDisplay(){
         buyInBtn.disabled = false;
     }
     
-  }
-  
+}
+
 function buyInManual(){
     var inputAmount = document.getElementById("buy-in-amount");
     var inputManual = document.getElementById("buy-in-manual");
     var displayAmount = document.getElementById("buy-in-amount-display");
     var digit_validation = /^[0-9]+$/;
     var buyInBtn = document.getElementById("confirm-buyin-btn");
-    var walletAmount = sessionStorage.getItem("userWallet");
 
+    //Check if input is digit
     if(!digit_validation.test(inputManual.value)){
         inputManual.value =  inputManual.value.substring(0, inputManual.value.length-1);;
         buyInBtn.disabled = false;
@@ -292,6 +292,8 @@ function displayWalletAmount(){
     var buyInWalletDisplay = document.getElementById("buy-in-wallet-display");
     var walletAmount = sessionStorage.getItem("userWallet");
     var buyInBtn = document.getElementById("confirm-buyin-btn");
+    var inputAmount = document.getElementById("buy-in-amount");
+    var inputManual = document.getElementById("buy-in-manual");
 
     if(walletAmount != null){
         walletDisplay.innerHTML = amountFormatter(walletAmount);
@@ -300,6 +302,8 @@ function displayWalletAmount(){
         if(walletAmount < 100000){
             $("#buy-in-warning").html("Your wallet amount is less than the minimum amount!");
             buyInBtn.disabled = true;
+            inputAmount.disabled = true;
+            inputManual.disabled = true;
         }
     }
 }

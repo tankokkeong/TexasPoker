@@ -36,10 +36,12 @@ public class Player
     public int ChipsOnHand { get; set; } = 0;
 
     public int ChipsOnTable { get; set; } = 0;
+
+    public int SeatNo {get; set; } = 0;
     
     public Player(){}
 
-    public Player(string signalRConnectionId, string id, string icon, string name, int chipsOnHand) => (SignalRConnectionId, Id, Icon, Name, ChipsOnHand) = (signalRConnectionId, id, icon, name, chipsOnHand);
+    public Player(string signalRConnectionId, string id, string icon, string name, int chipsOnHand, int seatNo) => (SignalRConnectionId, Id, Icon, Name, ChipsOnHand, SeatNo) = (signalRConnectionId, id, icon, name, chipsOnHand, seatNo);
 
 }
 
@@ -129,7 +131,11 @@ public class Game
             NumberOfPlayer++;
         }
 
-        if(NumberOfPlayer < 2){
+        if(NumberOfPlayer <= 2){
+
+            //Clear previous record
+            playersOfTheRound.Clear();
+            playersOfNextRound.Clear();
 
             if(Seat[0] != null){
                 playersOfTheRound.Add(Seat[0]);
@@ -158,6 +164,10 @@ public class Game
             
         }
         else{
+
+            //Clear previous record
+            playersOfNextRound.Clear();
+
             if(Seat[0] != null){
                 playersOfNextRound.Add(Seat[0]);
             }
@@ -177,9 +187,12 @@ public class Game
             if(Seat[4] != null){
                 playersOfNextRound.Add(Seat[4]);
             }
-
+            
             Console.WriteLine("Player Of Next Round Triggered");
         }
+
+        //Console.WriteLine("Number of sitting players: " + NumberOfPlayer);
+        //Console.WriteLine("Number of players Of the round: " + playersOfTheRound.Count());
 
     }
 
@@ -190,7 +203,8 @@ public class Game
             if(playersOfTheRound.FindAll(p => p?.Id == Seat[0]?.Id) != null){
                 playersOfTheRound.Remove(Seat[0]);
             }
-            else if(playersOfNextRound.FindAll(p => p?.Id == Seat[0]?.Id) != null){
+
+            if(playersOfNextRound.FindAll(p => p?.Id == Seat[0]?.Id) != null){
                 playersOfNextRound.Remove(Seat[0]);
             }
 
@@ -202,7 +216,8 @@ public class Game
             if(playersOfTheRound.FindAll(p => p?.Id == Seat[1]?.Id) != null){
                 playersOfTheRound.Remove(Seat[1]);
             }
-            else if(playersOfNextRound.FindAll(p => p?.Id == Seat[1]?.Id) != null){
+
+            if(playersOfNextRound.FindAll(p => p?.Id == Seat[1]?.Id) != null){
                 playersOfNextRound.Remove(Seat[1]);
             }
 
@@ -214,7 +229,8 @@ public class Game
             if(playersOfTheRound.FindAll(p => p?.Id == Seat[2]?.Id) != null){
                 playersOfTheRound.Remove(Seat[2]);
             }
-            else if(playersOfNextRound.FindAll(p => p?.Id == Seat[2]?.Id) != null){
+            
+            if(playersOfNextRound.FindAll(p => p?.Id == Seat[2]?.Id) != null){
                 playersOfNextRound.Remove(Seat[2]);
             }
 
@@ -226,7 +242,8 @@ public class Game
             if(playersOfTheRound.FindAll(p => p?.Id == Seat[3]?.Id) != null){
                 playersOfTheRound.Remove(Seat[3]);
             }
-            else if(playersOfNextRound.FindAll(p => p?.Id == Seat[3]?.Id) != null){
+            
+            if(playersOfNextRound.FindAll(p => p?.Id == Seat[3]?.Id) != null){
                 playersOfNextRound.Remove(Seat[3]);
             }
 
@@ -238,7 +255,8 @@ public class Game
             if(playersOfTheRound.FindAll(p => p?.Id == Seat[4]?.Id) != null){
                 playersOfTheRound.Remove(Seat[4]);
             }
-            else if(playersOfNextRound.FindAll(p => p?.Id == Seat[4]?.Id) != null){
+            
+            if(playersOfNextRound.FindAll(p => p?.Id == Seat[4]?.Id) != null){
                 playersOfNextRound.Remove(Seat[4]);
             }
             
@@ -283,7 +301,7 @@ public class GameHub : Hub
         if (game != null || !game.IsFull)
         {
             //Create new player
-            var player = new Player(connectionId, id, icon, name, chips);
+            var player = new Player(connectionId, id, icon, name, chips, seatNo);
 
             game.AddPlayer(player, seatNo);
             await Clients.Caller.SendAsync("getSeat", seatNo, chips, name);
@@ -303,7 +321,7 @@ public class GameHub : Hub
     public async Task LeaveGame(int seatNo)
     {
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-        List<string> sequence = DetermineTimerSequence();
+        List<Player> sequence = DetermineTimerSequence();
 
         //Find game
         var game = games.Find(g => g.Id == gameId);
@@ -320,13 +338,13 @@ public class GameHub : Hub
 
             if(game.NumberOfPlayer == 1){
                 await updatePotChips();
-                await Clients.Group(gameId).SendAsync("DeclareWinner", sequence[0], game.Seat.Find(s => s?.Id == sequence[0])?.Name, FindSeatUserPosition(sequence[0], game.Id));
+                await Clients.Group(gameId).SendAsync("DeclareWinner", sequence[0]);
 
                 //Console.WriteLine("Winner timer position: " + FindSeatUserPosition(sequence[0], game.Id));
 
                 //Update winner's chips
-                game.Seat[FindSeatUserPosition(sequence[0], game.Id) - 1].ChipsOnHand = game.Seat[FindSeatUserPosition(sequence[0], game.Id) - 1].ChipsOnHand  + game.PoolChips;
-                await Clients.Group(gameId).SendAsync("updateWinnerChipsOnHands", FindSeatUserPosition(sequence[0], game.Id), game.Seat[FindSeatUserPosition(sequence[0], game.Id) - 1].ChipsOnHand, game.PoolChips);
+                game.Seat[FindSeatUserPosition(sequence[0].Id, game.Id) - 1].ChipsOnHand = game.Seat[FindSeatUserPosition(sequence[0].Id, game.Id) - 1].ChipsOnHand  + game.PoolChips;
+                await Clients.Group(gameId).SendAsync("updateWinnerChipsOnHands", FindSeatUserPosition(sequence[0].Id, game.Id), game.Seat[FindSeatUserPosition(sequence[0].Id, game.Id) - 1].ChipsOnHand, game.PoolChips);
 
                 //Remove player
                 game.RemovePlayer(seatNo);
@@ -402,24 +420,23 @@ public class GameHub : Hub
 
     public async Task TimerTrigger(){
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-        List<string> sequence = DetermineTimerSequence();
+        List<Player> sequence = DetermineTimerSequence();
 
         //Find game
         var game = games.Find(g => g.Id == gameId);
 
         if (game != null){
 
-            Console.WriteLine("Timer Position: " + game.TimerPosition);
-
             if(sequence.Count() == 1){
+
                 await updatePotChips();
-                await Clients.Group(gameId).SendAsync("DeclareWinner", sequence[0], game.Seat.Find(s => s?.Id == sequence[0])?.Name, game.TimerPosition);
+                await Clients.Group(gameId).SendAsync("DeclareWinner", sequence[0]);
 
                 //Console.WriteLine("Winner timer position: " + game.TimerPosition);
 
                 //Update winner's chips
-                game.Seat[FindSeatUserPosition(sequence[0], game.Id) - 1].ChipsOnHand = game.Seat[FindSeatUserPosition(sequence[0], game.Id) - 1].ChipsOnHand  + game.PoolChips;
-                await Clients.Group(gameId).SendAsync("updateWinnerChipsOnHands", FindSeatUserPosition(sequence[0], game.Id), game.Seat[FindSeatUserPosition(sequence[0], game.Id) - 1].ChipsOnHand, game.PoolChips);
+                game.Seat[FindSeatUserPosition(sequence[0].Id, game.Id) - 1].ChipsOnHand = game.Seat[FindSeatUserPosition(sequence[0].Id, game.Id) - 1].ChipsOnHand  + game.PoolChips;
+                await Clients.Group(gameId).SendAsync("updateWinnerChipsOnHands", FindSeatUserPosition(sequence[0].Id, game.Id), game.Seat[FindSeatUserPosition(sequence[0].Id, game.Id) - 1].ChipsOnHand, game.PoolChips);
 
                 //Reset all the attributes
                 game.CardRoundCount = 0;
@@ -544,19 +561,22 @@ public class GameHub : Hub
                     
                 }
                 else{
+
+                    Console.WriteLine("Timer Position Count: " + game.TimerPosition);
+
                     if(game.TimerPosition == sequence.Count() -1){
 
-                        await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound , game.Seat[FindSeatUserPosition(sequence[game.TimerPosition], gameId) - 1].Id,  game.TimerPosition);
-                        await Clients.Group(gameId).SendAsync("DisplayTimer", game, game.Seat[FindSeatUserPosition(sequence[game.TimerPosition], gameId) - 1].Id, sequence);
+                        await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound , sequence[game.TimerPosition].Id,  game.TimerPosition);
+                        await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition].Id, sequence);
+                        Console.WriteLine("Player's Turn: " + sequence[game.TimerPosition].Name);
                         game.TimerPosition = 0;
-
                     }
                     else{
 
-                        await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound ,game.Seat[FindSeatUserPosition(sequence[game.TimerPosition], gameId) - 1].Id, game.TimerPosition);
-                        await Clients.Group(gameId).SendAsync("DisplayTimer", game, game.Seat[FindSeatUserPosition(sequence[game.TimerPosition], gameId) - 1].Id, sequence);
+                        await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound , sequence[game.TimerPosition].Id, game.TimerPosition);
+                        await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition].Id, sequence);
+                        Console.WriteLine("Player's Turn: " + sequence[game.TimerPosition].Name);
                         game.TimerPosition++;
-
                     }
                 }
 
@@ -570,9 +590,9 @@ public class GameHub : Hub
 
     public async Task BlindTrigger(){
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-        List<string> sequence = DetermineTimerSequence();
+        List<Player> sequence = DetermineTimerSequence();
 
-        Console.WriteLine("Blind Triggered: Sequence count " + sequence.Count());
+        //Console.WriteLine("Blind Triggered: Sequence count " + sequence.Count());
 
         //Find game
         var game = games.Find(g => g.Id == gameId);
@@ -581,14 +601,14 @@ public class GameHub : Hub
         if (game != null){
 
             //Find Big Blind and Small Blind Position
-            game.BigBlindPosition = FindSeatUserPosition(sequence[game.previousBlindPosition], gameId);
+            game.BigBlindPosition = FindSeatUserPosition(sequence[game.previousBlindPosition].Id, gameId);
 
             if(game.previousBlindPosition + 1 == sequence.Count()){
                 game.previousBlindPosition = 0;
-                game.SmallBlindPosition = FindSeatUserPosition(sequence[game.previousBlindPosition], gameId);
+                game.SmallBlindPosition = FindSeatUserPosition(sequence[game.previousBlindPosition].Id, gameId);
             }
             else{
-                game.SmallBlindPosition = FindSeatUserPosition(sequence[game.previousBlindPosition + 1], gameId);
+                game.SmallBlindPosition = FindSeatUserPosition(sequence[game.previousBlindPosition + 1].Id, gameId);
                 game.previousBlindPosition++;
             }
 
@@ -637,7 +657,7 @@ public class GameHub : Hub
         return position;
     }
 
-    private List<string> DetermineTimerSequence(){
+    private List<Player> DetermineTimerSequence(){
 
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
         List<string> timer_sequence = new List<string>();
@@ -646,19 +666,42 @@ public class GameHub : Hub
         var game = games.Find(g => g.Id == gameId);
 
         if (game != null){
-            foreach(Player player in game.playersOfTheRound){
-                timer_sequence.Add(player.Id);
+
+            //Bubble Sort the list before return
+            int n = game.playersOfTheRound.Count();
+
+            //Console.WriteLine("Number of players of the round: " + n);
+
+            for (int i = 0; i < n - 1; i++){
+                for (int j = 0; j < n - i - 1; j++){
+
+                    if (game.playersOfTheRound[j].SeatNo > game.playersOfTheRound[j + 1].SeatNo)
+                    {
+                        // swap temp and default_sequence[i]
+                        Player temp = game.playersOfTheRound[j];
+                        game.playersOfTheRound[j] = game.playersOfTheRound[j + 1];
+                        game.playersOfTheRound[j + 1] = temp;
+                    }
+                }
             }
+
+            foreach(Player player in game.playersOfTheRound){
+                Console.WriteLine("Sorted, Seat: " + player.SeatNo + " Name: " + player.Name);
+            }
+
+            Console.WriteLine("Sorting done");
+
+            
         }
 
-        return timer_sequence;
+        return game.playersOfTheRound;
     }
 
     public async Task HandCardDealing(){
 
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
 
-        printAllUser();
+        //printAllUser();
 
         //Find game
         var game = games.Find(g => g.Id == gameId);
@@ -1017,147 +1060,6 @@ public class GameHub : Hub
         else{
             return null;
         }
-    }
-
-    private List<string> CheckRoyalFlush(){
-        List<string> handCard = new List<string>();
-
-        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-        //Find game
-        var game = games.Find(g => g.Id == gameId);
-
-        if(game != null){
-
-        }
-
-        return handCard;
-    }
-
-    private List<string> CheckStraightFlush(){
-        List<string> handCard = new List<string>();
-
-        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-        //Find game
-        var game = games.Find(g => g.Id == gameId);
-
-        if(game != null){
-
-        }
-
-        return handCard;
-    }
-
-    private List<string> CheckFourOfAKind(){
-        List<string> handCard = new List<string>();
-
-        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-        //Find game
-        var game = games.Find(g => g.Id == gameId);
-
-        if(game != null){
-
-        }
-
-        return handCard;
-    }
-
-    private List<string> CheckFullHouse(){
-        List<string> handCard = new List<string>();
-
-        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-        //Find game
-        var game = games.Find(g => g.Id == gameId);
-
-        if(game != null){
-
-        }
-
-        return handCard;
-    }
-
-    private List<string> CheckFlush(){
-        List<string> handCard = new List<string>();
-
-        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-        //Find game
-        var game = games.Find(g => g.Id == gameId);
-
-        if(game != null){
-
-        }
-
-        return handCard;
-    }
-
-    private List<string> CheckStraight(){
-        List<string> handCard = new List<string>();
-        
-        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-        //Find game
-        var game = games.Find(g => g.Id == gameId);
-
-        if(game != null){
-
-        }
-
-        return handCard;
-    }
-
-    private List<string> CheckThreeOfAKind(){
-        List<string> handCard = new List<string>();
-
-        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-        //Find game
-        var game = games.Find(g => g.Id == gameId);
-
-        if(game != null){
-
-        }
-
-        return handCard;
-    }
-
-    private List<string> CheckTwoPair(){
-        List<string> handCard = new List<string>();
-
-        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-        //Find game
-        var game = games.Find(g => g.Id == gameId);
-
-        if(game != null){
-
-        }
-
-        return handCard;
-    }
-
-    private List<string> CheckOnePair(string handCard1, string handCard2){
-        List<string> handCard = new List<string>();
-
-        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-        //Find game
-        var game = games.Find(g => g.Id == gameId);
-
-        if(game != null){
-
-            
-        }
-
-        return handCard;
-    }
-
-    private List<string> checkHighCard(){
-        List<string> handCard = new List<string>();
-
-        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-        //Find game
-        var game = games.Find(g => g.Id == gameId);
-
-        if(game != null){
-
-        }
-
-        return handCard;
     }
 
     // ----------------------------------------------------------------------------------------

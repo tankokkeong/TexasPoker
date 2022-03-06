@@ -311,9 +311,13 @@ con.on('LeaveSeat', (seatNo, onePlayer) => {
   else{
     //Remove seat
     seat.style.display = "none";
-    buyInSign.style.display = "";
+    buyInSign.style.display = "none";
     myChips.innerHTML = "";
     myName.innerHTML = "";
+
+    if(mySeat == null){
+      buyInSign.style.display = "";
+    }
   }
 
   seatTimer.style.display = "none";
@@ -363,7 +367,7 @@ con.on('GameAction', (chipsOfTheRound, userId, timerPosition) => {
   var myUserId = sessionStorage.getItem("userId");
   var mySeatNo = sessionStorage.getItem("mySeatNo");
 
-  console.log("Timer position: "+ timerPosition)
+  //console.log("Timer position: "+ timerPosition)
 
   if(userId == myUserId){
     console.log("my chips of the round : " + playerChipsOfTheRound[parseInt(mySeatNo) - 1] + " COMPARE " + chipsOfTheRound)
@@ -388,15 +392,17 @@ con.on('RoundWinner', (winner, poolChips) => {
   console.log("Winner of the round: " + JSON.stringify(winner))
 });
 
-con.on('DeclareWinner', (userId, winnerName, seatNo) => {
+con.on('DeclareWinner', (winner) => {
+
+  console.log("Declare Winner: " + JSON.stringify(winner))
 
   //Play sound effect
   chipsSoundEffect();
 
   //Show winner declaration
-  displayWinnerDeclaration(winnerName);
+  displayWinnerDeclaration(winner.name);
 
-  addGameRecord(winnerName + " won the game!");
+  addGameRecord(winner.name + " won the game!");
 
   //Remove pool chips
   removePotChips();
@@ -405,7 +411,7 @@ con.on('DeclareWinner', (userId, winnerName, seatNo) => {
   removeChips("", true);
 
   //Show the action status to all users
-  showActionStatus(seatNo, "Win");
+  showActionStatus(winner.seatNo, "Win");
 
   //Remove the timer
   removeTimer(seatNo);
