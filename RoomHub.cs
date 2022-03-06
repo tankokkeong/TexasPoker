@@ -612,7 +612,7 @@ public class GameHub : Hub
                 game.previousBlindPosition++;
             }
 
-            game.TimerPosition = game.BigBlindPosition - 1;
+            //game.TimerPosition = game.BigBlindPosition - 1;
             
             //Deduct the user chips on hand
             game.Seat[game.BigBlindPosition - 1].ChipsOnHand = game.Seat[game.BigBlindPosition - 1].ChipsOnHand - 10000;
