@@ -67,7 +67,6 @@
                 <option value="Small">Small</option>
                 <option value="Odd">Odd</option>
                 <option value="Even">Even</option>
-                <option value="Triple">Triple</option>
               </select>
             </div>
             <div class="form-group">
@@ -150,51 +149,51 @@
 
   async function updateReward(reward){
 
-    const docRef = doc(database, "players", userId);
-    const docSnap = await getDoc(docRef);
-    let balance = 0;
+    const Ref = doc(database, "players", userId);
+    const Snap = await getDoc(Ref);
+    let walletBalance = 0;
 
-    if (docSnap.exists()) {
+    if (Snap.exists()) {
 
-      console.log("Document data:", docSnap.data());
-      console.log("Document data:", docSnap.data().walletBallance);
-      balance = docSnap.data().walletBallance;
-
+      console.log("Document data:", Snap.data());
+      console.log("Document data:", Snap.data().walletBallance);
+      walletBalance = Snap.data().walletBallance;
     }
 
-    await updateDoc(docRef, {
-      walletBallance : balance + reward
+    await updateDoc(Ref, {
+      walletBallance : (walletBalance + reward) 
     });
 
     $rewards.text(`Rewards : ${reward}`);
-    $current.text(`Current Chips : ${(balance + reward)}`);
+    $current.text(`Current Chips : ${(walletBalance + reward)}`);
 
   }
 
-async function deductReward(deductAmount){
+  async function deductReward(deductAmount){
 
-  const ref = doc(database, "players", userId);
-  const snap = await getDoc(ref);
-  let wallet = 0;
+    const ref = doc(database, "players", userId);
+    const snap = await getDoc(ref);
+    let wallet = 0;
 
-  if (snap.exists()) {
+    if (snap.exists()) {
 
-    console.log("Document data:", snap.data());
-    console.log("Document data:", snap.data().walletBallance);
-    wallet = snap.data().walletBallance;
+      console.log("Document data:", snap.data());
+      console.log("Document data:", snap.data().walletBallance);
+      wallet = snap.data().walletBallance;
+    }
+
+    await updateDoc(ref, {
+      walletBallance : (wallet - deductAmount) 
+    });
+
+    $rewards.text(`Lose : ${deductAmount}`);
+    $current.text(`Current Chips : ${(wallet - deductAmount)}`);
+
   }
-
-  await updateDoc(ref, {
-    walletBallance : (wallet - deductAmount) 
-  });
-
-  $rewards.text(`Lose : ${deductAmount}`);
-  $current.text(`Current Chips : ${(wallet - deductAmount)}`);
-
-}
-  conn.on('betSizeResult', (bigSmall, oddEven, triple, odds) => {
+  conn.on('betSizeResult', (bigSmall, oddEven, triple) => {
 
     let reward = 0;
+    let loss = 0;
 
     try{
         var betsize = document.getElementById("betsize").selectedIndex;
@@ -206,7 +205,7 @@ async function deductReward(deductAmount){
             winSoundEffect.play();
             $gameResult.text(`Well Done!!! It is a ${bigSmall}`);
             //Update Chips
-            reward = (betAmount - betAmount) + (betAmount * odds);
+            reward = betAmount * 1;
             updateReward(reward);
 
         }else if(option == oddEven){
@@ -215,17 +214,25 @@ async function deductReward(deductAmount){
             $gameResult.text(`Well Done!!! It is an ${oddEven}`);
 
             //UpdateChips
-            reward = (betAmount - betAmount) + (betAmount * odds);
+            reward = betAmount * 2;
             updateReward(reward);
 
         }
         else{
-            
             loseSoundEffect.play();
             $gameResult.text("No Way!! You have choose the wrong one");
-
             //Update Chips
-            deductReward(betAmount);        
+            deductReward(betAmount);  
+            
+            if(option == "Big" || option =="Small"){
+
+              loss = betAmount * 1.5;
+              deductReward(loss);
+
+            }else if(option == "Odd" || option == "Even"){
+              loss = betAmount * 2;
+              deductReward(loss);
+            }
         }
     }
     catch (e){

@@ -74,6 +74,9 @@
             });
 
             conn.on('Left', letter => {
+                let id = setTimeout(() => location = 'lobby.html', 5000);
+                while (id--) clearTimeout(id);
+
                 started = false;
                 $status.text(`Player ${letter} left.`)
             });

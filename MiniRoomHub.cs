@@ -64,8 +64,7 @@ public class MiniRoomHub : Hub
 
     private static List<MiniGame> minigames = new()
     {
-        //new MiniGame { PlayerA = new MiniPlayer("P001", "🧑🏻", "Boy"), IsWaiting = true },
-        //new MiniGame { PlayerA = new MiniPlayer("P001", "👧🏻", "Girl"), IsWaiting = true },
+
     };
 
     public string Create()
@@ -123,33 +122,28 @@ public class MiniRoomHub : Hub
 
         string bigOrSmall = "";
         string OddOrEven = "";
-        int odds = 0;
 
         // Big or Small
         if (totalDice >= 11 && totalDice <=18){
 
                 bigOrSmall = "Big";
-                odds = 1;
-                await Clients.Group(gameId).SendAsync("betSizeResult", bigOrSmall, OddOrEven, odds);
+                await Clients.Group(gameId).SendAsync("betSizeResult", bigOrSmall, OddOrEven);
             
         }else if(totalDice >= 4 && totalDice <=18){
 
                 bigOrSmall = "Small";
-                odds = 1;
-                await Clients.Group(gameId).SendAsync("betSizeResult", bigOrSmall, OddOrEven, odds);    
+                await Clients.Group(gameId).SendAsync("betSizeResult", bigOrSmall, OddOrEven);    
         }
 
         //Odd or Even
         if(totalDice % 2 == 0){
             OddOrEven = "Even";
-            odds = 2;
-            await Clients.Group(gameId).SendAsync("betSizeResult", bigOrSmall, OddOrEven, odds);
+            await Clients.Group(gameId).SendAsync("betSizeResult", bigOrSmall, OddOrEven);
 
         }else{
             
             OddOrEven = "Odd";
-            odds = 2;
-            await Clients.Group(gameId).SendAsync("betSizeResult",bigOrSmall, OddOrEven, odds);
+            await Clients.Group(gameId).SendAsync("betSizeResult",bigOrSmall, OddOrEven);
         }
     }
 
