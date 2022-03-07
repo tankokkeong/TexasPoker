@@ -217,8 +217,8 @@ function buyInManual(){
         buyInBtn.disabled = false;
     }
     else{
-        inputAmount.value = 100000;
-        inputManual.value = 100000;
+        $("#buy-in-warning").html("The minimun buy in amount is $100,000!");
+        buyInBtn.disabled = true;
     }
 
 }

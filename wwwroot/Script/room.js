@@ -35,7 +35,7 @@ con.on('ViewGame', (game) => {
 
 con.on('updateWinnerChipsOnHands', (seatNo, total, poolChips) => {
 
-  console.log("Winner seat: " + seatNo + " Winner Chips: " + total + " Pool Chips: " + poolChips)
+  //console.log("Winner seat: " + seatNo + " Winner Chips: " + total + " Pool Chips: " + poolChips)
   var winnerChips = document.getElementById("seat-" + seatNo + "-chips");
 
   winnerChips.innerHTML = "$ " + amountFormatter(total);
@@ -52,8 +52,8 @@ con.on('updatePotChips', (total) => {
 
 con.on("updateChipsOnTable", (chipsAmount1, chipsAmount2, chipsAmount3, chipsAmount4, chipsAmount5) => {
 
-  console.log("Update chips on table triggered: " + chipsAmount1 + " " + chipsAmount2 + " " 
-  + chipsAmount3 + " " + chipsAmount4 + " " + chipsAmount5)
+  // console.log("Update chips on table triggered: " + chipsAmount1 + " " + chipsAmount2 + " " 
+  // + chipsAmount3 + " " + chipsAmount4 + " " + chipsAmount5)
 
   var chipsOnTable1 = document.getElementById("chips-amount-1");
   var chipsOnTable2 = document.getElementById("chips-amount-2");
@@ -107,7 +107,7 @@ con.on("updateChipsOnTable", (chipsAmount1, chipsAmount2, chipsAmount3, chipsAmo
 //Get current game info
 con.on('updateChipsOnHand', (chip1, chip2, chip3, chip4, chip5) => {
 
-  console.log("Update Chips Triggered")
+  //console.log("Update Chips Triggered")
   var userChips1 = document.getElementById("seat-1-chips");
   var userChips2 = document.getElementById("seat-2-chips");
   var userChips3 = document.getElementById("seat-3-chips");
@@ -363,7 +363,7 @@ con.on('getSeat', (seatNo, chips, name) => {
 
 });
 
-con.on('GameAction', (chipsOfTheRound, userId, minRaise, maxAllIn) => {
+con.on('GameAction', (chipsOfTheRound, userId, minRaise, maxAllIn, isAllIn, myChips) => {
   var checkBtn = document.getElementById("check-btn");
   var callBtn = document.getElementById("call-btn");
   var raiseBtn = document.getElementById("raise-btn");
@@ -378,10 +378,15 @@ con.on('GameAction', (chipsOfTheRound, userId, minRaise, maxAllIn) => {
   raiseInput.value = minRaise;
   raiseAmount();
 
-  console.log("Min Raise: "+ minRaise + " Max All In: " + maxAllIn)
+ // console.log("Min Raise: "+ minRaise + " Max All In: " + maxAllIn)
 
-  if(userId == myUserId){
-    console.log("my chips of the round : " + playerChipsOfTheRound[parseInt(mySeatNo) - 1] + " COMPARE " + chipsOfTheRound)
+  if(userId === myUserId){
+    
+    console.log("My info: " + JSON.stringify(myChips))
+    if(isAllIn){
+      con.invoke("checkTrigger", parseInt(mySeatNo));
+    }
+
     if(playerChipsOfTheRound[parseInt(mySeatNo) - 1] == chipsOfTheRound){
       checkBtn.disabled = false;
       callBtn.disabled = true;
@@ -400,7 +405,7 @@ con.on('GameAction', (chipsOfTheRound, userId, minRaise, maxAllIn) => {
 
 con.on('RoundWinner', (winner, poolChips) => {
 
-  console.log("Winner of the round: " + JSON.stringify(winner))
+  //console.log("Winner of the round: " + JSON.stringify(winner))
 
   //Play sound effect
   chipsSoundEffect();
@@ -433,7 +438,7 @@ con.on('RoundWinner', (winner, poolChips) => {
 
 con.on('DeclareWinner', (winner) => {
 
-  console.log("Declare Winner: " + JSON.stringify(winner))
+  //console.log("Declare Winner: " + JSON.stringify(winner))
 
   //Play sound effect
   chipsSoundEffect();
@@ -463,7 +468,10 @@ con.on('DeclareWinner', (winner) => {
 
 });
 
-con.on('CheckAction', (seatNo, name) => {
+con.on('CheckAction', (seatNo, name, timerposition) => {
+
+  console.log("Timer position: " + timerposition)
+
   checkCardSoundEffect();
 
   //Show the action status to all users
@@ -481,7 +489,7 @@ con.on('CheckAction', (seatNo, name) => {
 
 con.on('RaiseAction', (seatNo, name, isAllIn) => {
 
-  console.log("All in: " + isAllIn)
+  //console.log("All in: " + isAllIn)
 
   //Check if the users all in
   if(isAllIn){
