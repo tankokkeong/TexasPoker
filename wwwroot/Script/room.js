@@ -376,12 +376,24 @@ con.on('GameAction', (chipsOfTheRound, userId, minRaise, maxAllIn, isAllIn, myIn
   var myUserId = sessionStorage.getItem("userId");
   var mySeatNo = sessionStorage.getItem("mySeatNo");
   var raiseInput = document.getElementById("raise-amount-input");
+  var minRaiseThreshold = parseInt(myInfo.chipsOnHand) + parseInt(myInfo.chipsOnTable);
 
-  //Set the minimum and maximum raise amount
-  raiseInput.setAttribute("min", parseInt(minRaise));
-  raiseInput.setAttribute("max", parseInt(maxAllIn));
-  raiseInput.value = parseInt(minRaise);
-  raiseAmount();
+
+  if(minRaiseThreshold < minRaise){
+    //Set the minimum and maximum raise amount
+    raiseInput.setAttribute("min", parseInt(minRaiseThreshold));
+    raiseInput.setAttribute("max", parseInt(minRaiseThreshold));
+    raiseInput.value = parseInt(minRaiseThreshold);
+    raiseAmount();
+  }
+  else{
+    //Set the minimum and maximum raise amount
+    raiseInput.setAttribute("min", parseInt(minRaise));
+    raiseInput.setAttribute("max", parseInt(maxAllIn));
+    raiseInput.value = parseInt(minRaise);
+    raiseAmount();
+  }
+
 
   //console.log("Min Raise: "+ minRaise + " Max All In: " + maxAllIn)
 
@@ -389,8 +401,6 @@ con.on('GameAction', (chipsOfTheRound, userId, minRaise, maxAllIn, isAllIn, myIn
     
     console.log("My info: " + JSON.stringify(myInfo))
     console.log("Is All In: " + isAllIn + " Chips Of the round: " + chipsOfTheRound)
-
-
 
     if(isAllIn){
       con.invoke("checkTrigger", parseInt(mySeatNo));
@@ -409,9 +419,13 @@ con.on('GameAction', (chipsOfTheRound, userId, minRaise, maxAllIn, isAllIn, myIn
       foldBtn.disabled =  false;
     }
 
-    if(parseInt(myInfo.chipsOnHand) < minRaise){
-      raiseBtn.disabled =  true;
-    }
+    // console.log("Compare: " + minRaiseThreshold < minRaise)
+    // if( minRaiseThreshold < minRaise){
+    //   raiseBtn.disabled =  true;
+    // }
+    // else{
+    //   raiseBtn.disabled =  false;
+    // }
 
   }
   
