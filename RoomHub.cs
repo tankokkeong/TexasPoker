@@ -188,7 +188,7 @@ public class Game
                 playersOfNextRound.Add(Seat[4]);
             }
             
-            Console.WriteLine("Player Of Next Round Triggered");
+            Console.WriteLine("Number of player of next round: " + playersOfNextRound.Count());
         }
 
         //Console.WriteLine("Number of sitting players: " + NumberOfPlayer);
@@ -340,8 +340,6 @@ public class GameHub : Hub
                 await updatePotChips();
                 await Clients.Group(gameId).SendAsync("DeclareWinner", sequence[0]);
 
-                //Console.WriteLine("Winner timer position: " + FindSeatUserPosition(sequence[0], game.Id));
-
                 //Update winner's chips
                 game.Seat[FindSeatUserPosition(sequence[0].Id, game.Id) - 1].ChipsOnHand = game.Seat[FindSeatUserPosition(sequence[0].Id, game.Id) - 1].ChipsOnHand  + game.PoolChips;
                 await Clients.Group(gameId).SendAsync("updateWinnerChipsOnHands", FindSeatUserPosition(sequence[0].Id, game.Id), game.Seat[FindSeatUserPosition(sequence[0].Id, game.Id) - 1].ChipsOnHand, game.PoolChips);
@@ -458,6 +456,11 @@ public class GameHub : Hub
             game.playersOfTheRound.Remove(game.Seat[seatNo - 1]);
 
             if(game.NumberOfPlayer >= 2){
+
+                if(game.TimerPosition != 0){
+                    game.TimerPosition--;
+
+                }
                 await TimerTrigger();
             }
         }
@@ -476,8 +479,6 @@ public class GameHub : Hub
 
                 await updatePotChips();
                 await Clients.Group(gameId).SendAsync("DeclareWinner", sequence[0]);
-
-                //Console.WriteLine("Winner timer position: " + game.TimerPosition);
 
                 //Update winner's chips
                 game.Seat[FindSeatUserPosition(sequence[0].Id, game.Id) - 1].ChipsOnHand = game.Seat[FindSeatUserPosition(sequence[0].Id, game.Id) - 1].ChipsOnHand  + game.PoolChips;
@@ -587,6 +588,9 @@ public class GameHub : Hub
 
                     await Task.Delay(5000);
 
+                    //Update the seat sequence
+                    updateSeatDetails();
+
                     if(game.NumberOfPlayer > 1){
                         await HandCardDealing();
                     }
@@ -596,7 +600,7 @@ public class GameHub : Hub
 
                     if(game.TimerPosition == sequence.Count() -1){
 
-                        Console.WriteLine("Timer Position Count in sequence - 1: " + game.TimerPosition);
+                        Console.WriteLine("Timer Position Count sequence - 1: " + game.TimerPosition);
 
                         int maxAllInAmount = 0;
                         int minRaiseAmount = game.ChipsOfTheRound * 2;
@@ -672,8 +676,6 @@ public class GameHub : Hub
     public async Task BlindTrigger(){
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
         List<Player> sequence = DetermineTimerSequence();
-
-        //Console.WriteLine("Blind Triggered: Sequence count " + sequence.Count());
 
         //Find game
         var game = games.Find(g => g.Id == gameId);
@@ -813,8 +815,6 @@ public class GameHub : Hub
                 await LeaveGame(5);
             }
 
-            Console.WriteLine("Timer position: " + game.TimerPosition);
-
             //Shuffle card
             game.Shuffle();
 
@@ -888,7 +888,7 @@ public class GameHub : Hub
 
             for(int i = 0 ; i < game.Seat.Count(); i++){
                 
-                if(game.Seat[i] != null){
+                if(game.Seat[i] != null && game.Seat[i].FirstHandCard != null && game.Seat[i].SecondHandCard != null){
 
                     if(tempUserCount == 1){
                         URL = URL + "card" + tempUserCount + "=" + CardFormatter(game.Seat[i].FirstHandCard);
@@ -922,7 +922,7 @@ public class GameHub : Hub
             //Assign the handcard value
             for(int i = 0 ; i < game.Seat.Count(); i++){
                 
-                if(game.Seat[i] != null){
+                if(game.Seat[i] != null && game.Seat[i].FirstHandCard != null && game.Seat[i].SecondHandCard != null){
 
                     game.Seat[i].HandCardName = myObject[tempCardValueCount].HandName;
                     game.Seat[i].HandCardValue = myObject[tempCardValueCount].Value;
@@ -1257,7 +1257,7 @@ public class GameHub : Hub
             }
         }
 
-        Console.WriteLine("Zero Chips count: " + zeroChipsCount + " active count: " + activeUserCount );
+        //Console.WriteLine("Zero Chips count: " + zeroChipsCount + " active count: " + activeUserCount );
         if(activeUserCount - 1 == zeroChipsCount){
             zeroChips = true;
         }
