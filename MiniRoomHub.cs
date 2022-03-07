@@ -103,14 +103,14 @@ public class MiniRoomHub : Hub
 
         int total = one + two + three;
 
-        await CheckPlayerDecision(one,two, three, total);
+        await CheckPlayerDecision(total);
 
         await Clients.Group(gameId).SendAsync("Result", one, two, three, total);
       
         return;
     }
     
-    public async Task CheckPlayerDecision(int diceNo1, int diceNo2, int diceNo3, int totalDice){
+    public async Task CheckPlayerDecision(int totalDice){
 
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
         var game = minigames.Find(g => g.Id == gameId);
@@ -129,7 +129,7 @@ public class MiniRoomHub : Hub
                 bigOrSmall = "Big";
                 await Clients.Group(gameId).SendAsync("betSizeResult", bigOrSmall, OddOrEven);
             
-        }else if(totalDice >= 4 && totalDice <=18){
+        }else if(totalDice >= 3 && totalDice <=10){
 
                 bigOrSmall = "Small";
                 await Clients.Group(gameId).SendAsync("betSizeResult", bigOrSmall, OddOrEven);    

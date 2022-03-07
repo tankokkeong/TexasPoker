@@ -190,7 +190,7 @@
     $current.text(`Current Chips : ${(wallet - deductAmount)}`);
 
   }
-  conn.on('betSizeResult', (bigSmall, oddEven, triple) => {
+  conn.on('betSizeResult', (bigSmall, oddEven) => {
 
     let reward = 0;
     let loss = 0;
@@ -221,8 +221,6 @@
         else{
             loseSoundEffect.play();
             $gameResult.text("No Way!! You have choose the wrong one");
-            //Update Chips
-            deductReward(betAmount);  
             
             if(option == "Big" || option =="Small"){
 
