@@ -409,3 +409,7 @@ form {
     height: 125px;
     display: block;
 }
+
+.fa-circle {
+    color: green;
+}

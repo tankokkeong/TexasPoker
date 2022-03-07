@@ -168,7 +168,7 @@ conChat.on('ReceiveText', (name, message, sentTime) => {
   }
 });
 
-conChat.on('UpdateStatus', (count, status, name) => {
+conChat.on('UpdateStatus', (count, status, name, playerId) => {
   $('#count').text(count);
 
   isBottom();
@@ -181,16 +181,21 @@ conChat.on('UpdateStatus', (count, status, name) => {
 
   if(status === " joined game") {
     $('#modal-body1').append(`
-        <p>
-            <div id="${userID}">
-                <i class="fas fa-circle"></i> ${name}
-            </div>
-        </p>
+        <div id="${playerId}">
+            <i class="fas fa-circle"></i> ${name}
+        </div>
     `);
-  } else {
-    $("div").parent('p').remove();
+  } else if (status === " left game" || status === "") {
+    $('#' + playerId).css("display", "none");
+    document.cookie = `userID=${playerId}; expires=Thu, 01 Jan 1970 00:00:00 UTC;`;
   }
 });
+
+// conChat.onclose(err => {
+//     $('div#' + userID).css("display", "none");
+//     console.log("Ended")
+//     alert("Ended")
+// });
 
 // TODO(2D): ReceiveImage(name, url, who)
 conChat.on('ReceiveImage', (name, url, sentTime) => {
