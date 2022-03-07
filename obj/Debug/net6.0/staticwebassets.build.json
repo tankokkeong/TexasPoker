@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PYzp2itPyNmlZUuH4oTgJ45KUMx69bKf74F3d7wH834=",
+  "Hash": "lt3adcZdyquqaDZLVftpFjF3yEAD2+NGF4DgofthKFU=",
   "Source": "TexasPoker",
   "BasePath": "_content/TexasPoker",
   "Mode": "Default",
@@ -712,6 +712,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Script\\miniGame.js"
+    },
+    {
+      "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Script\\privateChat.js",
+      "SourceId": "TexasPoker",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\",
+      "BasePath": "_content/TexasPoker",
+      "RelativePath": "Script/privateChat.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Script\\privateChat.js"
     },
     {
       "Identity": "C:\\Users\\tanko\\Desktop\\TexasPoker\\wwwroot\\Script\\room.js",

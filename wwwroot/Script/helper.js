@@ -405,7 +405,7 @@ function addGameRecord(message){
         "[" + hours + ":" + minutes + "] " + message +
     '</div>';
 
-    scrollToBottom("myTabContent");
+    scrollToPopUpBottom("myTabContent");
 }
 
 function removeRaiseContainer(){
@@ -431,7 +431,7 @@ function removeTableCards(){
     tableCard5.style.display = "none";
 }
 
-function scrollToBottom(id) {
+function scrollToPopUpBottom(id) {
 
     setTimeout(function(){
         var messages = document.getElementById(id);
