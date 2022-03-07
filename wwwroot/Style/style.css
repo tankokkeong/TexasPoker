@@ -142,10 +142,11 @@
 }
 
 #dealer-img{
-    width: 150px;
+    width: 120px;
     position: absolute;
     top: -20px;
-    right: calc(50% - 75px);
+    left: 50%;
+    transform: translate(-50%, 0);
     z-index: 1000;
 }
 
@@ -333,6 +334,13 @@
     margin-top: 5px;
 }
 
+#winner-name{
+    position: absolute;
+    top: 45px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
 .popup-btn{
     position: fixed;
     bottom: 20px;
@@ -342,7 +350,7 @@
 }
 
 .popup-icon{
-    font-size: 40px;
+    font-size: 40px!important;
 }
 
 .popup-container{

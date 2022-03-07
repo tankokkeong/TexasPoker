@@ -431,6 +431,21 @@ function removeTableCards(){
     tableCard5.style.display = "none";
 }
 
+function cardFormatter(card){
+    if(card != null || card != undefined){
+
+        if(card.substring(0,1) == "1"){
+            return card.substring(0, 2) + " " + card.substring(7);
+        }
+        else{
+            return card.substring(0, 1) + " " + card.substring(7);
+        }
+    }
+    else{
+        return null;
+    }
+}
+
 function scrollToPopUpBottom(id) {
 
     setTimeout(function(){

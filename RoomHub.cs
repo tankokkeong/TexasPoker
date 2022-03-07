@@ -391,7 +391,7 @@ public class GameHub : Hub
             game.Seat[seatNo - 1].ChipsOnTable = game.ChipsOfTheRound;
 
             //reset the pool chips
-            game.PoolChips = game.PoolChips + callAmount;
+            //game.PoolChips = game.PoolChips + callAmount;
 
             await updateChipsOnHand();
             await Clients.Group(gameId).SendAsync("CallAction", seatNo, game.Seat[seatNo - 1]?.Name);
@@ -511,10 +511,13 @@ public class GameHub : Hub
                     if(game.CardRoundCount == 1){
 
                         await FlopRound();
-                        await updatePotChips();
+                        //await updatePotChips();
 
                         //Update the pool chips
-                        updatePoolChips();
+                        await updatePoolChips();
+
+                        //Reset the player's chips on table
+                        ResetUserChipsOnTable();
 
                         //Reset the chips of the round
                         game.ChipsOfTheRound = 0;
@@ -522,10 +525,13 @@ public class GameHub : Hub
                     else if(game.CardRoundCount == 2){
                         
                         await TurnRound();
-                        await updatePotChips();
+                        //await updatePotChips();
 
                         //Update the pool chips
-                        updatePoolChips();
+                        await updatePoolChips();
+
+                        //Reset the player's chips on table
+                        ResetUserChipsOnTable();
 
                         //Reset the chips of the round
                         game.ChipsOfTheRound = 0;
@@ -533,10 +539,13 @@ public class GameHub : Hub
                     else if(game.CardRoundCount == 3){
 
                         await RiverRound();
-                        await updatePotChips();
+                        //await updatePotChips();
 
                         //Update the pool chips
-                        updatePoolChips();
+                        await updatePoolChips();
+
+                        //Reset the player's chips on table
+                        ResetUserChipsOnTable();
 
                         //Reset the chips of the round
                         game.ChipsOfTheRound = 0;
@@ -547,52 +556,28 @@ public class GameHub : Hub
 
                 if(game.CardRoundCount > 4){
                     
-                    string ?card1 = CardFormatter(game.FirstCard);
-                    string ?card2 = CardFormatter(game.SecondCard);
-                    string ?card3 = CardFormatter(game.ThirdCard);
-                    string ?card4 = CardFormatter(game.FourthCard);
-                    string ?card5 = CardFormatter(game.FifthCard);
-
-                    //Check hand card ranking
-                    if(game.Seat[0] != null){
-                        string ?card6 = CardFormatter(game.Seat[0].FirstHandCard);
-                        string ?card7 = CardFormatter(game.Seat[0].SecondHandCard);
-
-                        await CheckHandRanking(1, card1, card2, card3, card4, card5, card6, card7);
-                    }
-
-                    if(game.Seat[1] != null){
-                        string ?card6 = CardFormatter(game.Seat[1].FirstHandCard);
-                        string ?card7 = CardFormatter(game.Seat[1].SecondHandCard);
-
-                        await CheckHandRanking(2, card1, card2, card3, card4, card5, card6, card7);
-                    }
-
-                    if(game.Seat[2] != null){
-                        string ?card6 = CardFormatter(game.Seat[2].FirstHandCard);
-                        string ?card7 = CardFormatter(game.Seat[2].SecondHandCard);
-
-                        await CheckHandRanking(3, card1, card2, card3, card4, card5, card6, card7);
-                    }
-
-                    if(game.Seat[3] != null){
-                        string ?card6 = CardFormatter(game.Seat[3].FirstHandCard);
-                        string ?card7 = CardFormatter(game.Seat[3].SecondHandCard);
-
-                        await CheckHandRanking(4, card1, card2, card3, card4, card5, card6, card7);
-                    }
-
-                    if(game.Seat[4] != null){
-                        string ?card6 = CardFormatter(game.Seat[4].FirstHandCard);
-                        string ?card7 = CardFormatter(game.Seat[4].SecondHandCard);
-
-                        await CheckHandRanking(5, card1, card2, card3, card4, card5, card6, card7);
-                    }
+                     //Check hand card ranking
+                    await CheckHandRanking();
 
                     List<string> winningPlayers = CompareWinningHand();
 
                     for(int i = 0; i < winningPlayers.Count(); i++){
-                        await Clients.Group(gameId).SendAsync("RoundWinner", game.Seat[FindSeatUserPosition(winningPlayers[i], game.Id) - 1], game.ChipsOfTheRound);
+                        await Clients.Group(gameId).SendAsync("RoundWinner", game.Seat[FindSeatUserPosition(winningPlayers[i], game.Id) - 1], game.PoolChips);
+
+                        //Update winner's chips
+                        game.Seat[FindSeatUserPosition(winningPlayers[i], game.Id) - 1].ChipsOnHand = game.Seat[FindSeatUserPosition(winningPlayers[i], game.Id) - 1].ChipsOnHand  + game.PoolChips;
+                        await Clients.Group(gameId).SendAsync("updateWinnerChipsOnHands", FindSeatUserPosition(winningPlayers[i], game.Id), game.Seat[FindSeatUserPosition(winningPlayers[i], game.Id) - 1].ChipsOnHand, game.PoolChips);
+                    }
+
+                    //Reset game card round count
+                    game.CardRoundCount = 0;
+                    ResetUserChipsOnTable();
+                    game.PoolChips = 0;
+
+                    await Task.Delay(5000);
+
+                    if(game.NumberOfPlayer > 1){
+                        await HandCardDealing();
                     }
                     
                 }
@@ -661,7 +646,7 @@ public class GameHub : Hub
             game.Seat[game.SmallBlindPosition - 1].ChipsOnHand = game.Seat[game.SmallBlindPosition - 1].ChipsOnHand - 5000;
             game.Seat[game.BigBlindPosition - 1].ChipsOnTable = 10000;
             game.Seat[game.SmallBlindPosition - 1].ChipsOnTable = 5000;
-            game.PoolChips = 15000;
+            //game.PoolChips = 15000;
             game.ChipsOfTheRound = 10000;
 
             await updateChipsOnHand();
@@ -802,58 +787,61 @@ public class GameHub : Hub
         
     }
 
-    public async Task CheckHandRanking(int seatNo = 0, string? card1 = null, string? card2 = null, string? card3 = null, string? card4 = null, string? card5 = null,
-    string? card6 = null, string? card7 = null){
+    public async Task CheckHandRanking(){
         
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
         //Find game
         var game = games.Find(g => g.Id == gameId);
 
-        if(seatNo != 0){
+        if (game != null){
 
-            if (game != null){
+            var client = new HttpClient();
+            var URL = "https://ewt-poker-evaluator.herokuapp.com/?";
+            int tempUserCount = 1;
+            int tempCardValueCount = 0;
+
+            for(int i = 0 ; i < game.Seat.Count(); i++){
                 
-                if(card1 != null && card2 != null && card3 != null && card4 != null && card5 !=null
-                && card6 != null && card7 != null){
+                if(game.Seat[i] != null){
 
-                    var client = new HttpClient();
-                    var URL = "https://ewt-poker-evaluator.herokuapp.com/?card1=" + card1 +
-                    "&card2=" + card2 +
-                    "&card3=" + card3 +
-                    "&card4=" + card4 + 
-                    "&card5=" + card5 + 
-                    "&card6=" + card6 +
-                    "&card7=" + card7;
+                    if(tempUserCount == 1){
+                        URL = URL + "card" + tempUserCount + "=" + CardFormatter(game.Seat[i].FirstHandCard);
 
-                    Console.WriteLine("Card 1: " + card1 + "Card 2: " + card2 + " Card 3: " + card3 + " Card 4: " + card4 + " Card 5: " + card5 + " Card 6: " + card6 + " Card 7: " + card7);
-                    Console.WriteLine("URL: "+ URL);
-
-                    var content = await client.GetStringAsync(URL);
-
-                    HandCardRanking? myObject = JsonConvert.DeserializeObject<HandCardRanking>(content);
-
-
-                    if(seatNo == 1 && game.Seat[0] != null){
-                        game.Seat[0].HandCardValue = myObject.Value;
-                        game.Seat[0].HandCardName = myObject.HandName;
                     }
-                    else if(seatNo == 2 && game.Seat[1] != null){
-                        game.Seat[1].HandCardValue = myObject.Value;
-                        game.Seat[1].HandCardName = myObject.HandName;
-                    }
-                    else if(seatNo == 3 && game.Seat[2] != null){
-                        game.Seat[2].HandCardValue = myObject.Value;
-                        game.Seat[2].HandCardName = myObject.HandName;
-                    }
-                    else if(seatNo == 4 && game.Seat[3] != null){
-                        game.Seat[3].HandCardValue = myObject.Value;
-                        game.Seat[3].HandCardName = myObject.HandName;
-                    }
-                    else if(seatNo == 5 && game.Seat[4] != null){
-                        game.Seat[4].HandCardValue = myObject.Value;
-                        game.Seat[4].HandCardName = myObject.HandName;
+                    else{   
+                        URL = URL + "&card" + tempUserCount + "=" + CardFormatter(game.Seat[i].FirstHandCard);
                     }
 
+                    URL = URL + "&card" + (tempUserCount+1) + "=" + CardFormatter(game.Seat[i].SecondHandCard);
+                    URL = URL + "&card" + (tempUserCount+2) + "=" + CardFormatter(game.FirstCard);
+                    URL = URL + "&card" + (tempUserCount+3) + "=" + CardFormatter(game.SecondCard);
+                    URL = URL + "&card" + (tempUserCount+4) + "=" + CardFormatter(game.ThirdCard);
+                    URL = URL + "&card" + (tempUserCount+5) + "=" + CardFormatter(game.FourthCard);
+                    URL = URL + "&card" + (tempUserCount+6) + "=" + CardFormatter(game.FifthCard);
+
+                    tempUserCount = tempUserCount + 7;
+                }
+            }
+ 
+            Console.WriteLine("URL: "+ URL);
+
+            var content = await client.GetStringAsync(URL);
+
+            List<HandCardRanking>? myObject = JsonConvert.DeserializeObject<List<HandCardRanking>>(content);
+
+            foreach(HandCardRanking rankingObject in myObject){
+                Console.WriteLine("Hand Name: " + rankingObject.HandName + " Hand Value: " + rankingObject.Value);
+            }
+
+            //Assign the handcard value
+            for(int i = 0 ; i < game.Seat.Count(); i++){
+                
+                if(game.Seat[i] != null){
+
+                    game.Seat[i].HandCardName = myObject[tempCardValueCount].HandName;
+                    game.Seat[i].HandCardValue = myObject[tempCardValueCount].Value;
+
+                    tempCardValueCount++;
                 }
             }
         }
@@ -977,41 +965,19 @@ public class GameHub : Hub
         var game = games.Find(g => g.Id == gameId);
 
         if(game != null){
-            
-            int ?totalChips = 0;
-
-            if(game.Seat[0] != null){
-                totalChips += game.Seat[0]?.ChipsOnTable;   
-            }
-
-            if(game.Seat[1] != null){
-                totalChips += game.Seat[1]?.ChipsOnTable;   
-            }
-
-            if(game.Seat[2] != null){
-                totalChips += game.Seat[2]?.ChipsOnTable;   
-            }
-
-            if(game.Seat[3] != null){
-                totalChips += game.Seat[3]?.ChipsOnTable;   
-            }
-
-            if(game.Seat[4] != null){
-                totalChips += game.Seat[4]?.ChipsOnTable;   
-            }
-
             //Reveal the foruth card 
-            await Clients.Group(game.Id).SendAsync("updatePotChips", totalChips);
+            await Clients.Group(game.Id).SendAsync("updatePotChips", game.PoolChips);
         }
     }
 
-    private void updatePoolChips(){
+    private async Task updatePoolChips(){
 
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
         //Find game
         var game = games.Find(g => g.Id == gameId);
 
         if(game != null){
+
             //Update the pool chips
             if(game.Seat[0] != null){
                 game.PoolChips = game.PoolChips + game.Seat[0].ChipsOnTable;
@@ -1032,6 +998,8 @@ public class GameHub : Hub
             if(game.Seat[4] != null){
                 game.PoolChips = game.PoolChips + game.Seat[4].ChipsOnTable;
             }
+
+            await Clients.Group(game.Id).SendAsync("updatePotChips", game.PoolChips);
         }
 
     }
@@ -1087,6 +1055,37 @@ public class GameHub : Hub
         }
 
         return winningId;
+    }
+
+    private void ResetUserChipsOnTable(){
+
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if(game != null){
+
+            if(game.Seat[0] != null){
+                game.Seat[0].ChipsOnTable = 0;
+            }
+
+            if(game.Seat[1] != null){
+                game.Seat[1].ChipsOnTable = 0;
+            }
+
+            if(game.Seat[2] != null){
+                game.Seat[2].ChipsOnTable = 0;
+            }
+
+            if(game.Seat[3] != null){
+                game.Seat[3].ChipsOnTable = 0;
+            }
+
+            if(game.Seat[4] != null){
+                game.Seat[4].ChipsOnTable = 0;
+            }
+        }
     }
 
     private string? CardFormatter(string card){
