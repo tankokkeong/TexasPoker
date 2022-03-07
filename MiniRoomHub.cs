@@ -74,7 +74,7 @@ public class MiniRoomHub : Hub
         return minigame.Id;
     }
 
-    public async Task Start()
+    public async Task StartGame()
     {
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
 
@@ -87,7 +87,7 @@ public class MiniRoomHub : Hub
         await Clients.Group(gameId).SendAsync("Start");
     }
 
-    public async Task Roll(){
+    public async Task RollTheDice(){
 
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
         var game = minigames.Find(g => g.Id == gameId);
@@ -154,14 +154,11 @@ public class MiniRoomHub : Hub
     {
         var list = minigames.FindAll(g => g.IsWaiting == true);
         
-
-        if(id == null){
-            
+        if(id == null){    
             await Clients.All.SendAsync("UpdateList", list);
         }
         else
         {
-            
             await Clients.Client(id).SendAsync("UpdateList", list);
         }
     }
@@ -224,13 +221,6 @@ public class MiniRoomHub : Hub
         }
         await base.OnDisconnectedAsync(exception);
     }
-
-
-    private void ListDisconnected()
-    {
-        // Do nothing
-    }
-
     private async Task GameDisconnected()
     {
         string id = Context.ConnectionId;
@@ -260,6 +250,4 @@ public class MiniRoomHub : Hub
             await UpdateList();
         }
     }
-
-    // End of GameHub -------------------------------------------------------------------------
 }

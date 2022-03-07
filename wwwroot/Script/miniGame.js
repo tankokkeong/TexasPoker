@@ -1,6 +1,3 @@
-        // ========================================================================================
-        // General
-        // ========================================================================================
         const username = sessionStorage.getItem('userName');
 
         if(!username){
@@ -35,10 +32,6 @@
         "Images/dice5.png",
         "Images/dice6.png"];
 
-        // ========================================================================================
-        // Events
-        // ========================================================================================
-
         $('#leave').click( e => location = 'lobby.html');
 
 
@@ -69,7 +62,7 @@
 
                 // TODO: Host starts the game
                 if(me == 'A' && game.isFull){
-                    conn.invoke('Start');
+                    conn.invoke('StartGame');
                 }
             });
 
@@ -121,7 +114,7 @@
             }, 16000);
             setTimeout(() => {
                 $status.text('');
-                conn.invoke("Roll");
+                conn.invoke("RollTheDice");
                 
             }, 21000);
             setTimeout(() => {
@@ -139,7 +132,7 @@
                 $countdownTimer.text("1");
             }, 34000);
             setTimeout(() => {
-                conn.invoke("Start");
+                conn.invoke("StartGame");
             }, 34000);
 
         });
@@ -152,8 +145,8 @@
             $status.text(`Dice ${one} ${two} ${three}. Total Score : ${total}`);
         });
 
-        //Start Connection
-        conn.start().then(main);
+        // //Start Connection
+        // conn.start().then(main);
 
         function betSubmit(){
             document.getElementById("betsize").disabled = true;
