@@ -547,6 +547,9 @@ con.on('FlopRound', (card1, card2, card3) => {
   var secondCard = document.getElementById("table-card-2");
   var thirdCard = document.getElementById("table-card-3");
 
+  //Add game records
+  addGameRecord("The first 3 community cards are " + cardFormatter(card1) + " " + cardFormatter(card2) + " " + cardFormatter(card3))
+
   //Remove chips
   removeChips("", true);
   
@@ -572,6 +575,9 @@ con.on('FlopRound', (card1, card2, card3) => {
 con.on('TurnRound', (card4) => {
   var fourthCard = document.getElementById("table-card-4");
 
+  //Add game records
+  addGameRecord("The fourth community card is " + cardFormatter(card4))
+
   //Remove chips
   removeChips("", true);
 
@@ -590,8 +596,17 @@ con.on('TurnRound', (card4) => {
 });
 
 con.on('RiverRound', (card5) => {
+
+  var firstCard = document.getElementById("table-card-1");
+  var secondCard = document.getElementById("table-card-2");
+  var thirdCard = document.getElementById("table-card-3");
+  var fourthCard = document.getElementById("table-card-4");
   var fifthCard = document.getElementById("table-card-5");
   
+  //Add game records
+  addGameRecord("The complete community cards are " + cardFormatter(firstCard.innerHTML) + " " + cardFormatter(secondCard.innerHTML) 
+  + " " + cardFormatter(thirdCard.innerHTML) + " " + cardFormatter(fourthCard.innerHTML) + " " + cardFormatter(card5))
+
   //Remove chips
   removeChips("", true);
 

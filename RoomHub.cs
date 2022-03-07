@@ -514,7 +514,7 @@ public class GameHub : Hub
                         //await updatePotChips();
 
                         //Update the pool chips
-                        await updatePoolChips();
+                        await updatePoolChips(true);
 
                         //Reset the player's chips on table
                         ResetUserChipsOnTable();
@@ -646,7 +646,7 @@ public class GameHub : Hub
             game.Seat[game.SmallBlindPosition - 1].ChipsOnHand = game.Seat[game.SmallBlindPosition - 1].ChipsOnHand - 5000;
             game.Seat[game.BigBlindPosition - 1].ChipsOnTable = 10000;
             game.Seat[game.SmallBlindPosition - 1].ChipsOnTable = 5000;
-            //game.PoolChips = 15000;
+            game.PoolChips = 15000;
             game.ChipsOfTheRound = 10000;
 
             await updateChipsOnHand();
@@ -970,13 +970,17 @@ public class GameHub : Hub
         }
     }
 
-    private async Task updatePoolChips(){
+    private async Task updatePoolChips(bool isFlopRound = false){
 
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
         //Find game
         var game = games.Find(g => g.Id == gameId);
 
         if(game != null){
+
+            if(isFlopRound){
+                game.PoolChips = 0;
+            }
 
             //Update the pool chips
             if(game.Seat[0] != null){

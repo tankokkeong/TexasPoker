@@ -397,8 +397,8 @@ function addGameRecord(message){
 
     var gameRecord = document.getElementById("game-record");
     const d = new Date();
-    var hours = d.getHours();
-    var minutes = d.getHours();
+    var hours = checkTime(d.getHours());
+    var minutes = checkTime(d.getHours());
 
     gameRecord.innerHTML = gameRecord.innerHTML + 
     '<div class="mb-2 font-weight-bold">' +
@@ -452,6 +452,16 @@ function scrollToPopUpBottom(id) {
         var messages = document.getElementById(id);
         messages.scrollTop = messages.scrollHeight;
     }, 175);
+}
+
+function checkTime(i)
+{
+	if(i<10)
+	{
+		i="0"+i;
+	}
+	
+	return i;
 }
 
 //Call Default Functions
