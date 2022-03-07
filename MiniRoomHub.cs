@@ -221,6 +221,12 @@ public class MiniRoomHub : Hub
         }
         await base.OnDisconnectedAsync(exception);
     }
+
+    private void ListDisconnected()
+    {
+        // Do nothing
+    }
+
     private async Task GameDisconnected()
     {
         string id = Context.ConnectionId;
