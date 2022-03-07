@@ -401,6 +401,34 @@ con.on('GameAction', (chipsOfTheRound, userId, minRaise, maxAllIn) => {
 con.on('RoundWinner', (winner, poolChips) => {
 
   console.log("Winner of the round: " + JSON.stringify(winner))
+
+  //Play sound effect
+  chipsSoundEffect();
+
+  //Show winner declaration
+  displayWinnerDeclaration(winner.name);
+
+  addGameRecord(winner.name + " won the pool chips of $" + amountFormatter(poolChips) + " with a " + winner.handCardName + 
+  " with the hand card of " + cardFormatter(winner.firstHandCard) + " " + cardFormatter(winner.secondHandCard));
+
+  //Remove pool chips
+  removePotChips();
+
+  //Remove all the chips
+  removeChips("", true);
+
+  //Show the action status to all users
+  showActionStatus(winner.seatNo, "Win");
+
+  //Remove the timer
+  removeTimer(seatNo);
+
+  //Disable the timer
+  removeAllActionButtons();
+
+  //Reset player chips of the round
+  resetPlayerChipsOfTheRound();
+
 });
 
 con.on('DeclareWinner', (winner) => {
