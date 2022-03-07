@@ -433,7 +433,7 @@ public class GameHub : Hub
 
             await updateChipsOnHand();
             await Clients.Group(gameId).SendAsync("RaiseAction", seatNo, game.Seat[seatNo - 1]?.Name, isAllIn);
-            await TimerTrigger();
+            await TimerTrigger(true);
         }
     }
 
@@ -466,7 +466,7 @@ public class GameHub : Hub
         }
     }
 
-    public async Task TimerTrigger(){
+    public async Task TimerTrigger(bool raiseRequest = false){
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
         List<Player> sequence = DetermineTimerSequence();
 
@@ -475,7 +475,30 @@ public class GameHub : Hub
 
         if (game != null){
 
-            if(sequence.Count() == 1){
+            //If the raise request is true
+            if(raiseRequest){
+                
+                string myId = "";
+
+                if(game.TimerPosition - 1 < 0){
+                    myId = sequence[sequence.Count()-1].Id;
+                }
+                else{
+                    myId = sequence[game.TimerPosition - 1].Id;
+                }
+                
+                sequence = RaiseSequence(sequence, game.TimerPosition, myId);
+                Console.WriteLine("Timer Position before sequence: " + game.TimerPosition);
+                game.TimerPosition = 0;
+                game.CardRoundCount--;
+
+                //Print the raise sequence
+                foreach(Player player in sequence){
+                    Console.WriteLine("Raise Sequence: " + player.Name);
+                }
+            }
+
+            if(sequence.Count() == 1 && !raiseRequest){
 
                 await updatePotChips();
                 await Clients.Group(gameId).SendAsync("DeclareWinner", sequence[0]);
@@ -519,7 +542,7 @@ public class GameHub : Hub
                 if(game.TimerPosition == userIndexInSequenceBasedOnSeat(game.playersOfTheRound, game.BigBlindPosition)){
 
                     //Determine the flop round, turn round, and river round
-                    if(game.CardRoundCount == 1){
+                    if(game.CardRoundCount == 1 && !raiseRequest){
 
                         await FlopRound();
                         //await updatePotChips();
@@ -533,7 +556,7 @@ public class GameHub : Hub
                         //Reset the chips of the round
                         game.ChipsOfTheRound = 0;
                     }
-                    else if(game.CardRoundCount == 2){
+                    else if(game.CardRoundCount == 2 && !raiseRequest){
                         
                         await TurnRound();
                         //await updatePotChips();
@@ -547,7 +570,7 @@ public class GameHub : Hub
                         //Reset the chips of the round
                         game.ChipsOfTheRound = 0;
                     }
-                    else if(game.CardRoundCount == 3){
+                    else if(game.CardRoundCount == 3 && !raiseRequest){
 
                         await RiverRound();
                         //await updatePotChips();
@@ -600,10 +623,10 @@ public class GameHub : Hub
 
                     if(game.TimerPosition == sequence.Count() -1){
 
-                        Console.WriteLine("Timer Position Count sequence - 1: " + game.TimerPosition);
+                        //Console.WriteLine("Timer Position Count sequence - 1: " + game.TimerPosition);
 
                         int maxAllInAmount = 0;
-                        int minRaiseAmount = game.ChipsOfTheRound * 2;
+                        int minRaiseAmount = game.ChipsOfTheRound == 0 ? 20000 : game.ChipsOfTheRound * 2;
                         Player playerOfTheTurn = game.Seat[sequence[game.TimerPosition].SeatNo -1];
 
                         //Determine the all in amount
@@ -633,10 +656,10 @@ public class GameHub : Hub
                     }
                     else{
 
-                        Console.WriteLine("Timer Position Count normal: " + game.TimerPosition);
+                        Console.WriteLine("I am in timer position else ");
 
                         int maxAllInAmount = 0;
-                        int minRaiseAmount = game.ChipsOfTheRound * 2;
+                        int minRaiseAmount = game.ChipsOfTheRound == 0 ? 20000 : game.ChipsOfTheRound * 2;
                         Player playerOfTheTurn = game.Seat[sequence[game.TimerPosition].SeatNo -1];
 
                         //Determine the all in amount
@@ -743,7 +766,6 @@ public class GameHub : Hub
     private List<Player> DetermineTimerSequence(){
 
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
-        List<string> timer_sequence = new List<string>();
 
         //Find game
         var game = games.Find(g => g.Id == gameId);
@@ -768,9 +790,9 @@ public class GameHub : Hub
                 }
             }
 
-            foreach(Player player in game.playersOfTheRound){
-                //Console.WriteLine("Sorted, Seat: " + player.SeatNo + " Name: " + player.Name);
-            }
+            // foreach(Player player in game.playersOfTheRound){
+            //     Console.WriteLine("Sorted, Seat: " + player.SeatNo + " Name: " + player.Name);
+            // }
 
             //Console.WriteLine("Sorting done");
 
@@ -1265,6 +1287,50 @@ public class GameHub : Hub
         return zeroChips;
     }
 
+    
+    private int userIndexInSequenceBasedOnSeat(List<Player> sequence, int seatNo){
+        int index = 0;
+
+        for(var i = 0; i < sequence.Count(); i++){
+            if(sequence[i].SeatNo == seatNo){
+                index = i;
+            }
+        }
+
+        return index;
+    }
+
+    private List<Player> RaiseSequence(List<Player> current_sequence, int currentIndex, string myId){
+        string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
+        List<Player> raise_sequence = new List<Player>();
+
+        Console.WriteLine("Before Raise Sequence: " + current_sequence[currentIndex].Name);
+        //Find game
+        var game = games.Find(g => g.Id == gameId);
+
+        if (game != null){
+
+            //Sort the list before return
+            int arrayCount = current_sequence.Count();
+
+            for(int i = 0; i < arrayCount; i++){
+
+                if(myId != current_sequence[currentIndex].Id){
+                    raise_sequence.Add(current_sequence[currentIndex]);
+                }
+
+                currentIndex++;
+
+                if(currentIndex >= arrayCount - 1){
+                    currentIndex = 0;
+                }
+            }
+        }
+
+        return raise_sequence;
+    }
+
+
     // ----------------------------------------------------------------------------------------
     // Functions
     // ----------------------------------------------------------------------------------------
@@ -1316,19 +1382,6 @@ public class GameHub : Hub
         }
 
     }
-
-    private int userIndexInSequenceBasedOnSeat(List<Player> sequence, int seatNo){
-        int index = 0;
-
-        for(var i = 0; i < sequence.Count(); i++){
-            if(sequence[i].SeatNo == seatNo){
-                index = i;
-            }
-        }
-
-        return index;
-    }
-
     // ----------------------------------------------------------------------------------------
     // Disconnected
     // ----------------------------------------------------------------------------------------

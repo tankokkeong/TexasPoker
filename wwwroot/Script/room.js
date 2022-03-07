@@ -60,45 +60,50 @@ con.on("updateChipsOnTable", (chipsAmount1, chipsAmount2, chipsAmount3, chipsAmo
   var chipsOnTable3 = document.getElementById("chips-amount-3");
   var chipsOnTable4 = document.getElementById("chips-amount-4");
   var chipsOnTable5 = document.getElementById("chips-amount-5");
+  var pourChip1 = document.getElementById("player-pour-chips-1");
+  var pourChip2 = document.getElementById("player-pour-chips-2");
+  var pourChip3 = document.getElementById("player-pour-chips-3");
+  var pourChip4 = document.getElementById("player-pour-chips-4");
+  var pourChip5 = document.getElementById("player-pour-chips-5");
 
   if(chipsAmount1 != 0){
     chipsOnTable1.innerHTML = amountFormatter(chipsAmount1);
-    chipsOnTable1.style.display = "";
+    pourChip1.style.display = "";
   }
   else{
-    chipsOnTable1.style.display = "none";
+    pourChip1.style.display = "none";
   }
 
   if(chipsAmount2 != 0){
     chipsOnTable2.innerHTML = amountFormatter(chipsAmount2);
-    chipsOnTable2.style.display = "";
+    pourChip2.style.display = "";
   }
   else{
-    chipsOnTable2.style.display = "none";
+    pourChip2.style.display = "none";
   }
 
   if(chipsAmount3 != 0){
     chipsOnTable3.innerHTML = amountFormatter(chipsAmount3);
-    chipsOnTable3.style.display = "";
+    pourChip3.style.display = "";
   }
   else{
-    chipsOnTable3.style.display = "none";
+    pourChip3.style.display = "none";
   }
 
   if(chipsAmount4 != 0){
     chipsOnTable4.innerHTML = amountFormatter(chipsAmount4);
-    chipsOnTable4.style.display = "";
+    pourChip4.style.display = "";
   }
   else{
-    chipsOnTable4.style.display = "none";
+    pourChip4.style.display = "none";
   }
 
   if(chipsAmount5 != 0){
     chipsOnTable5.innerHTML = amountFormatter(chipsAmount5);
-    chipsOnTable5.style.display = "";
+    pourChip5.style.display = "";
   }
   else{
-    chipsOnTable5.style.display = "none";
+    pourChip5.style.display = "none";
   }
 
 });
@@ -363,7 +368,7 @@ con.on('getSeat', (seatNo, chips, name) => {
 
 });
 
-con.on('GameAction', (chipsOfTheRound, userId, minRaise, maxAllIn, isAllIn, myChips) => {
+con.on('GameAction', (chipsOfTheRound, userId, minRaise, maxAllIn, isAllIn, myInfo) => {
   var checkBtn = document.getElementById("check-btn");
   var callBtn = document.getElementById("call-btn");
   var raiseBtn = document.getElementById("raise-btn");
@@ -375,19 +380,23 @@ con.on('GameAction', (chipsOfTheRound, userId, minRaise, maxAllIn, isAllIn, myCh
   //Set the minimum and maximum raise amount
   raiseInput.setAttribute("min", parseInt(minRaise));
   raiseInput.setAttribute("max", parseInt(maxAllIn));
-  raiseInput.value = minRaise;
+  raiseInput.value = parseInt(minRaise);
   raiseAmount();
 
- // console.log("Min Raise: "+ minRaise + " Max All In: " + maxAllIn)
+  console.log("Min Raise: "+ minRaise + " Max All In: " + maxAllIn)
 
   if(userId === myUserId){
     
-    console.log("My info: " + JSON.stringify(myChips))
+    console.log("My info: " + JSON.stringify(myInfo))
+    console.log("Chips of the round: " + chipsOfTheRound)
+
+
+
     if(isAllIn){
       con.invoke("checkTrigger", parseInt(mySeatNo));
     }
 
-    if(playerChipsOfTheRound[parseInt(mySeatNo) - 1] == chipsOfTheRound){
+    if(parseInt(myInfo.chipsOnTable) == chipsOfTheRound){
       checkBtn.disabled = false;
       callBtn.disabled = true;
       raiseBtn.disabled = false;
@@ -399,6 +408,11 @@ con.on('GameAction', (chipsOfTheRound, userId, minRaise, maxAllIn, isAllIn, myCh
       raiseBtn.disabled =  false;
       foldBtn.disabled =  false;
     }
+
+    if(parseInt(myInfo.chipsOnHand) < minRaise){
+      raiseBtn.disabled =  true;
+    }
+
   }
   
 });
