@@ -42,7 +42,7 @@ con.on('updateWinnerChipsOnHands', (seatNo, total, poolChips) => {
 });
 
 con.on('updatePotChips', (total) => {
-  console.log("Pot total: " + total)
+  //console.log("Pot total: " + total)
 
   //Remove all the chips
   removeChips("", true);
@@ -383,12 +383,12 @@ con.on('GameAction', (chipsOfTheRound, userId, minRaise, maxAllIn, isAllIn, myIn
   raiseInput.value = parseInt(minRaise);
   raiseAmount();
 
-  console.log("Min Raise: "+ minRaise + " Max All In: " + maxAllIn)
+  //console.log("Min Raise: "+ minRaise + " Max All In: " + maxAllIn)
 
   if(userId === myUserId){
     
     console.log("My info: " + JSON.stringify(myInfo))
-    console.log("Chips of the round: " + chipsOfTheRound)
+    console.log("Is All In: " + isAllIn + " Chips Of the round: " + chipsOfTheRound)
 
 
 

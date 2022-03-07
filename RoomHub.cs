@@ -486,7 +486,7 @@ public class GameHub : Hub
                 else{
                     myId = sequence[game.TimerPosition - 1].Id;
                 }
-                
+
                 sequence = RaiseSequence(sequence, game.TimerPosition, myId);
                 Console.WriteLine("Timer Position before sequence: " + game.TimerPosition);
                 game.TimerPosition = 0;
@@ -641,7 +641,8 @@ public class GameHub : Hub
                         }
 
                         //If the user all in
-                        if(playerOfTheTurn.ChipsOnHand == 0 || (checkOtherPlayersZeroChips(sequence[game.TimerPosition].Id) && game.ChipsOfTheRound == 0)){
+                        if(playerOfTheTurn.ChipsOnHand == 0 || (checkOtherPlayersZeroChips(sequence[game.TimerPosition].Id) && game.ChipsOfTheRound == 0) || 
+                        (checkOtherPlayersZeroChips(sequence[game.TimerPosition].Id) && game.ChipsOfTheRound == sequence[game.TimerPosition].ChipsOnTable)){
                             await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound , sequence[game.TimerPosition].Id, minRaiseAmount, maxAllInAmount, true, playerOfTheTurn);
                             await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition].Id, sequence);
                             //Console.WriteLine("Player's Turn: " + sequence[game.TimerPosition].Name);
@@ -655,8 +656,6 @@ public class GameHub : Hub
                         game.TimerPosition = 0;
                     }
                     else{
-
-                        Console.WriteLine("I am in timer position else ");
 
                         int maxAllInAmount = 0;
                         int minRaiseAmount = game.ChipsOfTheRound == 0 ? 20000 : game.ChipsOfTheRound * 2;
@@ -673,7 +672,8 @@ public class GameHub : Hub
                             maxAllInAmount = game.Seat[FindSeatUserPosition(sequence[game.TimerPosition].Id, gameId) - 1].ChipsOnHand + game.Seat[FindSeatUserPosition(sequence[game.TimerPosition].Id, gameId) - 1].ChipsOnTable;
                         }
 
-                        if(playerOfTheTurn.ChipsOnHand == 0 || (checkOtherPlayersZeroChips(sequence[game.TimerPosition].Id) && game.ChipsOfTheRound == 0)){
+                        if(playerOfTheTurn.ChipsOnHand == 0 || (checkOtherPlayersZeroChips(sequence[game.TimerPosition].Id) && game.ChipsOfTheRound == 0) || 
+                        (checkOtherPlayersZeroChips(sequence[game.TimerPosition].Id) && game.ChipsOfTheRound == sequence[game.TimerPosition].ChipsOnTable)){
                             await Clients.Group(gameId).SendAsync("GameAction", game.ChipsOfTheRound , sequence[game.TimerPosition].Id, minRaiseAmount, maxAllInAmount, true , playerOfTheTurn);
                             await Clients.Group(gameId).SendAsync("DisplayTimer", game, sequence[game.TimerPosition].Id, sequence);
 
