@@ -14,6 +14,7 @@ public class ChatHub : Hub
     public override async Task OnConnectedAsync()
     {
         string? name = Context.GetHttpContext()?.Request.Cookies["username"];
+        string? userID = Context.GetHttpContext()?.Request.Cookies["userID"];
 
         if (nameList.Contains(name))
         {
@@ -21,7 +22,7 @@ public class ChatHub : Hub
         } 
         else if (name != null && !nameList.Contains(name)){
             count++;
-            await Clients.All.SendAsync("UpdateStatus", count, $"<b>{name}</b> joined", name);
+            await Clients.All.SendAsync("UpdateStatus", count, " joined", name, userID);
             nameList.Add(name);
         }
         await base.OnConnectedAsync();
@@ -30,10 +31,11 @@ public class ChatHub : Hub
     public override async Task OnDisconnectedAsync(Exception? exception) 
     {
         string? name = Context.GetHttpContext()?.Request.Cookies["username"];
+        string? userID = Context.GetHttpContext()?.Request.Cookies["userID"];
 
         if (name != null && nameList.Contains(name)){
             count--;
-            await Clients.All.SendAsync("UpdateStatus", count, $"<b>{name}</b> left");
+            await Clients.All.SendAsync("UpdateStatus", count, " left", name, userID);
             nameList.Remove(name);
         } else {
             await Clients.All.SendAsync("UpdateStatus", count, "");

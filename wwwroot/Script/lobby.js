@@ -4,6 +4,7 @@
 const param = $.param({ page: 'lobby' });
 
 const username = sessionStorage.getItem("userName");
+const userID = sessionStorage.getItem("userId");
 
 const con = new signalR.HubConnectionBuilder()
     .withUrl('/hub?' + param)
@@ -214,22 +215,27 @@ conChat.on('ReceiveImage', (name, url, who, sentTime) => {
     scrollToBottom();
 })
 
-conChat.on('UpdateStatus', (count, status, name) => {
+conChat.on('UpdateStatus', (count, status, name, playerId) => {
     $('#count').text(count);
 
     isBottom();
     $('#messages').append(`
         <div class="status">
-            <div>${status}</div>
+            <div><b>${name}</b>${status}</div>
         </div>
     `);
     scrollToBottom();
 
-    $('#modal-body1').append(`
-        <p>
-            <i class="fas fa-circle"></i> ${name}
-        </p>
-    `);
+    if(status === " joined") {
+        $('#modal-body1').append(`
+            <div id="${playerId}">
+                <i class="fas fa-circle"></i> ${name}
+            </div>
+        `);
+    } else if (status === " left" || status === "") {
+        $('#' + playerId).css("display", "none");
+        document.cookie = `userID=${playerId}; expires=Thu, 01 Jan 1970 00:00:00 UTC;`;
+    }
 });
 
 // TODO(3D): ReceiveYouTube(name, id, who)
@@ -458,6 +464,43 @@ function fit(f, w, h, to = 'blob', type = 'image/jpeg') {
         img.src = URL.createObjectURL(f);
     });
 }
+
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie(username) {
+    let checkUsername = getCookie("username");
+    if (checkUsername != "" && checkUsername == username) {
+       
+    } else {
+        checkUsername = username;
+        if (username != "" && username != null) {
+            setCookie("userID", username, 365);
+        }
+    }
+}
+
+checkCookie(userID);
 
 // ========================================================================================
 // Mini Game Events

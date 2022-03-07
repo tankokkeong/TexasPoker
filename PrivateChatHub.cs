@@ -22,6 +22,7 @@ public class PrivateChatHub : Hub
     {
         string id = Context.ConnectionId;
         string? name = Context.GetHttpContext()?.Request.Cookies["username"];
+        string? userID = Context.GetHttpContext()?.Request.Cookies["userID"];
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
         
         var player = new chatPlayer(id, name);
@@ -34,7 +35,7 @@ public class PrivateChatHub : Hub
         } 
         else if (name != null && !nameList.Contains(name)){
             count++;
-            await Clients.Group(gameId).SendAsync("UpdateStatus", count, " joined game", player.Name);
+            await Clients.Group(gameId).SendAsync("UpdateStatus", count, " joined game", player.Name, userID);
             await Clients.Group(gameId).SendAsync("UpdatePlayers");
             nameList.Add(name);
         }
@@ -45,6 +46,7 @@ public class PrivateChatHub : Hub
     {
         string id = Context.ConnectionId;
         string? name = Context.GetHttpContext()?.Request.Cookies["username"];
+        string? userID = Context.GetHttpContext()?.Request.Cookies["userID"];
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
         
         var player = new chatPlayer(id, name);
@@ -52,7 +54,7 @@ public class PrivateChatHub : Hub
 
         if (name != null && nameList.Contains(name)){
             count--;
-            await Clients.Group(gameId).SendAsync("UpdateStatus", count, " left game", player.Name);
+            await Clients.Group(gameId).SendAsync("UpdateStatus", count, " left game", player.Name, userID);
             await Clients.Group(gameId).SendAsync("UpdatePlayers");
             nameList.Remove(name);
         } else {
