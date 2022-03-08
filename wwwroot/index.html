@@ -247,7 +247,8 @@ btn.addEventListener("click", function(e) {
     function checkCookie(username) {
         let checkUsername = getCookie("username");
         if (checkUsername != "" && checkUsername == username) {
-           
+            document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            setCookie("username", username, 365);
         } else {
             checkUsername = username;
             if (username != "" && username != null) {
