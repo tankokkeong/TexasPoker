@@ -29,7 +29,7 @@ con.on('UpdatePokerList', (list) => {
                 <td>${roomCount}</td>
                 <td>$5,000 / $10,000</td>
                 <td>$100,000 - $1,000,000</td>
-                <td>${game.numberOfPlayer} / 5</td>
+                <td>${game.numberOfPlayer} / 2</td>
                 <td><button data-poker-join="${game.id}" class="btn btn-success">Join</button></td>
             </tr>
         `;

@@ -78,12 +78,12 @@
 }
 
 #player-1-blind{
-    left: 190px;
-    top: 160px;
+    left: 130px;
+    bottom: 180px;
 }
 
 #player-2-blind{
-    left: 190px;
+    right: 130px;
     bottom: 180px;
 }
 
@@ -168,28 +168,31 @@
 }
 
 #seat-1{
-    left: 80px;
-    top: 20px;
+    left: 10px;
+    top: 170px;
 }
 
 #seat-2{
-    left: 70px;
-    top: 300px;
+    right: 10px;
+    top: 170px;
 }
 
 #seat-3{
     left: calc(50% - 50px);
     top: 360px;
+    display: none;
 }
 
 #seat-4{
     right: 70px;
     top: 300px;
+    display: none;
 }
 
 #seat-5{
     right: 80px;
     top: 20px;
+    display: none;
 }
 
 .player-card{
@@ -197,23 +200,23 @@
 }
 
 #player-1-card-1{
-    bottom: 90px;
-    left: 110px;
+    bottom: 165px;
+    left: 0px;
 }
 
 #player-1-card-2{
-    bottom: 90px;
-    left: 190px;
+    bottom: 165px;
+    left: 80px;
 }
 
 #player-2-card-1{
-    top: 70px;
-    left: 110px;
+    bottom: 165px;
+    left: 0px;
 }
 
 #player-2-card-2{
-    top: 70px;
-    left: 190px;
+    bottom: 165px;
+    left: 80px;
 }
 
 #player-3-card-1{
@@ -280,12 +283,12 @@
 
 #player-pour-chips-1{
     left: 100px;
-    top: 100px;
+    top: 80px;
 }
 
 #player-pour-chips-2{
-    left: 110px;
-    top: 30px;
+    right: 120px;
+    top: 80px;
 }
 
 #player-pour-chips-3{

@@ -269,7 +269,7 @@ function actionTimer(playerId, timerId){
         //     timerLength.classList.add("bg-warning");
         // }
 
-        console.log("Fixed Time: " + fixedTime)
+        //console.log("Fixed Time: " + fixedTime)
     
         timerLength.style.width = fixedTime/1.5 + "%";
     
@@ -466,6 +466,15 @@ function checkTime(i)
 	}
 	
 	return i;
+}
+
+function updateWalletAmount(){
+    var walletDisplay = document.getElementById("my-wallet-amount");
+    var walletAmount = sessionStorage.getItem("userWallet");
+
+    if(walletAmount != null){
+        walletDisplay.innerHTML = amountFormatter(walletAmount);
+    }
 }
 
 //Call Default Functions

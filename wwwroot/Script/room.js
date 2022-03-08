@@ -262,7 +262,7 @@ con.onclose(err => {
 });
 
 //Leave Seat
-con.on('LeaveSeat', (seatNo, onePlayer) => {
+con.on('LeaveSeat', (seatNo, onePlayer, leaverChipsOnHand) => {
   var seat = document.getElementById("occupied-seat-" + seatNo);
   var buyInSign = document.getElementById("buy-in-seat-" + seatNo);
   var myChips = document.getElementById("seat-" + seatNo +"-chips");
@@ -270,6 +270,7 @@ con.on('LeaveSeat', (seatNo, onePlayer) => {
   var mySeat = sessionStorage.getItem("mySeatNo");
   var playerHandCards = document.getElementById("player-" + seatNo + "-handcards");
   var seatTimer = document.getElementById("seat-" + seatNo +"-timer");
+  var myWallet = parseInt(sessionStorage.getItem("userWallet"));
 
   console.log("Remaining One Player: " + onePlayer)
   if(onePlayer == "Remaining One Player"){
@@ -289,6 +290,10 @@ con.on('LeaveSeat', (seatNo, onePlayer) => {
   if(mySeat == seatNo){
     //Remove session storage
     sessionStorage.removeItem("mySeatNo");
+
+    //Set the new wallet amount
+    sessionStorage.setItem("userWallet", myWallet + leaverChipsOnHand);
+    updateWalletAmount();
 
     //Remove seat and recover buy in sign
     seat.style.display = "none";
@@ -691,6 +696,11 @@ function buyInGame(){
   var name = sessionStorage.getItem('userName');
   var raiseInput = document.getElementById("raise-amount-input");
   var raiseAmountDisplay = document.getElementById("raise-amount-display");
+  var myWallet = parseInt(sessionStorage.getItem("userWallet"));
+
+  //Set the new wallet amount
+  sessionStorage.setItem("userWallet", myWallet-buyInAmount);
+  updateWalletAmount();
 
   raiseInput.value = 20000;
   raiseInput.setAttribute("min", "20000");

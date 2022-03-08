@@ -332,6 +332,7 @@ public class GameHub : Hub
 
         if (game != null)
         {
+            int leaverChipsOnHand = game.Seat[seatNo - 1].ChipsOnHand;
 
             //Remove player
             game.RemovePlayer(seatNo);
@@ -352,7 +353,7 @@ public class GameHub : Hub
                 game.RemovePlayer(seatNo);
 
                 //End Game
-                await Clients.Group(gameId).SendAsync("LeaveSeat", seatNo, "Remaining One Player");
+                await Clients.Group(gameId).SendAsync("LeaveSeat", seatNo, "Remaining One Player", leaverChipsOnHand);
                 game.playersOfTheRound.Clear();
                 game.playersOfNextRound.Clear();
                 game.TimerPosition = 0;
@@ -362,7 +363,7 @@ public class GameHub : Hub
                 game.CardRoundCount = 0;
             }
 
-            await Clients.Group(gameId).SendAsync("LeaveSeat", seatNo);
+            await Clients.Group(gameId).SendAsync("LeaveSeat", seatNo, "", leaverChipsOnHand);
 
             //Update the list
             await UpdatePokerList(true);
@@ -495,13 +496,14 @@ public class GameHub : Hub
                 }
 
                 sequence = RaiseSequence(sequence, game.TimerPosition, myId);
-                Console.WriteLine("Timer Position before sequence: " + game.TimerPosition);
+                Console.WriteLine("My Id: " + myId);
                 game.TimerPosition = 0;
                 game.CardRoundCount--;
 
+                Console.Write("Raise Sequence: ");
                 //Print the raise sequence
                 foreach(Player player in sequence){
-                    Console.WriteLine("Raise Sequence: " + player.Name);
+                    Console.Write(player.Name + ", ");
                 }
             }
 
@@ -1311,7 +1313,7 @@ public class GameHub : Hub
         string gameId = Context.GetHttpContext()?.Request.Query["gameId"] ?? "";
         List<Player> raise_sequence = new List<Player>();
 
-        Console.WriteLine("Before Raise Sequence: " + current_sequence[currentIndex].Name);
+        Console.WriteLine("\nBefore Raise Sequence: " + current_sequence[currentIndex].Name);
         //Find game
         var game = games.Find(g => g.Id == gameId);
 
@@ -1478,5 +1480,5 @@ private async Task GameDisconnected()
         }
     }
 
-    // End of GameHub -------------------------------------------------------------------------
+    // End of RoomHub -------------------------------------------------------------------------
 }
