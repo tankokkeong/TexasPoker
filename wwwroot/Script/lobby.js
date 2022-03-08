@@ -504,9 +504,10 @@ function getCookie(cname) {
 }
 
 function checkCookie(username) {
-    let checkUsername = getCookie("username");
+    let checkUsername = getCookie("userID");
     if (checkUsername != "" && checkUsername == username) {
-       
+        document.cookie = "userID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        setCookie("userID", username, 365);
     } else {
         checkUsername = username;
         if (username != "" && username != null) {
