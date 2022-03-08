@@ -439,7 +439,7 @@ public class GameHub : Hub
             game.ChipsOfTheRound = raiseAmount;
 
             //reset the pool chips
-            game.PoolChips = game.PoolChips + raiseAmount;
+            //game.PoolChips = game.PoolChips + raiseAmount;
 
             await updateChipsOnHand();
             await Clients.Group(gameId).SendAsync("RaiseAction", seatNo, game.Seat[seatNo - 1]?.Name, isAllIn);
@@ -1114,6 +1114,8 @@ public class GameHub : Hub
         var game = games.Find(g => g.Id == gameId);
 
         if(game != null){
+            
+            Console.WriteLine("Pool Chips Before: " + game.PoolChips);
 
             if(isFlopRound){
                 game.PoolChips = 0;
@@ -1130,15 +1132,22 @@ public class GameHub : Hub
 
             if(game.Seat[2] != null){
                 game.PoolChips = game.PoolChips + game.Seat[2].ChipsOnTable;
+                Console.WriteLine("Seat 3 is not null");
             }
 
             if(game.Seat[3] != null){
                 game.PoolChips = game.PoolChips + game.Seat[3].ChipsOnTable;
+                Console.WriteLine("Seat 4 is not null");
             }
 
             if(game.Seat[4] != null){
                 game.PoolChips = game.PoolChips + game.Seat[4].ChipsOnTable;
+                Console.WriteLine("Seat 5 is not null");
             }
+
+            Console.WriteLine("Player 1 : on table: " + game.Seat[0].ChipsOnTable);
+            Console.WriteLine("Player 2 : on table: " + game.Seat[1].ChipsOnTable);
+            Console.WriteLine("Pool Chips After: " + game.PoolChips);
 
             await Clients.Group(game.Id).SendAsync("updatePotChips", game.PoolChips);
         }
