@@ -20,7 +20,7 @@ con.start().then(main);
 con.on('UpdatePokerList', (list) => {
     let html = '';
 
-    console.log("List: " + JSON.stringify(list))
+    //console.log("List: " + JSON.stringify(list))
     var roomCount = 1;
 
     for (let game of list) {

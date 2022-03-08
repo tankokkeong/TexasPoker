@@ -154,16 +154,16 @@ function recoverPlayerTimer(playerId, isAll){
         for(var i = 1; i <= 5; i++){
         var allTimer = document.getElementById("player-" + i + "-timer");
 
-        allTimer.classList.add("bg-success");
-        allTimer.classList.remove("bg-danger");
-        allTimer.classList.remove("bg-warning");
+        // allTimer.classList.add("bg-success");
+        // allTimer.classList.remove("bg-danger");
+        // allTimer.classList.remove("bg-warning");
         allTimer.style.width = "100%";
         }
     }
     else{
-        timerLength.classList.add("bg-success");
-        timerLength.classList.remove("bg-danger");
-        timerLength.classList.remove("bg-warning");
+        // timerLength.classList.add("bg-success");
+        // timerLength.classList.remove("bg-danger");
+        // timerLength.classList.remove("bg-warning");
         timerLength.style.width = "100%";
     }
 
@@ -254,20 +254,24 @@ function actionTimer(playerId, timerId){
 
     var timerLength = document.getElementById(playerId);
     var timer = document.getElementById(timerId);
-    fixedTime = 300;
+
+    fixedTime = 150;
+
 
     const myTimeout = setInterval(function(){
     
-        if(fixedTime/3 < 20){
-            timerLength.classList.remove("bg-warning");
-            timerLength.classList.add("bg-danger");
-        }
-        else if(fixedTime/3 < 50){
-            timerLength.classList.remove("bg-success");
-            timerLength.classList.add("bg-warning");
-        }
+        // if(fixedTime/3 < 20){
+        //     timerLength.classList.remove("bg-warning");
+        //     timerLength.classList.add("bg-danger");
+        // }
+        // else if(fixedTime/3 < 50){
+        //     timerLength.classList.remove("bg-success");
+        //     timerLength.classList.add("bg-warning");
+        // }
+
+        console.log("Fixed Time: " + fixedTime)
     
-        timerLength.style.width = fixedTime/3 + "%";
+        timerLength.style.width = fixedTime/1.5 + "%";
     
         fixedTime--;
 

@@ -1473,7 +1473,7 @@ private async Task GameDisconnected()
         //Remove the room if there is no player in the room
         if (game.NumberOfConnection == 0)
         {
-            games.Remove(game);
+            //games.Remove(game);
             await UpdatePokerList(true);
         }
     }

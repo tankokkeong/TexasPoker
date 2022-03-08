@@ -192,26 +192,28 @@ con.on('DisplayTimer', (game, id, sequence) => {
 
   //console.log("Next ID: " + id + " Sequence: " + sequence)
 
-  if(seat1 == id){
-    seat1Timer.style.display = "";
-    actionTimer("player-" + 1 + "-timer", "seat-1-timer");
-  }
-  else if(seat2 == id){
-    seat2Timer.style.display = "";
-    actionTimer("player-" + 2 + "-timer", "seat-2-timer");
-  }
-  else if(seat3 == id){
-    seat3Timer.style.display = "";
-    actionTimer("player-" + 3 + "-timer", "seat-3-timer");
-  }
-  else if(seat4 == id){
-    seat4Timer.style.display = "";
-    actionTimer("player-" + 4 + "-timer", "seat-4-timer");
-  }
-  else{
-    seat5Timer.style.display = "";
-    actionTimer("player-" + 5 + "-timer", "seat-5-timer");
-  }
+  setTimeout(function(){
+    if(seat1 == id){
+      seat1Timer.style.display = "";
+      actionTimer("player-" + 1 + "-timer", "seat-1-timer");
+    }
+    else if(seat2 == id){
+      seat2Timer.style.display = "";
+      actionTimer("player-" + 2 + "-timer", "seat-2-timer");
+    }
+    else if(seat3 == id){
+      seat3Timer.style.display = "";
+      actionTimer("player-" + 3 + "-timer", "seat-3-timer");
+    }
+    else if(seat4 == id){
+      seat4Timer.style.display = "";
+      actionTimer("player-" + 4 + "-timer", "seat-4-timer");
+    }
+    else{
+      seat5Timer.style.display = "";
+      actionTimer("player-" + 5 + "-timer", "seat-5-timer");
+    }
+  }, 200);
 
   //Play the sound effect
   soundEffect.play();
