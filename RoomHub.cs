@@ -282,10 +282,11 @@ public class GameHub : Hub
     
     private static List<Game> games = new List<Game>();
 
-    public string Create()
+    public async Task<string> Create()
     {
         var game = new Game();
         games.Add(game);
+        await UpdatePokerList(true);
 
         return game.Id;
     }
@@ -306,6 +307,9 @@ public class GameHub : Hub
             game.AddPlayer(player, seatNo);
             await Clients.Caller.SendAsync("getSeat", seatNo, chips, name);
             await Clients.Group(gameId).SendAsync("ViewGame", game);
+            
+            //Update the list
+            await UpdatePokerList(true);
 
             if(game.NumberOfPlayer == 2){
 
@@ -356,10 +360,13 @@ public class GameHub : Hub
                 game.BigBlindPosition = 0;
                 game.SmallBlindPosition = 0;
                 game.CardRoundCount = 0;
-                return;
             }
 
             await Clients.Group(gameId).SendAsync("LeaveSeat", seatNo);
+
+            //Update the list
+            await UpdatePokerList(true);
+
             return;
         }
 
@@ -1335,10 +1342,19 @@ public class GameHub : Hub
     // Functions
     // ----------------------------------------------------------------------------------------
 
-    // private async Task UpdateList(string? id = null)
-    // {
+    public async Task UpdatePokerList(bool isUpdateAll = false)
+    {
+        string id = Context.ConnectionId;
 
-    // }
+        if (isUpdateAll)
+        {
+            await Clients.All.SendAsync("UpdatePokerList", games);
+        }
+        else
+        {
+            await Clients.Client(id).SendAsync("UpdatePokerList", games);
+        }
+    }
 
     // ----------------------------------------------------------------------------------------
     // Connected
@@ -1457,8 +1473,8 @@ private async Task GameDisconnected()
         //Remove the room if there is no player in the room
         if (game.NumberOfConnection == 0)
         {
-            //games.Remove(game);
-            //await UpdateList();
+            games.Remove(game);
+            await UpdatePokerList(true);
         }
     }
 
