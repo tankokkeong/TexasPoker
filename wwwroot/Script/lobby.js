@@ -17,17 +17,24 @@ $('#create').click(async e => {
 
 con.start().then(main);
 
-con.on('UpdateList', list => {
+con.on('UpdatePokerList', (list) => {
     let html = '';
+
+    console.log("List: " + JSON.stringify(list))
+    var roomCount = 1;
 
     for (let game of list) {
         html += `
             <tr>
-                <td>${game.id}</td>
-                <td>${game.playerA.icon} ${game.playerA.name}</td>
-                <td><button data-join="${game.id}">Join</button></td>
+                <td>${roomCount}</td>
+                <td>$5,000 / $10,000</td>
+                <td>$100,000 - $1,000,000</td>
+                <td>${game.numberOfPlayer} / 5</td>
+                <td><button data-poker-join="${game.id}" class="btn btn-success">Join</button></td>
             </tr>
         `;
+
+        roomCount++;
     }
 
     if (list.length == 0) {
@@ -37,8 +44,16 @@ con.on('UpdateList', list => {
     $('#pokerGameList').html(html);
 });
 
+$('#pokerGameList').on('click', '[data-poker-join]', e => {
+    let gameId = $(e.target).data('poker-join');
+    location = `room.html?gameId=${gameId}`;
+});
+
 function main(){
     $('#create').prop('disabled', false);
+
+    //Update the list
+    con.invoke("UpdatePokerList", false);
 }
 
 // Chat Feature =====================================================
